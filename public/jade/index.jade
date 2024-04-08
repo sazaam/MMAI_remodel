@@ -1,0 +1,106 @@
+extends ./layout
+block content
+	//nav.continent.abs.left0.right0.fullW.fullH
+	
+	
+	
+	.page
+		.intro.safe.black.txtL(style="padding-top:30px")
+			.introblock.sizeXXXLg.TmarXXXLg.TpadXXXLg
+				.puremain.pureseries.TmarXXXLg.context
+					span.block.floatL
+						em.block
+							span.none P
+					b.bolder Pure 
+					span Series
+				.TmarXXXLg.TpadXXXLg
+					h1.montserrat.bolder.sizeXXXLg.lh1 The Era of Blockchain, <br />Networks and Metaverses
+				.sizeSm.TmarXXLg.lh1 Reliable Certificates, Quick Transactions, <br />Media and Contents Authoring, <br />Gaming Platforms, Meta-Malls,<br />Mized Reality and more...
+			.signup.TmarXXLg.sizeXLg.context
+				h3.sizeLg.bolder.purecolor Get started
+				form#signup(action="#")
+					.floatL 
+						input.block.Hpad.VpadXXSm.outlinenone(placeholder="your@email.com", type="text").introBD.bottomBD.introcolor
+					.floatL.LmarXXLg.white
+						input.block.Hpad.VpadXXSm.introBG.bolder.round.both(type="submit", value="Go    >")
+					
+	
+	#mainloader.loader.abs.left0.top.dkt.zi1
+		.hidden Loading...
+	
+	
+	script(type='text/javascript' src='/js/strawnode.js?starter=./nodeless_app/')
+	
+	script.
+		console.log('AJAXIFIED')
+		var exitLoader = function(){
+			console.log('REMOVING LOADER...');
+			$('#mainloader').remove()
+		}
+		
+		let strapi = {
+			get:(api, cb)=>{
+				new AjaxRequest().load('/api/'+api, function(req, res){
+					trace(JSON.parse(res)) ;
+					if(!!cb) cb(req, res) ;
+				}) ;
+			}
+		} ;
+		
+		exitLoader() ;
+		
+		var ajaxified = true ;
+		let sections_JSON = !{JSON.stringify(topsections)} ;
+		window.Data = sections_JSON ;
+		
+
+		trace(window.Data)
+		
+		/*
+		ERROR HANDLING -> MAKING ERROR SECTION
+		
+		window.Data.push( {
+			level: 1,
+			id: "777", 
+			name: "404", 
+			path: "/404/",
+			position:40,
+			post:{
+				name: "404",
+				vars: {
+					behavior:{
+						'@jade':'/jade/404/', 
+						'@json':'/json/404/', 
+						'@focus':'focus', 
+						'@toggle':'toggle',
+						"sectionId":'777'
+					}
+				} 
+			}
+		}) ;
+		*/
+		
+		//- Express.app.fire('JSAddress') ;
+		
+		
+		/*
+		new AjaxRequest().load('/content/', function(req, res){
+			
+			trace('NOW THE PAGE HAS LOADED')
+
+			var idsectionurl = '/content/section/' + window.Data[1].children[0].id ;
+			//- var idsectionurl = '/content/section/' + window.Data[0].id ;
+			
+			new AjaxRequest().load(idsectionurl, function(req, res){
+				//- trace(res)
+				trace('ALL OK NOW')
+			})
+
+			//- exitLoader() ;
+			
+			Express.app.fire('JSAddress') ;
+
+		})
+		*/
+
+		//}

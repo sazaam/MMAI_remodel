@@ -1,0 +1,39 @@
+{
+  "name": "MMAIPure",
+  "version": "0.0.1",
+  "description": "MMAIPure Client Website",
+  "main": "app.js",
+  "keywords": [],
+  "author": "sazaam",
+  "email": "sazaam@gmail",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "colors": "^1.4.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "express-async-await": "^1.1.0",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
+    "graphql-request": "^3.1.0",
+    "http-errors": "~1.6.3",
+    "i18next": "^19.7.0",
+    "i18next-http-backend": "^1.0.18",
+    "i18next-http-middleware": "^3.0.2",
+    "isbot": "^4.4.0",
+    "jade": "~1.11.0",
+    "jstransformer-marked": "^1.0.3",
+    "marked": "^1.1.1",
+    "mongodb": "^3.5.8",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.4",
+    "tailwindcss": "^3.1.4"
+  }
+}

@@ -1,0 +1,47 @@
+//- ----------------------- START  => Extends
+
+extends ./page
+
+//- ----------------------- END : Extends
+
+
+block content
+  
+  //- +log(basedir)
+  //- +log(filename)
+  //- +log(params.filename)
+  
+  //- HOME SLIDESHOW
+  
+  - var btnclass = 'white px-2 py-1 bg-blue-600 rounded hover:bg-blue-700'.split(' ')
+  
+  ol.slides.fullW.fullH.rel.none
+    li.slide.rel.fullH
+    
+  
+  #everland.abs.top0.left0.right0.bottom0.context
+  
+  
+    
+    
+  .floatnav.rel.fullH.context
+    .box(style="height:600px")
+      .abs.top50
+        .home.abs.Lmar
+          wefwf
+      .abs.top0.fullW.zi30
+        //- h1.sizeXXLg.marXLg.rounded.white.pentoneBG Hello World
+        button.floatR(class=btnclass.concat('m-8')) Save changes
+      .dispTable.abs.top0.bottom0.left0.right0
+          
+        .dispCell.txtM
+          .context
+            .context.txtL.abs(style="left:90px")
+              - if(section.data.attributes.name == 'home')
+                h1 A MAZE OF DOORS
+    //- each article in getComponentsByTypename(brackets, 'ComponentPostsArticle')
+      .TmarXXXLg
+        h1.sizeXXXLg= post.data.attributes.name.toUpperCase()
+
+        | !{ renderFile(join(locals.basedir,'components', article.template + '.jade'), merge(locals, {article:article}))}
+    
