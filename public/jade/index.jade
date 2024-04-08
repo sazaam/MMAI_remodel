@@ -1,0 +1,100 @@
+extends ./layout
+block content
+	//nav.continent.abs.left0.right0.fullW.fullH
+	
+
+	//- First Homepage	
+	.fullpage.fullH.flowhidden
+		include pages/homepage
+
+
+	//- WALLET
+	.fullpage.fullH.flowhidden
+		include pages/walletpage
+
+	.fullpage.fullH.flowhidden
+		include pages/ecosystempage
+					
+	.fullpage.fullH.flowhidden
+		include pages/worldpage
+					
+	
+	#mainloader.loader.abs.left0.top.dkt.zi1
+		.hidden Loading...
+	
+	
+	script(type='text/javascript' src='/js/strawnode.js?starter=./nodeless_app/')
+	
+	script.
+		console.log('AJAXIFIED')
+		var exitLoader = function(){
+			console.log('REMOVING LOADER...');
+			$('#mainloader').remove()
+		}
+		
+		let strapi = {
+			get:(api, cb)=>{
+				new AjaxRequest().load('/api/'+api, function(req, res){
+					trace(JSON.parse(res)) ;
+					if(!!cb) cb(req, res) ;
+				}) ;
+			}
+		} ;
+		
+		exitLoader() ;
+		
+		var ajaxified = true ;
+		let sections_JSON = !{JSON.stringify(topsections)} ;
+		window.Data = sections_JSON ;
+		
+
+		trace(window.Data)
+		
+		/*
+		ERROR HANDLING -> MAKING ERROR SECTION
+		
+		window.Data.push( {
+			level: 1,
+			id: "777", 
+			name: "404", 
+			path: "/404/",
+			position:40,
+			post:{
+				name: "404",
+				vars: {
+					behavior:{
+						'@jade':'/jade/404/', 
+						'@json':'/json/404/', 
+						'@focus':'focus', 
+						'@toggle':'toggle',
+						"sectionId":'777'
+					}
+				} 
+			}
+		}) ;
+		*/
+		
+		//- Express.app.fire('JSAddress') ;
+		
+		
+		/*
+		new AjaxRequest().load('/content/', function(req, res){
+			
+			trace('NOW THE PAGE HAS LOADED')
+
+			var idsectionurl = '/content/section/' + window.Data[1].children[0].id ;
+			//- var idsectionurl = '/content/section/' + window.Data[0].id ;
+			
+			new AjaxRequest().load(idsectionurl, function(req, res){
+				//- trace(res)
+				trace('ALL OK NOW')
+			})
+
+			//- exitLoader() ;
+			
+			Express.app.fire('JSAddress') ;
+
+		})
+		*/
+
+		//}

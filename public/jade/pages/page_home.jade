@@ -1,0 +1,34 @@
+//- ----------------------- START  => Extends
+
+extends ./page
+
+//- ----------------------- END : Extends
+
+
+block content
+  - var hidden = {"cpi_film_equipment":1, "polarized_film":1} ;
+  - function filterSections(section){return !(section.name in hidden)}
+  - var filtered = db_sections[1].children.filter(filterSections) ;
+  - var target_sections = [].concat([db_sections[0]]).concat([db_sections[2]]).concat([db_sections[1]]).concat(filtered) ;
+  
+  //- script. 
+    console.log(!{JSON.stringify(locals.__dirname)})
+    console.log(!{JSON.stringify(locals.filename)})
+
+  //- HOME SLIDESHOW
+  .extra.rel.fullH.context
+    +slideshow()
+
+  //- HOME ARTICLE BLOCKS
+  each article in getComponentsByTypename(section.post.bracket, 'ComponentModularArticle')
+    +article(article, params)
+      
+  
+  
+  //- PATCHWORK
+  - var target_sections = filtered ;
+  +patchwork()
+  
+  +footer()
+
+    

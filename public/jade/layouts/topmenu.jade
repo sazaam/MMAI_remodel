@@ -1,0 +1,58 @@
+nav#menu.menu.fixed.top0.left0.zi3.fullW
+  - topsections = topsections.data;
+  
+  //each topsection in topsections
+    //- h1= topsection.id
+    - var prefix = 'DKT__' ;
+    - topsection.cleanname = t( prefix + topsection.post.name + '.name') ;
+    - topsection.surname = t( prefix + topsection.post.name + '.surname')
+    - topsection.cleanlink = '/#/' + lang + topsection.path ;
+    
+    if(topsection.children)
+      each ch in topsection.children
+        - ch.cleanname = t( prefix + topsection.post.name + '.' + topsection.post.name + '.' + ch.post.name + '.name') ;
+        - ch.surname = t( prefix + topsection.post.name + '.' + topsection.post.name + '.' + ch.post.name + '.surname') ;
+        - ch.cleanlink = '/#/' + lang + ch.path ;
+  
+  - t = function(str){return str} ;
+  //- MAIN NAV SECTION LINKS
+  ol.sectionsnav.flowvisible.fullH.safe
+    - var other = [].concat(topsections) ;
+    - var home = other.shift() ;
+    
+    //-  HOME SPECIAL CASE
+    li.home.abs.left0.Hmar(id= "global_" + 'home', class= "global_" + 'home')
+      a.block.fullW.fullH(href= '/#/' + lang + '/home/')
+        span.hidden= t('MMAI')
+    
+    script.
+      console.log(!{JSON.stringify(topsections)}) ;
+    
+    //-  OTHERS CASE
+    each navsection in other
+      - var name = navsection.name ;
+      li.others.floatL.rel.LmarSm(id= "global_" + name, class= "global_" + name, style="left:-20px")
+        a.block.padSm.Hpad.inconsolata(href= '/#/' + lang + '/' + name + '/')
+          span= name
+        if(0)
+          ol.subnav.abs.txtR.left0.round.right.flowhidden(style="top:4em;width:400px")
+            - var cat = "" ;
+            each navchild, i in navsection.children
+              - var chname = navchild.cleanname ;
+              - var chcat = navchild.category.name ;
+              li.sub.rel(class="navmenu_" + navchild.name )
+                if(chcat !== cat)
+                  .abs.left0.padXXSm.sizeSm.Hpad.inconsolata.dkt.dark.whiteBG.uppercase(style="top:3px;border-bottom:1px solid #e3dcd5")= chcat
+                - cat = chcat ;
+                a.block.padXXSm.Hpad.inconsolata(href= '/#/' + lang + '/' + name + '/' + navchild.name + '/')
+                  span= '> ' + chname
+  
+  //
+    //- LAGUAGE BAR
+    ul#langnav.langnav.context.floatR.mar.VpadXXXSm.none
+      each language in langs
+        - var active = language.code == lang ? ' active ' : '' ;
+        li.floatL(id= "lang_" + language.code, class= "lang " + active + "lang_" + language.code)
+          a.block.HpadXSm.inconsolata.round.both(href='?lng=' + language.code, lang=language.code)
+            span= language.code
+
