@@ -22,6 +22,11 @@ Local Imports
 Custom Styles
 ------------------------------------------------------------------- */
 
+.pointer{
+    
+    cursor:pointer;
+}
+
 html {
     overflow-y: scroll;
     overflow-x: hidden;
