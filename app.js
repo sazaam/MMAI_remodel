@@ -548,19 +548,20 @@ app.use('/api/', async(req, res) => {
     return datas ;
 });
 
+/*
 ////// weird favicon.ico request happening....
 app.use('/favicon.ico/', async (req, res) => {
     //console.log(req.language) ;
     res.send('KAKA') ;
-    
 }) ;
+
+*/
 
 
 app.use('/', async(req, res) => {
     
     console.log(req.url) ;
     await root(req, res).catch(err => { console.log(err) });
-    
     
 });
 
