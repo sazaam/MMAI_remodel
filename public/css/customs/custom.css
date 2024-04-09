@@ -163,7 +163,11 @@ Sections
 }
 
 
+.intro.safe{
+    min-width:748px;
+    width:80%;
 
+}
 
 .puremain.pureseries em{
     background:url(../skin/Pure_Series.png) no-repeat 50% 50% ;

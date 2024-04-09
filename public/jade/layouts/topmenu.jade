@@ -22,7 +22,8 @@ nav#menu.menu.fixed.top0.left0.zi3.fullW
     
     //-  HOME SPECIAL CASE
     li.home.abs.left0.Hmar(id= "global_" + 'home', class= "global_" + 'home')
-      a.block.fullW.fullH(href= '/#/' + lang + '/home/')
+      //-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
+      a.block.fullW.fullH(href= '/#/home/')
         span.hidden= t('MMAI')
     
     script.
@@ -32,7 +33,7 @@ nav#menu.menu.fixed.top0.left0.zi3.fullW
     each navsection in other
       - var name = navsection.name ;
       li.others.floatL.rel.LmarSm(id= "global_" + name, class= "global_" + name, style="left:-20px")
-        a.block.padSm.Hpad.inconsolata(href= '/#/' + lang + '/' + name + '/')
+        a.block.padSm.Hpad.inconsolata(href= '/#/' + name + '/')
           span= name
         if(0)
           ol.subnav.abs.txtR.left0.round.right.flowhidden(style="top:4em;width:400px")

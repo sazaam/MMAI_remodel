@@ -331,6 +331,9 @@ const REST = async(query, variables)=>{
 /////////////////////////////////////// ACTUAL QUERY
 const QUERY = async(query, variables)=>{
     let data = await getSiteClient().request(query, variables);//.catch( err => {/*console.log(err)*/}) ;
+    data = JSON.parse(data) ;
+
+
     return data ;
 } ;
 
@@ -344,17 +347,20 @@ let topsections, db_sections;
 let sectionquery = async(req, res) => {
     
     let id = req.params.sectionId;
-    
+    /*
     let ss = await QUERY(queries['section'], {id:id});
+
     section = cleanup(ss, 'section') ;
     
     let pp = await QUERY(queries['page'], {id:section.page.id});
     let page = cleanup(pp.page) ;
     
     //let jadeuri = post.data.attributes.template.data.attributes.uri ;
-    /*let brackets = post.data.attributes.brackets ;
-    */
+    //let brackets = post.data.attributes.brackets ;
     
+    
+
+
     let children ;
     
     ////////// check for children
@@ -365,9 +371,27 @@ let sectionquery = async(req, res) => {
         console.log(children) ;
     }
     
-    var jadeuri = 'test' ; 
-    
-    
+     
+     */
+    var jadeuri = 'test' ;
+    let section = {
+        "id": "1",
+        "name": "home",
+        "path": "home/",
+        "page": {
+            "id": "1",
+            "template": {
+                "id": "1",
+                "name": "top",
+                "behavior": {
+                    "@focus": "top_section_focus",
+                    "@toggle": "top_section_toggle"
+                }
+            }
+        }
+    } ;
+    let page = section.page ;
+    let children = section.children ;
     
     return res.render(path.join(__dirname, 'public/jade/pages/', jadeuri + '.jade'), jadeparams.merge(jadeparams, {
         /*langs:langs,
