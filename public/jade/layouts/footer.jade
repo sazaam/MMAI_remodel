@@ -1,0 +1,36 @@
+
+- footnavlinks = footnavlinks.data
+script. 
+	var footnav = !{JSON.stringify(footnavlinks)} ;
+	trace(footnav) ;
+	
+#foot.black.foot.rel.BpadXXXXLg(style="border-top:1px solid #CCC;")
+	.foothome.mar(style="height:30px")
+		.home(id= "global_" + 'home', class= "global_" + 'home')
+			//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
+			a.block.fullW.fullH(href= '/#/home/')
+			span.hidden= t('MMAI')
+	
+	.copyright.abs.right0.bottom0 
+		span.block.foggy.sizeSm.RmarXXXLg.Bmar &copy; MMAI 2023 - 2024
+	nav.footnav.mar.HmarXXLg.BpadXXXLg.txtL
+		ol.line
+			- for(let i = 0 ; i < footnavlinks.length ; i++){
+				li.unit(class= i == 3 ? "lastUnit floatR txtR" : "size1of5")
+					- let head = footnavlinks[i] ;
+					- let children = head.children ;
+					h6.BmarLg.sizeXLg.bolder= head.name 
+					- if(children){
+						- let l = children.length ;
+						ul.sub
+							- for(let j = 0 ; j < l ; j++ ){
+								- let item = head.children[j] ;
+								- console.log(item.link)
+								li
+									a.block(href=item.link || "javascript:void(0)", class= item.link ? "" : "unclickable")
+										span !{item.content}
+							- }	
+					- }
+					
+						
+			- }

@@ -24,13 +24,18 @@ html.fullW.context.whiteBG(lang=lang, style="overflow-y: auto;")
 		//- FOR JADE PARSER SERVER FIRST JET
 		block title
 			title= title
-	
+		
+		
+		//- FONT IMPORTS
 		style @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+	
 	
 	body.abs.all.left0.right0.top0.bottom0.whiteBG
 		
 		include /layouts/topmenu
 
 		block content
+		
+		include /layouts/footer
 
 			

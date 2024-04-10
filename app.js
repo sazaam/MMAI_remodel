@@ -470,7 +470,72 @@ let toJSON = (data) => {
 }
 //////////////// warning Opera request '/' x3 times !! while FF only once
 
-
+let footnav_fixtures = `{
+    "footlinks": [
+        {
+            "name": "Headquarters",
+            "children":[
+                {
+                    "name":"adress",
+                    "content":"1570 N Batavia St <br />Orange, CA<br />92867"
+                }
+            ]
+        },
+        {
+            "name": "Partners",
+            "children":[
+                {
+                    "name":"creativia",
+                    "content":"Creativia",
+                    "link":"#"
+                },
+                {
+                    "name":"ictc",
+                    "content":"ICT Convergence",
+                    "link":"#"
+                },
+                {
+                    "name":"researchcenter",
+                    "content":"Research Center",
+                    "link":"#"
+                },
+                {
+                    "name":"nslab",
+                    "content":"NS Lab",
+                    "link":"#"
+                },
+                {
+                    "name":"cognito",
+                    "content":"Cognito",
+                    "link":"#"
+                }
+            ]
+        },
+        {
+            "name": "Research"
+        },
+        {
+            "name": "Help",
+            "children":[
+                {
+                    "name":"faq",
+                    "content":"FAQ",
+                    "link":"/faq/"
+                },
+                {
+                    "name":"support",
+                    "content":"Support",
+                    "link":"/support/"
+                },
+                {
+                    "name":"tnc",
+                    "content":"Terms and Conditions",
+                    "link":"/tnc/"
+                }
+            ]
+        }
+    ]
+}`
 
 let nav_fixtures = `{
 	"sections": [
@@ -487,7 +552,24 @@ let nav_fixtures = `{
                         "@toggle": "top_section_toggle"
                     }
                 }
-            }
+            },
+            "children":[
+                {
+                    "id": "101",
+                    "name": "intro",
+                    "page": {
+                        "id": "1",
+                        "template": {
+                            "id": "1",
+                            "name": "top",
+                            "behavior": {
+                                "@focus": "home_children_focus",
+                                "@toggle": "home_children_toggle"
+                            }
+                        }
+                    }
+                }
+            ]
         },
         {
             "id": "2",
@@ -541,9 +623,12 @@ let nav_fixtures = `{
 let root = async(req, res) => {
     
     //let tt = await QUERY(queries['sections']) ;
-    let tt = JSON.parse(nav_fixtures) ; 
-    
+    let tt = JSON.parse(nav_fixtures) ;
     topsections = cleanup(tt, 'sections') ;
+    console.log(topsections) ;
+    
+    let ttt = JSON.parse(footnav_fixtures) ;
+    footnavlinks = cleanup(ttt, 'footlinks') ;
     console.log(topsections) ;
     
     await res.render(path.join(__dirname, 'public/jade/index'), jadeparams.merge(jadeparams, {
@@ -552,7 +637,8 @@ let root = async(req, res) => {
         //lang: req.i18n.language,
         //t: req.t,
         lang: 'en',
-        topsections: toJSON(topsections)
+        topsections: toJSON(topsections),
+        footnavlinks: toJSON(footnavlinks),
     })) ;
     
 }
