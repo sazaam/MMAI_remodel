@@ -449,6 +449,35 @@
 					})() ;
 				}
 				
+				if(!!options.scroll){
+					(function(){
+						var scrollstarted = false ;
+						var scrollmoved = false ;
+						var restartuid ;
+						var scrollclosure ;
+						
+						ww.on('scroll', scrollclosure = function(e){
+							var dur = 200 ;
+							if(restartuid !== undefined) clearTimeout(restartuid) ;
+							if(scrollstarted == false){
+									ww.trigger('scrollStart') ;
+									scrollstarted = true ;
+							}else{
+									scrollmoved = true ;
+									ww.trigger('scrollmove') ;
+							}
+							restartuid = setTimeout(function(){
+									restartuid = undefined ;
+									scrollstarted = false ;
+									scrollmoved = false ;
+									ww.trigger('scrollEnd', [ww.scrollTop()]) ;
+							}, dur) ;
+						})
+						
+					})()
+					
+				}
+				
 			},
 			initialize:function(){
 				this.instance = new (this)(options) ;

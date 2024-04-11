@@ -1,8 +1,7 @@
 
 - footnavlinks = footnavlinks.data
 script. 
-	var footnav = !{JSON.stringify(footnavlinks)} ;
-	trace(footnav) ;
+	trace(!{JSON.stringify(footnavlinks)}) ;
 	
 #foot.black.foot.rel.BpadXXXXLg(style="border-top:1px solid #CCC;")
 	.foothome.mar(style="height:30px")
@@ -25,7 +24,6 @@ script.
 						ul.sub
 							- for(let j = 0 ; j < l ; j++ ){
 								- let item = head.children[j] ;
-								- console.log(item.link)
 								li
 									a.block(href=item.link || "javascript:void(0)", class= item.link ? "" : "unclickable")
 										span !{item.content}

@@ -139,6 +139,9 @@ Sections
 
 }
 
+.page{
+    margin:0 30px;
+}
 
 .safe{
     width:748px;

@@ -83,13 +83,13 @@ var Router = function(routes){
 				var behavior = template?.behavior ;
 				
 				var children = section.children ;
-				//trace(children) 
+				
 				items[items.length] = {
 					"sectionId":section.id,
 					"name":section.name,
 					"@focus": graphics[behavior['@focus']],
 					"@toggle": graphics[behavior['@toggle']],
-					//"children": !!children ? arguments.callee(children) : undefined
+					"children": !!children ? arguments.callee(children) : undefined
 				} ;
 			}
 			

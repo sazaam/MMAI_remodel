@@ -548,26 +548,63 @@ let nav_fixtures = `{
                     "id": "1",
                     "name": "top",
                     "behavior": {
-                        "@focus": "top_section_focus",
-                        "@toggle": "top_section_toggle"
+                        "@focus": "home_focus",
+                        "@toggle": "home_toggle"
                     }
                 }
             },
             "children":[
                 {
                     "id": "101",
-                    "name": "intro",
+                    "name": "purechain",
                     "page": {
-                        "id": "1",
                         "template": {
-                            "id": "1",
-                            "name": "top",
                             "behavior": {
                                 "@focus": "home_children_focus",
                                 "@toggle": "home_children_toggle"
                             }
                         }
                     }
+                    
+                },
+                {
+                    "id": "102",
+                    "name": "purewallet",
+                    "page": {
+                        "template": {
+                            "behavior": {
+                                "@focus": "home_children_focus",
+                                "@toggle": "home_children_toggle"
+                            }
+                        }
+                    }
+                    
+                },
+                {
+                    "id": "103",
+                    "name": "pureseries",
+                    "page": {
+                        "template": {
+                            "behavior": {
+                                "@focus": "home_children_focus",
+                                "@toggle": "home_children_toggle"
+                            }
+                        }
+                    }
+                    
+                },
+                {
+                    "id": "104",
+                    "name": "pureworld",
+                    "page": {
+                        "template": {
+                            "behavior": {
+                                "@focus": "home_children_focus",
+                                "@toggle": "home_children_toggle"
+                            }
+                        }
+                    }
+                    
                 }
             ]
         },

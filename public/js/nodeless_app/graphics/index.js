@@ -7,11 +7,23 @@ require('../strawnode_modules/betweenjs.js') ;
 //var Physics = require('../tests/physicstests.js') ;
 
 
-require('../events/index.js', {arrows:1, touch:{mobile:1}}) ;
+require('../events/index.js', {
+	resize:0,
+	arrows:0, 
+	touch:{
+		mobile:0,
+		pc:0
+	},
+	scroll:1
+}) ;
 
 
 // retrieve lang from document 
 window.lang = $('html').attr('lang') ;
+
+window.MMAI = MMAI = {
+	home:{}
+} ;
 
 module.exports = {
 	
@@ -84,24 +96,17 @@ module.exports = {
 
 	},
 	
-	////////////////////////// FOCUS
+	////////////////////////// TOP SECTIONS
 	top_section_focus : top_section_focus = function(e){
 		var res = e.target ;
-		var id = res.id ;
 				
 		if(e.type == 'focusIn'){
-			
 			res.focusReady() ;
-			
 		}else{
-			
 			res.focusReady() ;
-
 		}
 
 	},
-	
-	////////////////////////// TOGGLE
 	top_section_toggle : top_section_toggle = function(e){
 		
 		var res = e.target ;
@@ -158,6 +163,114 @@ module.exports = {
 		
 		}
 
+	},
+	////////////////////////// HOME SECTION
+	home_focus : home_focus = function(e){
+		var res = e.target ;
+		if(e.type == "focusIn"){
+			res.focusReady() ;
+		}else{
+			res.focusReady() ;
+		}
+	},
+	home_toggle : home_toggle = function(e){
+		var res = e.target ;
+		
+		MMAI.home.getScrollPageIndex = MMAI.home.getScrollPageIndex || function() {
+			var ww = $(window) ;
+			var top = ww.scrollTop() ;
+			var h = ww.height() >> 1 ;
+			var added = top + h ;
+			var pages = $('.fullpage') ;
+			var n = 0 ;
+			pages.each((i, el)=>{
+				n = (added > $(el).position().top) ? i : n ;
+			}) ;
+			return n ;
+		}
+		
+		MMAI.home.scroll = MMAI.home.scroll || function(e, top) {
+			
+			var n = MMAI.home.getScrollPageIndex() ;
+			
+			var path = res.children[n].path ;
+			var hier = Unique.getInstance().hierarchy ; 
+			var ch = hier.changer ;
+			var hash = ch.getValue() ;
+			
+			if(path != hier.currentStep.path){
+				ch.setValue('#'+path + '/') ;	
+			}
+			
+		}
+		
+		if(res.opening){
+			
+			trace('OPENING', res.id) ;
+			
+			$(window).on( "scrollEnd", MMAI.home.scroll) ;
+			
+			res.ready() ;
+		}else{
+			
+			$(window).off( "scrollEnd", MMAI.home.scroll) ;
+			
+			trace('CLOSING', res.id) ;
+			res.ready() ;
+		}
+	},
+	
+	////////////////////////// HOME SUB SECTIONS
+	home_children_focus : home_children_focus = function(e){
+		var res = e.target ;
+		if(e.type == "focusIn"){
+			
+			trace(res.id) ;
+			
+			res.focusReady() ;
+		}else{
+			
+			//trace("Focusout >>", res.id) ;
+			
+			res.focusReady() ;
+		}
+	},
+	home_children_toggle : home_children_toggle = function(e){
+		var res = e.target ;
+		
+		if(res.opening){
+			//trace('OPENING SUB', res.id) ;
+			
+			var parent = res.parentStep ;
+			var ind = parent.getIndexOfChild(res) ;
+			
+			var pages = $('.fullpage') ;
+			var page = pages[ind] ;
+			
+			var n = MMAI.home.getScrollPageIndex() ;
+			
+			if(n != ind){
+				BetweenJS.create({
+					target:$('html'),
+					to:{
+						scrollTop:$(page).position().top
+					},
+					time:.45,
+					ease:Expo.easeOut,
+					onComplete:function(){
+						res.ready() ;
+					}
+				}).play() ;
+				trace('should animate')
+			}else{
+				res.ready() ;	
+			}
+			
+			
+		}else{
+			//trace('CLOSING SUB', res.id) ;
+			res.ready() ;
+		}
 	}
 }
 
