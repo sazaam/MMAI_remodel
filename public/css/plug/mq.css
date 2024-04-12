@@ -66,41 +66,127 @@
    
 }
 
+@media screen and (max-device-width: 480px)
+{
+	/*body{font-size:150% !important}*/
+}
+
+
+
+
+@media screen and (max-width: 1000px)
+{
+	
+  .global_home{
+    position:static !important;
+    float:left !important;
+    margin-left:30px !important;
+  }
+  .sectionsnav{
+    width:100% !important;
+    margin: 0 0 0 0 !important;
+  }
+  
+}
+@media screen and (max-width: 784px)
+{
+	
+  
+  .page .safe{
+    width:100%;
+    margin : 0;
+  }
+
+
+  .page .intro.safe{
+    width:100%;
+    min-width:0;
+  }
+  
+  .purechain .intro .textblock{
+    margin-top:0!important;
+    padding-top:0!important;
+    position:absolute;
+    left:0;right:0;
+    bottom:80px;
+  }
+  
+  .slide .line .unit{
+    float:none !important;
+  }
+  
+  
+  .slide .line .unit.lastunit{
+    float:none !important;
+  }
+  
+  .purechain .introblock{
+    margin-top:0!important;
+    padding-top:0!important;
+    
+  }
+  
+  .purewallet .introblock, .purewallet .introblock .puremain, .purewallet .textes {
+    margin-top:0!important;
+    padding-top:0!important;
+  }
+  
+  .purewallet .introblock .puremain{
+    padding-left:0!important;
+  }
+  
+  .purewallet .slidenav{
+    bottom:0 !important;
+    z-index:3;
+    left:auto !important;
+    right:20px !important;
+  }
+  
+  .purewallet .slidezone .textes{
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    background: rgba(255,255,255,.7);
+  }
+  .purewallet .slidezone .visual{
+    float:right !important;
+    width:inherit !important;
+  }
+  
+  
+  .pureworld .catchphrase, .pureworld .catchphrase h1{
+    
+    padding-top:0!important;
+  }
+  
+  
+  
+  .foot .size1of5{
+    width:50% !important;  
+  }
+  .foot .oddy{
+    float:right !important;
+    text-align:right !important;
+  }
+  
+}
+
+
+
 
 
 /* IPhone */
 @media screen and (max-device-width: 480px)
 {
 	/*body{font-size:150% !important}*/
-	
 }
 @media only screen  and (orientation:landscape){
 	
 }
 
 @media only screen  and (orientation:portrait){
-
-  .columns .unit{
-    float:none;
-    width:auto;
-    margin-bottom:10em
-  }
-
-  .secondslide .slidetxt{
-    width:100%
-
-  }
-
-  .links{font-size:120%}
-  .bt{border:none !important}
-
-  .basics{
-    display:none
-  }
-
-
-  .adaptH{height:250px !important}
-
+  
+  
 
 }
 

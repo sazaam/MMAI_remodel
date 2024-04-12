@@ -346,7 +346,8 @@ let topsections, db_sections;
 
 let sectionquery = async(req, res) => {
     
-    let id = req.params.sectionId;
+    let id = req.params.sectionId ;
+    
     /*
     let ss = await QUERY(queries['section'], {id:id});
 
@@ -371,29 +372,18 @@ let sectionquery = async(req, res) => {
         console.log(children) ;
     }
     
-     
-     */
-    var jadeuri = 'test' ;
-    let section = {
-        "id": "1",
-        "name": "home",
-        "path": "home/",
-        "page": {
-            "id": "1",
-            "template": {
-                "id": "1",
-                "name": "top",
-                "behavior": {
-                    "@focus": "top_section_focus",
-                    "@toggle": "top_section_toggle"
-                }
-            }
-        }
-    } ;
+    */
+    
+    
+    let sections = JSON.parse(nav_fixtures) ;
+    let section = sections.sections[id - 1] ;
+    var jadeuri = section.name ;
     let page = section.page ;
     let children = section.children ;
     
-    return res.render(path.join(__dirname, 'public/jade/pages/', jadeuri + '.jade'), jadeparams.merge(jadeparams, {
+    
+    
+    return res.render(path.join(__dirname, 'public/jade/', jadeuri + '.jade'), jadeparams.merge(jadeparams, {
         /*langs:langs,
         lang: req.i18n.language,
         t: req.t,*/
@@ -542,6 +532,7 @@ let nav_fixtures = `{
         {
             "id": "1",
             "name": "home",
+            "path": "home/",
             "page": {
                 "id": "1",
                 "template": {
@@ -557,6 +548,7 @@ let nav_fixtures = `{
                 {
                     "id": "101",
                     "name": "purechain",
+                    "path": "home/purechain/",
                     "page": {
                         "template": {
                             "behavior": {
@@ -570,6 +562,7 @@ let nav_fixtures = `{
                 {
                     "id": "102",
                     "name": "purewallet",
+                    "path": "home/purewallet/",
                     "page": {
                         "template": {
                             "behavior": {
@@ -583,6 +576,7 @@ let nav_fixtures = `{
                 {
                     "id": "103",
                     "name": "pureseries",
+                    "path": "home/pureseries/",
                     "page": {
                         "template": {
                             "behavior": {
@@ -596,6 +590,7 @@ let nav_fixtures = `{
                 {
                     "id": "104",
                     "name": "pureworld",
+                    "path": "home/pureworld/",
                     "page": {
                         "template": {
                             "behavior": {
@@ -611,6 +606,7 @@ let nav_fixtures = `{
         {
             "id": "2",
             "name": "wallet",
+            "path": "wallet/",
             "page": {
                 "id": "2",
                 "template": {
@@ -626,6 +622,7 @@ let nav_fixtures = `{
         {
             "id": "3",
             "name": "features",
+            "path": "features/",
             "page": {
                 "id": "3",
                 "template": {
@@ -639,8 +636,9 @@ let nav_fixtures = `{
             }
         }, 
         {
-            "id": "10",
+            "id": "4",
             "name": "learn",
+            "path": "learn/",
             "page": {
                 "id": "4",
                 "template": {

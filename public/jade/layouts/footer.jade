@@ -5,7 +5,7 @@ script.
 	
 #foot.black.foot.rel.BpadXXXXLg(style="border-top:1px solid #CCC;")
 	.foothome.mar(style="height:30px")
-		.home(id= "global_" + 'home', class= "global_" + 'home')
+		.home(id= "global_foot_" + 'home', class= "global_foot" + 'home')
 			//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
 			a.block.fullW.fullH(href= '/#/home/')
 			span.hidden= t('MMAI')
@@ -15,7 +15,7 @@ script.
 	nav.footnav.mar.HmarXXLg.BpadXXXLg.txtL
 		ol.line
 			- for(let i = 0 ; i < footnavlinks.length ; i++){
-				li.unit(class= i == 3 ? "lastUnit floatR txtR" : "size1of5")
+				li.unit(class= i == 3 ? "lastUnit floatR txtR" : i == 1 ? "size1of5 oddy" : "size1of5")
 					- let head = footnavlinks[i] ;
 					- let children = head.children ;
 					h6.BmarLg.sizeXLg.bolder= head.name 

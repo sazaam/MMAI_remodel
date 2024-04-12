@@ -24,7 +24,17 @@ window.lang = $('html').attr('lang') ;
 window.MMAI = MMAI = {
 	home:{}
 } ;
-
+MMAI.home.scrollTo = MMAI.home.scrollTo || function(top, time, cb){
+	BetweenJS.create({
+		target:$('html'),
+		to:{
+			scrollTop:top
+		},
+		time:time,
+		ease:Expo.easeOut,
+		onComplete:cb
+	}).play() ;	
+} 
 module.exports = {
 	
 	////////////////////////// LANGUAGES
@@ -111,54 +121,87 @@ module.exports = {
 		
 		var res = e.target ;
 		
-		var noID 									= res.id == '' ;
-		var id 										= noID ? res.parentStep.id : res.id ;
-		var ind 									= noID ? res.parentStep.index : res.index ;
-		
-		id = id == '@' ? 'home' : id ;
-		var target_section ;
-		
 		if(!!!res.template){
-			trace('/content/section/' + res.sectionId)
+			trace('/content/section/' + res.id) ;
 			res.render('/content/section/' + res.sectionId) ;
+			
+			var saz = $('<div>') ;
+			res.template.appendTo(saz) ;
+			res.template = saz.find('.fullpage') ;
+			trace('dasdas', res.template)
 		}
 		
+		
+		
 		target_section = res.template ;
-		
-		
-		var all 							= $('.all') ;
-		var continent 						= $('.continent') ;
 		
 		
 		if(res.opening){
 			trace('OPENING', res.id)
 			
 			// 404 case
-			if(res.id == '404'){
+			/* if(res.id == '404'){
 				target_section.appendTo(all) ;
 				return res.ready() ;
-			}
+			} */
+			
+			MMAI.home.scrollTo(0, .25) ;
+			target_section.prependTo($('body')) ;
+			$('.foot').removeClass("none") ;
 			
 			
-			target_section.appendTo(all) ;
-
 			if(!res.userData.lazyLoaded){
 				lazyload(e, true) ;
 				res.userData.lazyLoaded = true ;
 			}
-
+			/* 
+			BJS.create({
+				target:target_section,
+				to:{
+					opacity:100
+				},
+				from:{
+					opacity:0
+				},
+				time:.45,
+				ease:Expo.easeOut,
+				onComplete:function(){
+					
+					res.ready() ;
+					$('.foot').removeClass("none") ;
+				}
+			}).play() ;
+			 */
 			res.ready() ;
 			
 		}else{
+			
+			
 			trace('CLOSING', res.id)
+			$('.foot').addClass("none") ;
+			target_section.remove() ;
+			
 			// 404 case
-			if(res.id == '404'){
+			/* if(res.id == '404'){
 				target_section.appendTo(continent) ;
 				return res.ready() ;
-			}
-
-
-			target_section.appendTo(continent) ;
+			} */
+			
+			/* $('.foot').addClass("none") ;
+			BJS.create({
+				target:target_section,
+				to:{
+					opacity:0
+				},
+				time:.45,
+				ease:Expo.easeOut,
+				onComplete:function(){
+					res.ready() ;
+					
+					target_section.remove() ;
+				}
+			}).play() ;
+			 */
 			res.ready() ;
 		
 		}
@@ -169,6 +212,7 @@ module.exports = {
 		var res = e.target ;
 		if(e.type == "focusIn"){
 			res.focusReady() ;
+			$(window).trigger("scrollEnd") ;
 		}else{
 			res.focusReady() ;
 		}
@@ -204,19 +248,66 @@ module.exports = {
 			
 		}
 		
+		res.template = res.template || $('.fullpage') ;
+		var target_section = res.template ;
+		
+		
 		if(res.opening){
 			
 			trace('OPENING', res.id) ;
 			
+			MMAI.home.scrollTo(0, .25) ;
+			
+			res.template.prependTo($('body')) ;
+			$('.foot').removeClass("none") ;
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
 			
-			res.ready() ;
-		}else{
+			/* BJS.create({
+				target:target_section,
+				to:{
+					opacity:100
+				},
+				from:{
+					opacity:0
+				},
+				time:.45,
+				ease:Expo.easeOut,
+				onComplete:function(){
+					
+					res.ready() ;
+					$('.foot').removeClass("none") ;
+				}
+			}).play() ;
+			 */
 			
+			res.ready() ;
+			
+		}else{
+			$('.foot').addClass("none") ;
 			$(window).off( "scrollEnd", MMAI.home.scroll) ;
 			
-			trace('CLOSING', res.id) ;
+			
+			/* $('.foot').addClass("none") ;
+			BJS.create({
+				target:target_section,
+				to:{
+					opacity:0
+				},
+				time:.45,
+				ease:Expo.easeOut,
+				onComplete:function(){
+					
+					res.ready() ;
+					target_section.remove() ;
+				}
+			}).play() ;
+			 */
+			
+			res.template.remove() ;
+			
 			res.ready() ;
+			
+			trace('CLOSING', res.id) ;
 		}
 	},
 	
@@ -250,17 +341,11 @@ module.exports = {
 			var n = MMAI.home.getScrollPageIndex() ;
 			
 			if(n != ind){
-				BetweenJS.create({
-					target:$('html'),
-					to:{
-						scrollTop:$(page).position().top
-					},
-					time:.45,
-					ease:Expo.easeOut,
-					onComplete:function(){
-						res.ready() ;
-					}
-				}).play() ;
+				
+				MMAI.home.scrollTo($(page).position().top, .45, function(){
+					res.ready() ;
+				}) ;
+				
 				trace('should animate')
 			}else{
 				res.ready() ;	
