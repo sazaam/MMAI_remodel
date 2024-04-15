@@ -1,6 +1,4 @@
-/* ------------------------------------------------------------------
-Project: DKT - Dynamic Korea Technology
------------------------------------------------------------------- */
+
 
 
 /* ------------------------------------------------------------------
@@ -8,8 +6,8 @@ Google Fonts
 ------------------------------------------------------------------- */
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400");
-@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700");
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
 
 /* ------------------------------------------------------------------
 Local Imports
@@ -114,7 +112,9 @@ MENU
 
 .menu{
     height:30px;
-    background:rgba(255, 255, 255, .9);;
+    background:rgba(255, 255, 255, .9);
+    border-bottom:1px solid #BBB;
+    z-index:100;
 }
 
 .home{
@@ -134,9 +134,15 @@ Sections
 ------------------------------------------------------------------- */
 html{min-height:2450px}
 
+
+
+.viewport3D{
+    z-index:2;
+}
+
 .fullpage{
-
-
+    z-index:10;
+    position:relative;
 }
 
 .page{
@@ -182,17 +188,39 @@ html{min-height:2450px}
     background:#3a6df0;
 }
 .walletBG{
-    background:#9b68bd;
+    background:#3a6df0;
 }
 .walletcolor{
-    color:#9b68bd;
+    color:#3a6df0;
 
 }
 .pureline{
-    border:1px solid #3a6df0;
-    border-width:1px 0;
+    border:1px solid #BBB;
+    border-width:1px 0 0 0;
 
 }
+
+
+
+.purechain .signup .floatL input{
+    border: 1px solid #000;
+    border-radius: 6px 0 0 0;
+}
+.purechain .signup .floatN input{
+    border: 1px solid #000;
+    border-radius: 0 0 6px 0;
+}
+
+
+
+.pureworld .imgblock{
+    position:relative;
+    top:-1px;
+}
+.pureworld .imgblock.cover{
+    background-position: 50% 50%;
+}
+
 
 
 /* ------------------------------------------------------------------
@@ -746,9 +774,6 @@ a.parentlink {
     z-index: 300
 }
 
-.slides {
-    overflow: hidden;
-}
 
 .btn {
     border-radius: 0;

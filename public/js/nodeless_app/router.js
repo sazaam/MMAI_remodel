@@ -109,7 +109,7 @@ var Router = function(routes){
 		var node = sects[i] ;
 		defaultFunction(node, exp) ;
 	}
-	trace(sects) ;
+	
 	return exp ;
 }
 

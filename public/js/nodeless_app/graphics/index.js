@@ -6,6 +6,8 @@ require('../strawnode_modules/betweenjs.js') ;
 
 //var Physics = require('../tests/physicstests.js') ;
 
+var threeFX = require('./three/index.js', {viz3D:"viz3D"}) ;
+
 
 require('../events/index.js', {
 	resize:0,
@@ -34,8 +36,16 @@ MMAI.home.scrollTo = MMAI.home.scrollTo || function(top, time, cb){
 		ease:Expo.easeOut,
 		onComplete:cb
 	}).play() ;	
-} 
-module.exports = {
+}
+
+
+MMAI.home.viz3D = function(cond, res){
+	var viewport3D = $('.viewport3D') ; 
+	threeFX.viz3D.enable(cond, viewport3D, res) ;
+}
+
+
+module.exports = MMAI.func = {
 	
 	////////////////////////// LANGUAGES
 	langchange: langchange = function(e){
@@ -128,7 +138,7 @@ module.exports = {
 			var saz = $('<div>') ;
 			res.template.appendTo(saz) ;
 			res.template = saz.find('.fullpage') ;
-			trace('dasdas', res.template)
+			//trace('dasdas', res.template)
 		}
 		
 		
@@ -262,6 +272,8 @@ module.exports = {
 			$('.foot').removeClass("none") ;
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
 			
+			MMAI.home.viz3D(true, res) ;
+			
 			/* BJS.create({
 				target:target_section,
 				to:{
@@ -286,6 +298,7 @@ module.exports = {
 			$('.foot').addClass("none") ;
 			$(window).off( "scrollEnd", MMAI.home.scroll) ;
 			
+			MMAI.home.viz3D(false, res) ;
 			
 			/* $('.foot').addClass("none") ;
 			BJS.create({
@@ -311,15 +324,226 @@ module.exports = {
 		}
 	},
 	
+	slideshow_wallet : slideshow_wallet = function(cond, res){
+		
+		var id = res.id ;
+		
+		var rt = $('.'+id) ;
+		var slidenav = rt.find('.slidenav ol li a') ;
+		var slideshow = rt.find('.slides') ;
+		
+		var slides = slideshow.find('.slide') ;
+		
+		
+		slides.each(function(i, el){
+			var li = $(el) ;
+			var a = $(slidenav.get(i)) ;
+			a.data('index', i) ;
+			li.data('navitem', a) ;
+			
+		})
+		
+		var sl ;
+		
+		if(!MMAI.home.slideswallet){
+			
+			sl = MMAI.home.slideswallet = {} ;
+			
+			var commands = [] ;
+			sl.cy = new Cyclic(commands) ;
+			var TIME = 2000 ;
+
+			sl.navgo = function(e){
+				e.preventDefault() ;
+				e.stopPropagation() ;
+				
+				var a = $(e.target) ;
+				
+				sl.halt() ;
+				sl.cy.go(a.data('index')) ;
+			}
+			
+			slides.each(function(i, el){
+				
+				var li = $(el) ;
+				
+				sl.cy.push(new Command(null, function(el, i){
+					var c = this ;
+					var li = $(el) ;
+					var a = li.data('navitem') ;
+					
+					slidenav.removeClass('walletcolor') ;
+					a.addClass('walletcolor') ;
+					
+					tw = MMAI.home.walletslideTW ;
+					if(tw && tw.isPLaying) tw.stop() ;
+					
+					tw = MMAI.home.walletslideTW = BJS.create({
+						target: slideshow,
+						to:{
+							'left::%':-100 * a.data('index')
+						},
+						time:.45,
+						ease:Expo.easeOut
+					})
+					
+					tw.play() ;
+					return this ;
+
+				}, el, i))
+			})
+			
+			sl.clear = function(){
+				
+				slides.css({
+					// 'z-index':'1',
+					// 'left':'15000px',
+					// 'opacity':'0'
+				}).removeClass('inited') ;
+				
+				slideshow.find('.flex-control-nav li').removeClass('active') ;
+			}
+
+			sl.enable = function(cond){
+				
+				
+				if(cond){
+					slidenav.on('click', sl.navgo) ;
+				}else{
+					slidenav.off('click', sl.navgo) ;
+				}
+				
+			}
+			
+
+			
+		
+			sl.launch = function(){
+				clearTimeout(sl.UID) ;
+				sl.cy.next() ;
+				
+				sl.UID = setTimeout(sl.launch, TIME) ;
+				
+				sl.launched = true ;
+			}
+
+			
+			sl.halt = function(){
+				
+				sl.UID = clearTimeout(sl.UID) ;
+				sl.cy.go(0) ;
+				sl.launched = false ;
+				
+			}
+		}
+		
+		sl = MMAI.home.slideswallet ;
+		
+		if(cond){
+			
+			sl.clear() ;
+
+			sl.enable(true) ;
+			
+			if(sl.cy.index == -1 ) sl.launch() ;
+			else{
+				sl.cy.index -- ;
+				sl.launch() ;
+			}
+			
+		}else{
+			
+			sl.clear() ;
+			
+			sl.enable(false) ;
+			
+			sl.halt() ;
+			
+		}
+		
+		
+		
+	},
+	slideshow_wallet2 : slideshow_wallet2 = function(cond, res){
+		
+		
+		var navlinks = $('.purewallet .slidenav ol li a') ;
+		var slides = $('.purewallet .slides') ;
+		var pages = $('.purewallet .slides .slide') ;
+		var tw ;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		var navlinkclick = MMAI.home.navlinkclick = MMAI.home.navlinkclick || function(e){
+			
+			e.stopPropagation() ;
+			e.preventDefault() ;
+			var a = $(e.target) ;
+			
+			navlinks.removeClass("walletcolor") ;
+			a.addClass("walletcolor") ;
+			
+			
+			
+			///////////////////////////////////////////////////// TWEEN
+			tw = MMAI.home.walletslideTW ;
+			if(tw && tw.isPLaying) tw.stop() ;
+			
+			tw = MMAI.home.walletslideTW = BJS.create({
+				target: slides,
+				to:{
+					'left::%':-100 * a.data('index')
+				},
+				time:.45,
+				ease:Expo.easeOut
+			})
+			
+			tw.play() ;
+			///////////////////////////////////////////////////// TWEEN
+		}
+		
+		if(cond){
+			
+			navlinks.each(function(i, el){
+				var a = $(el) ;
+				a.data('index', i) ;
+				a.on('click', navlinkclick) ;
+			})
+			
+			
+			
+		}else{
+			navlinks.off('click', navlinkclick) ;
+		}
+		
+	},
+	
 	////////////////////////// HOME SUB SECTIONS
 	home_children_focus : home_children_focus = function(e){
 		var res = e.target ;
 		if(e.type == "focusIn"){
 			
 			trace(res.id) ;
+			if(res.id == "purewallet"){
+				MMAI.func.slideshow_wallet(true, res) ;
+			}
 			
 			res.focusReady() ;
 		}else{
+			
+			if(res.id == "purewallet"){
+				MMAI.func.slideshow_wallet(false, res) ;
+			}
 			
 			//trace("Focusout >>", res.id) ;
 			

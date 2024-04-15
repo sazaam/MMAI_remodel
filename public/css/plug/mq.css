@@ -136,7 +136,7 @@
   }
   
   .purewallet .slidenav{
-    bottom:0 !important;
+    bottom:0px !important;
     z-index:3;
     left:auto !important;
     right:20px !important;
@@ -151,6 +151,16 @@
   .purewallet .slidezone .visual{
     float:right !important;
     width:inherit !important;
+  }
+  
+  
+  .pureseries .puremain{
+    margin-top:30px !important;
+  }
+  
+  .pureseries .catchphrase{
+    margin-top:0 !important;
+    padding-top:20px !important;
   }
   
   
