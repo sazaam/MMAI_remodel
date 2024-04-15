@@ -276,9 +276,11 @@ module.exports = MMAI.func = {
 			$('.viewport3D').removeClass('hidden') ;
 			$('.downloadwallet').removeClass('none') ;
 			
+			
 			res.ready() ;
 			
 		}else{
+			
 			$('.foot').addClass("none") ;
 			$(window).off( "scrollEnd", MMAI.home.scroll) ;
 			

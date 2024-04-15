@@ -156,8 +156,6 @@ var viz3D = {
 		
 	    if(cond){
 			
-			
-			
 			if(!res.userData.ANIM_TW){
 				
 				var state, scene, renderer, controls, camera ;
@@ -174,7 +172,7 @@ var viz3D = {
 					
 					if(camera && SCI.objectPosition){
 						theta += 0.1;
-						
+						theta = theta % 360 ;
 						camera.position.x = radius * Math.sin( THREE.MathUtils.degToRad( theta ) );
 						// camera.position.y = radius * Math.sin( THREE.MathUtils.degToRad( theta ) );
 						camera.position.z = radius * Math.cos( THREE.MathUtils.degToRad( theta ) );
@@ -409,6 +407,7 @@ var viz3D = {
 								var p = [] ;
 								var sc = 1.5 ;
 								BJS.serial(
+									
 									BJS.create({
 										target:dummy,
 										to:{
@@ -430,7 +429,7 @@ var viz3D = {
 												
 												pos[n] 		= (pos[n] 		* (1 - dummy.scale)) + (p[i].x * dummy.scale)
 												pos[n + 1] 	= (pos[n + 1] 	* (1 - dummy.scale)) + (p[i].y * dummy.scale)
-												pos[n + 2] 	= (pos[n + 1] 	* (1 - dummy.scale)) + (p[i].z * dummy.scale)
+												pos[n + 2] 	= (pos[n + 2] 	* (1 - dummy.scale)) + (p[i].z * dummy.scale)
 											}
 											
 											pointCloud.geometry.attributes.position.needsUpdate = true;
