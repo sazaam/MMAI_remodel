@@ -258,7 +258,7 @@ module.exports = MMAI.func = {
 			
 		}
 		
-		res.template = res.template || $('.fullpage') ;
+		res.template = res.template || $('.fullpage').removeClass('hidden') ;
 		var target_section = res.template ;
 		
 		
@@ -273,24 +273,8 @@ module.exports = MMAI.func = {
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
 			
 			MMAI.home.viz3D(true, res) ;
-			
-			/* BJS.create({
-				target:target_section,
-				to:{
-					opacity:100
-				},
-				from:{
-					opacity:0
-				},
-				time:.45,
-				ease:Expo.easeOut,
-				onComplete:function(){
-					
-					res.ready() ;
-					$('.foot').removeClass("none") ;
-				}
-			}).play() ;
-			 */
+			$('.viewport3D').removeClass('hidden') ;
+			$('.downloadwallet').removeClass('none') ;
 			
 			res.ready() ;
 			
@@ -299,22 +283,9 @@ module.exports = MMAI.func = {
 			$(window).off( "scrollEnd", MMAI.home.scroll) ;
 			
 			MMAI.home.viz3D(false, res) ;
+			$('.downloadwallet').addClass('none') ;
+			$('.viewport3D').addClass('hidden') ;
 			
-			/* $('.foot').addClass("none") ;
-			BJS.create({
-				target:target_section,
-				to:{
-					opacity:0
-				},
-				time:.45,
-				ease:Expo.easeOut,
-				onComplete:function(){
-					
-					res.ready() ;
-					target_section.remove() ;
-				}
-			}).play() ;
-			 */
 			
 			res.template.remove() ;
 			
@@ -323,7 +294,6 @@ module.exports = MMAI.func = {
 			trace('CLOSING', res.id) ;
 		}
 	},
-	
 	slideshow_wallet : slideshow_wallet = function(cond, res){
 		
 		var id = res.id ;
@@ -375,7 +345,7 @@ module.exports = MMAI.func = {
 					slidenav.removeClass('walletcolor') ;
 					a.addClass('walletcolor') ;
 					
-					tw = MMAI.home.walletslideTW ;
+					var tw = MMAI.home.walletslideTW ;
 					if(tw && tw.isPLaying) tw.stop() ;
 					
 					tw = MMAI.home.walletslideTW = BJS.create({
@@ -464,70 +434,29 @@ module.exports = MMAI.func = {
 		
 		
 	},
-	slideshow_wallet2 : slideshow_wallet2 = function(cond, res){
+	slide_partners: slide_partners = function(cond, res){
 		
-		
-		var navlinks = $('.purewallet .slidenav ol li a') ;
-		var slides = $('.purewallet .slides') ;
-		var pages = $('.purewallet .slides .slide') ;
+		var partners = $('.partnerscont') ;
 		var tw ;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		var navlinkclick = MMAI.home.navlinkclick = MMAI.home.navlinkclick || function(e){
-			
-			e.stopPropagation() ;
-			e.preventDefault() ;
-			var a = $(e.target) ;
-			
-			navlinks.removeClass("walletcolor") ;
-			a.addClass("walletcolor") ;
-			
-			
-			
-			///////////////////////////////////////////////////// TWEEN
-			tw = MMAI.home.walletslideTW ;
-			if(tw && tw.isPLaying) tw.stop() ;
-			
-			tw = MMAI.home.walletslideTW = BJS.create({
-				target: slides,
-				to:{
-					'left::%':-100 * a.data('index')
-				},
-				time:.45,
-				ease:Expo.easeOut
-			})
-			
-			tw.play() ;
-			///////////////////////////////////////////////////// TWEEN
+		if(!res.userData.tw_partners){
+			res.userData.tw_partners = BJS.create({
+				target:partners,
+				to:{'margin-left::PX':-150*4},
+				from:{'margin-left::PX':0},
+				time:5,
+				ease:Linear.easeOut
+			}) ;
+			res.userData.tw_partners.stopOnComplete = false ;	
 		}
+		tw = res.userData.tw_partners ;
 		
 		if(cond){
-			
-			navlinks.each(function(i, el){
-				var a = $(el) ;
-				a.data('index', i) ;
-				a.on('click', navlinkclick) ;
-			})
-			
-			
-			
+			tw.play() ;
 		}else{
-			navlinks.off('click', navlinkclick) ;
+			tw.stop() ;
 		}
 		
 	},
-	
 	////////////////////////// HOME SUB SECTIONS
 	home_children_focus : home_children_focus = function(e){
 		var res = e.target ;
@@ -536,6 +465,8 @@ module.exports = MMAI.func = {
 			trace(res.id) ;
 			if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(true, res) ;
+			}else if(res.id == "pureseries"){
+				MMAI.func.slide_partners(true, res) ;
 			}
 			
 			res.focusReady() ;
@@ -543,6 +474,8 @@ module.exports = MMAI.func = {
 			
 			if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(false, res) ;
+			}else if(res.id == "pureseries"){
+				MMAI.func.slide_partners(false, res) ;
 			}
 			
 			//trace("Focusout >>", res.id) ;

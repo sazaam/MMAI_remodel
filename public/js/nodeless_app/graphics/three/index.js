@@ -165,16 +165,26 @@ var viz3D = {
 				
 				//COMPOSITING
 				// var composer, effect ;
-				
+				var theta = 90 ;
+				var radius = 5 ;
 				var render = function render() {
 					var SET = viz3D.settings ;
 					var SCI = SET.scenes[ SET.state.scene ] ; // change State to change Model / Scene
 					
 					
-					if(SCI.chain) SCI.chain.rotation.y = SCI.chain.rotation.y - .002 ;
-					if(SCI.pointsmesh) SCI.pointsmesh.rotation.y = SCI.pointsmesh.rotation.y - .002 ;
+					if(camera && SCI.objectPosition){
+						theta += 0.1;
+						
+						camera.position.x = radius * Math.sin( THREE.MathUtils.degToRad( theta ) );
+						// camera.position.y = radius * Math.sin( THREE.MathUtils.degToRad( theta ) );
+						camera.position.z = radius * Math.cos( THREE.MathUtils.degToRad( theta ) );
+						camera.lookAt(SCI.objectPosition);
+					}
 					
-					if(SCI.particleGroup) SCI.particleGroup.rotation.y = SCI.particleGroup.rotation.y + .002 ;
+					// if(SCI.chain) SCI.chain.rotation.y = SCI.chain.rotation.y - .002 ;
+					// if(SCI.pointsmesh) SCI.pointsmesh.rotation.y = SCI.pointsmesh.rotation.y - .002 ;
+					
+					// if(SCI.particleGroup) SCI.particleGroup.rotation.y = SCI.particleGroup.rotation.y + .002 ;
 			        
 					renderer.render( scene, camera );
 			    }
@@ -470,16 +480,11 @@ var viz3D = {
 					/////////////////////////////////////////////
 					
 					
-					
-					
-					$('.page.purechain').on('click', function(e){
+					SCI.clk = function(e){
 						
 						SCI.morphInto(SCI.morphIndex ++) ;
 						
-					})
-					
-					
-					
+					} ;
 					
 					
 					return 'sazaam' ;
@@ -555,6 +560,7 @@ var viz3D = {
 			        }
 					// FOG
 					if (!!SCI.fog) {
+						// scene.fog = new THREE.Fog(0x121212, 5, 8) ;
 						scene.fog = new THREE.Fog(0xFFFFFF, 5, 8) ;
 						// scene.fog = new THREE.Fog(0x895099, -0.5, 8) ;
 			        }
@@ -585,22 +591,22 @@ var viz3D = {
 				
 				ANIM_TW = res.userData.ANIM_TW ;
 				ANIM_TW.start() ;
-				// if(res.userData.libTW) res.userData.libTW.play() ;
 				
 			}
+			
+			$('.page.purechain').on('click', SCI.clk) ;
 			
 			window.addEventListener( 'resize', onWinResize, false );
 			
 	    }else{
 			
 			
-			// if(res.userData.libTW) res.userData.libTW.stop() ;
 			ANIM_TW = res.userData.ANIM_TW ;
 			ANIM_TW.halt() ;
 			
 			
 			window.removeEventListener( 'resize', onWinResize, false ) ;
-			
+			$('.page.purechain').off('click', SCI.clk) ;
 	    }
 
 	}

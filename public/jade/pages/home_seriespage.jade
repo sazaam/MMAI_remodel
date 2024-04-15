@@ -21,15 +21,17 @@
 									p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
 				.partners.abs.bottom0.left0.right0
 					
-					.partnersboxing.rel.context(style="width:1800px")
-						- for(let i = 0 ; i < 12 ; i++){
-							.cont.darkBG.floatL(style="width:150px;height:100px")
-								span.hidden <!-- -->
-						- } 
-					.partnerstext.abs.top0.left0.right0 
-						.intro.safe.txtL.white
-							h6.Lmar
-								span.sizeSm.bolder Our Partners
+					- var partners = ['/img/creativia.png', '/img/ict.png', '/img/nslab.png', '/img/cognito.png'] ;
+					- var len = partners.length , repeat = 5;
+					.partnersboxing.rel.context(style="width:"+(len * repeat * 150)+"px;border-top:1px solid #BBB")
+						.partnerscont.rel
+							- for(let i = 0 ; i < len * repeat ; i++){
+								a.block.cont.darkBG.floatL.cover(href="#", style="width:150px;height:100px;background-image:url('"+partners[i % len]+"');")
+									span.hidden <!-- -->
+							- } 
+					.partnerstext.abs.bottom100.right0
+						p.Rmar
+							span.block.Hpad.foggyBG.dark.sizeXSm Partners
 						
 
 	//- .eco.abs.top50.bottom0.left0.right0.flowhidden(style="bottom:1px")
