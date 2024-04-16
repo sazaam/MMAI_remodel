@@ -394,15 +394,15 @@ var viz3D = {
 							
 							const base = children.pop() ;
 							const base_loc = locations.pop() ;
-							trace('children length', children.length)
+							
 							
 							SCI.morphInto = function(idx){
-								trace(SCI.morphIndex)
+								
 								SCI.morphIndex = SCI.morphIndex % 3 ;
 								var dummy = {scale:0} ;
 								
 								var pos = pointCloud.geometry.attributes.position.array ;
-								
+								shuffle(locations[idx]) ;
 								var l = pos.length ;
 								var p = [] ;
 								var sc = 1.5 ;
@@ -489,40 +489,6 @@ var viz3D = {
 					return 'sazaam' ;
 				}
 				//////////////////////////////////////////////////////////////////////////////////// END LOADS
-				
-				
-				var morphTo = function morphTo (newParticles, color = '#FFFFFF') {
-	
-					/* TweenMax.to(animationVars, .1, {
-						ease: Power4.easeIn, 
-						speed: fullSpeed, 
-						onComplete: slowDown
-					});
-					
-					TweenMax.to(animationVars, 2, {
-						ease: Linear.easeNone, 
-						color: color
-					}); */
-					
-					
-					// particleSystem.material.color.setHex(color);
-					
-					for (var i = 0; i < particles.vertices.length; i++){
-						/* TweenMax.to(particles.vertices[i], 2, {
-							ease: Elastic.easeOut.config( 0.1, .3), 
-							x: newParticles.vertices[i].x,
-							y: newParticles.vertices[i].y, 
-							z: newParticles.vertices[i].z
-						}) */
-					}
-					
-					console.log(animationVars.rotation)
-					
-					/* TweenMax.to(animationVars, 2, {
-						ease: Elastic.easeOut.config( 0.1, .3), 
-						rotation: animationVars.rotation == 45 ? -45 : 45,
-					}) */
-				}
 				
 				
 ///////////////////////////////////////////////////////////////////////////// SETUP

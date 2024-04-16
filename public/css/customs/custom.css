@@ -133,6 +133,10 @@ MENU
 }
 
 
+
+
+
+
 /* -------------------------------------------------------------------
 Sections
 ------------------------------------------------------------------- */
@@ -175,7 +179,13 @@ html{min-height:2450px}
     width:35px;
     height:43px;
 }
-
+.puremain.pureseries.floatingseries{
+    height:50px
+}
+.puremain.pureseries.floatingseries em{
+    padding-left:40px;
+    background-position-x:0
+}
 
 .signup ::placeholder{
     

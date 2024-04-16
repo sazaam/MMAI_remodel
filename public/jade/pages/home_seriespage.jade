@@ -3,8 +3,29 @@
 
 
 .fullW.fullH.txtC.black.rel.pureseries.pureline
-	.introseries.sizeXXXLg.whiteBG
+	.introseries.sizeXXXLg
 		.page
+			.surprise.abs.flowvisible(style="bottom:50%;right:250px;width:0")
+				
+				.rel.puremain.pureseries.context.floatingseries(style="top:0px;left:-70px;width:220px")
+					a.block.blackBG.round23.white.HpadSm(href="javascript:void(0)")
+						em.bolder Pure
+							b.thin.LmarXXSm Series
+				- let series = ["Chain", "Wallet", "Certificates", "Voting", "Medical", "Media", "World"] ;
+				//- - series = series.reverse() ;
+				- let ls = series.length ;
+				- let rx = 200, ry = 200, offset = Math.PI / 2 + .22 ;
+				- for(let i = 0 ; i < ls ; i++){
+					- let x = rx * Math.cos(((i / ls ) * Math.PI) + offset) ;
+					- let y = ry * -Math.sin(((i / ls ) * Math.PI) + offset) ;
+					.abs.puremain.pureseries.context(style="left:"+(x - 70) +"px;top:"+ y +"px" class="floatingseries floating_" + series[i])
+						- let classname = 'blackBG round23 white'
+						a.block.bolder.Hpad.VpadXXSm.sizeSm(class= i == 0 ? "" : "", href="javascript:void(0)")
+							em #{series[i]}
+							
+				- }
+			
+					
 			.intro.safe.txtL(style="padding:20px 0 40px 0;")
 				.puremain.pureseries.TmarXXXLg.context
 					span.block.floatL
@@ -12,6 +33,11 @@
 							span.none P
 					b.bolder Pure 
 					span Series
+				
+				
+			
+				
+				
 				.textes.abs(style="bottom:130px")
 					.catchphrase.TmarXXXLg.TpadXXXLg
 						h1.montserrat.bolder.sizeXXXLg.lh1 The Ecosystem

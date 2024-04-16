@@ -465,7 +465,9 @@ module.exports = MMAI.func = {
 		if(e.type == "focusIn"){
 			
 			trace(res.id) ;
-			if(res.id == "purewallet"){
+			if(res.id == "purechain"){
+				// $('.viewport3D').removeClass('fixed').addClass('abs') ;
+			}else if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(true, res) ;
 			}else if(res.id == "pureseries"){
 				MMAI.func.slide_partners(true, res) ;
@@ -474,7 +476,9 @@ module.exports = MMAI.func = {
 			res.focusReady() ;
 		}else{
 			
-			if(res.id == "purewallet"){
+			if(res.id == "purechain"){
+				// $('.viewport3D').removeClass('abs').addClass('fixed') ;
+			}else if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(false, res) ;
 			}else if(res.id == "pureseries"){
 				MMAI.func.slide_partners(false, res) ;
