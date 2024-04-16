@@ -44,6 +44,36 @@ MMAI.home.viz3D = function(cond, res){
 	threeFX.viz3D.enable(cond, viewport3D, res) ;
 }
 
+MMAI.home.getScrollPageIndex = function() {
+	var ww = $(window) ;
+	var top = ww.scrollTop() ;
+	var h = ww.height() >> 1 ;
+	var added = top + h ;
+	var pages = $('.fullpage') ;
+	var n = 0 ;
+	// TODO here fix for inter pages 
+	pages.each((i, el)=>{
+		n = (added > $(el).position().top) ? i : n ;
+	}) ;
+	return n ;
+}
+
+MMAI.home.scroll = function(e) {
+	
+	var n = MMAI.home.getScrollPageIndex() ;
+	var hier = Unique.getInstance().hierarchy ;
+	var res = hier.currentStep ;
+	
+	res = res.depth == 1 ? res : res.parentStep ;
+	var path = res.children[n].path ;
+	var ch = hier.changer ;
+	var hash = ch.getValue() ;
+	
+	if(path != hier.currentStep.path){
+		ch.setValue('#'+path + '/') ;	
+	}
+	
+}
 
 module.exports = MMAI.func = {
 	
@@ -132,13 +162,13 @@ module.exports = MMAI.func = {
 		var res = e.target ;
 		
 		if(!!!res.template){
-			trace('/content/section/' + res.id) ;
+			//trace('/content/section/' + res.id) ;
 			res.render('/content/section/' + res.sectionId) ;
 			
 			var saz = $('<div>') ;
 			res.template.appendTo(saz) ;
 			res.template = saz.find('.fullpage') ;
-			//trace('dasdas', res.template)
+			
 		}
 		
 		
@@ -158,7 +188,7 @@ module.exports = MMAI.func = {
 			MMAI.home.scrollTo(0, .25) ;
 			target_section.prependTo($('body')) ;
 			$('.foot').removeClass("none") ;
-			
+			$('#mainloader').addClass('none') ;
 			
 			if(!res.userData.lazyLoaded){
 				lazyload(e, true) ;
@@ -197,21 +227,7 @@ module.exports = MMAI.func = {
 				return res.ready() ;
 			} */
 			
-			/* $('.foot').addClass("none") ;
-			BJS.create({
-				target:target_section,
-				to:{
-					opacity:0
-				},
-				time:.45,
-				ease:Expo.easeOut,
-				onComplete:function(){
-					res.ready() ;
-					
-					target_section.remove() ;
-				}
-			}).play() ;
-			 */
+			
 			res.ready() ;
 		
 		}
@@ -230,35 +246,9 @@ module.exports = MMAI.func = {
 	home_toggle : home_toggle = function(e){
 		var res = e.target ;
 		
-		MMAI.home.getScrollPageIndex = MMAI.home.getScrollPageIndex || function() {
-			var ww = $(window) ;
-			var top = ww.scrollTop() ;
-			var h = ww.height() >> 1 ;
-			var added = top + h ;
-			var pages = $('.fullpage') ;
-			var n = 0 ;
-			pages.each((i, el)=>{
-				n = (added > $(el).position().top) ? i : n ;
-			}) ;
-			return n ;
-		}
 		
-		MMAI.home.scroll = MMAI.home.scroll || function(e, top) {
-			
-			var n = MMAI.home.getScrollPageIndex() ;
-			
-			var path = res.children[n].path ;
-			var hier = Unique.getInstance().hierarchy ; 
-			var ch = hier.changer ;
-			var hash = ch.getValue() ;
-			
-			if(path != hier.currentStep.path){
-				ch.setValue('#'+path + '/') ;	
-			}
-			
-		}
 		
-		res.template = res.template || $('.fullpage').removeClass('hidden') ;
+		res.template = res.template || $('.fullpage,  .inter').removeClass('hidden') ;
 		var target_section = res.template ;
 		
 		
@@ -270,24 +260,26 @@ module.exports = MMAI.func = {
 			
 			res.template.prependTo($('body')) ;
 			$('.foot').removeClass("none") ;
+			trace('should add SCROLL Evt')
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
 			
 			MMAI.home.viz3D(true, res) ;
 			$('.viewport3D').removeClass('hidden') ;
 			$('.downloadwallet').removeClass('none') ;
-			
+			$('#mainloader').removeClass('none') ;
 			
 			res.ready() ;
 			
 		}else{
 			
 			$('.foot').addClass("none") ;
+			trace('should remove SCROLL Evt')
 			$(window).off( "scrollEnd", MMAI.home.scroll) ;
 			
 			MMAI.home.viz3D(false, res) ;
 			$('.downloadwallet').addClass('none') ;
 			$('.viewport3D').addClass('hidden') ;
-			
+			$('#mainloader').addClass('none') ;
 			
 			res.template.remove() ;
 			
@@ -432,8 +424,6 @@ module.exports = MMAI.func = {
 			sl.halt() ;
 			
 		}
-		
-		
 		
 	},
 	slide_partners: slide_partners = function(cond, res){

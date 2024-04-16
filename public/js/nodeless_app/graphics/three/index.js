@@ -370,7 +370,7 @@ var viz3D = {
 							pointCloud.sortParticles = true;
 							
 							
-							
+							$('#mainloader').remove() ;
 							SCI.pointsmesh = pointCloud ;
 							if(SCI.objectPosition) pointCloud.position.y = SCI.objectPosition.y ;
 							scene.add( pointCloud );

@@ -9,10 +9,15 @@ block content
 	//- WALLET
 	.fullpage.fullH.flowhidden.hidden.whiteBG
 		include pages/home_walletpage
-
+	
+	//- .inter.foggyBG.hidden(style="height:350px")
+		h1.sizeLg.padXXXLG Some Block Here
+	
 	.fullpage.fullH.flowhidden.hidden
 		include pages/home_seriespage
-					
+	
+	
+			
 	.fullpage.fullH.flowhidden.hidden
 		include pages/home_worldpage
 		
@@ -27,7 +32,7 @@ block content
 		console.log('AJAXIFIED')
 		var exitLoader = function(){
 			console.log('REMOVING LOADER...');
-			$('#mainloader').remove()
+			//$('#mainloader').remove()
 		}
 		
 		let strapi = {
@@ -45,8 +50,8 @@ block content
 		let sections_JSON = !{JSON.stringify(topsections)} ;
 		window.Data = sections_JSON ;
 		
-		trace('DATA >>')
-		trace(window.Data)
+		//- trace('DATA >>')
+		//- trace(window.Data)
 		
 		/*
 		ERROR HANDLING -> MAKING ERROR SECTION

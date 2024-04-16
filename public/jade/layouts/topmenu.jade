@@ -23,7 +23,7 @@ nav#menu.menu.fixed.top0.left0.fullW
     //-  HOME SPECIAL CASE
     li.home.abs.left0.Hmar(id= "global_" + 'home', class= "global_" + 'home')
       //-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
-      a.block.fullW.fullH(href= '/#/home/')
+      a.block.fullW.fullH(href= '/#/home/purechain/')
         span.hidden= t('MMAI')
     
     script.
@@ -33,8 +33,8 @@ nav#menu.menu.fixed.top0.left0.fullW
     each navsection in other
       - var name = navsection.name ;
       li.others.floatL.rel.LmarSm(id= "global_" + name, class= "global_" + name, style="left:-20px")
-        a.block.padSm.Hpad.inconsolata(href= '/#/' + name + '/')
-          span= name
+        a.block.Hpad.fullH.inconsolata(href= '/#/' + name + '/')
+          span.sizeLg= name
         if(0)
           ol.subnav.abs.txtR.left0.round.right.flowhidden(style="top:4em;width:400px")
             - var cat = "" ;
@@ -56,7 +56,7 @@ nav#menu.menu.fixed.top0.left0.fullW
         li.floatL(id= "lang_" + language.code, class= "lang " + active + "lang_" + language.code)
           a.block.HpadXSm.inconsolata.round.both(href='?lng=' + language.code, lang=language.code)
             span= language.code
-  .abs.downloadwallet.right0(style="top:40px").none
+  .abs.downloadwallet.right0(style="top:12px").none
     a.block.Rmar.pad.HpadXLg.round23.blackBG.white(href="#/wallet/")
       span DOWNLOAD WALLET
     
