@@ -264,7 +264,7 @@ module.exports = MMAI.func = {
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
 			
 			MMAI.home.viz3D(true, res) ;
-			// $('.viewport3D').removeClass('hidden') ;
+			$('.viewport3D').removeClass('hidden') ;
 			// $('.downloadwallet').removeClass('none') ;
 			$('#mainloader').removeClass('none') ;
 			
@@ -278,7 +278,7 @@ module.exports = MMAI.func = {
 			
 			MMAI.home.viz3D(false, res) ;
 			// $('.downloadwallet').addClass('none') ;
-			// $('.viewport3D').addClass('hidden') ;
+			$('.viewport3D').addClass('hidden') ;
 			$('#mainloader').addClass('none') ;
 			
 			res.template.remove() ;

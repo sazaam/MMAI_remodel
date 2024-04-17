@@ -14,9 +14,5 @@ Resetters & Helpers Generic CSS
 Custom Entry
 ------------------------------------------------------------------- */
 
-@import './customs/cus.css' ;
+@import './customs/custom.css' ;
 @import './tailwind.css' ;
-
-
-.pentone{color:#ce0023}
-.pentoneBG{background-color:#ce0023}
