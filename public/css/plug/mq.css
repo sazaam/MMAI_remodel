@@ -92,6 +92,11 @@
 {
 	
   
+  .downloadwallet{
+    top:48px !important;
+    z-index:300;
+  }
+  
   .page .safe{
     width:100%;
     margin : 0;

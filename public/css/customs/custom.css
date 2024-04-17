@@ -48,6 +48,13 @@ body {
 }
 
 
+
+.nonez{
+    display:none;
+}
+
+
+
 /* -------------------------------------------------------------------
 MENU
 ------------------------------------------------------------------- */
@@ -91,6 +98,13 @@ html{min-height:2450px}
     z-index:2;
 }
 
+
+.extractable{
+    
+    
+}
+
+
 .fullpage{
     z-index:10;
     position:relative;
@@ -113,9 +127,53 @@ html{min-height:2450px}
 
 .intro.safe{
     min-width:748px;
-    width:80%;
+    width:95%;
 
 }
+
+/*
+    COLORS
+*/
+
+.pureblue{color:#789bf3}
+.pureblueBG{background:#789bf3}
+.pureblueBD{border-color:#789bf3 !important}
+
+.purelightblue{color:#b9caf5}
+.purelightblueBG{background:#b9caf5}
+.purelightblueBD{border-color:#b9caf5 !important}
+
+.purelightestblue{color:#d5e1ff}
+.purelightestblueBG{background:#d5e1ff}
+.purelightestblueBD{border-color:#d5e1ff !important}
+
+.purecolor{color:#3a6df0}
+.pureBG{background:#3a6df0}
+.pureBD{border-color:#3a6df0}
+
+
+@media (min-width: 1280px) {
+    .xl\:\!w-24 {
+      width: 6rem !important;
+    }
+}
+
+
+/*
+    END COLORS
+*/
+
+
+.graddown{
+    background: rgb(58,109,240);
+    background: linear-gradient(180deg, rgb(58,109,240) -50%, rgba(255,255,255,0) 25%)
+}
+.gradup{
+    background: rgb(58,109,240);
+    background: linear-gradient(0deg, rgb(58,109,240) -50%, rgba(255,255,255,0) 25%)
+}
+
+
 
 .puremain.pureseries em{
     background:url(../skin/Pure_Series.png) no-repeat 50% 50% ;
@@ -135,15 +193,6 @@ html{min-height:2450px}
     color:#3a6df0;
 }
 
-
-.purecolor{
-    color:#3a6df0;
-    
-}
-
-.pureBG{
-    background:#3a6df0;
-}
 .walletBG{
     background:#3a6df0;
 }

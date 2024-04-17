@@ -340,11 +340,13 @@ var viz3D = {
 							const matrix = new THREE.Matrix4() ;
 							const vecs = [] ;
 							const randoms = [] ;
+							
+							var startIndex = 2 ;
 							/////// INITIALIZE SET OF VECTORS
 							for ( let i = 0; i < numparticles ; i ++ ) {
 								var vec = new THREE.Vector3() ;
 								
-								position = locations[0][i] ;
+								position = locations[startIndex][i] ;
 								matrix.makeTranslation( position.x, position.y, position.z ) ;
 								vec.applyMatrix4(matrix) ;
 								
@@ -390,15 +392,16 @@ var viz3D = {
 							scene.add( pointsmesh );
 							 */
 							
-							SCI.morphIndex = 1 ;
+							
 							
 							const base = children.pop() ;
 							const base_loc = locations.pop() ;
 							
+							SCI.morphIndex = (startIndex + 1) % SCI.children.length ;
+							trace(SCI.children.length)
 							
 							SCI.morphInto = function(idx){
-								
-								SCI.morphIndex = SCI.morphIndex % 3 ;
+								SCI.morphIndex = SCI.morphIndex % SCI.children.length ;
 								var dummy = {scale:0} ;
 								
 								var pos = pointCloud.geometry.attributes.position.array ;
@@ -406,7 +409,8 @@ var viz3D = {
 								var l = pos.length ;
 								var p = [] ;
 								var sc = 1.5 ;
-								BJS.serial(
+								if(!!SCI.twParticles) SCI.twParticles.stop().destroy() ;
+								SCI.twParticles = BJS.serial(
 									
 									BJS.create({
 										target:dummy,
@@ -439,7 +443,8 @@ var viz3D = {
 											pointCloud.sortParticles = true;
 										}
 									})
-								).play() ;
+								)
+								SCI.twParticles.play() ;
 								
 							}
 							
@@ -480,9 +485,7 @@ var viz3D = {
 					
 					
 					SCI.clk = function(e){
-						
 						SCI.morphInto(SCI.morphIndex ++) ;
-						
 					} ;
 					
 					

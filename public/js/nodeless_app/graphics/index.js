@@ -167,7 +167,7 @@ module.exports = MMAI.func = {
 			
 			var saz = $('<div>') ;
 			res.template.appendTo(saz) ;
-			res.template = saz.find('.fullpage') ;
+			res.template = saz.find('.extractable') ;
 			
 		}
 		
@@ -248,7 +248,7 @@ module.exports = MMAI.func = {
 		
 		
 		
-		res.template = res.template || $('.fullpage,  .inter').removeClass('hidden') ;
+		res.template = res.template || $('.extractable').removeClass('hidden') ;
 		var target_section = res.template ;
 		
 		
@@ -264,8 +264,8 @@ module.exports = MMAI.func = {
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
 			
 			MMAI.home.viz3D(true, res) ;
-			$('.viewport3D').removeClass('hidden') ;
-			$('.downloadwallet').removeClass('none') ;
+			// $('.viewport3D').removeClass('hidden') ;
+			// $('.downloadwallet').removeClass('none') ;
 			$('#mainloader').removeClass('none') ;
 			
 			res.ready() ;
@@ -277,8 +277,8 @@ module.exports = MMAI.func = {
 			$(window).off( "scrollEnd", MMAI.home.scroll) ;
 			
 			MMAI.home.viz3D(false, res) ;
-			$('.downloadwallet').addClass('none') ;
-			$('.viewport3D').addClass('hidden') ;
+			// $('.downloadwallet').addClass('none') ;
+			// $('.viewport3D').addClass('hidden') ;
 			$('#mainloader').addClass('none') ;
 			
 			res.template.remove() ;

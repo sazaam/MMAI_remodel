@@ -25,17 +25,22 @@
 							.signup.TmarXXLg.sizeSm.context
 								h3.sizeLg.bold Get started
 								+signuphome
-				a.group.block.max-w-xs.mx-auto.rounded-lg.p-6.bg-white.ring-1.shadow-lg.space-y-3(href='#' class='ring-slate-900/5 hover:bg-sky-500 hover:ring-sky-500')
-					.flex.items-center.space-x-3
-						svg.h-6.w-6.stroke-sky-500(class='group-hover:stroke-white' fill='none' viewBox='0 0 24 24')
-							
-						h3.text-slate-900.text-sm.font-semibold(class='group-hover:text-white') New project
-					p.text-slate-500.text-sm(class='group-hover:text-white') Create a new project from a variety of starting templates.
+				//- .grid.grid-cols-2.gap-x-4.place-items-center
+					.flex.flex-col.items-start.gap-y-4
+						p.text-sm.font-medium Left-to-right
+						.relative.w-18.h-18.rounded-lg.bg-stripes-purple(class='sm:w-32 sm:h-32')
+							.p-4.w-14.h-14.absolute.top-0.left-0.flex.items-center.justify-center.bg-purple-500.shadow-lg.rounded-lg
+					.flex.flex-col.items-end.gap-y-4
+						p.text-sm.font-medium Right-to-left
+						.relative.w-18.h-18.rounded-lg.bg-stripes-purple(class='sm:w-32 sm:h-32')
+							.p-4.w-14.h-14.absolute.top-0.right-0.flex.items-center.justify-center.bg-purple-500.shadow-lg.rounded-lg
+
+
 
 				
 				
 				.flex.grid.grid-cols-1.gap-5.content-center
-					.sizeSm.TmarXXLg.lh1 Reliable Certificates, Quick Transactions, #[br] Media and Contents Authoring, #[br] Gaming Platforms, Meta-Malls, #[br] Mized Reality and more...
+					.sizeSm.TmarXXLg.lh1 Reliable Certificates, Quick Transactions, #[br] Media and Contents Authoring, #[br] Gaming Platforms, Meta-Malls, #[br] Mixed Reality and more...
 					.signup.TmarXXLg.sizeSm.context
 						h3.sizeLg.bold Get started
 						+signuphome
