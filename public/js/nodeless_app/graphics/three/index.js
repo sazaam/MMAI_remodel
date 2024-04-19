@@ -409,7 +409,7 @@ var viz3D = {
 								var l = pos.length ;
 								var p = [] ;
 								var sc = 1.5 ;
-								if(!!SCI.twParticles) SCI.twParticles.stop().destroy() ;
+								if(!!SCI.twParticles) SCI.twParticles.stop() ;
 								SCI.twParticles = BJS.serial(
 									
 									BJS.create({

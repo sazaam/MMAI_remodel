@@ -74,29 +74,43 @@ mixin arrowdiagonalup()
 		path(d='M1.55542 10.4441L10.2285 1.76892' stroke='currentColor' stroke-width='2' stroke-miterlimit='10')
 		path(d='M3.27246 1.55542L10.444 1.55542V8.72874' stroke='currentColor' stroke-width='2' stroke-miterlimit='10')
 
-mixin darkbutton(text)
-	a.flex.flex-row.rounded-3xl.p-6.items-center.cursor-pointer.gap-x-4.w-full.white.darkBG(data-v-3846dcc4=''  href='#' target='_blank' class='2xl:p-10 2xl:gap-x-6 md:clickable')
-		.flex.white(data-v-3846dcc4='' class='w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9')
+
+mixin normalbutton(text, target)
+	a.flex.flex-row.rounded-3xl.p-6.items-center.cursor-pointer.gap-x-4.white.pureblueBG(href='#' target= target || '_self' class='2xl:p-10 2xl:gap-x-6 md:clickable')
+		.flex.white(class='w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9')
 				svg.w-full.h-full(viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg')
 					path(d='M8.5 11L14.75 16L8.5 21' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round')
 					path(d='M17.25 21H23.5' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round')
 					path(d='M29.6719 1H2.32812C1.59462 1 1 1.71355 1 2.59375V29.4062C1 30.2865 1.59462 31 2.32812 31H29.6719C30.4054 31 31 30.2865 31 29.4062V2.59375C31 1.71355 30.4054 1 29.6719 1Z' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round')
-		span.flex-grow.font-medium.text-inherit.text-start(data-v-3846dcc4='' class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
+		span.flex-none.font-medium.text-inherit.text-start(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
 			!= text
-		button.flex.justify-center.items-center.p-2.gradient-0.rounded-full(data-v-3846dcc4='' class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
+		button.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
+			+arrowdiagonalup()
+
+
+mixin darkbutton(text)
+	a.flex.flex-row.rounded-3xl.p-6.items-center.cursor-pointer.gap-x-4.w-full.white.darkBG(href='#' target='_blank' class='2xl:p-10 2xl:gap-x-6 md:clickable')
+		.flex.white(class='w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9')
+				svg.w-full.h-full(viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg')
+					path(d='M8.5 11L14.75 16L8.5 21' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round')
+					path(d='M17.25 21H23.5' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round')
+					path(d='M29.6719 1H2.32812C1.59462 1 1 1.71355 1 2.59375V29.4062C1 30.2865 1.59462 31 2.32812 31H29.6719C30.4054 31 31 30.2865 31 29.4062V2.59375C31 1.71355 30.4054 1 29.6719 1Z' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round')
+		span.flex-grow.font-medium.text-inherit.text-start(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
+			!= text
+		button.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrowdiagonalup()
 
 mixin lightbutton(text)
-	a.flex.flex-row.shadow.rounded-3xl.p-6.items-center.cursor-pointer.gap-x-4.w-full.black.purelightestblueBG(data-v-3846dcc4=''  href='#' target='_blank' class='2xl:p-10 2xl:gap-x-6 md:clickable')
+	a.flex.flex-row.shadow.rounded-3xl.p-6.items-center.cursor-pointer.gap-x-4.w-full.black.purelightestblueBG(href='#' target='_blank' class='2xl:p-10 2xl:gap-x-6 md:clickable')
 		.flex(class='w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9')
 			svg.w-full.h-full(viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg')
 				path(d='M3.07031 23.6637C1.2035 20.5141 0.550508 16.7914 1.23393 13.1944C1.91736 9.59749 3.8902 6.3737 6.78209 4.12827C9.67398 1.88283 13.286 0.77017 16.9401 0.999173C20.5943 1.22818 24.0391 2.78309 26.628 5.37201C29.217 7.96093 30.7719 11.4058 31.0009 15.0599C31.2299 18.714 30.1172 22.3261 27.8718 25.218C25.6264 28.1099 22.4026 30.0827 18.8056 30.7661C15.2087 31.4496 11.486 30.7966 8.3364 28.9297L3.13301 30.403C2.91982 30.4653 2.69379 30.4692 2.4786 30.4142C2.26341 30.3591 2.06699 30.2472 1.90993 30.0901C1.75287 29.9331 1.64095 29.7367 1.5859 29.5215C1.53086 29.3063 1.53471 29.0802 1.59706 28.8671L3.07031 23.6637Z' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round')
 				path(d='M15.9999 17.8788C17.0375 17.8788 17.8787 17.0376 17.8787 16C17.8787 14.9624 17.0375 14.1212 15.9999 14.1212C14.9623 14.1212 14.1211 14.9624 14.1211 16C14.1211 17.0376 14.9623 17.8788 15.9999 17.8788Z' fill='currentColor')
 				path(d='M8.48474 17.8788C9.52237 17.8788 10.3635 17.0376 10.3635 16C10.3635 14.9624 9.52237 14.1212 8.48474 14.1212C7.44712 14.1212 6.60596 14.9624 6.60596 16C6.60596 17.0376 7.44712 17.8788 8.48474 17.8788Z' fill='currentColor')
 				path(d='M23.515 17.8788C24.5526 17.8788 25.3938 17.0376 25.3938 16C25.3938 14.9624 24.5526 14.1212 23.515 14.1212C22.4774 14.1212 21.6362 14.9624 21.6362 16C21.6362 17.0376 22.4774 17.8788 23.515 17.8788Z' fill='currentColor')
-		span.flex-grow.font-medium.text-inherit.text-start(data-v-3846dcc4='' class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
+		span.flex-grow.font-medium.text-inherit.text-start(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
 			!= text
-		button.flex.justify-center.items-center.p-2.gradient-0.rounded-full(data-v-3846dcc4='' class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
+		button.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrowdiagonalup()
 
 
