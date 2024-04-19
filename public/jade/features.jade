@@ -1,12 +1,11 @@
 extends ./layout
 block content
-	.extractable.fullpage.flowhidden
-		.main-theme.flex.flex-col.bg-main.min-h-full.overflow-hidden.en( style="margin-top:130px")
+	.extractable.fullpage
+		.main-theme.flex.flex-col.bg-main.min-h-full.en( style="margin-top:130px")
 			.relative
-				header.absolute.left-0.right-0.top-0.z-20
-					
+				.absolute.left-0.right-0.top-0.z-20
 					.container.flex.flex-row.items-center(class='4md:justify-center')
-						span.LmarginLg
+						span
 							+pureseries_SVG('series')
 						
 										
@@ -18,8 +17,8 @@ block content
 								| Versatile Blockchain #[br]features 
 							.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
 								p.mt-4.sizeLg(class='md:mt-6')
-									| #[b.bolder.purecolor Build] and use the best Web3 applications on Injective, #[br]the fastest layer
-									| 1 blockchain shaping the future of finance.
+									| #[b.bolder.purecolor Build] and use the best Web3 applications with Purechain, 
+									| #[br]one of the most secure, robust and flexible blockchain implemetations 
 								.flex.flex-col.mt-12(class='md:col-span-6 4md:col-span-7')
 									.block(class='md:block')
 										p.block.h7.text-center.my-8(class='md:text-left 2xl:my-[2.375rem]')
@@ -293,26 +292,11 @@ block content
 						.flex.flex-col.justify-between.w-full(class='md:flex-row')
 							.relative.flex.flex-col(class='md:w-1/2 md:min-w-1/2')
 								.mt-0
-									.flex.flex-row.group.shadow.rounded-2xl.items-center.cursor-pointer.w-full.justify-between.purelightestblueBG( class='md:mb-4 2xl:mb-[26px] md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4 md:w-[21rem] 2xl:w-[388px]')
-										span.text-tiny.nav-title.text-main-blue.font-bold( class='group-hover:text-main-blue leading-[130%] lg:text-sm 2xl:text-base')
-											| Revolutionizing
-											| Smart Contracts
-										svg.h-full.w-full.h-4.w-4( aria-hidden='true' focusable='false' data-prefix='fab' data-icon='discord' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='group-hover:text-main-blue md:h-3 md:w-3')
-											g(opacity='1')
-												path(d='M2.06726 12.3012L19.5133 12.3133' fill='none' stroke='currentColor' stroke-width='1.8' stroke-miterlimit='10')
-												path(d='M9.8999 2.3999L19.7999 12.2999L9.8999 22.1999' fill='none' stroke='currentColor' stroke-width='1.8' stroke-miterlimit='10')
-									.flex.flex-row.group.shadow.rounded-2xl.items-center.cursor-pointer.w-full.justify-between.bg-transparent.border-transparent( class='md:mb-4 2xl:mb-[26px] md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4 md:w-[21rem] 2xl:w-[388px]')
-										span.text-tiny.nav-title.text-tcolor-1.font-medium( class='group-hover:text-main-blue leading-[130%] lg:text-sm 2xl:text-base')
-											| Pioneering
-											| Interoperability
-									.flex.flex-row.group.shadow.rounded-2xl.items-center.cursor-pointer.w-full.justify-between.bg-transparent.border-transparent( class='md:mb-4 2xl:mb-[26px] md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4 md:w-[21rem] 2xl:w-[388px]')
-										span.text-tiny.nav-title.text-tcolor-1.font-medium( class='group-hover:text-main-blue leading-[130%] lg:text-sm 2xl:text-base')
-											| Customized
-											| DeFi Solutions
-									.flex.flex-row.group.shadow.rounded-2xl.items-center.cursor-pointer.w-full.justify-between.bg-transparent.border-transparent( class='md:mb-4 2xl:mb-[26px] md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4 md:w-[21rem] 2xl:w-[388px]')
-										span.text-tiny.nav-title.text-tcolor-1.font-medium( class='group-hover:text-main-blue leading-[130%] lg:text-sm 2xl:text-base')
-											| Formidable
-											| Security
+									+explaintoggle("Revolutionizing Smart Contracts", 1)
+									+explaintoggle("Pioneering Interoperability", 0)
+									+explaintoggle("Customized DeFi Solutions", 0)
+									+explaintoggle("Formidable Security", 0)
+									
 								.flex.flex-col.flex-1.mt-10
 									+darkbutton('Start Building')
 							.nonez(class='md:flex')
@@ -947,12 +931,11 @@ block content
 					.px-4.p-11(class='md:pt-16 md:p5 md:rounded-xl 2xl:rounded-3xl')
 						.container.mx-auto.flex.flex-col
 							.flex.flex-col.items-center(class='md:flex-row')
-								h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-2/3")
+								h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-1/2")
 									| Verified and Approved #[br] Technology
-								span.px-4.txtR.text-base.font-medium(class='md:mt-0 leading-[1.875rem] md:text-tiny md:leading-[200%] 2xl:text-lg 2xl:leading-10 md:w-1/3')
-									| Pure series is powered by a global network of developers, validators,
-									| builders, institutions and partners. Explore the fastest growing community
-									| pioneering a new world of blockchain.
+								span.txtR.text-base.font-medium(class='md:mt-0 leading-[1.875rem] md:text-tiny md:leading-[200%] 2xl:text-lg 2xl:leading-10 md:w-1/2')
+									| Pure series represents the evergrowing global network#[br] behind Pure chain and its sibling services.
+									| #[br]Grasp the modern concepts of this blockchain phenomenon.
 							.mt-8.box-border(class='md:mt-14 2xl:mt-20 2xl:h-[277px]')
 								.flex.flex-row.gap-x-4.nonez.sizeSm(class='md:flex')
 									
@@ -1131,125 +1114,144 @@ block content
 													| Oracle Module • CosmWasm Module
 						//- Desktop Version
 						.nonez.txtR(class='md:block md:h-full w-1/3')
-							.relative.mt-24
-								.flex.flex-row.justify-between.items-center
-									.order-2
-										span.block.text-2xs.rounded-md.text-center.py-1.bg-gray-3.font-medium.capitalize(class='4md:rounded-lg 4md:px-3 4md:py-2 md:leading-[0.675rem] 4md:text-xs 4md:leading-[0.75rem]')
-											| Crypto
-									a(href='https://helixapp.com/spot/inj-usdt' target='_blank')
-										.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-											img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/71aaf95d-57b9-427a-8b2f-cc2c4167dfe6.png')
-								span.block.mt-4.font-medium.text-2xl.leading-10(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
-									| Pure chain
+							.relative.mt-24(class="sm:pr-4")
+								span.block.mt-4.font-medium.text-2xl.leading-10.content-right(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
+									+pureseries_SVG('chain')
 								hr.bg-gray-line.mt-6
 								.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6')
-									span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny leading-[170%]')
-										| description
+									span.mb-4.block.font-medium.text-2xl.leading-tight.pureblue.txtL(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
+										| Improved Performance over Traditional Blockcains
+									hr.mb-6
 									span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-										| The premier decentralized orderbook crypto exchange for trading
-										| crypto assets and derivatives. Helix offers zero gas fees, an
-										| intuitive user interface, and niche interchain markets.
-								.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6')
+										| We utilize exclusive technologies to addres blockchain challenges 
+										| (decentralization, security, scalability, high gas fees) and provide a real-time environment.
+								.none.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6')
 									span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
 										| utilizes
 									span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
 										| Exchange Module • Orderbook Primitive • Oracle Module
 						.nonez.evenoddblocks.mb-48( class='w-3/4 md:flex')
 							.nonez.grid-cols-2.items-center.gap-4( class='md:grid 2xl:gap-8')
-								.rounded-2xl.describlock.purestblueBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+								.rounded-2xl.describlock.purelightestblueDownBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
 									.relative
 										.flex.flex-row.justify-between.items-center
 											.order-2
 												span.block.text-2xs.rounded-md.text-center.px-2.py-1.bg-gray-3.font-medium.text-main-blue.capitalize(class='4md:rounded-lg 4md:px-3 4md:py-2 md:leading-[0.675rem] 4md:text-xs 4md:leading-[0.75rem]')
-													| Orderbook Exchange
+													| SAM#[sup +]
 											a(href='https://helixapp.com/spot/inj-usdt' target='_blank')
 												.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-													img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/71aaf95d-57b9-427a-8b2f-cc2c4167dfe6.png')
+													//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/71aaf95d-57b9-427a-8b2f-cc2c4167dfe6.png')
 										span.block.mt-4.font-medium.text-2xl.leading-10(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
-											| Helix
+											| Smart Auto Mining#[sup +]
 										hr.bg-gray-line.mt-6
-										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6')
-											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny leading-[170%]')
-												| description
+										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+												| Feature
 											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-												| The premier decentralized orderbook crypto exchange for trading
-												| crypto assets and derivatives. Helix offers zero gas fees, an
-												| intuitive user interface, and niche interchain markets.
-										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6')
-											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+												| A mining technique that optimizes transaction mining time 
+												| and reduces the energy required to power the network.
+										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
 												| utilizes
 											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
 												| Exchange Module • Orderbook Primitive • Oracle Module
-								.even.rounded-2xl.describlock.purestblueBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+								.even.rounded-2xl.describlock.purelightestblueDownBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
 									.relative
 										.flex.flex-row.justify-between.items-center
 											.order-2
 												span.block.text-2xs.rounded-md.text-center.px-2.py-1.bg-gray-3.font-medium.text-main-blue.capitalize(class='4md:rounded-lg 4md:px-3 4md:py-2 md:leading-[0.675rem] 4md:text-xs 4md:leading-[0.75rem]')
-													| DeFi Protocol
+													| PoA#[sup 2]
 											a(href='https://mito.fi/' target='_blank')
 												.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-													img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/a8b3ff8a-3366-4d4e-9202-75e539b16017.png')
+													//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/a8b3ff8a-3366-4d4e-9202-75e539b16017.png')
 										span.block.mt-4.font-medium.text-2xl.leading-10(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
-											| Mito
+											| Proof of Authority#[sup 2]
 										hr.bg-gray-line.mt-6
-										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6')
-											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny leading-[170%]')
-												| description
+										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+												| Feature
 											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-												| Mito brings a groundbreaking protocol to revolutionize automated
-												| trading, launchpads and yield generation.
-										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6')
-											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+												| A tehnique that ensures network stability 
+												| #[br] even when or if mining is interrupted.
+												
+										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
 												| utilizes
 											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
 												| CosmWasm Module • Exchange Module • Orderbook Primitive
-								.rounded-2xl.describlock.purestblueBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+								.rounded-2xl.describlock.purelightestblueDownBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
 									.relative
 										.flex.flex-row.justify-between.items-center
 											.order-2
 												span.block.text-2xs.rounded-md.text-center.px-2.py-1.bg-gray-3.font-medium.text-main-blue.capitalize(class='4md:rounded-lg 4md:px-3 4md:py-2 md:leading-[0.675rem] 4md:text-xs 4md:leading-[0.75rem]')
-													| Liquid Staking
+													| NSL-L2
 											a(href='https://hydroprotocol.finance/' target='_blank')
 												.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-													img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/6c21ab9a-7d16-4e1f-beb5-53beaa1032b6.jpg')
+													//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/6c21ab9a-7d16-4e1f-beb5-53beaa1032b6.jpg')
 										span.block.mt-4.font-medium.text-2xl.leading-10(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
-											| Hydro Protocol
+											| NSL Layer2
 										hr.bg-gray-line.mt-6
-										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6')
-											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny leading-[170%]')
-												| description
+										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+												| feature
 											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-												| Hydro Protocol offers liquidity solutions with Real Yield
-												| Assets, combining real world and crypto assets for optimized
-												| yield strategies to create Injective’s LSD+LSDFi ecosystem.
-										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6')
-											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+												| A technology that uses Zero-Knowledge (Zk)- Rollup technology 
+												| with SAM#[sup +] and PoA#[sup 2] to improve blockchain stability
+												| and gas fees. 
+												
+										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
 												| utilizes
 											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
 												| Exchange Module • Orderbook Primitive • Oracle Module
-								.even.rounded-2xl.describlock.purestblueBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+								.even.rounded-2xl.describlock.purelightestblueDownBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
 									.relative
 										.flex.flex-row.justify-between.items-center
 											.order-2
 												span.block.text-2xs.rounded-md.text-center.px-2.py-1.bg-gray-3.font-medium.text-main-blue.capitalize(class='4md:rounded-lg 4md:px-3 4md:py-2 md:leading-[0.675rem] 4md:text-xs 4md:leading-[0.75rem]')
-													| NFT Marketplace
+													| L1#[sup +]
 											a(href='https://talis.art/' target='_blank')
 												.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-													img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/32791478-533f-4d97-8693-bea3747e561e.png')
+													//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/32791478-533f-4d97-8693-bea3747e561e.png')
 										span.block.mt-4.font-medium.text-2xl.leading-10(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
-											| Talis Protocol
+											| Augmented Layer1
 										hr.bg-gray-line.mt-6
-										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6')
-											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny leading-[170%]')
-												| description
+										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+												| feature
 											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-												| The first native NFT marketplace building on Injective, ushering
-												| in the NFT Fi ecosystem.
-										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6')
-											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+												| A layer that integrates SAM#[sup +] and PoA#[sup 2] 
+												| to enhance both efficiency and reliability of the existing blockchain's Layer1.
+												
+										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
 												| utilizes
 											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
 												| Oracle Module • CosmWasm Module
+								.rounded-2xl.describlock.purelightestblueDownBG.black.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+									.relative
+										.flex.flex-row.justify-between.items-center
+											.order-2
+												span.block.text-2xs.rounded-md.text-center.px-2.py-1.bg-gray-3.font-medium.text-main-blue.capitalize(class='4md:rounded-lg 4md:px-3 4md:py-2 md:leading-[0.675rem] 4md:text-xs 4md:leading-[0.75rem]')
+													| NSL-cL2
+											a(href='https://hydroprotocol.finance/' target='_blank')
+												.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
+													//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/6c21ab9a-7d16-4e1f-beb5-53beaa1032b6.jpg')
+										span.block.mt-4.font-medium.text-2xl.leading-10(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
+											| Centralized Layer2
+										hr.bg-gray-line.mt-6
+										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+												| feature
+											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+												| A specialized Layer2 
+												| #[br] for industrial applications.
+												
+										.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+											span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+												| utilizes
+											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+												| Exchange Module • Orderbook Primitive • Oracle Module
 			.relative.context
 				section.mx-auto.left-0.right-0.mb-24.container
 					.flex.flex-col(class='2xl:flex')

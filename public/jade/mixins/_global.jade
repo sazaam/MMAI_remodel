@@ -33,6 +33,33 @@ mixin back(obj)
 
 //- ///////////////////////////////////////////// HOME
 
+//- ///////////////////////////////////////////// WALLET
+mixin getit(id)
+	a.block(href= (id == "google") ? "#" : "")
+		+getit_SVG(id)
+
+mixin getitboth()
+	.flex.flex-row.flex-wrap.gap-y-4.gap-x-8(class="lg:flex:nowrap")
+		.flex-none
+			+getit("google")
+		.flex-none
+			+getit("apple")
+
+
+mixin explaintoggle(text, type)
+	case type
+		when 1
+			.flex.flex-row.group.shadow.rounded-2xl.items-center.cursor-pointer.w-full.justify-between.purelightestblueBG( class='md:mb-4 2xl:mb-[26px] md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4 md:w-[21rem] 2xl:w-[388px]')
+				span.text-tiny.nav-title.text-main-blue.font-bold( class='group-hover:text-main-blue leading-[130%] lg:text-sm 2xl:text-base')
+					!= text
+				svg.h-full.w-full.h-4.w-4( aria-hidden='true' focusable='false' data-prefix='fab' data-icon='discord' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='group-hover:text-main-blue md:h-3 md:w-3')
+		default
+			.flex.flex-row.group.shadow.rounded-2xl.items-center.cursor-pointer.w-full.justify-between.bg-transparent.border-transparent( class='md:mb-4 2xl:mb-[26px] md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4 md:w-[21rem] 2xl:w-[388px]')
+				span.text-tiny.nav-title.text-tcolor-1.font-medium( class='group-hover:text-main-blue leading-[130%] lg:text-sm 2xl:text-base')
+					!= text
+
+
+
 //- ///////////////////// PURECHAIN
 mixin signuphome(obj)
 	form#signup(action="#")

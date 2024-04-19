@@ -170,6 +170,31 @@ html{min-height:2450px}
 .pureBD{border-color:#3a6df0}
 
 
+
+.purelightestblueToBG{
+    background: rgb(221,230,255);
+    background: linear-gradient(270deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);
+}
+
+
+
+.purelightestblueFromBG{
+    background: rgb(221,230,255);
+    background: linear-gradient(90deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);
+}
+
+
+.purelightestblueDownBG{
+    background: rgb(221,230,255);
+    background: linear-gradient(90deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);
+}
+.purelightestblueUpBG{
+    background: rgb(221,230,255);
+    background: linear-gradient(270deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);
+}
+
+
+
 @media (min-width: 1280px) {
     .xl\:\!w-24 {
       width: 6rem !important;

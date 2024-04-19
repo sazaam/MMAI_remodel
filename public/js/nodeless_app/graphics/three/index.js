@@ -479,7 +479,7 @@ var viz3D = {
 					}
 					
 					generateParticle(200, 2);
-					scene.add(particleGroup);
+					//scene.add(particleGroup);
 					
 					/////////////////////////////////////////////
 					
