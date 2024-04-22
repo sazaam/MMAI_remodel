@@ -2,7 +2,7 @@
 - let l = 6 ;
 
 .page.rel.fullH.txtC.slides.purewallet.flowhidden
-	.slidenav.abs(style="bottom:55px;z-index: 50;").txtC.left0.right0
+	.slidenav.abs(style="bottom:15px;z-index: 50;").txtC.left0.right0
 		ol.context.inlineblock.marginauto.widthauto
 			- for(i = 0 ; i < l ; i++){
 				li.floatL.sizeXXXLg.HpadXXXSm
@@ -10,44 +10,61 @@
 			- }
 	
 	.slides.rel.fullW.fullH(style="left:0%")
-		
 		- for(i = 0 ; i < l ; i++){
-			.slide.abs.fullW.fullH.grid.grid-cols-1.content-center(style="left:"+ i*100 +"%")
-				.max-w-md.mx-auto.bg-white.rounded-xl.overflow-hidden(class="md:max-w-6xl")
-					div(class="md:flex txtR")
-						div(class="md:shrink-0")
-							img.h-48.w-full.object-cover(class="md:h-full md:w-50", src="/img/phone_main.png", alt="Modern building architecture")
-						.p-8.grid.grid-cols-1.gap-5.content-center.montserrat.sizeLg.black
+			.relative.slide.abs.fullW.fullH.grid.grid-cols-1.content-center(style="left:"+ i*100 +"%")
+				- if(i % 2 == 0){
+					section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
+						.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
+							.phonetextblock.relative.pt-0(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
+								.rounded-2xl.purelightestblueFromBG
+									.p-8
+										.txtR.dark
+											h2.text-start.text-xl.mt-0.mb-6.min-w-max.leading-tight
+												| Effective #[br] #[span.pureblue Payment] Process 
+											hr.mb-6
+											.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
+												.mt-4.mb-2
+													p.mt-4.txtL
+														| Provides a more efficient and streamlined #[br] payment processing system
+														| #[br] with lower transaction costs using #[br] our exclusive blockchain technology.
+														| #[br] #[br] Suitable for micropayments, bulk Retail, 
+														| #[br] and payments that require the highest security.
+												
+							.phoneshot.pt-16(class="w-full sm:pt-0 sm:w-2/5")
+								.p-8
+									.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
+										.rel.left-10
+											+pureseries_SVG('wallet')
+										img.mt-10.object-fill(src="/img/phone_screenshot.png", alt="")
+				- } else {
+					section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
+						.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row")
 							
-							.sizeXXXLg.tracking-narrow.black.leading-tight Offline Blockchain #[br] Mobile Wallet
-							.block.mt-1.text-lg.leading-tight.bolder Easy and Offline Transfers, #[br]  Purchase and Swap #[br] Cryptocurrencies
-							p.mt-2.text-slate-500 Benefit of the latest innovative Blockchain technology improvements and handle all your cryptocurrencies in one single place.
-			
-			//- .slide.abs.fullW.fullH(style="left:"+ i*100 +"%")
-				.safe.black.txtL(style="padding-top:30px")
-					.introblock.sizeXXXLg.TmarXXXLg.TpadXXXLg
-						.puremain.pureseries.TmarXXXLg.context.LpadXXLg
-							span.block.floatL
-								em.block
-									span.none P
-							b.bolder Pure 
-							span Wallet
-					
-					.slidezone.line.context
-						.unit.size2of5.visual
-							.img_cont(style="width:280px")
-								img.block(src="/img/phone_main.png")
-						.unit.lastunit.textes.TmarXXXLg.TpadXXLg.sizeLg
-							h2.montserrat.bolder.VpadXXXLg.sizeXXLg.lh1.Lpad(style="border-left:1px solid #3a6df0;") Offline Blockchain #[br] Mobile Wallet
-							.TmarXXLg.BmarXXXLg.lh1.LpadXXLg.sizeLg Easy and Offline Transfers, #[br]  Purchase and Swap #[br] Cryptocurrencies
-							
-							.TmarXXXLg.lh1(style="border-left:1px solid #3a6df0;")
-								.LpadXXXLg.BpadSm
-									p.sizeSm Benefit of the latest innovative #[br] Blockchain technology improvements #[br] and handle all your cryptocurrencies #[br] in one single place.
-							
-								.TmarXLg
-									a.inlineblock.walletBG.white.pad.VpadSm.thin.round.right(href="#")
-										span Learn More
+							.phoneshot.pt-16(class="w-full sm:w-2/5 sm:pt-0")
+								.p-8
+									.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
+										.rel.left-10
+											+pureseries_SVG('wallet')
+										
+										img.mt-10.object-fill(src="/img/phone_screenshot2.png", alt="")
+							.phonetextblock.relative.pt-0(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
+								.rounded-2xl.purelightestblueToBG
+									.p-8
+										.txtR.dark
+											h2.text-start.text-xl.mt-0.mb-6.min-w-max.leading-tight
+												| #[span.pureblue Offline] Mobile #[br] Electronic #[span.pureblue Wallet]
+											hr.mb-6
+											.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
+												.mt-4.mb-2
+													p.mt-4.txtL
+														| Enables access to modern financial services 
+														| #[br]even in limited infrastructure environments. 
+														| #[br]#[br] Economically empowers emerging countries 
+														| #[br] through offline and banking functions, 
+														| #[br] providing them with the opportunity 
+														| #[br] to enter the global digital economy.
+				- }
+				
 		- }
 									
 									

@@ -495,14 +495,21 @@ let footnav_fixtures = `{
                     "link":"#"
                 },
                 {
-                    "name":"cognito",
-                    "content":"Cognito",
+                    "name":"cognitgo",
+                    "content":"Cognitgo",
                     "link":"#"
                 }
             ]
         },
         {
-            "name": "Research"
+            "name": "Research",
+            "children":[
+                {
+                    "name":"patents-and-papers",
+                    "content":"Patents and Papers",
+                    "link":"/patents-and-papers/"
+                }
+            ]
         },
         {
             "name": "Help",
