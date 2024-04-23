@@ -129,7 +129,7 @@ module.exports = MMAI.func = {
 			$('.lang').off('click', langchange)
 		}
 	},
-	
+	////////////////////////// LAZYLOADINGS OF IMAGES (NOT IN USE YET)
 	lazyload:lazyload = function(e){
 		var res = e.target ;
 		var id = res.id ;
@@ -142,8 +142,6 @@ module.exports = MMAI.func = {
 			
 			el.css({'background-image': 'url(' + el.attr('lazy') + ')'}) ;
 		})
-		
-
 	},
 	
 	////////////////////////// TOP SECTIONS
@@ -161,73 +159,111 @@ module.exports = MMAI.func = {
 		
 		var res = e.target ;
 		
-		if(!!!res.template){
-			//trace('/content/section/' + res.id) ;
-			res.render('/content/section/' + res.sectionId) ;
+		//////////////////////////// GENERATE PAGE TEMPLATE IF DOES NOT EXIST YET
+		if(!!!res.template){ 
 			
+			res.render('/content/section/' + res.sectionId) ; // JADE RENDER SECTION
+			// HACK IN ORDER TO HAVE ALL TEMPLATES AS usual jQuery DOMElement Obj
 			var saz = $('<div>') ;
 			res.template.appendTo(saz) ;
 			res.template = saz.find('.extractable') ;
-			
+			// END HACK
+
 		}
 		
 		
 		
-		target_section = res.template ;
-		
-		
 		if(res.opening){
-			trace('OPENING', res.id)
+			//trace('OPENING', res.id)
 			
+
+
+			/////////////////////////// 404 SPECIAL CASE
 			// 404 case
 			/* if(res.id == '404'){
-				target_section.appendTo(all) ;
+				res.template.appendTo(all) ;
 				return res.ready() ;
 			} */
-			
+			/////////////////////////// END 404 SPECIAL CASE
+
+
+			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+
 			MMAI.home.scrollTo(0, .25) ;
-			target_section.prependTo($('body')) ;
+			res.template.prependTo($('body')) ;
 			$('.foot').removeClass("none") ;
 			$('#mainloader').addClass('none') ;
 			
+			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+
+			/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
+
+			//////////////////////////////////////// LAZY LOADINGS IF REQUIRED
 			if(!res.userData.lazyLoaded){
 				lazyload(e, true) ;
 				res.userData.lazyLoaded = true ;
 			}
-			/* 
-			BJS.create({
-				target:target_section,
-				to:{
-					opacity:100
-				},
-				from:{
-					opacity:0
-				},
-				time:.45,
-				ease:Expo.easeOut,
-				onComplete:function(){
-					
-					res.ready() ;
-					$('.foot').removeClass("none") ;
-				}
-			}).play() ;
-			 */
+			//////////////////////////////////////// END LAZY LOADINGS IF REQUIRED
+
+
+			//////////////////////////////////////// VARIOUS TOGGLES IN PAGES
+			if($('.paneltoggle').size()){
+				
+				MMAI.home.togglePanels_click = MMAI.home.togglePanels_click || function(e){
+					var toggler = $(e.currentTarget) ;
+					toggler.data('hide')() ;
+				} 
+
+				$('.paneltoggle').each(function(i, el){
+					var panels = $(el).find('.panel') ;
+					var toggler = $(el).find('.paneltoggler') ;
+					var BGs = $(el).find('.togglerBG') ;
+					toggler.each(function(i, el){
+						var panel = $(panels.get(i)) ;
+						var BG = $(BGs.get(i)) ;
+						var tog = $(el) ;
+						tog.data('hide', function(){
+							panels.addClass('none') ;
+							panel.removeClass('none') ;
+							BGs.removeClass('purelightestblueBG') ;
+							BG.addClass('purelightestblueBG') ;
+						})
+					})
+					toggler.on('click', MMAI.home.togglePanels_click) ;	
+				})
+
+			}
+
+			//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
+
+
+			/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
+
+
+			//////////////////////// FIRE READY EVENT
 			res.ready() ;
 			
 		}else{
 			
-			
-			trace('CLOSING', res.id)
+			//trace('CLOSING', res.id)
+
+
+			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
 			$('.foot').addClass("none") ;
-			target_section.remove() ;
-			
+			res.template.remove() ;
+			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+
+
+			/////////////////////////// 404 SPECIAL CASE
 			// 404 case
 			/* if(res.id == '404'){
-				target_section.appendTo(continent) ;
+				res.template.appendTo(continent) ;
 				return res.ready() ;
 			} */
+			/////////////////////////// END 404 SPECIAL CASE
 			
-			
+
+			//////////////////////// FIRE READY EVENT
 			res.ready() ;
 		
 		}
@@ -249,44 +285,63 @@ module.exports = MMAI.func = {
 		
 		
 		res.template = res.template || $('.extractable').removeClass('hidden') ;
-		var target_section = res.template ;
-		
 		
 		if(res.opening){
 			
-			trace('OPENING', res.id) ;
+			//trace('OPENING', res.id) ;
 			
-			MMAI.home.scrollTo(0, .25) ;
 			
-			res.template.prependTo($('body')) ;
+			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+			MMAI.home.scrollTo(0, .25) ; // SHOULD JUST RESET SCROLL JUST IN CASE
+			res.template.prependTo($('body')) ; // ADD TEMPLATE
 			$('.foot').removeClass("none") ;
-			trace('should add SCROLL Evt')
-			$(window).on( "scrollEnd", MMAI.home.scroll) ;
 			
+			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+			
+			//////////////////////////////////////////////////////// HOME SCROLL EVENT ADD
+			//trace('should add SCROLL Evt') ;
+			$(window).on( "scrollEnd", MMAI.home.scroll) ;
+			//////////////////////////////////////////////////////// END HOME SCROLL EVENT ADD
+
+
+			///////////////////////////////////// HOME 3D VIZUALIZATION
 			MMAI.home.viz3D(true, res) ;
 			$('.viewport3D').removeClass('hidden') ;
-			// $('.downloadwallet').removeClass('none') ;
 			$('#mainloader').removeClass('none') ;
-			
+			///////////////////////////////////// END HOME 3D VIZUALIZATION
+
+			//////////////////////// FIRE READY EVENT
 			res.ready() ;
 			
 		}else{
+
 			
-			$('.foot').addClass("none") ;
-			trace('should remove SCROLL Evt')
+
+			//////////////////////////////////////////////////////// HOME SCROLL EVENT REMOVE
+			// trace('should remove SCROLL Evt')
 			$(window).off( "scrollEnd", MMAI.home.scroll) ;
-			
+			//////////////////////////////////////////////////////// END HOME SCROLL EVENT REMOVE
+
+			///////////////////////////////////// HOME 3D VIZUALIZATION
 			MMAI.home.viz3D(false, res) ;
-			// $('.downloadwallet').addClass('none') ;
 			$('.viewport3D').addClass('hidden') ;
 			$('#mainloader').addClass('none') ;
+			///////////////////////////////////// END HOME 3D VIZUALIZATION
 			
+			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+			$('.foot').addClass("none") ;
 			res.template.remove() ;
+			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
 			
+
+			//////////////////////// FIRE READY EVENT
 			res.ready() ;
 			
-			trace('CLOSING', res.id) ;
+			// trace('CLOSING', res.id) ;
 		}
+	},
+	various_toggles:various_toggles = function (cond, res){
+		trace('launching toggles') ;
 	},
 	slideshow_wallet : slideshow_wallet = function(cond, res){
 		
@@ -359,11 +414,13 @@ module.exports = MMAI.func = {
 			
 			sl.clear = function(){
 				
+				/* ////////////// SEEMS UNNECESSARY HERE 
 				slides.css({
 					// 'z-index':'1',
 					// 'left':'15000px',
 					// 'opacity':'0'
 				}).removeClass('inited') ;
+				*/
 				
 				slideshow.find('.flex-control-nav li').removeClass('active') ;
 			}

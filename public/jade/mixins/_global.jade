@@ -45,20 +45,30 @@ mixin getitboth()
 		.flex-none
 			+getit("apple")
 
-
 mixin explaintoggle(text, type)
 	case type
 		when 1
-			.flex.flex-row.group.shadow.rounded-2xl.items-center.cursor-pointer.w-full.justify-between.purelightestblueBG( class='md:mb-4 2xl:mb-[26px] md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4 md:w-[21rem] 2xl:w-[388px]')
-				span.text-tiny.nav-title.text-main-blue.font-bold( class='group-hover:text-main-blue leading-[130%] lg:text-sm 2xl:text-base')
+			.paneltoggler.togglerBG.flex.flex-row.group.shadow.rounded-2xl.items-center.pointer.w-full.justify-between.purelightestblueBG( class='md:mb-4 md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4')
+				span.text-tiny( class='lg:text-sm 2xl:text-base')
 					!= text
-				svg.h-full.w-full.h-4.w-4( aria-hidden='true' focusable='false' data-prefix='fab' data-icon='discord' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='group-hover:text-main-blue md:h-3 md:w-3')
 		default
-			.flex.flex-row.group.shadow.rounded-2xl.items-center.cursor-pointer.w-full.justify-between.bg-transparent.border-transparent( class='md:mb-4 2xl:mb-[26px] md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4 md:w-[21rem] 2xl:w-[388px]')
-				span.text-tiny.nav-title.text-tcolor-1.font-medium( class='group-hover:text-main-blue leading-[130%] lg:text-sm 2xl:text-base')
+			.paneltoggler.togglerBG.flex.flex-row.group.shadow.rounded-2xl.items-center.pointer.w-full.justify-between( class='md:mb-4 md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4')
+				span.text-tiny( class='lg:text-sm 2xl:text-base')
 					!= text
 
-
+mixin explainsmalltoggle(text, type)
+	case type
+		when 1
+			.paneltoggler.flex.flex-row.w-full.items-center.justify-between.pointer
+				span.text-base
+					!= text
+				+arrowsmall_right()
+		default 
+			.paneltoggler.flex.flex-row.w-full.items-center.justify-between.pointer
+				span.text-base
+					!= text
+				+arrowsmall_down()
+	
 
 //- ///////////////////// PURECHAIN
 mixin signuphome(obj)
@@ -67,12 +77,6 @@ mixin signuphome(obj)
 			input.block.VpadXXSm.LpadSm.outlinenone.blackBD.bottomBD.round.both.purecolor(placeholder="your@email.com", type="text", style="width:250px")
 		.floatN.white
 			input.block.Hpad.VpadXXSm.blackBG.thin.round.both.pointer(type="submit", value="Go    >")
-
-
-mixin arrowdiagonalup()
-	svg(width='100%' height='100%' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-		path(d='M1.55542 10.4441L10.2285 1.76892' stroke='currentColor' stroke-width='2' stroke-miterlimit='10')
-		path(d='M3.27246 1.55542L10.444 1.55542V8.72874' stroke='currentColor' stroke-width='2' stroke-miterlimit='10')
 
 
 mixin normalbutton(text, target)
@@ -118,120 +122,6 @@ mixin lightbutton(text)
 
 
 
-
-
-
-//- 
-//- 
-//- 
-//- ///////////////////////////////////////// HOME SLIDESHOWS
-
-//-  MAIN SLIDESHOW
-mixin slideshow()
-	.slideshow.module-parallax.module-fade.module-full-height.fullH.rel
-		if(section.name == 'home')
-			.abs.bottom0.left0.fullW
-				+transition_intro
-		- if(!!target_sections && target_sections.length){
-			ul.slides
-				each child_section in target_sections
-					+slide(child_section, target_sections.indexOf(child_section))
-
-			ol.flex-control-nav.flex-control-paging(style="margin-bottom:5vh")
-				each child_section in target_sections
-					li
-						a= target_sections.indexOf(child_section) + 1
-		- }
-
-
-//- MAIN SLIDESHOW SLIDES
-mixin slide(child_section, i)
-
-	- var name = child_section.name ;
-	- var cleanname = child_section.cleanname ;
-	- var surname = child_section.surname ;
-	- var cleanlink = child_section.cleanlink ;
-
-	- var post = child_section.post ;
-	- var mediablock = getComponentByName(child_section.post.bracket, 'media_main') 
-	- var medias = mediablock.media ;
-	- var media = section.name == 'home' ? medias[0].url : ((1 in medias) ? medias[1].url : medias[0].url) ;
-
-	li.bg-dark.noselect(unselectable="on" style='width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;')
-		.slidebg.slide-zoom.lazy(lazy=CDN + media, style='opacity:.3;')
-
-		- if(name == 'home'){
-
-			.hs-caption.container(style='top: 0px; display: table;')
-				.caption-content.center.plouf.txtC
-					.centercont.marginAuto(style="width:270px")
-						a.block.cover.biglogo.txtC(href="#")
-							span.hidden= cleanname
-						a.block.uppercase.montserrat.white(href="#", style='margin-top: -20px; margin-left: 4px; font-size:15.2px;')= surname
-
-					ul.links.dkt.context.TmarXXXXLg.sizeXLg.noBd
-						li(style='display: inline;')
-							a.sizeXXXXLg.white.rhdp(href="#")= t('DKT__globals.company.accroche_1') + " " + t('DKT__globals.company.accroche_2')
-
-		- }else if(name == 'techs'){
-
-			.hs-caption.container(style='top: 0px; display: table;')
-				.caption-content.left.vmiddle
-					.hs-title-size-3.font-alt.m-b-20.context.rhdp
-						span.whiteBG.block.floatL.padSm.VpadXSm.round.both.dkt.uppercase= cleanname
-					.hs-title-size-1.font-inc.LmarXXSm.Vmar.white
-						span= surname
-
-					+link({name:t("tech",  {count: 0}), cl:"dkt noBd", url:cleanlink})
-
-		- }else if(name == 'products'){
-
-			.hs-caption.container(style='top: 0px; display: table;')
-				.caption-content.right.vmiddle
-					.hs-title-size-3.font-alt.m-b-20.white.rhdp
-						span= cleanname
-					.hs-title-size-1.font-inc.LmarXXSm.BmarXLg
-						span= surname
-
-					+link({name:t("product",  {count: 0}), cl:"dkt noBd", url:cleanlink})
-
-		- }else if(name == 'about'){
-			.hs-caption.container(style='top: 0px; display: table;')
-				.caption-content.left.vmiddle
-					.hs-title-size-3.font-alt.m-b-20.white.rhdp
-						span= cleanname
-					.hs-title-size-1.font-inc.LmarXXSm.BmarXLg
-						span= surname
-
-					+link({name:t("company"), cl:"dkt noBd", url:cleanlink})
-		- }else{
-			- var even = i % 2 == 0 ;
-			- var cl = even ? 'left' : 'right' ;
-			- cl = section.name == 'home' ? cl + ' noproduct' : cl ;
-			.hs-caption.container(style='top: 0px; display: table;')
-				.caption-content(class=cl)
-					.hs-title-size-3.font-alt.m-b-20.white.rhdp
-						span= cleanname
-					.hs-title-size-1.font-inc.BmarXLg
-						span= surname
-
-					+link({name:"product", cl:"dkt noBd", url:cleanlink})
-		- }
-
-
-//- ///////////////////////////////////////// OTHER CUSTOM BLOCKS
-
-//- 
-//- //////////////// HOME
-
-
-
-
-mixin dktlogosmall
-	.endlogo.inlineblock(style="background-position:-120px -50px;")
-		span.hidden= t('~')
-
-//- //////////////// SINGLE PRODUCT
 
 
 
@@ -290,4 +180,3 @@ mixin error404
 				.aboutgo(style="padding:3em 0 3em")
 					- var o = {link : "#/"+ lang + '/home/', target:'$t(~)' }
 					+back(o)
-
