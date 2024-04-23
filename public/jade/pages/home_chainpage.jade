@@ -13,7 +13,7 @@
 				span Chain
 			.textblock.TmarXXXLg.TpadXXXLg
 				.catchphrase
-					h1.thinest.sizeXXXLg.lh1 The Era of Blockchain, #[br] Networks and Metaverses
+					h1.sizeXXXLg.lh1 The Era of Blockchain, #[br] Networks and Metaverses
 				
 				
 
@@ -35,15 +35,17 @@
 						.relative.w-18.h-18.rounded-lg.bg-stripes-purple(class='sm:w-32 sm:h-32')
 							.p-4.w-14.h-14.absolute.top-0.right-0.flex.items-center.justify-center.bg-purple-500.shadow-lg.rounded-lg
 
-				.flex.grid.grid-cols-1.gap-5.place-items-end
+				.flex.grid.grid-cols-1.gap-5.place-items-start
 					.sizeSm.TmarXXLg.lh1.w-full Reliable Certificates, Quick Transactions, #[br] Media and Contents Authoring, #[br] Gaming Platforms, Meta-Malls, #[br] Mixed Reality and more...
 					.none.signup.TmarXXLg.sizeSm.context.w-full
 						h3.sizeLg.bold Get started
 						+signuphome
-					flex.flex-row.flex-wrap.txtL.mt-48.w-full(class="sm:w-full lg:w-3/5")
-						.grid.text-xl.grid-cols-1.gap-y-4.place-items-end( class='md:grid-cols-2 md:gap-x-8 lg:text-2xl')
+					.flex.flex-row.flex-wrap.gap-y-4.gap-x-8.mt-4(class="lg:flex:nowrap")
+						.flex-none
 							+darkbutton('Start Building')
+						.flex-none
 							+lightbutton('Discord')
+						
 	.scrolldown.abs.txtC.left0.right0(style="bottom:25px")
 		.safe.context.txtC
 			+smallbutton("Discover the Ecosystem", "#/home/purewallet/")

@@ -1,6 +1,7 @@
+
+
 /*
     MMAIPure Website Remodelling entirely by sazaam
-    
 */
 
 
@@ -109,7 +110,7 @@ const app = express();
     
     // access static files
     app.use(express.static(path.join(__dirname, 'public')));
-
+    
 })(app);
 
 
@@ -405,7 +406,7 @@ let contentquery = async(req, res) => {
 
 let api = async(req, res) => {
     let q = req.url.replace(/(^\/)|(\/$)/g, '') ;
-    console.log(q) ;
+    // console.log(q) ;
     let datas = await QUERY(queries[q]).catch(err => { console.log(err) });
     
     return cleanup(datas[q]) ;
@@ -667,11 +668,11 @@ let root = async(req, res) => {
     //let tt = await QUERY(queries['sections']) ;
     let tt = JSON.parse(nav_fixtures) ;
     topsections = cleanup(tt, 'sections') ;
-    console.log(topsections) ;
+    // console.log(topsections) ;
     
     let ttt = JSON.parse(footnav_fixtures) ;
     footnavlinks = cleanup(ttt, 'footlinks') ;
-    console.log(topsections) ;
+    // console.log(topsections) ;
     
     await res.render(path.join(__dirname, 'public/jade/index'), jadeparams.merge(jadeparams, {
         
