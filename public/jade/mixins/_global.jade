@@ -105,7 +105,7 @@ mixin darkbutton(text)
 			+arrowdiagonalup()
 
 mixin lightbutton(text)
-	a.flex.flex-row.shadow.rounded-3xl.p-6.items-center.cursor-pointer.gap-x-4.w-full.black.purelightestblueBG(href='#' target='_blank' class='2xl:p-10 2xl:gap-x-6 md:clickable')
+	a.flex.flex-row.shadow.rounded-3xl.p-6.items-center.cursor-pointer.gap-x-4.w-full.white.pureblueBG(href='#' target='_blank' class='2xl:p-10 2xl:gap-x-6 md:clickable')
 		.flex(class='w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9')
 			svg.w-full.h-full(viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg')
 				path(d='M3.07031 23.6637C1.2035 20.5141 0.550508 16.7914 1.23393 13.1944C1.91736 9.59749 3.8902 6.3737 6.78209 4.12827C9.67398 1.88283 13.286 0.77017 16.9401 0.999173C20.5943 1.22818 24.0391 2.78309 26.628 5.37201C29.217 7.96093 30.7719 11.4058 31.0009 15.0599C31.2299 18.714 30.1172 22.3261 27.8718 25.218C25.6264 28.1099 22.4026 30.0827 18.8056 30.7661C15.2087 31.4496 11.486 30.7966 8.3364 28.9297L3.13301 30.403C2.91982 30.4653 2.69379 30.4692 2.4786 30.4142C2.26341 30.3591 2.06699 30.2472 1.90993 30.0901C1.75287 29.9331 1.64095 29.7367 1.5859 29.5215C1.53086 29.3063 1.53471 29.0802 1.59706 28.8671L3.07031 23.6637Z' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round')
@@ -118,8 +118,20 @@ mixin lightbutton(text)
 			+arrowdiagonalup()
 
 
-
-
+mixin advantageicons(id)
+	case id
+		when 'computer'
+			+icon_computer()
+		when 'puzzle'
+			+icon_puzzle()
+		when 'cubessquare'
+			+icon_cubessquare()
+		when 'handworld'
+			+icon_handworld()
+		when 'eurosmartphone'
+			+icon_eurosmartphone()
+		when 'connector'
+			+icon_connector()
 
 
 
