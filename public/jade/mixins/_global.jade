@@ -79,6 +79,11 @@ mixin signuphome(obj)
 			input.block.Hpad.VpadXXSm.blackBG.thin.round.both.pointer(type="submit", value="Go    >")
 
 
+mixin smallbutton(text, link)
+	a.inlineblock.pad.HpadXLg.round23.pureblueBG.white(href=link)
+		span 
+			!= text
+
 mixin normalbutton(text, target)
 	a.flex.flex-row.rounded-3xl.p-6.items-center.cursor-pointer.gap-x-4.white.pureblueBG(href='#' target= target || '_self' class='2xl:p-10 2xl:gap-x-6 md:clickable')
 		.flex.white(class='w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9')

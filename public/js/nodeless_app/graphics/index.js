@@ -210,6 +210,8 @@ module.exports = MMAI.func = {
 			if($('.paneltoggle').size()){
 				
 				MMAI.home.togglePanels_click = MMAI.home.togglePanels_click || function(e){
+					e.preventDefault() ;
+					e.stopPropagation() ;
 					var toggler = $(e.currentTarget) ;
 					toggler.data('hide')() ;
 				} 
@@ -225,8 +227,10 @@ module.exports = MMAI.func = {
 						tog.data('hide', function(){
 							panels.addClass('none') ;
 							panel.removeClass('none') ;
-							BGs.removeClass('purelightestblueBG') ;
-							BG.addClass('purelightestblueBG') ;
+							var highlightedClass = BG.prop("tagName") == 'A' ? 'pureblueBG white' : 'purelightestblueBG' ; 
+							BGs.removeClass(highlightedClass) ;
+							BG.addClass(highlightedClass) ;
+							trace(BG.prop("tagName"))
 						})
 					})
 					toggler.on('click', MMAI.home.togglePanels_click) ;	
