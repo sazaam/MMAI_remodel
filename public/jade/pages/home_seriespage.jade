@@ -2,32 +2,31 @@
 
 
 
-.fullW.fullH.txtC.black.rel.pureseries.pureline
+.fullW.fullH.txtC.rel.pureline
 	.introseries.sizeXXXLg
 		.page
-			.surprise.abs.flowvisible(style="bottom:50%;right:250px;width:0")
+			.eco.abs.flowvisible.top0.bottom0.left0.right0.purelightestblueBG
 				
-				.rel.puremain.pureseries.context.floatingseries(style="top:0px;left:-70px;width:220px")
-					a.block.blackBG.round23.white.HpadSm(href="javascript:void(0)")
-						em.bolder Pure
-							b.thin.LmarXXSm Series
-				- let series = ["Chain", "Wallet", "Certificates", "Voting", "Medical", "Media", "World"] ;
-				//- - series = series.reverse() ;
-				- let ls = series.length ;
-				- let rx = 200, ry = 200, offset = Math.PI / 2 + .22 ;
-				- for(let i = 0 ; i < ls ; i++){
-					- let x = rx * Math.cos(((i / ls ) * Math.PI) + offset) ;
-					- let y = ry * -Math.sin(((i / ls ) * Math.PI) + offset) ;
-					.abs.puremain.pureseries.context(style="left:"+(x - 70) +"px;top:"+ y +"px" class="floatingseries floating_" + series[i])
-						- let classname = 'blackBG round23 white'
-						a.block.bolder.Hpad.VpadXXSm.sizeSm(class= i == 0 ? "" : "", href="javascript:void(0)")
-							em #{series[i]}
-							
-				- }
+				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg(style="width:350px;top:100px")
+					ul.txtL.dark
+						li
+							a.block.purelightestblueDownBG.shadow.round23.HpadSm.txtL(href="javascript:void(0)")
+								em.bolder Pure
+									b.thin.LmarXXSm Series
+						- let series = ["Chain", "Wallet", "Certificates", "Voting", "Medical", "Media", "World"] ;
+						//- - series = series.reverse() ;
+						- let ls = series.length ;
+
+						- for(let i = 0 ; i < ls ; i++){
+							- let classname = 'blackBG round23 white' ;
+							li
+								a.block.bolder.HpadSm(class= i == 0 ? "" : "", href="javascript:void(0)" style="opacity:" + (.6 - ((i+1)/ls*.6)) + ";")
+									em.pureblue #[b.bolder Pure] #{series[i]}	
+						- }
 			
 					
 			.intro.safe.txtL(style="padding:20px 0 40px 0;")
-				.puremain.pureseries.TmarXXXLg.context
+				//- .puremain.pureseries.TmarXXXLg.TpadXXLg.context
 					span.block.floatL
 						em.block
 							span.none P
@@ -38,13 +37,20 @@
 			
 				
 				
-				.textes.abs(style="bottom:130px")
-					.catchphrase.TmarXXXLg.TpadXXXLg
-						h1.montserrat.bolder.sizeXXXLg.lh1 The Ecosystem
-					.sizeSm.TmarXXLg.lh1 
-						h3 We are ensuring a safe place <br />where all your expectations converge.
-						.TmarXXXLg.lh1
-									p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
+				.textes.abs(class="" style="bottom:130px;left:45px;margin-right:20px")
+					.purelightestblueUpBG.dark.rounded-3xl.p-6
+						.catchphrase.TmarXXXLg
+							h1.montserrat.bolder.sizeXXXLg.lh1 The Ecosystem
+						.sizeSm.TmarXXLg.lh1 
+							h3 We are ensuring a safe place <br />where all your expectations converge.
+							.TmarXXXLg.lh1
+								p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
+				
+					.Tmar.txtR.sizeXSm
+						+smallbutton("Browse Ecosystem", "#/features/")
+				
+				
+				
 				.partners.abs.bottom0.left0.right0
 					
 					- var partners = ['/img/creativia.png', '/img/ict.png', '/img/nslab.png', '/img/cognito.png'] ;
@@ -52,7 +58,7 @@
 					.partnersboxing.rel.context(style="width:"+(len * repeat * 150)+"px;border-top:1px solid #BBB")
 						.partnerscont.rel
 							- for(let i = 0 ; i < len * repeat ; i++){
-								a.block.cont.darkBG.floatL.cover(href="#", style="width:150px;height:100px;background-image:url('"+partners[i % len]+"');")
+								a.block.cont.floatL.cover(href="#", style="width:150px;height:100px;background-image:url('"+partners[i % len]+"');")
 									span.hidden <!-- -->
 							- } 
 					.partnerstext.abs.bottom100.right0

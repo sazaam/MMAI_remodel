@@ -40,15 +40,19 @@
 					.none.signup.TmarXXLg.sizeSm.context.w-full
 						h3.sizeLg.bold Get started
 						+signuphome
-					.flex.flex-row.flex-wrap.gap-y-4.gap-x-8.mt-4(class="lg:flex:nowrap")
-						.flex-none
+					
+
+					//- sm:flex flex-grid gap-4  mt-4
+					
+					.flex.flex-row.flex-wrap.gap-y-4.gap-x-8.mt-4(class="sm:grid sm:grid-cols-2")
+						.flex-none.w-full.txtC
 							+darkbutton('Start Building')
-						.flex-none
+						.flex-none.w-full.txtC
 							+lightbutton('Discord')
 						
 	.scrolldown.abs.txtC.left0.right0(style="bottom:25px")
 		.safe.context.txtC
-			+smallbutton("Discover the Ecosystem", "#/home/purewallet/")
+			+smallbutton("Discover more", "#/home/purewallet/")
 
 
 

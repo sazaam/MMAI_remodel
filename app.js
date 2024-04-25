@@ -713,7 +713,8 @@ app.use('/favicon.ico/', async (req, res) => {
 
 app.use('/', async(req, res) => {
     
-    console.log(req.url) ;
+    //console.log(req.url) ;
+    console.log('requesting >> ', req.url) ;
     await root(req, res).catch(err => { console.log(err) });
     
 });
