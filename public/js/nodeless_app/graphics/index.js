@@ -27,32 +27,45 @@ window.MMAI = MMAI = {
 	home:{}
 } ;
 MMAI.home.scrollTo = MMAI.home.scrollTo || function(top, time, cb){
+	var args = [].concat.apply(arguments, arguments);
+	args = args.splice(1, args.length);
+	
+	top = args.shift() ;
+	time = args.shift() ;
+	cb = args.shift() || function(){} ;
+	
 	BetweenJS.create({
-		target:$('html'),
+		target:$('body'),
 		to:{
 			scrollTop:top
 		},
 		time:time,
 		ease:Expo.easeOut,
-		onComplete:cb
+		onComplete:cb,
+		onCompleteParams:args
 	}).play() ;	
 }
 
 
 MMAI.home.viz3D = function(cond, res){
 	var viewport3D = $('.viewport3D') ; 
+	trace('VIZ3D :: ENABLED', cond) ;
 	threeFX.viz3D.enable(cond, viewport3D, res) ;
 }
 
 MMAI.home.getScrollPageIndex = function() {
 	var ww = $(window) ;
-	var top = ww.scrollTop() ;
+	var body = $('body') ;
+	var top = body.scrollTop() ;
+	
 	var h = ww.height() >> 1 ;
+	trace(top, h)
 	var added = top + h ;
 	var pages = $('.fullpage') ;
 	var n = 0 ;
 	// TODO here fix for inter pages 
 	pages.each((i, el)=>{
+		trace("page", i, $(el).position().top)
 		n = (added > $(el).position().top) ? i : n ;
 	}) ;
 	return n ;
@@ -174,7 +187,7 @@ module.exports = MMAI.func = {
 		
 		
 		if(res.opening){
-			//trace('OPENING', res.id)
+			trace('OPENING', res.id)
 			
 
 
@@ -188,8 +201,17 @@ module.exports = MMAI.func = {
 
 
 			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
-
-			MMAI.home.scrollTo(0, .25) ;
+			var ww = $(window) ;
+			var top = ww.scrollTop() ;
+			
+			if(top){
+				
+				MMAI.home.scrollTo(0, .25, function(){
+					// trace("RESREADY Top!=0")
+					res.ready() ;
+				});	
+			}
+			
 			res.template.prependTo($('body')) ;
 			$('.foot').removeClass("none") ;
 			$('#mainloader').addClass('none') ;
@@ -207,45 +229,19 @@ module.exports = MMAI.func = {
 
 
 			//////////////////////////////////////// VARIOUS TOGGLES IN PAGES
-			if($('.paneltoggle').size()){
-				
-				MMAI.home.togglePanels_click = MMAI.home.togglePanels_click || function(e){
-					e.preventDefault() ;
-					e.stopPropagation() ;
-					var toggler = $(e.currentTarget) ;
-					toggler.data('hide')() ;
-				} 
-
-				$('.paneltoggle').each(function(i, el){
-					var panels = $(el).find('.panel') ;
-					var toggler = $(el).find('.paneltoggler') ;
-					var BGs = $(el).find('.togglerBG') ;
-					toggler.each(function(i, el){
-						var panel = $(panels.get(i)) ;
-						var BG = $(BGs.get(i)) ;
-						var tog = $(el) ;
-						tog.data('hide', function(){
-							panels.addClass('none') ;
-							panel.removeClass('none') ;
-							var highlightedClass = BG.prop("tagName") == 'A' ? 'pureblueBG white' : 'purelightestblueBG' ; 
-							BGs.removeClass(highlightedClass) ;
-							BG.addClass(highlightedClass) ;
-							trace(BG.prop("tagName"))
-						})
-					})
-					toggler.on('click', MMAI.home.togglePanels_click) ;	
-				})
-
-			}
+			
+			MMAI.func.various_toggles(true, res) ;
 
 			//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
 
 
 			/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 
-
 			//////////////////////// FIRE READY EVENT
-			res.ready() ;
+			if(!top){
+				// trace("RESREADY Top=0")
+				res.ready() ;	
+			}
 			
 		}else{
 			
@@ -256,7 +252,9 @@ module.exports = MMAI.func = {
 			$('.foot').addClass("none") ;
 			res.template.remove() ;
 			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
-
+			
+			
+			MMAI.func.various_toggles(false, res) ;
 
 			/////////////////////////// 404 SPECIAL CASE
 			// 404 case
@@ -292,11 +290,22 @@ module.exports = MMAI.func = {
 		
 		if(res.opening){
 			
-			//trace('OPENING', res.id) ;
+			trace('OPENING', res.id) ;
 			
 			
 			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
-			MMAI.home.scrollTo(0, .25) ; // SHOULD JUST RESET SCROLL JUST IN CASE
+			var ww = $(window) ;
+			var top = ww.scrollTop() ;
+			if(top){
+				MMAI.home.scrollTo(0, .25, function(){
+					// trace("RESREADY Top!=0")
+					$(window).on( "scrollEnd", MMAI.home.scroll) ;
+					res.ready() ;
+				});	
+			}
+			
+			
+			
 			res.template.prependTo($('body')) ; // ADD TEMPLATE
 			$('.foot').removeClass("none") ;
 			
@@ -304,7 +313,7 @@ module.exports = MMAI.func = {
 			
 			//////////////////////////////////////////////////////// HOME SCROLL EVENT ADD
 			//trace('should add SCROLL Evt') ;
-			$(window).on( "scrollEnd", MMAI.home.scroll) ;
+			
 			//////////////////////////////////////////////////////// END HOME SCROLL EVENT ADD
 
 
@@ -315,7 +324,12 @@ module.exports = MMAI.func = {
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
 
 			//////////////////////// FIRE READY EVENT
-			res.ready() ;
+			if(!top){
+				// trace("RESREADY Top=0") ;
+				$(window).on( "scrollEnd", MMAI.home.scroll) ;
+				res.ready() ;	
+			}
+			
 			
 		}else{
 
@@ -345,7 +359,44 @@ module.exports = MMAI.func = {
 		}
 	},
 	various_toggles:various_toggles = function (cond, res){
-		trace('launching toggles') ;
+			
+		MMAI.home.togglePanels_click = MMAI.home.togglePanels_click || function(e){
+			e.preventDefault() ;
+			e.stopPropagation() ;
+			var toggler = $(e.currentTarget) ;
+			toggler.data('hide')() ;
+		} 
+		
+		if(cond){
+			
+			$('.paneltoggle').each(function(i, el){
+				var panels = $(el).find('.panel') ;
+				var toggler = $(el).find('.paneltoggler') ;
+				var BGs = $(el).find('.togglerBG') ;
+				toggler.each(function(i, el){
+					var panel = $(panels.get(i)) ;
+					var BG = $(BGs.get(i)) ;
+					var tog = $(el) ;
+					tog.data('hide', function(){
+						panels.addClass('none') ;
+						panel.removeClass('none') ;
+						var highlightedClass = BG.prop("tagName") == 'A' ? 'pureblueBG white' : 'purelightestblueBG' ; 
+						BGs.removeClass(highlightedClass) ;
+						BG.addClass(highlightedClass) ;
+					})
+				})
+				toggler.on('click', MMAI.home.togglePanels_click) ;	
+			}) ;
+			
+		}else{
+			
+			$('.paneltoggle').each(function(i, el){
+				var toggler = $(el).find('.paneltoggler') ;
+				toggler.off('click', MMAI.home.togglePanels_click) ;	
+			}) ;
+			
+		}
+		
 	},
 	slideshow_wallet : slideshow_wallet = function(cond, res){
 		
@@ -544,7 +595,7 @@ module.exports = MMAI.func = {
 		var res = e.target ;
 		
 		if(res.opening){
-			//trace('OPENING SUB', res.id) ;
+			trace('OPENING SUB', res.id) ;
 			
 			var parent = res.parentStep ;
 			var ind = parent.getIndexOfChild(res) ;
@@ -553,14 +604,15 @@ module.exports = MMAI.func = {
 			var page = pages[ind] ;
 			
 			var n = MMAI.home.getScrollPageIndex() ;
-			
+			trace(n, ind)
 			if(n != ind){
 				
+				trace('should animate')
 				MMAI.home.scrollTo($(page).position().top, .45, function(){
 					res.ready() ;
 				}) ;
 				
-				trace('should animate')
+				
 			}else{
 				res.ready() ;	
 			}

@@ -119,7 +119,8 @@ var viz3D = {
 				// gltf: '/model/shoe.glb',
 				// gltf: '/model/test.glb',
 				// gltf: '/model/test3.glb',
-				gltf: '/model/chain.glb',
+				// gltf: '/model/chain.glb',
+				gltf: '/model/chain2.glb',
 				
 				
 				author: 'Sazaam',
@@ -397,7 +398,7 @@ var viz3D = {
 							const base = children.pop() ;
 							const base_loc = locations.pop() ;
 							
-							SCI.morphIndex = (startIndex + 1) % SCI.children.length ;
+							SCI.morphIndex = (startIndex) % SCI.children.length ;
 							trace(SCI.children.length)
 							
 							SCI.morphInto = function(idx){
@@ -458,6 +459,7 @@ var viz3D = {
 					
 					
 ///////////////////////////////////////////////////////////////////////////////////////////////////////// SKY PARTICLES
+					/*					
 					var particleGroup = SCI.particleGroup = new THREE.Object3D();
 					
 					var mathRandom = function mathRandom(num = 1) { return - Math.random() * num + Math.random() * num; }
@@ -479,12 +481,13 @@ var viz3D = {
 					}
 					
 					generateParticle(200, 2);
-					//scene.add(particleGroup);
-					
+					scene.add(particleGroup);
+					 */
 					/////////////////////////////////////////////
 					
 					
 					SCI.clk = function(e){
+						trace("should CLICK viz3D Morph", SCI.morphIndex)
 						SCI.morphInto(SCI.morphIndex ++) ;
 					} ;
 					
