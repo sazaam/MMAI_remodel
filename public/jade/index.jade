@@ -1,24 +1,28 @@
 extends ./layout
 block content
 	//- 
+	
+	- let homesection = topsections[0] ;
+	- let children = homesection.children ;
+	
 	.viewport3D.abs.left0.right0.top0.bottom0
 	//- First Homepage	
-	.extractable.fullpage.fullH.flowhidden.hidden
+	.extractable.fullpage.fullH.flowhidden.hidden(id=children[0].name)
 		include pages/home_chainpage
 
 	//- WALLET
-	.extractable.fullpage.fullH.flowhidden.hidden.whiteBG
+	.extractable.fullpage.fullH.flowhidden.hidden.whiteBG(id=children[1].name)
 		include pages/home_walletpage
 	
-	//- .inter.foggyBG.hidden(style="height:350px")
+	.extractable.inter.foggyBG(style="height:350px")
 		h1.sizeLg.padXXXLG Some Block Here
 	
-	.extractable.fullpage.fullH.flowhidden.hidden
+	.extractable.fullpage.fullH.flowhidden.hidden(id=children[2].name)
 		include pages/home_seriespage
 	
 	
 			
-	.extractable.fullpage.fullH.flowhidden.hidden
+	.extractable.fullpage.fullH.flowhidden.hidden(id=children[3].name)
 		include pages/home_worldpage
 		
 	

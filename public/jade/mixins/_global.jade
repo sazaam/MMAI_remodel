@@ -79,8 +79,8 @@ mixin signuphome(obj)
 			input.block.Hpad.VpadXXSm.blackBG.thin.round.both.pointer(type="submit", value="Go    >")
 
 
-mixin smallbutton(text, link)
-	a.inlineblock.pad.HpadXLg.round23.pureblueBG.white(href=link)
+mixin smallbutton(text, link, cl)
+	a.inlineblock.pad.HpadXLg.round23(href=link, class= cl ? cl : "pureblueBG white")
 		span 
 			!= text
 

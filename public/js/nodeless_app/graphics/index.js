@@ -55,18 +55,18 @@ MMAI.home.viz3D = function(cond, res){
 
 MMAI.home.getScrollPageIndex = function() {
 	var ww = $(window) ;
+	var wh = ww.height() >> 1 ;
 	var body = $('body') ;
 	var top = body.scrollTop() ;
-	
-	var h = ww.height() >> 1 ;
-	trace(top, h)
-	var added = top + h ;
 	var pages = $('.fullpage') ;
 	var n = 0 ;
-	// TODO here fix for inter pages 
+	// TODO here fix for inter pages
+	
 	pages.each((i, el)=>{
-		trace("page", i, $(el).position().top)
-		n = (added > $(el).position().top) ? i : n ;
+		var h = $(el).height() >> 1 ;
+		var added = top + h ;
+		var pagetop = $(el).offset().top + top ;
+		n = (added > pagetop) ? i : n ;
 	}) ;
 	return n ;
 }
@@ -202,17 +202,11 @@ module.exports = MMAI.func = {
 
 			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
 			var ww = $(window) ;
-			var top = ww.scrollTop() ;
+			var body = $('body') ;
 			
-			if(top){
-				
-				MMAI.home.scrollTo(0, .25, function(){
-					// trace("RESREADY Top!=0")
-					res.ready() ;
-				});	
-			}
+			var top = body.scrollTop() ;
 			
-			res.template.prependTo($('body')) ;
+			res.template.prependTo($('.universe')) ;
 			$('.foot').removeClass("none") ;
 			$('#mainloader').addClass('none') ;
 			
@@ -238,10 +232,10 @@ module.exports = MMAI.func = {
 			/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 
 			//////////////////////// FIRE READY EVENT
-			if(!top){
+			// if(!top){
 				// trace("RESREADY Top=0")
-				res.ready() ;	
-			}
+			res.ready() ;	
+			// }
 			
 		}else{
 			
@@ -292,21 +286,11 @@ module.exports = MMAI.func = {
 			
 			trace('OPENING', res.id) ;
 			
-			
 			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
-			var ww = $(window) ;
-			var top = ww.scrollTop() ;
-			if(top){
-				MMAI.home.scrollTo(0, .25, function(){
-					// trace("RESREADY Top!=0")
-					$(window).on( "scrollEnd", MMAI.home.scroll) ;
-					res.ready() ;
-				});	
-			}
 			
 			
 			
-			res.template.prependTo($('body')) ; // ADD TEMPLATE
+			res.template.prependTo($('.universe')) ; // ADD TEMPLATE
 			$('.foot').removeClass("none") ;
 			
 			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
@@ -324,11 +308,10 @@ module.exports = MMAI.func = {
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
 
 			//////////////////////// FIRE READY EVENT
-			if(!top){
-				// trace("RESREADY Top=0") ;
-				$(window).on( "scrollEnd", MMAI.home.scroll) ;
-				res.ready() ;	
-			}
+			
+			$(window).on( "scrollEnd", MMAI.home.scroll) ;
+			res.ready() ;	
+		
 			
 			
 		}else{
@@ -401,8 +384,9 @@ module.exports = MMAI.func = {
 	slideshow_wallet : slideshow_wallet = function(cond, res){
 		
 		var id = res.id ;
+		var name = res.name ;
+		var rt = $('#'+ name +' .'+id) ;
 		
-		var rt = $('.'+id) ;
 		var slidenav = rt.find('.slidenav ol li a') ;
 		var slideshow = rt.find('.slides') ;
 		
@@ -425,7 +409,7 @@ module.exports = MMAI.func = {
 			
 			var commands = [] ;
 			sl.cy = new Cyclic(commands) ;
-			var TIME = 2000 ;
+			var TIME = 8000 ;
 
 			sl.navgo = function(e){
 				e.preventDefault() ;
@@ -433,7 +417,9 @@ module.exports = MMAI.func = {
 				
 				var a = $(e.target) ;
 				
-				sl.halt() ;
+				/////////////////////////////// UNCOMMENT TO CANCEL LOOP ON CLICK (if there is an active loop)
+				// sl.halt() ;
+				
 				sl.cy.go(a.data('index')) ;
 			}
 			
@@ -468,16 +454,7 @@ module.exports = MMAI.func = {
 			})
 			
 			sl.clear = function(){
-				
-				/* ////////////// SEEMS UNNECESSARY HERE 
-				slides.css({
-					// 'z-index':'1',
-					// 'left':'15000px',
-					// 'opacity':'0'
-				}).removeClass('inited') ;
-				*/
-				
-				slideshow.find('.flex-control-nav li').removeClass('active') ;
+				// something if clear needed here
 			}
 
 			sl.enable = function(cond){
@@ -521,12 +498,192 @@ module.exports = MMAI.func = {
 
 			sl.enable(true) ;
 			
+			///////////////////// uncomment to Launch Loop By Default
+			/*
 			if(sl.cy.index == -1 ) sl.launch() ;
 			else{
 				sl.cy.index -- ;
 				sl.launch() ;
 			}
+			*/
+		}else{
 			
+			sl.clear() ;
+			
+			sl.enable(false) ;
+			
+			sl.halt() ;
+			
+		}
+		
+	},
+	slideshow_series : slideshow_series = function(cond, res){
+		
+		var id = res.id ;
+		var name = res.name ;
+		var rt = $('#'+ name) ;
+		
+		
+		var slidewholenav = rt.find('.eco ol') ;
+		var slidenav = rt.find('.eco ol li a') ;
+		var slideshow = rt.find('.slides') ;
+		
+		var slides = slideshow.find('.slide') ;
+		
+		slides.each(function(i, el){
+			var li = $(el) ;
+			var a = $(slidenav.get(i)) ;
+			
+			a.data('index', i) ;
+			li.data('navitem', a) ;
+		})
+		
+		
+		var sl ;
+		
+		if(!MMAI.home.slidesseries){
+			
+			sl = MMAI.home.slidesseries = {} ;
+			
+			var commands = [] ;
+			sl.cy = new Cyclic(commands) ;
+			var TIME = 8000 ;
+
+			sl.navgo = function(e){
+				e.preventDefault() ;
+				e.stopPropagation() ;
+				
+				var a = $(e.currentTarget) ;
+				
+				/////////////////////////////// UNCOMMENT TO CANCEL LOOP ON CLICK (if there is an active loop)
+				// sl.halt() ;
+				
+				sl.cy.go(a.data('index')) ;
+			}
+			
+			slides.each(function(i, el){
+				
+				sl.cy.push(new Command(null, function(el, i){
+					var c = this ;
+					var li = $(el) ;
+					var a = li.data('navitem') ;
+					var n = a.data('index') ;
+					
+					slidenav.removeClass('white pureblueBG round23') ;
+					if(n != 0) a.addClass('white pureblueBG round23') ;
+					
+					
+					
+					slidenav.each(function(i, el){
+						var aa = $(el) ;	
+						aa.css({
+							opacity: 1 - (Math.abs(n - i) * .2)
+						}) ;
+					})
+					
+					slidewholenav.css({
+						'top':-(a.height() * n) + 'px'
+					}) ;
+					
+					var firstblock = $(slides.get(0)) ;
+					//trace(n)
+					if(n == 0){
+						slides.addClass('none')
+						firstblock.removeClass('none') ;
+						firstblock.removeClass('pureblue').find('.othertextes').show() ;
+						firstblock.find('h4').removeClass('sizeR').addClass('sizeXXXLg') ;
+						firstblock.find('.catchphrase').removeClass('floatL TmarXXXXLg') ;
+					}else{
+						slides.addClass('none')
+						firstblock.removeClass('none') ;
+						firstblock.addClass('pureblue').find('.othertextes').hide() ;
+						firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR') ;
+						firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg') ;
+						
+						
+						$(slides.get(n)).removeClass('none') ;
+						
+					}
+					
+					
+					/* 
+					
+					var tw = MMAI.home.seriesslideTW ;
+					if(tw && tw.isPLaying) tw.stop() ;
+					
+					tw = MMAI.home.seriesslideTW = BJS.create({
+						target: slideshow,
+						to:{
+							'left::%':-100 * a.data('index')
+						},
+						time:.45,
+						ease:Expo.easeOut
+					})
+					
+					tw.play() ; */
+					return this ;
+
+				}, el, i)) ;
+				trace(sl.cy)
+			})
+			
+			sl.clear = function(){
+				// something if clear needed here
+			}
+
+			sl.enable = function(cond){
+				
+				
+				if(cond){
+					slidenav.each(function(i, el){
+						$(el).on('click', sl.navgo) ;
+					})
+				}else{
+					slidenav.each(function(i, el){
+						$(el).off('click', sl.navgo) ;
+					})
+				}
+				
+			}
+			
+
+			
+		
+			sl.launch = function(){
+				clearTimeout(sl.UID) ;
+				sl.cy.next() ;
+				
+				sl.UID = setTimeout(sl.launch, TIME) ;
+				
+				sl.launched = true ;
+			}
+
+			
+			sl.halt = function(){
+				
+				sl.UID = clearTimeout(sl.UID) ;
+				sl.cy.go(0) ;
+				sl.launched = false ;
+				
+			}
+		}
+		
+		sl = MMAI.home.slidesseries ;
+		
+		if(cond){
+			
+			sl.clear() ;
+
+			sl.enable(true) ;
+			
+			///////////////////// uncomment to Launch Loop By Default
+			/*
+			if(sl.cy.index == -1 ) sl.launch() ;
+			else{
+				sl.cy.index -- ;
+				sl.launch() ;
+			}
+			*/
 		}else{
 			
 			sl.clear() ;
@@ -572,6 +729,7 @@ module.exports = MMAI.func = {
 			}else if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(true, res) ;
 			}else if(res.id == "pureseries"){
+				MMAI.func.slideshow_series(true, res) ;
 				MMAI.func.slide_partners(true, res) ;
 			}
 			
@@ -583,6 +741,7 @@ module.exports = MMAI.func = {
 			}else if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(false, res) ;
 			}else if(res.id == "pureseries"){
+				MMAI.func.slideshow_series(false, res) ;
 				MMAI.func.slide_partners(false, res) ;
 			}
 			
@@ -604,16 +763,19 @@ module.exports = MMAI.func = {
 			var page = pages[ind] ;
 			
 			var n = MMAI.home.getScrollPageIndex() ;
-			trace(n, ind)
+			
+			
+			
 			if(n != ind){
 				
-				trace('should animate')
-				MMAI.home.scrollTo($(page).position().top, .45, function(){
+				var tt = $('body').scrollTop() + $(page).position().top ;
+				
+				MMAI.home.scrollTo(tt, .45, function(){
 					res.ready() ;
 				}) ;
 				
-				
 			}else{
+				
 				res.ready() ;	
 			}
 			

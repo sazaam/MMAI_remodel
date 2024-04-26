@@ -18,6 +18,7 @@
 			initEvents:function(options){
 				
 				var ww = $(window) ;
+				var body = $('body') ;
 				var isMob = this.isMobileDevice = /(Ip(hone|od|ad))|Android|BlackBerry/gi.test(navigator.userAgent) ;
 				
 				//////// RESIZE
@@ -456,7 +457,7 @@
 						var restartuid ;
 						var scrollclosure ;
 						
-						ww.on('scroll', scrollclosure = function(e){
+						body.on('scroll', scrollclosure = function(e){
 							var dur = 200 ;
 							if(restartuid !== undefined) clearTimeout(restartuid) ;
 							if(scrollstarted == false){
@@ -470,7 +471,7 @@
 									restartuid = undefined ;
 									scrollstarted = false ;
 									scrollmoved = false ;
-									ww.trigger('scrollEnd', [ww.scrollTop()]) ;
+									ww.trigger('scrollEnd', [body.scrollTop()]) ;
 							}, dur) ;
 						})
 						
@@ -485,9 +486,7 @@
 		}
 	}) ;
 	
-	
-/* 
-    
+
     var halted = false;
 
     var pauseBetween = function() {
@@ -506,7 +505,9 @@
     // SPACEBAR
 
     $(document).on('keydown', function(e) {
-        if (e.keyCode == 32) {
+		var keycode = e.which ;
+		var ctrl = e.ctrlKey ;
+        if (ctrl && keycode == 32) {
             pauseBetween();
         }
     })
@@ -534,7 +535,9 @@
         //     window.CURRENTSLIDE.launch();
         // }
 
-    }) */
+    }) 	
+	/* 
+		*/
 
 /*
     

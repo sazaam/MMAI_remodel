@@ -410,7 +410,12 @@ var viz3D = {
 								var l = pos.length ;
 								var p = [] ;
 								var sc = 1.5 ;
-								if(!!SCI.twParticles) SCI.twParticles.stop() ;
+								
+								if(!!SCI.twParticles){
+									if(SCI.twParticles.isPlaying) SCI.twParticles.stop() ;
+									trace(SCI.twParticles.destroy()) ;
+								} 
+								
 								SCI.twParticles = BJS.serial(
 									
 									BJS.create({
@@ -442,6 +447,7 @@ var viz3D = {
 										},
 										onComplete:function(){
 											pointCloud.sortParticles = true;
+											trace(this.destroy()) ;
 										}
 									})
 								)
