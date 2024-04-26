@@ -14,8 +14,42 @@ block content
 	.extractable.fullpage.fullH.flowhidden.hidden.whiteBG(id=children[1].name)
 		include pages/home_walletpage
 	
-	.extractable.inter.foggyBG(style="height:350px")
-		h1.sizeLg.padXXXLG Some Block Here
+	.extractable.inter.graddown
+		.relative.context
+			section.container.mx-auto.left-0.right-0.section-margin.mb-24(class='!mt-16 2xl:!mt-20')
+				.grid.grid-cols-2.gap-3.mt-20(class='md:grid-cols-4 md:gap-4 2xl:gap-x-7')
+					.col-span-1.white.pureblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
+						.flex.flex-row.h-fit
+							.flex.flex-col.justify-between.h-fit.w-full
+								span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
+									| 66,438,189
+								.flex.flex-row.justify-between.items-center.w-full
+									span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
+										| BLOCKS PRODUCED
+					.col-span-1.white.pureblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
+						.flex.flex-row.h-fit
+							.flex.flex-col.justify-between.h-fit.w-full
+								span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
+									| 415,012,862
+								.flex.flex-row.justify-between.items-center.w-full
+									span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
+										| ON-CHAIN TRANSACTIONS
+					.col-span-1.white.pureblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
+						.flex.flex-row.h-fit
+							.flex.flex-col.justify-between.h-fit.w-full
+								span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
+									| 0.8S
+								.flex.flex-row.justify-between.items-center.w-full
+									span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
+										| BLOCK TIME
+					.col-span-1.white.pureblueBG.rounded-3xl.txtL.px-4.py-5.flex(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
+						.flex.flex-row.h-fit
+							.flex.flex-col.justify-between.h-fit.w-full
+								span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
+									| <$0.01
+								.flex.flex-row.justify-between.items-center.w-full
+									span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
+										| AVG TRANSACTION COST
 	
 	.extractable.fullpage.fullH.flowhidden.hidden(id=children[2].name)
 		include pages/home_seriespage
