@@ -57,6 +57,7 @@ MMAI.home.getScrollPageIndex = function() {
 	var ww = $(window) ;
 	var wh = ww.height() >> 1 ;
 	var body = $('body') ;
+	// var body = $('html') ;
 	var top = body.scrollTop() ;
 	var pages = $('.fullpage') ;
 	var n = 0 ;
@@ -68,6 +69,7 @@ MMAI.home.getScrollPageIndex = function() {
 		var pagetop = $(el).offset().top + top ;
 		n = (added > pagetop) ? i : n ;
 	}) ;
+	trace(n)
 	return n ;
 }
 
@@ -844,8 +846,9 @@ module.exports = MMAI.func = {
 			
 			
 			if(n != ind){
-				
-				var tt = $('body').scrollTop() + $(page).position().top ;
+				var body = $('body') ; 
+				// var body = $('html') ; 
+				var tt = body.scrollTop() + $(page).position().top ;
 				
 				MMAI.home.scrollTo(tt, .45, function(){
 					res.ready() ;
