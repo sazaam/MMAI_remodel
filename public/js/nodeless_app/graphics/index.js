@@ -230,7 +230,14 @@ module.exports = MMAI.func = {
 
 
 			/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
-
+			
+			
+			if(!MMAI.home.viz3Drunning) {
+				MMAI.home.viz3D(true, res) ;
+				MMAI.home.viz3Drunning = true ;
+				$('#mainloader').removeClass('none') ;
+			}
+			
 			//////////////////////// FIRE READY EVENT
 			// if(!top){
 				// trace("RESREADY Top=0")
@@ -281,7 +288,7 @@ module.exports = MMAI.func = {
 		
 		
 		res.template = res.template || $('.extractable').removeClass('hidden') ;
-		
+		trace(res.template)
 		if(res.opening){
 			
 			trace('OPENING', res.id) ;
@@ -302,9 +309,13 @@ module.exports = MMAI.func = {
 
 
 			///////////////////////////////////// HOME 3D VIZUALIZATION
-			MMAI.home.viz3D(true, res) ;
-			$('.viewport3D').removeClass('hidden') ;
-			$('#mainloader').removeClass('none') ;
+			if(!MMAI.home.viz3Drunning) {
+				MMAI.home.viz3D(true, res) ;
+				MMAI.home.viz3Drunning = true ;
+				$('#mainloader').removeClass('none') ;
+			}
+			
+			// $('.viewport3D').removeClass('hidden') ;
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
 
 			//////////////////////// FIRE READY EVENT
@@ -324,8 +335,8 @@ module.exports = MMAI.func = {
 			//////////////////////////////////////////////////////// END HOME SCROLL EVENT REMOVE
 
 			///////////////////////////////////// HOME 3D VIZUALIZATION
-			MMAI.home.viz3D(false, res) ;
-			$('.viewport3D').addClass('hidden') ;
+			// MMAI.home.viz3D(false, res) ;
+			// $('.viewport3D').addClass('hidden') ;
 			$('#mainloader').addClass('none') ;
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
 			
@@ -561,6 +572,10 @@ module.exports = MMAI.func = {
 				sl.cy.go(a.data('index')) ;
 			}
 			
+			var firstblock = $(slides.get(0)) ;
+			var other = firstblock.find('.othertextes') ;
+			var bh = other.height() ;
+			
 			slides.each(function(i, el){
 				
 				sl.cy.push(new Command(null, function(el, i){
@@ -571,7 +586,6 @@ module.exports = MMAI.func = {
 					
 					slidenav.removeClass('white pureblueBG round23') ;
 					if(n != 0) a.addClass('white pureblueBG round23') ;
-					
 					
 					
 					slidenav.each(function(i, el){
@@ -585,42 +599,85 @@ module.exports = MMAI.func = {
 						'top':-(a.height() * n) + 'px'
 					}) ;
 					
-					var firstblock = $(slides.get(0)) ;
-					//trace(n)
+					
+					if(sl.tw && sl.tw.isPlaying){
+						sl.tw.stop() ;
+						//sl.tw.destroy() ;
+					}
+					
+					var tw ;
 					if(n == 0){
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
-						firstblock.removeClass('pureblue').find('.othertextes').show() ;
-						firstblock.find('h4').removeClass('sizeR').addClass('sizeXXXLg') ;
+						firstblock.removeClass('pureblue')  ;//.find('.othertextes').show() ;
+						if(other.height() != bh){
+							tw = BJS.create({
+								target:other,
+								to:{
+									"height::PX":bh,
+								},
+								time:.25,
+								ease:Expo.easeOut
+							}) ;
+								
+						}
+						firstblock.find('h4').removeClass('sizeR TmarXLg').addClass('sizeXXXLg') ;
 						firstblock.find('.catchphrase').removeClass('floatL TmarXXXXLg') ;
+						
+						
+						
 					}else{
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
-						firstblock.addClass('pureblue').find('.othertextes').hide() ;
-						firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR') ;
+						firstblock.addClass('pureblue') ;//.find('.othertextes').hide() ;
+						
+						var partw = [] ;
+						
+						if(other.height() != 0){
+							
+							partw.push(BJS.create({
+								target:other,
+								to:{
+									"height::PX":0,
+								},
+								time:.25,
+								ease:Expo.easeOut
+							})) ;
+							
+						}
+						
+						firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR TmarXLg') ;
 						firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg') ;
 						
+						var block = $(slides.get(n)) ;
+						block.css({opacity:0}) ;
+						block.removeClass('none') ;
 						
-						$(slides.get(n)).removeClass('none') ;
+						partw.push(BJS.create({
+							target:block,
+							from:{
+								opacity:0,
+								"left::PX":150
+							},
+							to:{
+								"left::PX":0,
+								opacity:100
+							},
+							time:.25,
+							ease:Expo.easeOut
+						})) ;
 						
+						tw = BJS.parallelTweens(partw);
+						tw.play() ;
 					}
+					sl.tw = tw ;
+					if(tw){
+						tw.play() ;	
+						tw.onComplete = function(){
+							//this.destroy() ;
+						}	
+					} 
 					
-					
-					/* 
-					
-					var tw = MMAI.home.seriesslideTW ;
-					if(tw && tw.isPLaying) tw.stop() ;
-					
-					tw = MMAI.home.seriesslideTW = BJS.create({
-						target: slideshow,
-						to:{
-							'left::%':-100 * a.data('index')
-						},
-						time:.45,
-						ease:Expo.easeOut
-					})
-					
-					tw.play() ; */
 					return this ;
 
 				}, el, i)) ;
@@ -702,9 +759,9 @@ module.exports = MMAI.func = {
 		if(!res.userData.tw_partners){
 			res.userData.tw_partners = BJS.create({
 				target:partners,
-				to:{'margin-left::PX':-150*4},
+				to:{'margin-left::PX':-150*12},
 				from:{'margin-left::PX':0},
-				time:5,
+				time:15,
 				ease:Linear.easeOut
 			}) ;
 			res.userData.tw_partners.stopOnComplete = false ;	

@@ -73,8 +73,9 @@ MENU
 }
 
 .home{
-    background:url(./skin/MMAI.png) no-repeat 50% 50% ;
-    width:100px;
+    background:url(./skin/MMAINSLAB.png) no-repeat 50% 50% ;
+    width:350px;
+    
     height:100%;
 }
 .menu li.others{

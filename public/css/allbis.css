@@ -3596,7 +3596,19 @@ top
   .global_home{
     position:static !important;
     float:left !important;
-    margin-left:30px !important;
+    margin-left:0px !important;
+  }
+
+  li.others{
+    position:relative;
+    top:-20px;
+    margin-left:0 !important;
+    background:rgba(255,255,255,.75) !important;
+    z-index:30;
+  }
+
+  li.global_wallet{
+    margin-left:25px !important;
   }
 
   .sectionsnav{
@@ -4327,6 +4339,10 @@ video {
   }
 }
 
+.target\:block:target{
+  display: block;
+}
+
 .visible{
   visibility: visible;
 }
@@ -4509,8 +4525,8 @@ MENU
 }
 
 .home{
-  background:url(./skin/MMAI.png) no-repeat 50% 50% ;
-  width:100px;
+  background:url(./skin/MMAINSLAB.png) no-repeat 50% 50% ;
+  width:350px;
   height:100%;
 }
 

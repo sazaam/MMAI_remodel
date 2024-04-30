@@ -399,58 +399,60 @@ var viz3D = {
 							const base_loc = locations.pop() ;
 							
 							SCI.morphIndex = (startIndex) % SCI.children.length ;
-							trace(SCI.children.length)
+							// trace(SCI.children.length)
 							
 							SCI.morphInto = function(idx){
 								SCI.morphIndex = SCI.morphIndex % SCI.children.length ;
 								var dummy = {scale:0} ;
 								
+								
+								trace('should morph in here')
+								
 								var pos = pointCloud.geometry.attributes.position.array ;
 								shuffle(locations[idx]) ;
-								var l = pos.length ;
+								
 								var p = [] ;
-								var sc = 1.5 ;
 								
 								if(!!SCI.twParticles){
 									if(SCI.twParticles.isPlaying) SCI.twParticles.stop() ;
-									trace(SCI.twParticles.destroy()) ;
+									//SCI.twParticles.destroy() ;
 								} 
 								
-								SCI.twParticles = BJS.serial(
-									
-									BJS.create({
-										target:dummy,
-										to:{
-											scale:1
-										},
-										from:{
-											scale:0
-										},
-										time:2.75,
-										ease:Expo.easeOut,
-										onUpdate:function(){
-											pointCloud.geometry.attributes.position.needsUpdate = false;
+								SCI.twParticles = BJS.create({
+									target:dummy,
+									to:{
+										scale:.1
+									},
+									from:{
+										scale:0
+									},
+									time:1.5,
+									ease:Expo.easeOut,
+									onUpdate:function(){
+										
+										pointCloud.geometry.attributes.position.needsUpdate = true;
+										for ( let i = 0; i < numparticles ; i ++ ) {
+											var n = i * 3 ;
+											var m = n % 3 ;
+											var loc = locations[idx][i] ;
+											p[ i ] = loc ;
 											
-											for ( let i = 0; i < numparticles ; i ++ ) {
-												var n = i * 3 ;
-												var m = n % 3 ;
-												var loc = locations[idx][i] ;
-												p[ i ] = loc ;
-												
-												pos[n] 		= (pos[n] 		* (1 - dummy.scale)) + (p[i].x * dummy.scale)
-												pos[n + 1] 	= (pos[n + 1] 	* (1 - dummy.scale)) + (p[i].y * dummy.scale)
-												pos[n + 2] 	= (pos[n + 2] 	* (1 - dummy.scale)) + (p[i].z * dummy.scale)
-											}
-											
-											pointCloud.geometry.attributes.position.needsUpdate = true;
-											
-										},
-										onComplete:function(){
-											pointCloud.sortParticles = true;
-											trace(this.destroy()) ;
+											pos[n] 		= (pos[n] 		* (1 - dummy.scale)) + (p[i].x * dummy.scale)
+											pos[n + 1] 	= (pos[n + 1] 	* (1 - dummy.scale)) + (p[i].y * dummy.scale)
+											pos[n + 2] 	= (pos[n + 2] 	* (1 - dummy.scale)) + (p[i].z * dummy.scale)
 										}
-									})
-								)
+										
+										
+										trace(dummy.scale, 1 - dummy.scale) ;
+									},
+									onComplete:function(){
+										pointCloud.sortParticles = true;
+										pointCloud.geometry.attributes.position.needsUpdate = false;
+										trace('complete') ;
+									}
+								})
+								
+								trace(SCI.twParticles)
 								SCI.twParticles.play() ;
 								
 							}
@@ -562,6 +564,7 @@ var viz3D = {
 				}
 				
 				setup() ;
+				
 				
 				
 			}else{

@@ -28,7 +28,7 @@
 						.rounded-3xl.p-6.txtL
 							.catchphrase.sizeSm(class="sm:sizeR")
 								h4.montserrat.bolder.sizeXXXLg.lh1 The Ecosystem
-							.othertextes.sizeSm.TmarXXLg.lh1.pureblue
+							.othertextes.sizeSm.TmarXXLg.lh1.pureblue.context
 								h3 We are ensuring a safe place <br />where all your expectations converge.
 								.Tmar.lh1
 									p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
@@ -36,21 +36,23 @@
 								+smallbutton("Browse Ecosystem", "#/features/")
 					- for(let i = 0 ; i < ls ; i++) {
 						.none.slide.textes.abs.fullH.fullW.left0.right0(style="bottom:220px;")
-							.fullH.fullW.grid.content-end.place-items-end
-								.dark.p-6.txtL.pureline.purelightestblueBG.px-10(style="width:60%;min-width:435px;border-width:1px 0")
+							.fullH.fullW.grid.content-end.place-items-end.noselect
+								.dark.txtL.pureline.purelightestblueBG.p-10(style="width:60%;min-width:435px;border-width:1px 0")
 									.catchphrase.sizeXSm(class="sm:sizeR")
-										h4.montserrat.bolder.sizeXXXLg.lh1 Pure #{series[i]}
+										h4.montserrat.sizeXXXLg.lh1 #[b.bolder Pure] #{series[i]}
 									.othertextes.sizeSm.TmarXXLg.lh1 
 										h3 We are ensuring a safe place <br />where all your expectations converge.
 										.TmarXXXLg.lh1
 											p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
+										.Tmar.txtR.Rmar0.sizeSm.rel(style="margin-right:-25px")
+											+smallbutton("More", "#/features/")
 					- }
 				
 				
 			.partners.abs.bottom0.left0.right0
 				
 				- var partners = ['/img/creativia.png', '/img/ict.png', '/img/nslab.png', '/img/cognito.png'] ;
-				- var len = partners.length , repeat = 5;
+				- var len = partners.length , repeat = 6;
 				.partnersboxing.rel.context(style="width:"+(len * repeat * 150)+"px;border-top:1px solid #789bf3")
 					.partnerscont.rel
 						- for(let i = 0 ; i < len * repeat ; i++){

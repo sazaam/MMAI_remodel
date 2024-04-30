@@ -17,12 +17,12 @@ header#menu.menu.fixed.top0.left0.fullW
 
 		- t = function(str){return str} ;
 		//- MAIN NAV SECTION LINKS
-		ol.sectionsnav.flowvisible.fullH.safe
+		ol.sectionsnav.flowvisible.fullH.context
 			- var other = [].concat(topsections) ;
 			- var home = other.shift() ;
 
 			//-  HOME SPECIAL CASE
-			li.home.abs.left0.Hmar(id= "global_" + 'home', class= "global_" + 'home')
+			li.home.floatL.left0.sizeLg.RmarXXXXLg(id= "global_" + 'home', class= "global_" + 'home')
 				//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
 				a.block.fullW.fullH(href= '/#/home/purechain/')
 					span.hidden= t('MMAI')
