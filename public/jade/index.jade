@@ -5,16 +5,16 @@ block content
 	- let homesection = topsections[0] ;
 	- let children = homesection.children ;
 	
-	.viewport3D.abs.left0.right0.top0.bottom0
+	.viewport3D.fixed.left0.right0.top0.bottom0
 	//- First Homepage	
 	.extractable.fullpage.fullH.flowhidden.hidden(id=children[0].name)
 		include pages/home_chainpage
 
 	//- WALLET
-	.extractable.fullpage.fullH.flowhidden.hidden.whiteBG(id=children[1].name)
+	.extractable.fullpage.fullH.flowhidden.hidden.whiteBG.pureline(id=children[1].name)
 		include pages/home_walletpage
 	
-	.extractable.inter.purestblueBG.hidden
+	.extractable.inter.rel.pureline.hidden.zi3
 		.relative.context
 			section.container.mx-auto.left-0.right-0.section-margin.mb-24(class='!mt-16 2xl:!mt-20')
 				.grid.grid-cols-2.gap-3.mt-20(class='md:grid-cols-4 md:gap-4 2xl:gap-x-7')

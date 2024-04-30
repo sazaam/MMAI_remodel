@@ -4733,6 +4733,24 @@ hr {
   border-width:1px 0 0 0;
 }
 
+.floatingseries .pureline{
+  border:1px solid #789bf3;
+  border-width:0 0 1px 0;
+}
+
+.floatingseries .pureline.first{
+  border:1px solid #789bf3;
+  border-color:transparent #789bf3 #789bf3 #789bf3;
+  border-width:1px 0 1px 0;
+}
+
+.pureline.double{
+  border-width:1px 0;
+}
+
+.floatingseries ol li a{
+}
+
 .purechain .signup .floatL input{
   border: 1px solid #000;
   border-radius: 6px 0 0 0;

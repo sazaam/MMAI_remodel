@@ -134,7 +134,7 @@ var viz3D = {
 				// objectPosition: new THREE.Vector3( 0, .5, 0 ),
 				objectPosition: new THREE.Vector3( 0, 0, 0 ),
 				
-				addLights:spots,
+				// addLights:spots,
 				
 				fog:true,
 				
@@ -406,7 +406,7 @@ var viz3D = {
 								var dummy = {scale:0} ;
 								
 								
-								trace('should morph in here')
+								// trace('should morph in here')
 								
 								var pos = pointCloud.geometry.attributes.position.array ;
 								shuffle(locations[idx]) ;
@@ -448,11 +448,11 @@ var viz3D = {
 									onComplete:function(){
 										pointCloud.sortParticles = true;
 										pointCloud.geometry.attributes.position.needsUpdate = false;
-										trace('complete') ;
+										// trace('complete') ;
 									}
 								})
 								
-								trace(SCI.twParticles)
+								// trace(SCI.twParticles)
 								SCI.twParticles.play() ;
 								
 							}

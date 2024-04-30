@@ -603,8 +603,9 @@ module.exports = MMAI.func = {
 					var a = li.data('navitem') ;
 					var n = a.data('index') ;
 					
-					slidenav.removeClass('white pureblueBG round23') ;
-					if(n != 0) a.addClass('white pureblueBG round23') ;
+					slidenav.removeClass('dark pureline') ;
+					if(n != 0) a.addClass('double') ;
+					a.addClass('dark pureline') ;
 					
 					
 					slidenav.each(function(i, el){
