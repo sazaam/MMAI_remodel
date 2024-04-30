@@ -151,7 +151,7 @@ var viz3D = {
 			variant:'variant_1'
 		}
 	},
-  	enable:function(cond, canvascontainer, res){
+  	enable:function(cond, canvascontainer, res, cb, args){
     
 		var ANIM_TW ;
 		
@@ -443,7 +443,7 @@ var viz3D = {
 										}
 										
 										
-										trace(dummy.scale, 1 - dummy.scale) ;
+										// trace(dummy.scale, 1 - dummy.scale) ;
 									},
 									onComplete:function(){
 										pointCloud.sortParticles = true;
@@ -458,7 +458,7 @@ var viz3D = {
 							}
 							
 							
-							
+							if(!!cb) cb.apply(SCI, [].concat(args)) ;
 							
 						}) ;
 						
@@ -573,8 +573,10 @@ var viz3D = {
 				ANIM_TW.start() ;
 				
 			}
+			trace('SCI got Started...')
 			
-			$('.page.purechain').on('click', SCI.clk) ;
+			
+			
 			
 			window.addEventListener( 'resize', onWinResize, false );
 			
@@ -584,11 +586,13 @@ var viz3D = {
 			ANIM_TW = res.userData.ANIM_TW ;
 			ANIM_TW.halt() ;
 			
-			
+			trace('SCI got stopped')
+			if(!!cb) cb.apply(SCI, [].concat(args)) ;
 			window.removeEventListener( 'resize', onWinResize, false ) ;
-			$('.page.purechain').off('click', SCI.clk) ;
+			
 	    }
-
+		
+		return SCI ;
 	}
 }
 

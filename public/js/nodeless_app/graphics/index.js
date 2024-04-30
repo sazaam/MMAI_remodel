@@ -47,10 +47,10 @@ MMAI.home.scrollTo = MMAI.home.scrollTo || function(top, time, cb){
 }
 
 
-MMAI.home.viz3D = function(cond, res){
+MMAI.home.viz3D = function(cond, res, cb, args){
 	var viewport3D = $('.viewport3D') ; 
 	trace('VIZ3D :: ENABLED', cond) ;
-	threeFX.viz3D.enable(cond, viewport3D, res) ;
+	return threeFX.viz3D.enable(cond, viewport3D, res, cb, args) ;
 }
 
 MMAI.home.getScrollPageIndex = function() {
@@ -231,12 +231,19 @@ module.exports = MMAI.func = {
 
 			/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 			
-			
 			if(!MMAI.home.viz3Drunning) {
-				MMAI.home.viz3D(true, res) ;
+				MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
+					
+					this.morphInto(res.index) ;
+					
+				}, [true]) ;
 				MMAI.home.viz3Drunning = true ;
 				$('#mainloader').removeClass('none') ;
+			}else{
+				MMAI.home.SCI.morphInto(res.index) ;
 			}
+			
+			
 			
 			//////////////////////// FIRE READY EVENT
 			// if(!top){
@@ -307,20 +314,29 @@ module.exports = MMAI.func = {
 			
 			//////////////////////////////////////////////////////// END HOME SCROLL EVENT ADD
 
-
+			
 			///////////////////////////////////// HOME 3D VIZUALIZATION
 			if(!MMAI.home.viz3Drunning) {
-				MMAI.home.viz3D(true, res) ;
+				MMAI.home.SCI = MMAI.home.viz3D(true, res, function(){
+					this.morphInto(0) ;
+				}, [true]) ;
 				MMAI.home.viz3Drunning = true ;
 				$('#mainloader').removeClass('none') ;
+			}else{
+				MMAI.home.SCI.morphInto(0) ;
 			}
 			
 			// $('.viewport3D').removeClass('hidden') ;
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
-
-			//////////////////////// FIRE READY EVENT
 			
+			
+			//////////////////////////////////////////////////////// EVENTS
+			//////////////////////// MAIN SCROLL EVENT
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
+			
+			// $('.page.purechain').on('click', MMAI.home.SCI.clk) ;
+			
+			//////////////////////// FIRE READY EVENT
 			res.ready() ;	
 		
 			
@@ -332,6 +348,9 @@ module.exports = MMAI.func = {
 			//////////////////////////////////////////////////////// HOME SCROLL EVENT REMOVE
 			// trace('should remove SCROLL Evt')
 			$(window).off( "scrollEnd", MMAI.home.scroll) ;
+			
+			// $('.page.purechain').off('click', MMAI.home.SCI.clk) ;
+			
 			//////////////////////////////////////////////////////// END HOME SCROLL EVENT REMOVE
 
 			///////////////////////////////////// HOME 3D VIZUALIZATION
