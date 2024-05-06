@@ -134,7 +134,7 @@ var viz3D = {
 				// objectPosition: new THREE.Vector3( 0, .5, 0 ),
 				objectPosition: new THREE.Vector3( 0, 0, 0 ),
 				
-				// addLights:spots,
+				addLights:spots,
 				
 				fog:true,
 				
@@ -291,12 +291,11 @@ var viz3D = {
 							
 							var root = gltf.scene;
 							
-							// ADD Original Model to Scene
-							// scene.add(root);
 							
-							SCI.chain = root ;
 							
-							root.material = new THREE.MeshDepthMaterial() ;
+							SCI.root = root ;
+							
+							root.material = new THREE.MeshDepthMaterial({opacity:.1,wireframe:true, wireframeLinewidth:.1}) ;
 							
 							root.rotation.x = SCI.objectRotation.x ;
 							root.rotation.y = SCI.objectRotation.y ;
@@ -307,9 +306,14 @@ var viz3D = {
 							root.position.z = SCI.objectPosition.z ;
 							
 							
-							var numparticles = 50000 ;
+							var numparticles = 160000 ;
 							
-							var children = root.children ;
+							
+							var children = [].concat(root.children) ;
+							
+							
+							// ADD Original Model to Scene
+							//scene.add(children[children.length - 1]);
 							
 							var locations = [] ;
 							
@@ -366,14 +370,14 @@ var viz3D = {
 							const geometryPoints = new THREE.BufferGeometry().setFromPoints( vecs );
 							const materialPoints = new THREE.PointsMaterial({
 								color:0x3a6df0,
-								size: .015,
+								size: .0085,
 							});
 							const pointCloud = new THREE.Points( geometryPoints, materialPoints );
 							
 							pointCloud.sortParticles = true;
 							
 							
-							$('#mainloader').remove() ;
+							$('#mainloader').addClass('none') ;
 							SCI.pointsmesh = pointCloud ;
 							if(SCI.objectPosition) pointCloud.position.y = SCI.objectPosition.y ;
 							scene.add( pointCloud );
@@ -385,8 +389,8 @@ var viz3D = {
 								}
 							}
 							  
-							/*
 							
+							/*
 							SCI.pointsmesh = pointsmesh ;
 							//pointsmesh.rotation.y = (Math.PI / 2) - .165 ;
 							pointsmesh.position.y = .5 ;
@@ -395,13 +399,17 @@ var viz3D = {
 							
 							
 							
-							const base = children.pop() ;
-							const base_loc = locations.pop() ;
+							// const base = children.pop() ;
+							// const base_loc = locations.pop() ;
 							
 							SCI.morphIndex = (startIndex) % SCI.children.length ;
 							// trace(SCI.children.length)
 							
 							SCI.morphInto = function(idx){
+								var oldindex = SCI.morphIndex ;
+								
+								
+								
 								SCI.morphIndex = SCI.morphIndex % SCI.children.length ;
 								var dummy = {scale:0} ;
 								
@@ -421,12 +429,12 @@ var viz3D = {
 								SCI.twParticles = BJS.create({
 									target:dummy,
 									to:{
-										scale:.1
+										scale:.5
 									},
 									from:{
 										scale:0
 									},
-									time:1.5,
+									time:1.25,
 									ease:Expo.easeOut,
 									onUpdate:function(){
 										
@@ -449,6 +457,7 @@ var viz3D = {
 										pointCloud.sortParticles = true;
 										pointCloud.geometry.attributes.position.needsUpdate = false;
 										// trace('complete') ;
+										
 									}
 								})
 								

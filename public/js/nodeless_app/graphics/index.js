@@ -69,7 +69,7 @@ MMAI.home.getScrollPageIndex = function() {
 		var pagetop = $(el).offset().top + top ;
 		n = (added > pagetop) ? i : n ;
 	}) ;
-	trace(n)
+	// trace(n)
 	return n ;
 }
 
@@ -174,22 +174,95 @@ module.exports = MMAI.func = {
 		
 		var res = e.target ;
 		
-		//////////////////////////// GENERATE PAGE TEMPLATE IF DOES NOT EXIST YET
-		if(!!!res.template){ 
-			
-			res.render('/content/section/' + res.sectionId) ; // JADE RENDER SECTION
-			// HACK IN ORDER TO HAVE ALL TEMPLATES AS usual jQuery DOMElement Obj
-			var saz = $('<div>') ;
-			res.template.appendTo(saz) ;
-			res.template = saz.find('.extractable') ;
-			// END HACK
-
-		}
+		
 		
 		
 		
 		if(res.opening){
+			var togglein = function(){
+					
+				////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+				var ww = $(window) ;
+				var body = $('body') ;
+				
+				var top = body.scrollTop() ;
+				
+				res.template.prependTo($('.universe')) ;
+				$('.foot').removeClass("none") ;
+				$('#mainloader').addClass('none') ;
+				
+				////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+
+				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
+
+				//////////////////////////////////////// LAZY LOADINGS IF REQUIRED
+				if(!res.userData.lazyLoaded){
+					lazyload(e, true) ;
+					res.userData.lazyLoaded = true ;
+				}
+				//////////////////////////////////////// END LAZY LOADINGS IF REQUIRED
+
+
+				//////////////////////////////////////// VARIOUS TOGGLES IN PAGES
+				
+				MMAI.func.various_toggles(true, res) ;
+
+				//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
+
+
+				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
+				
+				if(!MMAI.home.viz3Drunning) {
+					MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
+						
+						this.morphInto(res.index) ;
+						
+					}, [true]) ;
+					MMAI.home.viz3Drunning = true ;
+					$('#mainloader').removeClass('none') ;
+				}else{
+					MMAI.home.SCI.morphInto(res.index) ;
+				}
+				
+				
+				
+				//////////////////////// FIRE READY EVENT
+				// if(!top){
+					// trace("RESREADY Top=0")
+				res.ready() ;	
+				// }
+			}
+			
+			
+			
 			trace('OPENING', res.id)
+			
+			//////////////////////////// GENERATE PAGE TEMPLATE IF DOES NOT EXIST YET
+			if(!!!res.template){ 
+				
+				// JADE RENDER SECTION
+				$('#mainloader').removeClass('none') ;
+				res.render('/content/section/' + res.sectionId, {}, function(){
+					
+					// HACK IN ORDER TO HAVE ALL TEMPLATES AS usual jQuery DOMElement Obj
+					var saz = $('<div>') ;
+					res.template.appendTo(saz) ;
+					res.template = saz.find('.extractable') ;
+					
+					
+					// END HACK	
+					
+					togglein() ;
+				}) ; 
+				
+				
+			}else{
+				togglein() ;
+			}
+		
+		
+		
+		
 			
 
 
@@ -201,57 +274,7 @@ module.exports = MMAI.func = {
 			} */
 			/////////////////////////// END 404 SPECIAL CASE
 
-
-			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
-			var ww = $(window) ;
-			var body = $('body') ;
 			
-			var top = body.scrollTop() ;
-			
-			res.template.prependTo($('.universe')) ;
-			$('.foot').removeClass("none") ;
-			$('#mainloader').addClass('none') ;
-			
-			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
-
-			/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
-
-			//////////////////////////////////////// LAZY LOADINGS IF REQUIRED
-			if(!res.userData.lazyLoaded){
-				lazyload(e, true) ;
-				res.userData.lazyLoaded = true ;
-			}
-			//////////////////////////////////////// END LAZY LOADINGS IF REQUIRED
-
-
-			//////////////////////////////////////// VARIOUS TOGGLES IN PAGES
-			
-			MMAI.func.various_toggles(true, res) ;
-
-			//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
-
-
-			/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
-			
-			if(!MMAI.home.viz3Drunning) {
-				MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
-					
-					this.morphInto(res.index) ;
-					
-				}, [true]) ;
-				MMAI.home.viz3Drunning = true ;
-				$('#mainloader').removeClass('none') ;
-			}else{
-				MMAI.home.SCI.morphInto(res.index) ;
-			}
-			
-			
-			
-			//////////////////////// FIRE READY EVENT
-			// if(!top){
-				// trace("RESREADY Top=0")
-			res.ready() ;	
-			// }
 			
 		}else{
 			
@@ -296,9 +319,12 @@ module.exports = MMAI.func = {
 		
 		
 		
-		res.template = res.template || $('.extractable').removeClass('hidden') ;
-		trace(res.template)
+		
+		
 		if(res.opening){
+			
+			res.template = res.template || $('.extractable').removeClass('hidden') ;
+			// trace(res.template)
 			
 			trace('OPENING', res.id) ;
 			
