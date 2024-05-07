@@ -99,29 +99,29 @@ mixin signuphome(obj)
 			input.block.Hpad.VpadXXSm.blackBG.thin.round.both.pointer(type="submit", value="Go    >")
 
 
-mixin smallbutton(text, link, cl)
-	a.inlineblock.padXSm.HpadXLg.round23(href=link, class= cl ? cl : "purecolorBG white")
+mixin smallbutton(text, url, target, cl)
+	a.inlineblock.padXSm.HpadXLg.round23(href=(url || '#') target=(target || '_self') class= cl ? cl : "purecolorBG white")
 		span 
 			!= text
 
 mixin normalbutton(text, url, target, cl)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.white.justify-between.purecolorBG(href=url target= target || '_self' class='2xl:p-10 2xl:gap-x-6 md:clickable' )
-		span.txt.flex-none.font-medium.text-inherit.text-start(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
+	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.white.justify-between.purecolorBG(href=(url || '#') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' )
+		span.txt.flex-none.font-normal.text-inherit.text-start(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
 			!= text
 		span.flex.justify-center.items-center.py-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrow_dotted_right()
 
 
-mixin consolebutton(text)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.white.justify-between.purecolorBG(href='#' target='_blank' class='2xl:p-10 2xl:gap-x-6 md:clickable')
-		span.txt.flex-grow.font-medium.text-inherit.text-start.txtL(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
+mixin consolebutton(text, url, target)
+	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.white.justify-between.purecolorBG(href=(url || '#') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable')
+		span.txt.flex-grow.font-normal.text-inherit.text-start.txtL(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
 			!= text
 		span.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrow_dotted_right()
 
-mixin discordbutton(text)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.white.darkBG(href='#' target='_blank' class='2xl:p-10 2xl:gap-x-6 md:clickable')
-		span.txt.flex-grow.font-medium.text-inherit.text-start.txtL(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
+mixin discordbutton(text, url, target)
+	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.white.darkBG(href=(url || '#') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable')
+		span.txt.flex-grow.font-normal.text-inherit.text-start.txtL(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
 			!= text
 		span.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrow_dotted_right()

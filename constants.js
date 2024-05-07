@@ -9,7 +9,7 @@ module.exports = {
     cdn: process.env.CDN
   },
   SITE:{
-    title:'MMAIPure'
+    title:'Pure Chain'
   },
   fixtures:
   {
