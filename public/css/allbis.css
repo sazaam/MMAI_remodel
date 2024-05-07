@@ -4645,11 +4645,11 @@ html{
   color:#3a6df0
 }
 
-.pureBG{
+.purecolorBG{
   background:#3a6df0
 }
 
-.pureBD{
+.purecolorBD{
   border-color:#3a6df0
 }
 
@@ -4675,6 +4675,10 @@ html{
 
 .whitetranspBG{
   background:rgba(255,255,255,.65);
+}
+
+#mainloader{
+  z-index:500;
 }
 
 @media (min-width: 1280px) {

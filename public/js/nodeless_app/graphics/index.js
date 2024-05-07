@@ -189,6 +189,7 @@ module.exports = MMAI.func = {
 				
 				res.template.prependTo($('.universe')) ;
 				$('.foot').removeClass("none") ;
+				
 				$('#mainloader').addClass('none') ;
 				
 				////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
@@ -273,7 +274,7 @@ module.exports = MMAI.func = {
 				return res.ready() ;
 			} */
 			/////////////////////////// END 404 SPECIAL CASE
-
+			
 			
 			
 		}else{
@@ -333,7 +334,7 @@ module.exports = MMAI.func = {
 			
 			
 			res.template.prependTo($('.universe')) ; // ADD TEMPLATE
-			$('.foot').removeClass("none") ;
+			
 			
 			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
 			
@@ -354,6 +355,7 @@ module.exports = MMAI.func = {
 				MMAI.home.SCI.morphInto(0) ;
 			}
 			
+			$('.foot').removeClass("none") ;
 			// $('.viewport3D').removeClass('hidden') ;
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
 			
@@ -451,6 +453,14 @@ module.exports = MMAI.func = {
 		var slides = slideshow.find('.slide') ;
 		
 		
+		var next = rt.find('.arrowright') ;
+		var prev = rt.find('.arrowleft') ;
+		
+		
+		
+		
+		
+		
 		slides.each(function(i, el){
 			var li = $(el) ;
 			var a = $(slidenav.get(i)) ;
@@ -469,6 +479,26 @@ module.exports = MMAI.func = {
 			sl.cy = new Cyclic(commands) ;
 			var TIME = 8000 ;
 
+			sl.arrowgo = function(e){
+				e.preventDefault() ;
+				e.stopPropagation() ;
+				
+				var a = $(e.currentTarget) ;
+				
+				/////////////////////////////// UNCOMMENT TO CANCEL LOOP ON CLICK (if there is an active loop)
+				
+				if(sl.cy.index == -1){
+					sl.cy.index = 0 ;
+				}
+				
+				if(a.hasClass('arrowright')){
+					if(sl.cy.index < sl.cy.commands.length - 1) sl.cy.next() ;
+				}else{
+					if(sl.cy.index > 0) sl.cy.prev() ;
+				}
+				
+			}
+			
 			sl.navgo = function(e){
 				e.preventDefault() ;
 				e.stopPropagation() ;
@@ -489,9 +519,20 @@ module.exports = MMAI.func = {
 					var c = this ;
 					var li = $(el) ;
 					var a = li.data('navitem') ;
-					
+					var n = a.data('index') ;
 					slidenav.removeClass('walletcolor') ;
 					a.addClass('walletcolor') ;
+					
+					if(n == 0){
+						prev.find('.inside').removeClass('blackBG').addClass('foggyBG') ;
+					}else{
+						prev.find('.inside').addClass('blackBG').removeClass('foggyBG') ;
+					}
+					if(n == slides.length - 1){
+						next.find('.inside').removeClass('blackBG').addClass('foggyBG') ;
+					}else{
+						next.find('.inside').addClass('blackBG').removeClass('foggyBG') ;
+					}
 					
 					var tw = MMAI.home.walletslideTW ;
 					if(tw && tw.isPLaying) tw.stop() ;
@@ -504,7 +545,6 @@ module.exports = MMAI.func = {
 						time:.45,
 						ease:Expo.easeOut
 					})
-					
 					tw.play() ;
 					return this ;
 
@@ -520,8 +560,12 @@ module.exports = MMAI.func = {
 				
 				if(cond){
 					slidenav.on('click', sl.navgo) ;
+					next.on('click', sl.arrowgo) ;
+					prev.on('click', sl.arrowgo) ;
 				}else{
 					slidenav.off('click', sl.navgo) ;
+					next.off('click', sl.arrowgo) ;
+					prev.off('click', sl.arrowgo) ;
 				}
 				
 			}
@@ -607,7 +651,23 @@ module.exports = MMAI.func = {
 			sl.cy = new Cyclic(commands) ;
 			var TIME = 8000 ;
 
+			sl.arrowgo = function(e){
+				
+				e.preventDefault() ;
+				e.stopPropagation() ;
+				
+				var a = $(e.currentTarget) ;
+				if(a.data('way') == 'up'){
+					if(sl.cy.index > 0) sl.cy.prev() ;
+				}else{
+					if(sl.cy.index == -1){ sl.cy.index = 0 }
+					if(sl.cy.index < sl.cy.commands.length - 1) sl.cy.next() ;
+				}
+				
+			}
+			
 			sl.navgo = function(e){
+			
 				e.preventDefault() ;
 				e.stopPropagation() ;
 				
@@ -622,6 +682,9 @@ module.exports = MMAI.func = {
 			var firstblock = $(slides.get(0)) ;
 			var other = firstblock.find('.othertextes') ;
 			var bh = other.height() ;
+			
+			var up = rt.find('.up').data('way', 'up') ;
+			var down = rt.find('.down').data('way', 'down') ;
 			
 			slides.each(function(i, el){
 				
@@ -657,7 +720,7 @@ module.exports = MMAI.func = {
 					if(n == 0){
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
-						firstblock.removeClass('pureblue')  ;//.find('.othertextes').show() ;
+						firstblock.removeClass('purecolor')  ;//.find('.othertextes').show() ;
 						if(other.height() != bh){
 							tw = BJS.create({
 								target:other,
@@ -670,14 +733,14 @@ module.exports = MMAI.func = {
 								
 						}
 						firstblock.find('h4').removeClass('sizeR TmarXLg').addClass('sizeXXXLg') ;
-						firstblock.find('.catchphrase').removeClass('floatL TmarXXXXLg') ;
+						firstblock.find('.catchphrase').removeClass('floatL TmarXXXXLg Tpad RmarLg') ;
 						
-						
+						firstblock.find('.browseeco a .txt').text('Browse Ecosystem') ;
 						
 					}else{
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
-						firstblock.addClass('pureblue') ;//.find('.othertextes').hide() ;
+						firstblock.addClass('purecolor') ;//.find('.othertextes').hide() ;
 						
 						var partw = [] ;
 						
@@ -695,8 +758,8 @@ module.exports = MMAI.func = {
 						}
 						
 						firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR TmarXLg') ;
-						firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg') ;
-						
+						firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg Tpad RmarLg') ;
+						firstblock.find('.browseeco a .txt').text('Browse') ;
 						var block = $(slides.get(n)) ;
 						block.css({opacity:0}) ;
 						block.removeClass('none') ;
@@ -718,6 +781,19 @@ module.exports = MMAI.func = {
 						tw = BJS.parallelTweens(partw);
 						tw.play() ;
 					}
+					
+					if(n == 0){
+						up.removeClass('purecolor') ;	
+					}else{
+						up.addClass('purecolor') ;	
+					}
+					if(n == slides.length - 1){
+						down.removeClass('purecolor') ;	
+					}else{
+						down.addClass('purecolor') ;	
+					}
+					
+					
 					sl.tw = tw ;
 					if(tw){
 						tw.play() ;	
@@ -743,10 +819,18 @@ module.exports = MMAI.func = {
 					slidenav.each(function(i, el){
 						$(el).on('click', sl.navgo) ;
 					})
+					
+					up.on('click', sl.arrowgo)
+					down.on('click', sl.arrowgo)
+					
 				}else{
 					slidenav.each(function(i, el){
 						$(el).off('click', sl.navgo) ;
 					})
+					
+					up.off('click', sl.arrowgo)
+					down.off('click', sl.arrowgo)
+					
 				}
 				
 			}

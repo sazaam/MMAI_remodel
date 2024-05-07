@@ -167,8 +167,8 @@ html{min-height:2450px}
 .purestblueBD{border-color:#dde6ff !important}
 
 .purecolor{color:#3a6df0}
-.pureBG{background:#3a6df0}
-.pureBD{border-color:#3a6df0}
+.purecolorBG{background:#3a6df0}
+.purecolorBD{border-color:#3a6df0}
 
 
 
@@ -196,6 +196,10 @@ html{min-height:2450px}
 
 .whitetranspBG{
     background:rgba(255,255,255,.65);
+}
+
+#mainloader{
+    z-index:500;
 }
 
 @media (min-width: 1280px) {

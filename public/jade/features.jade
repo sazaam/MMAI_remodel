@@ -17,15 +17,15 @@ block content
 								| Versatile Blockchain #[br]features 
 							.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
 								p.mt-4.sizeLg(class='md:mt-6')
-									| #[b.bolder.pureblue Build] and use the best #[b.bolder.pureblue Web3] applications with Purechain, 
-									| #[br]one of the most #[b.bolder.pureblue secure], #[b.bolder.pureblue robust] and #[b.bolder.pureblue flexible] blockchain implementations 
+									| #[b.bolder.purecolor Build] and use the best #[b.bolder.purecolor Web3] applications with Purechain, 
+									| #[br]one of the most #[b.bolder.purecolor secure], #[b.bolder.purecolor robust] and #[b.bolder.purecolor flexible] blockchain implementations 
 								.flex.flex-col.mt-12(class='md:col-span-6 4md:col-span-7')
 									.block(class='md:block')
 										p.block.h7.text-center.my-8(class='md:text-left 2xl:my-[2.375rem]')
 											
 										.grid.grid-cols-1.gap-y-4( class='md:grid-cols-2 md:gap-x-8')
-											+darkbutton('Start Building')
-											+lightbutton('Discord')
+											+consolebutton('Start Building')
+											+discordbutton('Discord')
 										
 						.relative(class='md:col-span-5')
 							div(style='overflow: hidden; margin: 0px auto; height: 100%;' slot='animation')
@@ -71,7 +71,7 @@ block content
 
 			//- NUMBERS
 
-			.relative.context.purelightestblueBG
+			.relative.context.purelightestblueBG.pureline
 				section.container.mx-auto.left-0.right-0.section-margin.mb-24(class='!mt-16 2xl:!mt-20')
 					.grid.grid-cols-2.gap-3.mt-20(class='md:grid-cols-4 md:gap-4 2xl:gap-x-7')
 						.col-span-1.purestblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
@@ -112,7 +112,7 @@ block content
 
 			//- TOGGLING BLOCKS
 				//- DESKTOP VERSION
-			.relative.context.pb-64
+			.relative.context.pb-64.whitetranspBG.pureline
 				section.mx-auto.left-0.right-0.section-margin.container
 					.relative.flex.flex-col(class='md:w-1/2 md:min-w-1/2')
 						.txtL
@@ -128,7 +128,7 @@ block content
 									+explaintoggle("Formidable Security", 0)
 									
 								.flex.flex-col.flex-1.mt-10
-									+darkbutton('Start Building')
+									+consolebutton('Start Building')
 							.nonez(class='md:flex')
 								.panel.flex.flex-col.mt-0.flex(class='md:mt-10')
 									.flex.justify-center(class='h-48')
@@ -236,7 +236,7 @@ block content
 
 
 			
-			.relative.context.purelightestblueBG.pt-12.paneltoggle
+			.relative.context.purelightestblueBG.pt-12.paneltoggle.pureline
 				section.mx-auto.left-0.right-0.section-margin(class='md:!px-2 2xl:!px-5')
 					.px-4.p-11(class='md:pt-16 md:p5 md:rounded-xl 2xl:rounded-3xl')
 						.container.mx-auto.flex.flex-col
@@ -562,7 +562,7 @@ block content
 													| utilizes
 												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
 													| Exchange Module • Orderbook Primitive • Oracle Module
-			.relative.context
+			.relative.context.pureline
 				section.mx-auto.left-0.right-0.mb-24.container
 					.flex.flex-col(class='2xl:flex')
 						h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-2/3")
@@ -571,29 +571,7 @@ block content
 							.flex.flex-row.gap-x-4
 								.flex.flex-col-reverse
 									+normalbutton('View our Patents')
-							//- .flex.flex-col
-								.flex.flex-row.gap-x-4
-									
-										
-									
-									ul.list-none.whitespace-nowrap.carousel-wrapper.pb-1.tab-header.scroll-smooth.flex.items-center( class='lg:pb-2 xl:pb-4')
-										li.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row( class='hover:text-main-blue active:cursor-grabbing md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.pb-3.border-b-2.border-transparent.items-center.border-b-main-blue()
-												// 
-												span.block.box-content.text-base.text-main-blue( class='md:text-xs 4md:text-sm xl:text-base')
-													| For
-													| individuals
-											.box-content.pb-3.pr-6.border-b-2.border-transparent( class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										li.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row( class='hover:text-main-blue active:cursor-grabbing md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.pb-3.border-b-2.border-transparent.items-center()
-												// 
-												span.block.box-content.text-base.text-tcolor-2( class='md:text-xs 4md:text-sm xl:text-base')
-													| For
-													| developers
+							
 					
-			.relative.context.TmarginXXLg.purelightestblueBG
-				section.VmarginXXXLg.mx-auto.left-0.right-0.section-margin.container(class='2xl:!mt-28')
-					h3.black.text-start.text-5xl.mt-24.mb-24.min-w-max.leading-10.m-auto Start Building with Pure chain Now
-					.grid.grid-cols-1.gap-y-4( class='md:grid-cols-2 md:gap-x-8')
-						+darkbutton('Start Building')
-						+lightbutton('Discord')
+			.relative.context.TmarginXXLg.purelightestblueBG.pureline
+				+startnow()

@@ -5,7 +5,11 @@
 		.page
 			.eco.abs.flowvisible.top0.bottom0.left0.right0.purelightestblueBG
 				
-				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg(style="width:350px;top:130px;z-index:301")
+				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg.foggy(style="width:350px;top:130px;z-index:301")
+					a.up.abs.zi3.right0(style="top:-38px" href="javascript:void(0)") 
+						+arrow_dotted_up()
+					a.down.abs.zi3.right0.purecolor(style="bottom:-35px" href="javascript:void(0)") 
+						+arrow_dotted_down()
 					ol.txtL.pureblue.rel(style="top:0px")
 						li
 							a.dark.block.pureline.first.HpadSm.txtL(href="javascript:void(0)")
@@ -32,8 +36,8 @@
 								h3 We are ensuring a safe place <br />where all your expectations converge.
 								.Tmar.lh1
 									p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
-							.TmarXXXLg.txtR.sizeXSm.rel(style="margin-right:-25px")
-								+smallbutton("Browse Ecosystem", "#/features/")
+							.browseeco.TmarXXXLg.txtR.sizeXSm.rel(style="margin-right:-25px")
+								+normalbutton("Browse Ecosystem", "#/features/")
 					- for(let i = 0 ; i < ls ; i++) {
 						.none.slide.textes.abs.fullH.fullW.left0.right0(style="bottom:220px;")
 							.fullH.fullW.grid.content-end.place-items-end.noselect
