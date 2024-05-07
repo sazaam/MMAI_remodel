@@ -70,42 +70,8 @@ block content
 				
 
 			//- NUMBERS
-
-			.relative.context.purelightestblueBG.pureline
-				section.container.mx-auto.left-0.right-0.section-margin.mb-24(class='!mt-16 2xl:!mt-20')
-					.grid.grid-cols-2.gap-3.mt-20(class='md:grid-cols-4 md:gap-4 2xl:gap-x-7')
-						.col-span-1.purestblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
-							.flex.flex-row.h-fit
-								.flex.flex-col.justify-between.h-fit.w-full
-									span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
-										| 66,438,189
-									.flex.flex-row.justify-between.items-center.w-full
-										span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
-											| BLOCKS PRODUCED
-						.col-span-1.purestblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
-							.flex.flex-row.h-fit
-								.flex.flex-col.justify-between.h-fit.w-full
-									span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
-										| 415,012,862
-									.flex.flex-row.justify-between.items-center.w-full
-										span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
-											| ON-CHAIN TRANSACTIONS
-						.col-span-1.purestblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
-							.flex.flex-row.h-fit
-								.flex.flex-col.justify-between.h-fit.w-full
-									span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
-										| 0.8S
-									.flex.flex-row.justify-between.items-center.w-full
-										span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
-											| BLOCK TIME
-						.col-span-1.purestblueBG.rounded-3xl.txtL.px-4.py-5.flex(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
-							.flex.flex-row.h-fit
-								.flex.flex-col.justify-between.h-fit.w-full
-									span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
-										| <$0.01
-									.flex.flex-row.justify-between.items-center.w-full
-										span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
-											| AVG TRANSACTION COST
+			+stats('purelightestblueBG pureline white')
+			
 			
 			//- END NUMBERS
 			
@@ -562,16 +528,40 @@ block content
 													| utilizes
 												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
 													| Exchange Module • Orderbook Primitive • Oracle Module
-			.relative.context.pureline
-				section.mx-auto.left-0.right-0.mb-24.container
-					.flex.flex-col(class='2xl:flex')
+			.relative.context.pureline.whitetranspBG.TpadXXLg
+				section.mx-auto.left-0.right-0.mb-24.container.flex.flex-wrap.gap-y-4(class="sm:flex-col-2")
+					.flex.flex-col.flex-none(class='2xl:flex')
 						h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-2/3")
 							| Verified and Approved #[br] Technology
 						.mt-10.relative(class='md:mt-8 2xl:mt-11')
 							.flex.flex-row.gap-x-4
 								.flex.flex-col-reverse
 									+normalbutton('View our Patents')
-							
+					.patentszone.none.flex-wrap.grow.gap-4(class="sm:grid sm:grid-cols-4").place-content-between
+						- let papers = [] ;
+						- papers.push({name:'Smart auto mining (SAM) for industrial IoT Blockchain Network'}) ;
+						- papers.push({name:'Blockchain side Implementation : An offline Transaction Architecture'}) ;
+						- papers.push({cat:"International Patent Registration", name:'Blockchain-based Data Sharing Method'}) ;
+						- papers.push({cat:"Patent", name:'Unauthorized UAV Localization'}) ;
+						- papers.push({name:'Intelligent Transportation Systems'}) ;
+						- papers.push({name:'Artificial Intelligence for the Metaverse'}) ;
+						- papers.push({name:'Metaverse Applications and Limitations'}) ;
+						- papers.push({name:'Real-time Recognition Model'}) ;
+						- papers.push({name:'Low-power and Lossy'}) ;
+						- papers.push({name:'Smart Health'}) ;
+						- papers.push({name:'Automatic Modulation Classification'}) ;
+						- papers.push({name:'Accurate LPI Radar Waveform Recognition'}) ;
+
+						- for(let i = 0 ; i < papers.length ; i ++){
+							.purelightestblueDownBG.rounded-lg.relative.BmarLg.context.grid.grid-flow-row.place-content-between.fullH
+								.sizeSm.padSm.uppercase.txtR.pad.TpadLg.purecolorBG.white
+									!= papers[i].cat || 'thesis'
+								h6.txtL.sizeLg.bold.pad.place-self-start.purecolor
+									!= papers[i].name
+								img(src="/img/papers/paper_01.webp" alt="" class="place-self-end")
+						- }
+						
+
 					
-			.relative.context.TmarginXXLg.purelightestblueBG.pureline
+			.relative.context.purelightestblueBG.pureline
 				+startnow()
