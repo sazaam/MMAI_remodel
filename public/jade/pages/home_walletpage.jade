@@ -2,12 +2,16 @@
 - let l = 6 ;
 
 .page.rel.fullH.txtC.slides.purewallet
-	.slidenav.abs(style="bottom:15px;z-index: 50;").txtC.left0.right0
+	
+	.next.abs(style="bottom:25px;z-index: 50;").txtC.left0.right0
+		+smallbutton('Continue', '#/home/pureseries/')
+	.slidenav.abs(style="bottom:0px; z-index: 50;left: auto;right: 20px;").txtC.left0.right0
 		ol.context.inlineblock.marginauto.widthauto.pureblue
 			- for(i = 0 ; i < l ; i++){
 				li.floatL.sizeXXXLg.HpadXXXSm
 					a.sizeXXXLg.block(href="javascript:void(0)", class= (i==0)? 'walletcolor' :'') •
 			- }
+	
 	.abs.arrows.fullW.fullH
 		a.abs.zi3.arrowright.w-12.h-12.top50.right0(href="javascript:void(0)" style="margin-top:-20px;margin-right:-15px") 
 			span.inside.flex.justify-center.items-center.pad.Vpad0.blackBG.white.rounded-full
@@ -23,19 +27,19 @@
 					section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
 						.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
 							.phonetextblock.relative.pt-0(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
-								.p-8
+								.p-8.whitetranspBG
 									.txtR.darker.sizeLg
 										h2.text-start.sizeXXXXLg.bold.mt-0.mb-6.min-w-max.leading-tight
 											| Effective #[br] #[span.purecolor Payment] Process 
 										hr.mb-6
 										.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
 											.mt-4.mb-2
-												p.mt-4.txtR
+												p.mt-4.txtR.sizeSm(class="sm:sizeR")
 													| Provides a more efficient and streamlined #[br] payment processing system
 													| #[br] with lower transaction costs using #[br] our exclusive blockchain technology.
 													| #[br] #[br] Suitable for micropayments, bulk Retail, 
 													| #[br] and payments that require the highest security.
-								.TmarLg.txtR.Hmar
+								.TmarLg.txtR.HmarLg
 									+consolebutton('Discover More', '#/wallet/')
 									//-+smallbutton("Discover Pure Wallet", "#/wallet/")
 							.phoneshot.pt-16(class="w-full sm:pt-0 sm:w-2/5")
@@ -57,21 +61,21 @@
 										img.mt-10.object-fill(src="/img/phone_screenshot2.png", alt="")
 							.phonetextblock.relative.pt-0(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
 								
-								.p-8
+								.p-8.whitetranspBG
 									.txtR.darker.sizeLg
 										h2.txtL.sizeXXXXLg.bold.mt-0.mb-6.min-w-max.leading-tight
 											| #[span.purecolor Offline] Mobile #[br] Electronic #[span.purecolor Wallet]
 										hr.mb-6
 										.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
 											.mt-4.mb-2
-												p.mt-4.txtL
+												p.mt-4.txtR.sizeSm(class="sm:sizeR")
 													| Enables access to modern financial services 
 													| #[br]even in limited infrastructure environments. 
 													| #[br]#[br] Economically empowers emerging countries 
 													| #[br] through offline and banking functions, 
 													| #[br] providing them with the opportunity 
 													| #[br] to enter the global digital economy.
-								.TmarLg.txtR.Hmar
+								.TmarLg.txtR.HmarLg
 									+consolebutton('Discover More', '#/wallet/')
 				- }
 				

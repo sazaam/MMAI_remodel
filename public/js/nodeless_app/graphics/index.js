@@ -180,8 +180,10 @@ module.exports = MMAI.func = {
 		var res = e.target ;
 				
 		if(e.type == 'focusIn'){
+			$('#global_'+res.name).addClass('purecolor') ;
 			res.focusReady() ;
 		}else{
+			$('#global_'+res.name).removeClass('purecolor') ;
 			res.focusReady() ;
 		}
 
@@ -379,6 +381,7 @@ module.exports = MMAI.func = {
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
 			
 			
+			
 			//////////////////////////////////////////////////////// EVENTS
 			//////////////////////// MAIN SCROLL EVENT
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
@@ -556,14 +559,17 @@ module.exports = MMAI.func = {
 					var tw = MMAI.home.walletslideTW ;
 					if(tw && tw.isPLaying) tw.stop() ;
 					
+					var xxx = -100 * a.data('index') ;
+					
 					tw = MMAI.home.walletslideTW = BJS.create({
 						target: slideshow,
 						to:{
-							'left::%':-100 * a.data('index')
+							'left::%': xxx
 						},
 						time:.45,
 						ease:Expo.easeOut
 					})
+					
 					tw.play() ;
 					return this ;
 
@@ -677,7 +683,7 @@ module.exports = MMAI.func = {
 				
 				var a = $(e.currentTarget) ;
 				
-				if(a.data('way') == 'up'){
+				if(a.hasClass('up')){
 					if(sl.cy.index > 0) sl.cy.prev() ;
 				}else{
 					if(sl.cy.index == -1){ sl.cy.index = 0 }

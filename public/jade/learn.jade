@@ -19,7 +19,7 @@ block content
 					.relative.flex.flex-col.grid-cols-12.h-fit( class='md:grid 2xl:h-[355px]')
 						.flex.flex-col.txtL(class='md:col-span-7 4md:col-span-6')
 							h1.black.text-start.text-5xl.mt-24.mb-12.min-w-max.leading-10
-								| Built for Developers
+								| Built for Builders
 							.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
 								p.mt-4.sizeLg(class='md:mt-6')
 									| #[b.bolder.purecolor Pure chain] is the only #[b.bolder offline] blockchain #[br]allowing both on and offline #[b.bolder.purecolor financial operations]. #[br]#[b.bolder.purecolor Create] modern apps with scelerity, enhanced with #[b.bolder.purecolor latest Web3 modules],#[br] enjoy and offer #[b.bolder competitive low fees] for an unmatched #[b.bolder transactional efficiency].
@@ -108,153 +108,152 @@ block content
 			
 			
 			
-			.relative.context.pureline
+			.relative.context.BpadXXLg.pureline.whitetranspBG
 				section.mx-auto.left-0.right-0.section-margin.container
 					.flex.flex-col(class='md:col-span-7 4md:col-span-6')
 						h3.black.text-start.text-5xl.mt-24.mb-24.min-w-max.leading-10.m-auto
 							| At your disposition
+						
+						h5.dark.sizeLg.txtJ(class="sm:w-2/5")
+							| As #[b.dark numerous projects] get available for you to experience through the #[b.purecolor Pure Series] Framework, 
+							| we can only highly encourage you to #[b.dark start developping] using our tools, and display your 
+							| #[b.purecolor creativity] and #[b.purecolor ability] in a variety of modern #[b.purecolor Web3 approaches].   
 						- let dispitems = ['Exchanges', 'Lending', 'Derivatives', 'Savings' , 'Insurance', 'Options']
 						.py-10(class='md:pt-10 4md:pt-12 lg:pt-14 xl:pt-16 2xl:pt-20')
-							.flex.flex-row.gap-x-4(class='md:justify-center md:flex')
-								ul.list-none.whitespace-nowrap.carousel-wrapper.pb-1.tab-header.scroll-smooth.flex.items-center.gap-8
+							.grid.grid-flow-col.auto-cols-auto
+								//- ul.list-none
 									- for(let i = 0 ; i < dispitems.length ; i++){
 										li.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='hover:text-main-blue active:cursor-grabbing md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
 											.flex.bg-transparent.pb-3.border-b-2.border-transparent.items-center.border-b-main-blue(class='xl:pb-4')
 												span.block.box-content.text-base(class='md:text-xs 4md:text-sm xl:text-base')
 													!= dispitems[i]	
-									- }
-									
-							
-							.panel.flex-grow(style='display: none;')
-								.mx-auto.mt-12(class='md:mt-20 lg:mt-24 xl:mt-32 2xl:mt-36 md:w-4/5')
-									.grid.grid-cols-1(class='md:grid-cols-12')
-										.flex.justify-center(class='md:col-span-5 h-[14rem] md:h-[200px] 4md:h-[232px] lg:h-[248px] xl:h-[302px]')
-											svg.h-full.w-full(viewBox='0 0 256 296' fill='none' xmlns='http://www.w3.org/2000/svg' data-v-2896af2e='')
-												path(opacity='0.35' d='M263.475 64.0898H281.899C292.075 64.0898 300.324 72.3389 300.324 82.5146V275.974C300.324 286.15 292.075 294.399 281.899 294.399H61.7236C51.5479 294.399 43.2988 286.15 43.2988 275.974V256.628' stroke='#376593' stroke-width='0.690928' stroke-dasharray='7.37 7.37')
-												path(opacity='0.8' d='M69.124 76.9882C61.4805 76.9877 55.2884 83.1923 55.3044 90.8358L55.6769 268.617C55.6928 276.237 61.8743 282.406 69.4943 282.406L273.579 282.422C281.222 282.423 287.414 276.218 287.398 268.575L287.026 90.7935C287.01 83.1735 280.828 77.0045 273.208 77.0039L69.124 76.9882Z' fill='url(#paint0_linear_2729_21746)')
-												path(d='M0.921237 39.2165C0.921237 29.5496 8.75782 21.713 18.4247 21.713H238.6C248.267 21.713 256.104 29.5496 256.104 39.2165V232.676C256.104 242.343 248.267 250.18 238.6 250.18H18.4247C8.75782 250.18 0.921237 242.343 0.921237 232.676V39.2165Z' fill='url(#paint1_linear_2729_21746)' stroke='#90B0D5' stroke-width='1.84247')
-												path(d='M105.805 153.968H153.16' stroke='#414CFF' stroke-width='2.7' stroke-miterlimit='10')
-												path(d='M105.805 167.521H153.16' stroke='#414CFF' stroke-width='2.7' stroke-miterlimit='10')
-												path(d='M94.9609 181.871V107.728L112.819 90.0292H164.002V181.871H94.9609Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M139.867 131.995C139.807 131.899 139.729 131.816 139.637 131.75C139.545 131.684 139.441 131.637 139.331 131.612C139.221 131.586 139.107 131.583 138.995 131.601C138.884 131.62 138.777 131.66 138.681 131.72C137.372 132.533 135.898 133.043 134.366 133.212C132.834 133.382 131.284 133.206 129.829 132.698C128.374 132.191 127.051 131.364 125.959 130.279C124.866 129.194 124.031 127.879 123.515 126.43H133.577C133.805 126.43 134.023 126.339 134.185 126.178C134.346 126.018 134.436 125.799 134.436 125.572C134.436 125.345 134.346 125.127 134.185 124.966C134.023 124.805 133.805 124.715 133.577 124.715H123.068C122.861 123.581 122.861 122.419 123.068 121.285H133.577C133.805 121.285 134.023 121.194 134.185 121.034C134.346 120.873 134.436 120.655 134.436 120.427C134.436 120.2 134.346 119.982 134.185 119.821C134.023 119.66 133.805 119.57 133.577 119.57H123.515C124.029 118.123 124.862 116.81 125.951 115.726C127.039 114.642 128.358 113.814 129.808 113.305C131.259 112.795 132.806 112.616 134.335 112.78C135.864 112.944 137.338 113.447 138.647 114.253C138.84 114.374 139.074 114.413 139.296 114.361C139.519 114.31 139.712 114.172 139.832 113.979C139.953 113.786 139.992 113.552 139.94 113.33C139.889 113.109 139.751 112.916 139.557 112.796C137.986 111.826 136.213 111.23 134.374 111.055C132.535 110.879 130.681 111.128 128.954 111.784C127.227 112.439 125.675 113.482 124.417 114.832C123.16 116.182 122.231 117.803 121.702 119.57H115.859C115.631 119.57 115.413 119.66 115.252 119.821C115.091 119.982 115 120.2 115 120.427C115 120.655 115.091 120.873 115.252 121.034C115.413 121.194 115.631 121.285 115.859 121.285H121.333C121.246 121.852 121.2 122.425 121.195 123C121.2 123.574 121.246 124.147 121.333 124.715H115.859C115.631 124.715 115.413 124.805 115.252 124.966C115.091 125.127 115 125.345 115 125.572C115 125.799 115.091 126.018 115.252 126.178C115.413 126.339 115.631 126.43 115.859 126.43H121.702C122.232 128.2 123.164 129.825 124.426 131.177C125.688 132.529 127.245 133.572 128.977 134.225C130.709 134.878 132.569 135.123 134.412 134.942C136.254 134.76 138.03 134.157 139.6 133.178C139.696 133.118 139.778 133.039 139.843 132.947C139.908 132.855 139.954 132.751 139.979 132.641C140.004 132.531 140.007 132.418 139.987 132.307C139.968 132.196 139.927 132.09 139.867 131.995Z' fill='#343FF5' stroke='#343FF5' stroke-width='0.9')
-												circle(cx='256.371' cy='26.0951' r='22.6881' fill='#092354' stroke='#ECF3FB' stroke-width='5.18584')
-												path(d='M262.406 19.5282L264.685 21.9951L254.064 33.5074L247.211 26.1067L249.49 23.6397L254.064 28.5736L262.406 19.5282Z' fill='white')
-												defs
-													lineargradient#paint0_linear_2729_21746(x1='234.865' y1='256.582' x2='198.373' y2='189.916' gradientUnits='userSpaceOnUse')
-														stop(stop-color='white')
-														stop(offset='1' stop-color='white' stop-opacity='0')
-													lineargradient#paint1_linear_2729_21746(x1='249.99' y1='22.9091' x2='44.6727' y2='199.762' gradientUnits='userSpaceOnUse')
-														stop(stop-color='#BDCEEE' stop-opacity='0.8')
-														stop(offset='1' stop-color='#C2D2F0' stop-opacity='0.3')
-										.flex.flex-col.mt-8(class='md:col-span-7 md:mt-0 md:ml-8')
-											.font-semibold.capitalize.leading-11.tracking-2x-tighter(class='md:flex md:text-base 4md:text-lg lg:text-xl')
-												| Derivatives
-											.daa(class='md:text-xs lg:text-tiny xl:text-lg md:leading-5 4md:leading-7 lg:leading-8 xl:leading-11')
-												| Create a wide array of sophisticated decentralized derivatives applications and structured products that are able to effortlessly work across sovereign blockchain networks.
-											.mt-8(class='xl:mt-10')
-												+normalbutton('Build Now')
-														
-							.panel.flex-grow(style='display: none;')
-								.mx-auto.mt-12(class='md:mt-20 lg:mt-24 xl:mt-32 2xl:mt-36 md:w-4/5')
-									.grid.grid-cols-1(class='md:grid-cols-12')
-										.flex.justify-center(class='md:col-span-5 h-[14rem] md:h-[200px] 4md:h-[232px] lg:h-[248px] xl:h-[302px]')
-											svg.h-full.w-full(viewBox='0 0 256 296' fill='none' xmlns='http://www.w3.org/2000/svg' data-v-2896af2e='')
-												path(opacity='0.35' d='M263.475 64.0898H281.899C292.075 64.0898 300.324 72.3389 300.324 82.5146V275.974C300.324 286.15 292.075 294.399 281.899 294.399H61.7236C51.5479 294.399 43.2988 286.15 43.2988 275.974V256.628' stroke='#376593' stroke-width='0.690928' stroke-dasharray='7.37 7.37')
-												path(opacity='0.8' d='M69.124 76.9882C61.4805 76.9877 55.2884 83.1923 55.3044 90.8358L55.6769 268.617C55.6928 276.237 61.8743 282.406 69.4943 282.406L273.579 282.422C281.222 282.423 287.414 276.218 287.398 268.575L287.026 90.7935C287.01 83.1735 280.828 77.0045 273.208 77.0039L69.124 76.9882Z' fill='url(#paint0_linear_2729_21777)')
-												path(d='M18.4247 21.713H238.6C248.267 21.713 256.104 29.5496 256.104 39.2165V232.676C256.104 242.343 248.267 250.18 238.6 250.18H18.4247C8.75782 250.18 0.921237 242.343 0.921237 232.676V39.2165C0.921237 29.5496 8.75782 21.713 18.4247 21.713Z' fill='url(#paint1_linear_2729_21777)' stroke='#90B0D5' stroke-width='1.84247')
-												path(d='M133.521 135.787C136.691 133.886 140.177 132.459 144.139 131.984C158.56 130.082 171.871 140.383 173.773 154.804C175.674 169.224 165.374 182.536 150.953 184.437C136.532 186.339 123.221 176.038 121.319 161.618C120.369 154.17 122.587 147.197 126.866 141.809' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round')
-												path(d='M156.501 145.137L138.436 171.285' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linecap='round')
-												path(d='M138.755 153.853C141.555 153.853 143.826 151.582 143.826 148.782C143.826 145.981 141.555 143.711 138.755 143.711C135.954 143.711 133.684 145.981 133.684 148.782C133.684 151.582 135.954 153.853 138.755 153.853Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linecap='round')
-												path(d='M156.342 172.869C159.143 172.869 161.413 170.599 161.413 167.798C161.413 164.997 159.143 162.727 156.342 162.727C153.542 162.727 151.271 164.997 151.271 167.798C151.271 170.599 153.542 172.869 156.342 172.869Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linecap='round')
-												path(d='M141.763 116.93C141.763 122.476 132.255 126.913 120.37 126.913C108.485 126.913 98.9766 122.476 98.9766 116.93' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M98.9766 129.132C98.9766 134.52 108.009 138.798 119.419 138.957C119.736 138.957 120.053 138.957 120.37 138.957' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M115.616 151.159C106.108 150.208 98.9766 146.246 98.9766 141.492' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M120.37 163.836C118.944 163.836 117.517 163.836 116.091 163.678C106.266 162.727 98.9766 158.765 98.9766 154.011V114.236' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M141.762 104.728V126.755' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M120.37 114.711C132.185 114.711 141.763 110.241 141.763 104.727C141.763 99.2137 132.185 94.7439 120.37 94.7439C108.555 94.7439 98.9766 99.2137 98.9766 104.727C98.9766 110.241 108.555 114.711 120.37 114.711Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												circle(cx='256.371' cy='26.0951' r='22.6881' fill='#092354' stroke='#ECF3FB' stroke-width='5.18584')
-												path(d='M262.406 19.5282L264.685 21.9951L254.064 33.5074L247.211 26.1067L249.49 23.6397L254.064 28.5736L262.406 19.5282Z' fill='white')
-												defs
-													lineargradient#paint0_linear_2729_21777(x1='234.865' y1='256.582' x2='198.373' y2='189.916' gradientUnits='userSpaceOnUse')
-														stop(stop-color='white')
-														stop(offset='1' stop-color='white' stop-opacity='0')
-													lineargradient#paint1_linear_2729_21777(x1='249.99' y1='22.9091' x2='44.6727' y2='199.762' gradientUnits='userSpaceOnUse')
-														stop(stop-color='#BDCEEE' stop-opacity='0.8')
-														stop(offset='1' stop-color='#C2D2F0' stop-opacity='0.3')
-										.flex.flex-col.mt-8(class='md:col-span-7 md:mt-0 md:ml-8')
-											.font-semibold.capitalize.leading-11.tracking-2x-tighter(class='md:flex md:text-base 4md:text-lg lg:text-xl')
-												| Savings
-											.daa(class='md:text-xs lg:text-tiny xl:text-lg md:leading-5 4md:leading-7 lg:leading-8 xl:leading-11')
-												| Leverage a suite of intuitive developer tooling to ship truly decentralized savings products with no minimums and no restrictions.
-											.mt-8(class='xl:mt-10')
-												+normalbutton('Build Now')
-							.panel.flex-grow(style='display: none;')
-								.mx-auto.mt-12(class='md:mt-20 lg:mt-24 xl:mt-32 2xl:mt-36 md:w-4/5')
-									.grid.grid-cols-1(class='md:grid-cols-12')
-										.flex.justify-center(class='md:col-span-5 h-[14rem] md:h-[200px] 4md:h-[232px] lg:h-[248px] xl:h-[302px]')
-											svg.h-full.w-full(viewBox='0 0 256 296' fill='none' xmlns='http://www.w3.org/2000/svg' data-v-2896af2e='')
-												path(opacity='0.35' d='M263.475 64.0898H281.899C292.075 64.0898 300.324 72.3389 300.324 82.5146V275.974C300.324 286.15 292.075 294.399 281.899 294.399H61.7236C51.5479 294.399 43.2988 286.15 43.2988 275.974V256.628' stroke='#376593' stroke-width='0.690928' stroke-dasharray='7.37 7.37')
-												path(opacity='0.8' d='M69.124 76.9882C61.4805 76.9877 55.2884 83.1923 55.3044 90.8358L55.6769 268.617C55.6928 276.237 61.8743 282.406 69.4943 282.406L273.579 282.422C281.222 282.423 287.414 276.218 287.398 268.575L287.026 90.7935C287.01 83.1735 280.828 77.0045 273.208 77.0039L69.124 76.9882Z' fill='url(#paint0_linear_2729_21808)')
-												path(d='M0.921237 39.2165C0.921237 29.5496 8.75782 21.713 18.4247 21.713H238.6C248.267 21.713 256.104 29.5496 256.104 39.2165V232.676C256.104 242.343 248.267 250.18 238.6 250.18H18.4247C8.75782 250.18 0.921237 242.343 0.921237 232.676V39.2165Z' fill='url(#paint1_linear_2729_21808)' stroke='#90B0D5' stroke-width='1.84247')
-												path(d='M80.2832 121.354H178.651L129.467 92.0712L80.2832 121.354Z' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
-												path(d='M95.4199 121.354V157.958' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
-												path(d='M118.117 121.354V157.958' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
-												path(d='M140.82 121.354V157.958' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
-												path(d='M163.518 121.354V157.958' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
-												path(d='M84.0684 157.958H174.869' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
-												path(d='M76.5 172.599H182.434' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
-												circle(cx='256.371' cy='26.0951' r='22.6881' fill='#092354' stroke='#ECF3FB' stroke-width='5.18584')
-												path(d='M262.406 19.5282L264.685 21.9951L254.064 33.5074L247.211 26.1067L249.49 23.6397L254.064 28.5736L262.406 19.5282Z' fill='white')
-												defs
-													lineargradient#paint0_linear_2729_21808(x1='234.865' y1='256.582' x2='198.373' y2='189.916' gradientUnits='userSpaceOnUse')
-														stop(stop-color='white')
-														stop(offset='1' stop-color='white' stop-opacity='0')
-													lineargradient#paint1_linear_2729_21808(x1='249.99' y1='22.9091' x2='44.6727' y2='199.762' gradientUnits='userSpaceOnUse')
-														stop(stop-color='#BDCEEE' stop-opacity='0.8')
-														stop(offset='1' stop-color='#C2D2F0' stop-opacity='0.3')
-										.flex.flex-col.mt-8(class='md:col-span-7 md:mt-0 md:ml-8')
-											.font-semibold.capitalize.leading-11.tracking-2x-tighter(class='md:flex md:text-base 4md:text-lg lg:text-xl')
-												| Insurance
-											.daa(class='md:text-xs lg:text-tiny xl:text-lg md:leading-5 4md:leading-7 lg:leading-8 xl:leading-11')
-												| Underwrite a new DAO governed financial paradigm to provide bespoke insurance policies and coverage for all Web3 user needs.
-											.mt-8(class='xl:mt-10')
-												a.w-full(href='#' target='_blank' class='xl:w-fit' data-v-2896af2e='')
-													.btn.py-4.bg-main-blue.w-full(class='2xs:px-8 md:py-[0.65rem] lg:px-10 lg:py-4 disabled:bg-disabled md:animation-up 2xs:w-fit')
-														span Build Now
-														// 
-							.panel.flex-grow(style='display: none;')
-								.mx-auto.mt-12(class='md:mt-20 lg:mt-24 xl:mt-32 2xl:mt-36 md:w-4/5')
-									.grid.grid-cols-1(class='md:grid-cols-12')
-										.flex.justify-center(class='md:col-span-5 h-14 md:h-48 4md:h-48 lg:h-48 xl:h-48')
-											svg.h-full.w-full(viewBox='0 0 256 296' fill='none' xmlns='http://www.w3.org/2000/svg' data-v-2896af2e='')
-												path(opacity='0.35' d='M263.475 64.0898H281.899C292.075 64.0898 300.324 72.3389 300.324 82.5146V275.974C300.324 286.15 292.075 294.399 281.899 294.399H61.7236C51.5479 294.399 43.2988 286.15 43.2988 275.974V256.628' stroke='#376593' stroke-width='0.690928' stroke-dasharray='7.37 7.37')
-												path(opacity='0.8' d='M69.124 76.9882C61.4805 76.9877 55.2884 83.1923 55.3044 90.8358L55.6769 268.617C55.6928 276.237 61.8743 282.406 69.4943 282.406L273.579 282.422C281.222 282.423 287.414 276.218 287.398 268.575L287.026 90.7935C287.01 83.1735 280.828 77.0045 273.208 77.0039L69.124 76.9882Z' fill='url(#paint0_linear_2729_21839)')
-												path(d='M18.4247 21.713H238.6C248.267 21.713 256.104 29.5496 256.104 39.2165V232.676C256.104 242.343 248.267 250.18 238.6 250.18H18.4247C8.75782 250.18 0.921237 242.343 0.921237 232.676V39.2165C0.921237 29.5496 8.75782 21.713 18.4247 21.713Z' fill='url(#paint1_linear_2729_21839)' stroke='#90B0D5' stroke-width='1.84247')
-												path(d='M128.902 182.482V89.3348' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M175.315 135.741H82.5391' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M125.227 89C125.227 89 81.1665 129.375 125.227 182.314' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M132.424 89C132.424 89 176.484 129.375 132.424 182.314' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M163.759 165.227C151.026 157.52 128.41 149.144 100.6 161.708L93.5 165.227' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M164.255 106.088C151.523 113.795 128.236 122.674 99.7559 109.271L93 106.088' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												path(d='M128.741 182.482C154.555 182.482 175.482 161.555 175.482 135.741C175.482 109.927 154.555 89 128.741 89C102.927 89 82 109.927 82 135.741C82 161.555 102.927 182.482 128.741 182.482Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
-												circle(cx='256.371' cy='26.0951' r='22.6881' fill='#092354' stroke='#ECF3FB' stroke-width='5.18584')
-												path(d='M262.406 19.5282L264.685 21.9951L254.064 33.5074L247.211 26.1067L249.49 23.6397L254.064 28.5736L262.406 19.5282Z' fill='white')
-												defs
-													lineargradient#paint0_linear_2729_21839(x1='234.865' y1='256.582' x2='198.373' y2='189.916' gradientUnits='userSpaceOnUse')
-														stop(stop-color='white')
-														stop(offset='1' stop-color='white' stop-opacity='0')
-													lineargradient#paint1_linear_2729_21839(x1='249.99' y1='22.9091' x2='44.6727' y2='199.762' gradientUnits='userSpaceOnUse')
-														stop(stop-color='#BDCEEE' stop-opacity='0.8')
-														stop(offset='1' stop-color='#C2D2F0' stop-opacity='0.3')
-										.flex.flex-col.mt-8(class='md:col-span-7 md:mt-0 md:ml-8')
-											.font-semibold.capitalize.leading-11.tracking-2x-tighter(class='md:flex md:text-base 4md:text-lg lg:text-xl')
-												| Options
-											.daa(class='md:text-xs lg:text-tiny xl:text-lg md:leading-5 4md:leading-7 lg:leading-8 xl:leading-11')
-												| Deploy disruptive on-chain options products, prediction markets and automated strategies using Injective’s options module to bring forth a new era of financial innovation.
-											.mt-8(class='xl:mt-10')
-												a.w-full(href='#' target='_blank' class='xl:w-fit' data-v-2896af2e='')
-													.btn.py-4.bg-main-blue.w-full(class='2xs:px-8 md:py-[0.65rem] lg:px-10 lg:py-4 disabled:bg-disabled md:animation-up 2xs:w-fit')
-														span Build Now
-			.relative.context.TmarginXXLg.purelightestblueBG.pureline
+										- }
+
+								.tata
+									.panel.flex-grow(style='display: block;')
+										.mx-auto.mb-12
+											.grid.grid-cols-1(class='md:grid-cols-12')
+												.flex.justify-center(class='md:col-span-5 h-14 md:h-48 4md:h-48 lg:h-48 xl:h-48')
+													svg.flowvisible.h-full(class="w-1/2 md:w-full" viewBox='0 0 256 296' fill='none' xmlns='http://www.w3.org/2000/svg')
+														path(opacity='0.35' d='M263.475 64.0898H281.899C292.075 64.0898 300.324 72.3389 300.324 82.5146V275.974C300.324 286.15 292.075 294.399 281.899 294.399H61.7236C51.5479 294.399 43.2988 286.15 43.2988 275.974V256.628' stroke='#376593' stroke-width='0.690928' stroke-dasharray='7.37 7.37')
+														path(opacity='0.8' d='M69.124 76.9882C61.4805 76.9877 55.2884 83.1923 55.3044 90.8358L55.6769 268.617C55.6928 276.237 61.8743 282.406 69.4943 282.406L273.579 282.422C281.222 282.423 287.414 276.218 287.398 268.575L287.026 90.7935C287.01 83.1735 280.828 77.0045 273.208 77.0039L69.124 76.9882Z' fill='url(#paint0_linear_2729_21746)')
+														path(d='M0.921237 39.2165C0.921237 29.5496 8.75782 21.713 18.4247 21.713H238.6C248.267 21.713 256.104 29.5496 256.104 39.2165V232.676C256.104 242.343 248.267 250.18 238.6 250.18H18.4247C8.75782 250.18 0.921237 242.343 0.921237 232.676V39.2165Z' fill='url(#paint1_linear_2729_21746)' stroke='#90B0D5' stroke-width='1.84247')
+														path(d='M105.805 153.968H153.16' stroke='#414CFF' stroke-width='2.7' stroke-miterlimit='10')
+														path(d='M105.805 167.521H153.16' stroke='#414CFF' stroke-width='2.7' stroke-miterlimit='10')
+														path(d='M94.9609 181.871V107.728L112.819 90.0292H164.002V181.871H94.9609Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M139.867 131.995C139.807 131.899 139.729 131.816 139.637 131.75C139.545 131.684 139.441 131.637 139.331 131.612C139.221 131.586 139.107 131.583 138.995 131.601C138.884 131.62 138.777 131.66 138.681 131.72C137.372 132.533 135.898 133.043 134.366 133.212C132.834 133.382 131.284 133.206 129.829 132.698C128.374 132.191 127.051 131.364 125.959 130.279C124.866 129.194 124.031 127.879 123.515 126.43H133.577C133.805 126.43 134.023 126.339 134.185 126.178C134.346 126.018 134.436 125.799 134.436 125.572C134.436 125.345 134.346 125.127 134.185 124.966C134.023 124.805 133.805 124.715 133.577 124.715H123.068C122.861 123.581 122.861 122.419 123.068 121.285H133.577C133.805 121.285 134.023 121.194 134.185 121.034C134.346 120.873 134.436 120.655 134.436 120.427C134.436 120.2 134.346 119.982 134.185 119.821C134.023 119.66 133.805 119.57 133.577 119.57H123.515C124.029 118.123 124.862 116.81 125.951 115.726C127.039 114.642 128.358 113.814 129.808 113.305C131.259 112.795 132.806 112.616 134.335 112.78C135.864 112.944 137.338 113.447 138.647 114.253C138.84 114.374 139.074 114.413 139.296 114.361C139.519 114.31 139.712 114.172 139.832 113.979C139.953 113.786 139.992 113.552 139.94 113.33C139.889 113.109 139.751 112.916 139.557 112.796C137.986 111.826 136.213 111.23 134.374 111.055C132.535 110.879 130.681 111.128 128.954 111.784C127.227 112.439 125.675 113.482 124.417 114.832C123.16 116.182 122.231 117.803 121.702 119.57H115.859C115.631 119.57 115.413 119.66 115.252 119.821C115.091 119.982 115 120.2 115 120.427C115 120.655 115.091 120.873 115.252 121.034C115.413 121.194 115.631 121.285 115.859 121.285H121.333C121.246 121.852 121.2 122.425 121.195 123C121.2 123.574 121.246 124.147 121.333 124.715H115.859C115.631 124.715 115.413 124.805 115.252 124.966C115.091 125.127 115 125.345 115 125.572C115 125.799 115.091 126.018 115.252 126.178C115.413 126.339 115.631 126.43 115.859 126.43H121.702C122.232 128.2 123.164 129.825 124.426 131.177C125.688 132.529 127.245 133.572 128.977 134.225C130.709 134.878 132.569 135.123 134.412 134.942C136.254 134.76 138.03 134.157 139.6 133.178C139.696 133.118 139.778 133.039 139.843 132.947C139.908 132.855 139.954 132.751 139.979 132.641C140.004 132.531 140.007 132.418 139.987 132.307C139.968 132.196 139.927 132.09 139.867 131.995Z' fill='#343FF5' stroke='#343FF5' stroke-width='0.9')
+														circle(cx='256.371' cy='26.0951' r='22.6881' fill='#092354' stroke='#ECF3FB' stroke-width='5.18584')
+														path(d='M262.406 19.5282L264.685 21.9951L254.064 33.5074L247.211 26.1067L249.49 23.6397L254.064 28.5736L262.406 19.5282Z' fill='white')
+														defs
+															lineargradient#paint0_linear_2729_21746(x1='234.865' y1='256.582' x2='198.373' y2='189.916' gradientUnits='userSpaceOnUse')
+																stop(stop-color='white')
+																stop(offset='1' stop-color='white' stop-opacity='0')
+															lineargradient#paint1_linear_2729_21746(x1='249.99' y1='22.9091' x2='44.6727' y2='199.762' gradientUnits='userSpaceOnUse')
+																stop(stop-color='#BDCEEE' stop-opacity='0.8')
+																stop(offset='1' stop-color='#C2D2F0' stop-opacity='0.3')
+												.flex.flex-col.mt-8(class='md:col-span-7 md:mt-0 md:ml-8')
+													.purecolor.font-semibold.capitalize.leading-11.tracking-2x-tighter.text-xl(class='md:flex')
+														| Derivatives
+													.text-md
+														| Create a wide array of sophisticated decentralized derivatives applications and structured products that are able to effortlessly work across sovereign blockchain networks.
+													.mt-8(class='xl:mt-10')
+														+normalbutton('Build Now')				
+									.panel.flex-grow(style='display: block;')
+										.mx-auto.mb-12
+											.grid.grid-cols-1(class='md:grid-cols-12')
+												.flex.justify-center(class='md:col-span-5 h-14 md:h-48 4md:h-48 lg:h-48 xl:h-48')
+													svg.flowvisible.h-full(class="w-1/2 md:w-full" viewBox='0 0 256 296' fill='none' xmlns='http://www.w3.org/2000/svg')
+														path(opacity='0.35' d='M263.475 64.0898H281.899C292.075 64.0898 300.324 72.3389 300.324 82.5146V275.974C300.324 286.15 292.075 294.399 281.899 294.399H61.7236C51.5479 294.399 43.2988 286.15 43.2988 275.974V256.628' stroke='#376593' stroke-width='0.690928' stroke-dasharray='7.37 7.37')
+														path(opacity='0.8' d='M69.124 76.9882C61.4805 76.9877 55.2884 83.1923 55.3044 90.8358L55.6769 268.617C55.6928 276.237 61.8743 282.406 69.4943 282.406L273.579 282.422C281.222 282.423 287.414 276.218 287.398 268.575L287.026 90.7935C287.01 83.1735 280.828 77.0045 273.208 77.0039L69.124 76.9882Z' fill='url(#paint0_linear_2729_21777)')
+														path(d='M18.4247 21.713H238.6C248.267 21.713 256.104 29.5496 256.104 39.2165V232.676C256.104 242.343 248.267 250.18 238.6 250.18H18.4247C8.75782 250.18 0.921237 242.343 0.921237 232.676V39.2165C0.921237 29.5496 8.75782 21.713 18.4247 21.713Z' fill='url(#paint1_linear_2729_21777)' stroke='#90B0D5' stroke-width='1.84247')
+														path(d='M133.521 135.787C136.691 133.886 140.177 132.459 144.139 131.984C158.56 130.082 171.871 140.383 173.773 154.804C175.674 169.224 165.374 182.536 150.953 184.437C136.532 186.339 123.221 176.038 121.319 161.618C120.369 154.17 122.587 147.197 126.866 141.809' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round')
+														path(d='M156.501 145.137L138.436 171.285' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linecap='round')
+														path(d='M138.755 153.853C141.555 153.853 143.826 151.582 143.826 148.782C143.826 145.981 141.555 143.711 138.755 143.711C135.954 143.711 133.684 145.981 133.684 148.782C133.684 151.582 135.954 153.853 138.755 153.853Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linecap='round')
+														path(d='M156.342 172.869C159.143 172.869 161.413 170.599 161.413 167.798C161.413 164.997 159.143 162.727 156.342 162.727C153.542 162.727 151.271 164.997 151.271 167.798C151.271 170.599 153.542 172.869 156.342 172.869Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linecap='round')
+														path(d='M141.763 116.93C141.763 122.476 132.255 126.913 120.37 126.913C108.485 126.913 98.9766 122.476 98.9766 116.93' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M98.9766 129.132C98.9766 134.52 108.009 138.798 119.419 138.957C119.736 138.957 120.053 138.957 120.37 138.957' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M115.616 151.159C106.108 150.208 98.9766 146.246 98.9766 141.492' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M120.37 163.836C118.944 163.836 117.517 163.836 116.091 163.678C106.266 162.727 98.9766 158.765 98.9766 154.011V114.236' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M141.762 104.728V126.755' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M120.37 114.711C132.185 114.711 141.763 110.241 141.763 104.727C141.763 99.2137 132.185 94.7439 120.37 94.7439C108.555 94.7439 98.9766 99.2137 98.9766 104.727C98.9766 110.241 108.555 114.711 120.37 114.711Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														circle(cx='256.371' cy='26.0951' r='22.6881' fill='#092354' stroke='#ECF3FB' stroke-width='5.18584')
+														path(d='M262.406 19.5282L264.685 21.9951L254.064 33.5074L247.211 26.1067L249.49 23.6397L254.064 28.5736L262.406 19.5282Z' fill='white')
+														defs
+															lineargradient#paint0_linear_2729_21777(x1='234.865' y1='256.582' x2='198.373' y2='189.916' gradientUnits='userSpaceOnUse')
+																stop(stop-color='white')
+																stop(offset='1' stop-color='white' stop-opacity='0')
+															lineargradient#paint1_linear_2729_21777(x1='249.99' y1='22.9091' x2='44.6727' y2='199.762' gradientUnits='userSpaceOnUse')
+																stop(stop-color='#BDCEEE' stop-opacity='0.8')
+																stop(offset='1' stop-color='#C2D2F0' stop-opacity='0.3')
+												.flex.flex-col.mt-8(class='md:col-span-7 md:mt-0 md:ml-8')
+													.purecolor.font-semibold.capitalize.leading-11.tracking-2x-tighter.text-xl(class='md:flex')
+														| Savings
+													.text-md
+														| Leverage a suite of intuitive developer tooling to ship truly decentralized savings products with no minimums and no restrictions.
+													.mt-8(class='xl:mt-10')
+														+normalbutton('Build Now')
+									.panel.flex-grow(style='display: block;')
+										.mx-auto.mb-12
+											.grid.grid-cols-1(class='md:grid-cols-12')
+												.flex.justify-center(class='md:col-span-5 h-14 md:h-48 4md:h-48 lg:h-48 xl:h-48')
+													svg.flowvisible.h-full(class="w-1/2 md:w-full" viewBox='0 0 256 296' fill='none' xmlns='http://www.w3.org/2000/svg')
+														path(opacity='0.35' d='M263.475 64.0898H281.899C292.075 64.0898 300.324 72.3389 300.324 82.5146V275.974C300.324 286.15 292.075 294.399 281.899 294.399H61.7236C51.5479 294.399 43.2988 286.15 43.2988 275.974V256.628' stroke='#376593' stroke-width='0.690928' stroke-dasharray='7.37 7.37')
+														path(opacity='0.8' d='M69.124 76.9882C61.4805 76.9877 55.2884 83.1923 55.3044 90.8358L55.6769 268.617C55.6928 276.237 61.8743 282.406 69.4943 282.406L273.579 282.422C281.222 282.423 287.414 276.218 287.398 268.575L287.026 90.7935C287.01 83.1735 280.828 77.0045 273.208 77.0039L69.124 76.9882Z' fill='url(#paint0_linear_2729_21808)')
+														path(d='M0.921237 39.2165C0.921237 29.5496 8.75782 21.713 18.4247 21.713H238.6C248.267 21.713 256.104 29.5496 256.104 39.2165V232.676C256.104 242.343 248.267 250.18 238.6 250.18H18.4247C8.75782 250.18 0.921237 242.343 0.921237 232.676V39.2165Z' fill='url(#paint1_linear_2729_21808)' stroke='#90B0D5' stroke-width='1.84247')
+														path(d='M80.2832 121.354H178.651L129.467 92.0712L80.2832 121.354Z' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
+														path(d='M95.4199 121.354V157.958' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
+														path(d='M118.117 121.354V157.958' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
+														path(d='M140.82 121.354V157.958' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
+														path(d='M163.518 121.354V157.958' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
+														path(d='M84.0684 157.958H174.869' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
+														path(d='M76.5 172.599H182.434' stroke='#343FF5' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round')
+														circle(cx='256.371' cy='26.0951' r='22.6881' fill='#092354' stroke='#ECF3FB' stroke-width='5.18584')
+														path(d='M262.406 19.5282L264.685 21.9951L254.064 33.5074L247.211 26.1067L249.49 23.6397L254.064 28.5736L262.406 19.5282Z' fill='white')
+														defs
+															lineargradient#paint0_linear_2729_21808(x1='234.865' y1='256.582' x2='198.373' y2='189.916' gradientUnits='userSpaceOnUse')
+																stop(stop-color='white')
+																stop(offset='1' stop-color='white' stop-opacity='0')
+															lineargradient#paint1_linear_2729_21808(x1='249.99' y1='22.9091' x2='44.6727' y2='199.762' gradientUnits='userSpaceOnUse')
+																stop(stop-color='#BDCEEE' stop-opacity='0.8')
+																stop(offset='1' stop-color='#C2D2F0' stop-opacity='0.3')
+												.flex.flex-col.mt-8(class='md:col-span-7 md:mt-0 md:ml-8')
+													.purecolor.font-semibold.capitalize.leading-11.tracking-2x-tighter.text-xl(class='md:flex')
+														| Insurance
+													.text-md
+														| Underwrite a new DAO governed financial paradigm to provide bespoke insurance policies and coverage for all Web3 user needs.
+													.mt-8(class='xl:mt-10')
+														+normalbutton('Build Now')
+									.panel.flex-grow(style='display: block;')
+										.mx-auto.mb-12
+											.grid.grid-cols-1(class='md:grid-cols-12')
+												.flex.justify-center(class='md:col-span-5 h-14 md:h-48 4md:h-48 lg:h-48 xl:h-48')
+													svg.flowvisible.h-full(class="w-1/2 md:w-full" viewBox='0 0 256 296' fill='none' xmlns='http://www.w3.org/2000/svg')
+														path(opacity='0.35' d='M263.475 64.0898H281.899C292.075 64.0898 300.324 72.3389 300.324 82.5146V275.974C300.324 286.15 292.075 294.399 281.899 294.399H61.7236C51.5479 294.399 43.2988 286.15 43.2988 275.974V256.628' stroke='#376593' stroke-width='0.690928' stroke-dasharray='7.37 7.37')
+														path(opacity='0.8' d='M69.124 76.9882C61.4805 76.9877 55.2884 83.1923 55.3044 90.8358L55.6769 268.617C55.6928 276.237 61.8743 282.406 69.4943 282.406L273.579 282.422C281.222 282.423 287.414 276.218 287.398 268.575L287.026 90.7935C287.01 83.1735 280.828 77.0045 273.208 77.0039L69.124 76.9882Z' fill='url(#paint0_linear_2729_21839)')
+														path(d='M18.4247 21.713H238.6C248.267 21.713 256.104 29.5496 256.104 39.2165V232.676C256.104 242.343 248.267 250.18 238.6 250.18H18.4247C8.75782 250.18 0.921237 242.343 0.921237 232.676V39.2165C0.921237 29.5496 8.75782 21.713 18.4247 21.713Z' fill='url(#paint1_linear_2729_21839)' stroke='#90B0D5' stroke-width='1.84247')
+														path(d='M128.902 182.482V89.3348' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M175.315 135.741H82.5391' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M125.227 89C125.227 89 81.1665 129.375 125.227 182.314' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M132.424 89C132.424 89 176.484 129.375 132.424 182.314' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M163.759 165.227C151.026 157.52 128.41 149.144 100.6 161.708L93.5 165.227' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M164.255 106.088C151.523 113.795 128.236 122.674 99.7559 109.271L93 106.088' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														path(d='M128.741 182.482C154.555 182.482 175.482 161.555 175.482 135.741C175.482 109.927 154.555 89 128.741 89C102.927 89 82 109.927 82 135.741C82 161.555 102.927 182.482 128.741 182.482Z' stroke='#343FF5' stroke-width='2.7' stroke-miterlimit='10' stroke-linejoin='round')
+														circle(cx='256.371' cy='26.0951' r='22.6881' fill='#092354' stroke='#ECF3FB' stroke-width='5.18584')
+														path(d='M262.406 19.5282L264.685 21.9951L254.064 33.5074L247.211 26.1067L249.49 23.6397L254.064 28.5736L262.406 19.5282Z' fill='white')
+														defs
+															lineargradient#paint0_linear_2729_21839(x1='234.865' y1='256.582' x2='198.373' y2='189.916' gradientUnits='userSpaceOnUse')
+																stop(stop-color='white')
+																stop(offset='1' stop-color='white' stop-opacity='0')
+															lineargradient#paint1_linear_2729_21839(x1='249.99' y1='22.9091' x2='44.6727' y2='199.762' gradientUnits='userSpaceOnUse')
+																stop(stop-color='#BDCEEE' stop-opacity='0.8')
+																stop(offset='1' stop-color='#C2D2F0' stop-opacity='0.3')
+												.flex.flex-col.mt-8(class='md:col-span-7 md:mt-0 md:ml-8')
+													.purecolor.font-semibold.capitalize.leading-11.tracking-2x-tighter.text-xl(class='md:flex')
+														| Options
+													.text-md
+														| Deploy disruptive on-chain options products, prediction markets and automated strategies using Injective’s options module to bring forth a new era of financial innovation.
+													.mt-8(class='xl:mt-10')
+														+normalbutton('Build Now')
+			.relative.context.purelightestblueBG.pureline
 				+startnow()
 						

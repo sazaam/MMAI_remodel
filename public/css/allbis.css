@@ -3593,27 +3593,21 @@ top
 
 @media screen and (max-width: 1000px)
 {
+}
+
+@media screen and (max-width: 835px)
+{
   .global_home{
-    position:static !important;
-    float:left !important;
     margin-left:0px !important;
+    margin-right:15px !important;
+    width:145px !important;
+    background-image:url(./skin/MMAINSLAB_small.png) !important;
   }
 
-  li.others{
-    position:relative;
-    top:-20px;
-    margin-left:0 !important;
-    background:rgba(255,255,255,.75) !important;
-    z-index:30;
-  }
-
-  li.global_wallet{
-    margin-left:25px !important;
-  }
-
-  .sectionsnav{
-    width:100% !important;
-    margin: 0 0 0 0 !important;
+  .language{
+    position: absolute !important;
+    right: 0 !important;
+    top: -35px !important;
   }
 }
 
@@ -3665,11 +3659,9 @@ top
     padding-left:0!important;
   }
 
-  .purewallet .slidenav{
-    bottom:0px !important;
-    z-index:3;
-    left:auto !important;
-    right:20px !important;
+  .purewallet .next{
+    left: 25px !important;
+    right:auto !important;
   }
 
   .purewallet .slidezone .textes{
@@ -3691,6 +3683,12 @@ top
   .pureseries .catchphrase{
     margin-top:0 !important;
     padding-top:20px !important;
+  }
+
+  .introseries .eco .visual{
+    width: 475px !important;
+    height: 330px !important;
+    left:30px !important;
   }
 
   .pureworld .catchphrase, .pureworld .catchphrase h1{
