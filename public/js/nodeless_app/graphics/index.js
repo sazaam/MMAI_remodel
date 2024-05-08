@@ -26,7 +26,23 @@ window.lang = $('html').attr('lang') ;
 window.MMAI = MMAI = {
 	home:{}
 } ;
-MMAI.home.scrollTo = MMAI.home.scrollTo || function(top, time, cb){
+var toggle_on = 0 ;
+MMAI.home.patentsToggle = function(cond){
+	var zone = $('.patentszone') ;
+	
+	if(cond){
+		zone.removeClass('none') ;
+	}else{
+		zone.addClass('none') ;
+	}
+	toggle_on = cond ;
+}
+
+MMAI.home.patents = function(e){
+	MMAI.home.patentsToggle(!toggle_on) ;
+}
+
+MMAI.home.scrollTo = function(top, time, cb){
 	var args = [].concat.apply(arguments, arguments);
 	args = args.splice(1, args.length);
 	
@@ -207,7 +223,7 @@ module.exports = MMAI.func = {
 				//////////////////////////////////////// VARIOUS TOGGLES IN PAGES
 				
 				MMAI.func.various_toggles(true, res) ;
-
+				MMAI.func.toggle_patents(true, res) ;
 				//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
 
 
@@ -283,12 +299,15 @@ module.exports = MMAI.func = {
 
 
 			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+			
+
+			MMAI.func.various_toggles(false, res) ;
+			MMAI.func.toggle_patents(false, res) ;
+			
 			$('.foot').addClass("none") ;
 			res.template.remove() ;
 			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
 			
-			
-			MMAI.func.various_toggles(false, res) ;
 
 			/////////////////////////// 404 SPECIAL CASE
 			// 404 case
@@ -657,6 +676,7 @@ module.exports = MMAI.func = {
 				e.stopPropagation() ;
 				
 				var a = $(e.currentTarget) ;
+				
 				if(a.data('way') == 'up'){
 					if(sl.cy.index > 0) sl.cy.prev() ;
 				}else{
@@ -694,9 +714,9 @@ module.exports = MMAI.func = {
 					var a = li.data('navitem') ;
 					var n = a.data('index') ;
 					
-					slidenav.removeClass('dark pureline') ;
+					slidenav.removeClass('dark') ;
 					if(n != 0) a.addClass('double') ;
-					a.addClass('dark pureline') ;
+					a.addClass('dark') ;
 					
 					
 					slidenav.each(function(i, el){
@@ -783,14 +803,14 @@ module.exports = MMAI.func = {
 					}
 					
 					if(n == 0){
-						up.removeClass('purecolor') ;	
+						up.removeClass('white') ;	
 					}else{
-						up.addClass('purecolor') ;	
+						up.addClass('white') ;	
 					}
 					if(n == slides.length - 1){
-						down.removeClass('purecolor') ;	
+						down.removeClass('white') ;	
 					}else{
-						down.addClass('purecolor') ;	
+						down.addClass('white') ;	
 					}
 					
 					
@@ -805,7 +825,7 @@ module.exports = MMAI.func = {
 					return this ;
 
 				}, el, i)) ;
-				trace(sl.cy)
+
 			})
 			
 			sl.clear = function(){
@@ -906,6 +926,18 @@ module.exports = MMAI.func = {
 			tw.stop() ;
 		}
 		
+	},
+	toggle_patents: toggle_patents = function(cond, res){
+		var toggler = $('.patenttoggler a') ;
+		
+		if(!toggler.length) return ;
+		if(cond){
+			toggler.on('click', MMAI.home.patents) ;
+		}else{
+			trace('HEY YO SHOULD CLOSE')
+			MMAI.home.patentsToggle(false) ;
+			toggler.off('click', MMAI.home.patents) ;
+		}
 	},
 	////////////////////////// HOME SUB SECTIONS
 	home_children_focus : home_children_focus = function(e){

@@ -4,27 +4,35 @@
 	.introseries.sizeXXXLg
 		.page
 			.eco.abs.flowvisible.top0.bottom0.left0.right0.purelightestblueBG
-				
-				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg.foggy(style="width:350px;top:130px;z-index:301")
-					a.up.abs.zi3.right0(style="top:-38px" href="javascript:void(0)") 
-						+arrow_dotted_up()
-					a.down.abs.zi3.right0.purecolor(style="bottom:-35px" href="javascript:void(0)") 
-						+arrow_dotted_down()
+				- let series = [] ;
+				- series.push({name:"Chain"}) ;
+				- series.push({name:"Wallet"}) ;
+				- series.push({name:"Certificates"}) ;
+				- series.push({name:"Voting"}) ;
+				- series.push({name:"Medical"}) ;
+				- series.push({name:"Media"}) ;
+				- series.push({name:"World"}) ;
+				- let ls = series.length ;
+
+				//- "Chain", "Wallet", "Certificates", "Voting", "Medical", "Media", "World"
+				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg.pureblue(style="width:350px;top:130px;z-index:301")
+					.abs.right0.top0.rounded-md.purecolorBG.HpadSm.VpadXSm(style="top:-40px")
+						a.up.rel.zi3(style="" href="javascript:void(0)") 
+							+arrow_dotted_up()
+						a.down.rel.zi3.TmarSm.white(style="bottom:0" href="javascript:void(0)") 
+							+arrow_dotted_down()
 					ol.txtL.pureblue.rel(style="top:0px")
 						li
-							a.dark.block.pureline.first.HpadSm.txtL(href="javascript:void(0)")
+							a.dark.block.first.HpadSm.txtL(href="javascript:void(0)")
 								em.bolder.fullH Pure
-									b.thin.LmarXXSm Series
-						- let series = ["Chain", "Wallet", "Certificates", "Voting", "Medical", "Media", "World"] ;
-						//- - series = series.reverse() ;
-						- let ls = series.length ;
-
+									b.LmarXXSm.fw5 Series
+						
+						
 						- for(let i = 0 ; i < ls ; i++){
-							- let classname = 'blackBG round23 white' ;
 							li
-								a.block.bolder.HpadSm(class= i == 0 ? "" : "", href="javascript:void(0)" style="opacity:" + (.8 - ((i)*.2)) + ";")
+								a.block.bolder.HpadSm(href="javascript:void(0)" style="opacity:" + (.8 - ((i)*.2)) + ";")
 									em.bolder.fullH Pure
-										b.thin.LmarXXSm #{series[i]}	
+										b.fw5.LmarXXSm #{series[i].name}	
 						- }
 				
 				.slides.dark
@@ -33,23 +41,29 @@
 							.catchphrase.sizeSm(class="sm:sizeR")
 								h4.montserrat.bolder.sizeXXXLg.lh1 The Ecosystem
 							.othertextes.sizeSm.TmarXXLg.lh1.pureblue.context
-								h3 We are ensuring a safe place <br />where all your expectations converge.
-								.Tmar.lh1
+								h3.bold We are ensuring a safe place <br />where all your expectations converge.
+								.Tmar.lh1.purecolor
 									p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
 							.browseeco.TmarXXXLg.txtR.sizeXSm.rel(style="margin-right:-25px")
 								+normalbutton("Browse Ecosystem", "#/features/")
 					- for(let i = 0 ; i < ls ; i++) {
-						.none.slide.textes.abs.fullH.fullW.left0.right0(style="bottom:220px;")
-							.fullH.fullW.grid.content-end.place-items-end.noselect
-								.dark.txtL.pureline.purelightestblueBG.p-10(style="width:60%;min-width:435px;border-width:1px 0")
-									.catchphrase.sizeXSm(class="sm:sizeR")
-										h4.montserrat.sizeXXXLg.lh1 #[b.bolder Pure] #{series[i]}
-									.othertextes.sizeSm.TmarXXLg.lh1 
-										h3 We are ensuring a safe place <br />where all your expectations converge.
-										.TmarXXXLg.lh1
-											p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
-										.Tmar.txtR.Rmar0.sizeSm.rel(style="margin-right:-25px")
-											+smallbutton("More", "#/features/")
+						.none.slide.textes.abs.fullH.fullW.left0.right0
+							.abs.left0.right0.top0(style="bottom:220px;")
+								.rel.fullH.fullW.grid.content-end.place-items-end.noselect
+									.back.abs.right0.cover(style="width:60%;min-width:435px;top:130px;bottom:100px;background-image:url('/img/visuals/back_0" + (i+1) + ".jpg')")
+										.abs.bottom0.visual(style="width:795px;height:520px;bottom:-30px;left:-50px;")
+											img.fullW.fullH(src="/img/visuals/viz_0" + (i+1) + ".png", alt="")
+									.rel.dark.txtL.pureline.puretransp2BG.p-10.zi3(style="width:60%;min-width:435px;border-width:1px 0")
+										.catchphrase.sizeXSm(class="sm:sizeR")
+											h4.montserrat.sizeXXXLg.lh1 #[b.bolder Pure] #{series[i].name}
+										.othertextes.sizeSm.TmarXXLg.lh1 
+											h3 We are ensuring a safe place <br />where all your expectations converge.
+											.TmarXXXLg.lh1
+												p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
+											//-.Tmar.txtR.Rmar0.sizeSm.rel(style="margin-right:-25px")
+												+smallbutton("More", "#/features/")
+										
+
 					- }
 				
 				
@@ -65,7 +79,7 @@
 						- } 
 				.partnerstext.abs.bottom100.right0
 					p.Rmar
-						span.block.Hpad.pureblueBG.white.sizeXSm NTU / MDA
+						span.block.Hpad.pureblueBG.white.sizeXSm MOU / NTA
 						
 
 	//- .eco.abs.top50.bottom0.left0.right0.flowhidden(style="bottom:1px")

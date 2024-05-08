@@ -4677,6 +4677,14 @@ html{
   background:rgba(255,255,255,.65);
 }
 
+.puretranspBG{
+  background:rgba(221,230,255,.7) ;
+}
+
+.puretransp2BG{
+  background:rgba(213,225,255,.7) ;
+}
+
 #mainloader{
   z-index:500;
 }
