@@ -26,10 +26,6 @@ block content
 										.grid.grid-cols-1.gap-y-4( class='md:grid-cols-2 md:gap-x-8')
 											+consolebutton('Start Building')
 											+discordbutton('Discord')
-										
-						.relative(class='md:col-span-5')
-							div(style='overflow: hidden; margin: 0px auto; height: 100%;' slot='animation')
-								//- +features_home_SVG()
 
 				section.mx-auto.left-0.right-0.section-margin.container(class='2xl:!mt-40')
 					.flex.flex-col.mt-20(class='2xl:mt-28')
@@ -70,7 +66,7 @@ block content
 				
 
 			//- NUMBERS
-			+stats('purelightestblueBG pureline white')
+			+stats('purelightestblueBG pureline white', false, 'pureblueBG')
 			
 			
 			//- END NUMBERS

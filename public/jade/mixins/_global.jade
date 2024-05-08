@@ -2,6 +2,9 @@
 
 include ./svgs
 
+
+
+
 //- 
 //- 
 //- 
@@ -9,6 +12,8 @@ include ./svgs
 mixin log(msg)
 	script. 
 		console.log('LOG >', !{JSON.stringify(msg)})
+
+
 
 
 
@@ -21,22 +26,27 @@ mixin link(o)
 			a.goblack.bt.btn-border-slider-black.round.right.dktBG(href=o.url)= t(o.name || 'more')
 
 
+
+
+
 //- BACK BUTTON
 mixin back(obj)
 	+link({prename:t('back_to'), name:t('main'), cl:"dkt greyhover", url:obj.link})
-	//- .linker.marXXXLg.round.both.dkt.dktBG.inlineblock
-		a.block.sizeSm.font-inc.white.padXXLg.VpadSm(href=obj.link)= t('back_to', obj)
 
 
 
 //- ///////////////////////////////////////// CUSTOM BLOCKS
-
 //- ///////////////////////////////////////////// HOME
-
 //- ///////////////////////////////////////////// WALLET
+
+
+
 mixin getit(id)
 	a.block(href= (id == "google") ? "#" : "")
 		+getit_SVG(id)
+
+
+
 
 mixin getitboth()
 	.flex.flex-row.flex-wrap.gap-y-4.gap-x-8(class="lg:flex:nowrap")
@@ -44,6 +54,9 @@ mixin getitboth()
 			+getit("google")
 		.flex-none
 			+getit("apple")
+
+
+
 
 mixin explaintoggle(text, type)
 	case type
@@ -55,6 +68,10 @@ mixin explaintoggle(text, type)
 			.paneltoggler.togglerBG.flex.flex-row.group.shadow.rounded-2xl.items-center.pointer.w-full.justify-between( class='md:mb-4 md:rounded-lg 2xl:rounded-2xl md:pl-5 2xl:pl-5 md:pr-4 2xl:pr-4 md:py-3 2xl:py-4')
 				span.text-tiny( class='lg:text-sm 2xl:text-base')
 					!= text
+
+
+
+
 
 mixin explainsmalltoggle(text, type)
 	case type
@@ -70,6 +87,9 @@ mixin explainsmalltoggle(text, type)
 				+arrowsmall_down()
 	
 
+
+
+
 mixin learnblock(url, target, icon, text, cl)
 	a.rounded-lg.h-28.px-4.py-6.w-full.flex.flex-1(href=(url || '#') target=(target || '_blank') class='md:h-fit 2xl:h-44 md:p-6 lg:p-8 2xl:p-10 md:clickable' + ' ' + (cl || 'purecolorBG white'))
 		.flex.flex-col.justify-between.w-full.h-full.gap-y-2
@@ -82,6 +102,9 @@ mixin learnblock(url, target, icon, text, cl)
 					+arrows('right')
 
 
+
+
+
 mixin startnow()
 	section.VmarginXXXLg.mx-auto.left-0.right-0.section-margin.container(class='2xl:!mt-28')
 		h3.black.text-start.text-5xl.mt-24.mb-24.min-w-max.leading-10.m-auto Start Building with Pure chain Now
@@ -90,7 +113,13 @@ mixin startnow()
 			+discordbutton('Discord')
 
 
+
+
+
 //- ///////////////////// PURECHAIN
+
+
+
 mixin signuphome(obj)
 	form#signup(action="#")
 		.floatL 
@@ -99,32 +128,47 @@ mixin signuphome(obj)
 			input.block.Hpad.VpadXXSm.blackBG.thin.round.both.pointer(type="submit", value="Go    >")
 
 
+
+
 mixin smallbutton(text, url, target, cl)
 	a.inlineblock.padXSm.HpadXLg.round23(href=(url || '#') target=(target || '_self') class= cl ? cl : "purecolorBG white")
 		span 
 			!= text
 
+
+
+
+
 mixin normalbutton(text, url, target, cl)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.white.justify-between.purecolorBG(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' )
+	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'purecolorBG white'))
 		span.txt.flex-none.font-normal.text-inherit.text-start(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
 			!= text
 		span.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrow_dotted_right()
-		
 
-mixin consolebutton(text, url, target)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.white.justify-between.purecolorBG(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable')
+
+
+
+mixin consolebutton(text, url, target, cl)
+	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'purecolorBG white'))
 		span.txt.flex-grow.font-normal.text-inherit.text-start.txtL(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
 			!= text
 		span.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrow_dotted_right()
 
-mixin discordbutton(text, url, target)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.white.darkBG(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable')
+
+
+
+mixin discordbutton(text, url, target, cl)
+	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'darkBG white'))
 		span.txt.flex-grow.font-normal.text-inherit.text-start.txtL(class='md:text-tiny 4md:text-base lg:text-lg xl:text-lg 2xl:text-xl')
 			!= text
 		span.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrow_dotted_right()
+
+
+
+
 
 mixin language()
 	svg(width='37' height='38' version='1.1' viewBox='0 0 37 38' xmlns='http://www.w3.org/2000/svg')
@@ -138,6 +182,9 @@ mixin language()
 			path(d='m18.375 6.2808a13.029 13.029 0 0 0-13.029 13.03 13.029 13.029 0 0 0 13.029 13.029 13.029 13.029 0 0 0 13.03-13.029 13.029 13.029 0 0 0-13.03-13.03zm5.17e-4 2.9652c5.5553-1.32e-4 10.065 4.5092 10.065 10.065-8.9e-5 5.5551-4.5094 10.065-10.065 10.065-5.555-9e-5 -10.064-4.5095-10.065-10.065-1.306e-4 -5.5551 4.5094-10.064 10.065-10.065zm-0.54157 0.53537c-1.0405 0.058137-2.036 0.28326-2.9611 0.64802 0.57096 0.20689 1.1648 0.36535 1.7772 0.47077 0.47956-0.52795 0.90677-0.89916 1.1839-1.1188zm1.1906 0.00672c0.27803 0.22106 0.70288 0.59196 1.1793 1.1172 0.59801-0.10112 1.1785-0.25266 1.7374-0.45062-0.91089-0.36682-1.8913-0.59789-2.9166-0.66663zm-0.83251 0.34416c-0.21474 0.16417-0.5547 0.44716-0.94981 0.85266 0.31253 0.03557 0.62944 0.05711 0.94981 0.0646zm0.49971 0.02532v0.89194c0.31019-0.0073 0.61695-0.0279 0.91984-0.0615-0.37627-0.38689-0.7032-0.66238-0.91984-0.83044zm-4.4519 0.54829c-1.2381 0.59566-2.3276 1.4505-3.1983 2.4944 1.0314 0.60619 2.1433 1.0899 3.3161 1.4304 0.53774-1.3929 1.2508-2.4833 1.9146-3.2923-0.68044-0.13649-1.3384-0.33601-1.9673-0.59221a0.25 0.25 0 0 1-0.06511-0.04031zm8.3426 0.03462a0.25 0.25 0 0 1-0.03721 0.01912c-0.6274 0.25307-1.2838 0.45022-1.9627 0.58446 0.66359 0.81012 1.3755 1.902 1.912 3.2959 1.1505-0.33098 2.2429-0.79904 3.2582-1.386-0.86094-1.0481-1.9409-1.9092-3.1703-2.5135zm-5.7547 0.69453c-0.67468 0.77828-1.4305 1.8771-1.9921 3.3254 1.076 0.27296 2.1996 0.42711 3.3564 0.44648v-3.6571c-0.4624-0.01032-0.91765-0.04887-1.3643-0.11472zm3.1972 0.0041c-0.43677 0.06314-0.88172 0.10098-1.3333 0.1111v3.6566c1.1454-0.01917 2.2584-0.17044 3.3249-0.43822-0.56079-1.4498-1.3166-2.5496-1.9916-3.3295zm-9.2826 2.1384c-1.1457 1.5231-1.8459 3.4004-1.9074 5.4395a0.25 0.25 0 0 1 0.11679-0.03256h4.5486c0.04521-1.4875 0.31128-2.7854 0.69453-3.9052-1.2222-0.3576-2.3802-0.86521-3.4525-1.5017zm15.306 0.05478c-1.0555 0.61631-2.1929 1.1084-3.3915 1.4562 0.38133 1.1176 0.64635 2.4125 0.69143 3.8959h4.4514a0.25 0.25 0 0 1 0.1142 0.02842c-0.06152-2.0131-0.74539-3.8684-1.8655-5.3806zm-11.376 1.5782c-0.36841 1.0775-0.6258 2.3308-0.67128 3.7739h4.191v-3.3011c-1.2131-0.01971-2.3917-0.18285-3.5197-0.47284zm7.5065 0.0083c-1.1181 0.28479-2.2857 0.44504-3.4871 0.46457v3.3011h4.1558c-0.04535-1.4392-0.3018-2.6899-0.66869-3.7657zm-13.347 4.2308c0.029476 2.0631 0.71261 3.9668 1.8516 5.5139a0.2384 0.2384 0 0 0 5.17e-4 -5.17e-4c1.053-0.63143 2.1895-1.1376 3.3889-1.4991-0.37728-1.1297-0.60762-2.4395-0.56689-3.9362a0.25 0.25 0 0 1 0.0072-0.04289h-4.5614a0.25 0.25 0 0 1-0.11989-0.03514zm19.085 0.0015a0.25 0.25 0 0 1-0.11782 0.03359h-4.4617a0.25 0.25 0 0 1 0.0067 0.04289c0.04061 1.4925-0.18825 2.7994-0.56379 3.9269 1.1753 0.3516 2.2907 0.84264 3.3264 1.4537 1.114-1.5367 1.7808-3.419 1.8102-5.457zm-13.916 0.03359a0.25 0.25 0 0 1 0.0052 0.05633c-0.03932 1.4449 0.18165 2.7048 0.5426 3.7879 1.1653-0.30974 2.3857-0.48398 3.6432-0.50436v-3.3398zm4.6907 0v3.3398c1.2463 0.02021 2.4562 0.19149 3.6122 0.49609 0.35951-1.0813 0.57923-2.3385 0.54002-3.7796a0.25 0.25 0 0 1 0.0062-0.05633zm-0.50695 3.8163c-1.1992 0.02067-2.3625 0.18596-3.4742 0.47852 0.55262 1.4325 1.3424 2.5269 2.0526 3.3016 0.46726-0.07174 0.94416-0.11424 1.4289-0.12506v-3.6551c-0.0024 4.1e-5 -0.0048-4.1e-5 -0.0072 0zm0.50695 0v3.6551c0.47367 0.01062 0.94 0.05153 1.3973 0.12041 0.71119-0.77623 1.5019-1.8705 2.0541-3.3052-1.1049-0.28801-2.2607-0.45032-3.4515-0.47026zm3.9274 0.60306c-0.52839 1.3798-1.2688 2.466-1.9658 3.2727 0.65364 0.13377 1.2864 0.32524 1.8919 0.56947a0.25 0.25 0 0 1 0.11576 0.09405c1.2265-0.61691 2.3016-1.4902 3.1543-2.5502-0.9964-0.58261-2.0677-1.0504-3.1962-1.386zm-8.3855 0.0098c-1.1509 0.34529-2.2419 0.82848-3.2546 1.4304 0.86577 1.0598 1.9551 1.9293 3.1962 2.5378a0.25 0.25 0 0 1 0.12971-0.12247c0.60678-0.24712 1.2405-0.44119 1.8955-0.57715-0.69647-0.80536-1.4377-1.8902-1.9668-3.2685zm3.947 3.5424c-0.33188 0.0081-0.65999 0.03205-0.9834 0.07028 0.41524 0.40207 0.77356 0.68192 0.99477 0.84129v-0.91157c-0.0038 8.9e-5 -0.0076-9.2e-5 -0.01137 0zm0.51108 0v0.88573c0.22384-0.16344 0.56736-0.43599 0.96273-0.81907-0.31679-0.03665-0.63791-0.05901-0.96273-0.06666zm1.5663 0.15451c-0.6134 0.63962-1.1488 1.0478-1.4092 1.2309 1.1438-0.05573 2.2341-0.31274 3.237-0.73587-0.58632-0.21768-1.1972-0.38453-1.8278-0.49506zm-3.6633 0.0041c-0.64534 0.11468-1.27 0.28856-1.8686 0.51573 1.0165 0.42047 2.1212 0.6711 3.2794 0.7152-0.25752-0.18076-0.79462-0.58884-1.4108-1.2309z')
 
 
+
+
+
 mixin arrow_dotted_left()
 	svg(width='73' height='37' version='1.1' viewBox='0 0 73 36' xmlns='http://www.w3.org/2000/svg')
 	
@@ -147,6 +194,9 @@ mixin arrow_dotted_left()
 			circle(transform='scale(-1)' cx='-44.803' cy='-18.578' r='3.3307' stop-color='#000000' style='paint-order:markers stroke fill')
 			circle(transform='scale(-1)' cx='-34.325' cy='-18.578' r='3.3307' fill='#fff' stop-color='#000000' stroke-linecap='round' stroke-width='.20608' style='paint-order:markers stroke fill')
 			path(d='m5.9942 15.622c-1.0415 0.56302-1.749 1.6648-1.749 2.9318-5e-5 1.2407 0.67829 2.323 1.6843 2.8961 5.4725 3.1317 12.42 7.1534 17.1 9.8789 0.63675 0.3822 1.211 0.54775 1.824 0.54772 1.8395-3e-5 3.3307-1.4913 3.3306-3.3308 0.0306-2.75-2.6104-3.3165-2.5303-9.7595 0.0738-5.9381 2.5303-6.8642 2.5303-10.172-4e-5 -1.8394-1.4912-3.3306-3.3306-3.3306-0.38602-1e-5 -0.99082 0.0998-1.5481 0.39547-4.722 2.7433-14.793 8.6012-17.311 9.9432z' fill='#fff' stop-color='#000000' stroke-linecap='round' stroke-width='.20608' style='paint-order:markers stroke fill')
+
+
+
 
 
 mixin arrow_dotted_right()
@@ -159,6 +209,8 @@ mixin arrow_dotted_right()
 			path(d='m67.238 21.261c1.0415-0.56302 1.749-1.6648 1.749-2.9318 5e-5 -1.2407-0.6783-2.323-1.6843-2.8961-5.4725-3.1317-12.42-7.1534-17.1-9.8789-0.63674-0.3822-1.211-0.54774-1.824-0.54772-1.8395 3.7e-5 -3.3307 1.4913-3.3306 3.3308-0.03057 2.75 2.6104 3.3165 2.5303 9.7595-0.07382 5.9381-2.5303 6.8642-2.5303 10.172 3.9e-5 1.8394 1.4912 3.3306 3.3306 3.3306 0.38602 1.5e-5 0.99081-0.09978 1.5481-0.39546 4.722-2.7432 14.793-8.6012 17.311-9.9432z')
 
 
+
+
 mixin arrow_dotted_down()
 	svg(width='15' height='40' version='1.1' viewBox='0 0 37 73' xmlns='http://www.w3.org/2000/svg')
 		g(fill="currentColor")
@@ -167,6 +219,9 @@ mixin arrow_dotted_down()
 			circle(transform='rotate(90)' cx='28.429' cy='-18.578' r='3.3307')
 			circle(transform='rotate(90)' cx='38.906' cy='-18.578' r='3.3307')
 			path(d='m15.622 67.238c0.56302 1.0415 1.6648 1.749 2.9318 1.749 1.2407 5e-5 2.323-0.6783 2.8961-1.6843 3.1317-5.4725 7.1534-12.42 9.8789-17.1 0.3822-0.63674 0.54774-1.211 0.54772-1.824-3.7e-5 -1.8395-1.4913-3.3307-3.3308-3.3306-2.75-0.03057-3.3165 2.6104-9.7595 2.5303-5.9381-0.07382-6.8642-2.5303-10.172-2.5303-1.8394 3.9e-5 -3.3306 1.4912-3.3306 3.3306-1.5e-5 0.38602 0.09978 0.99081 0.39546 1.5481 2.7432 4.722 8.6012 14.793 9.9432 17.311z')
+
+
+
 
 mixin arrow_dotted_up()
 	svg(width='15' height='40' version='1.1' viewBox='0 0 37 73' xmlns='http://www.w3.org/2000/svg')
@@ -197,11 +252,12 @@ mixin advantageicons(id)
 
 
 
-mixin stats(cl)
+
+mixin stats(cl, isContainer, cl2)
 	.relative.context.stats(class = cl || '')
-		section.container.mx-auto.left-0.right-0.section-margin.mb-24(class='!mt-16 2xl:!mt-20')
+		section.mx-auto.left-0.right-0.section-margin.mb-24(class='!mt-16 2xl:!mt-20' + isContainer ? 'container' : '')
 			.grid.grid-cols-2.gap-3.mt-20(class='md:grid-cols-4 md:gap-4 2xl:gap-x-7')
-				.col-span-1.pureblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
+				.col-span-1.rounded-lg.txtL.px-4.py-5(class='2xl:h-40 md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10' + ' ' + cl2)
 					.flex.flex-row.h-fit
 						.flex.flex-col.justify-between.h-fit.w-full
 							span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
@@ -209,7 +265,7 @@ mixin stats(cl)
 							.flex.flex-row.justify-between.items-center.w-full
 								span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
 									| BLOCKS PRODUCED
-				.col-span-1.pureblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
+				.col-span-1.rounded-lg.txtL.px-4.py-5(class='2xl:h-40 md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10' + ' ' + cl2)
 					.flex.flex-row.h-fit
 						.flex.flex-col.justify-between.h-fit.w-full
 							span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
@@ -217,7 +273,7 @@ mixin stats(cl)
 							.flex.flex-row.justify-between.items-center.w-full
 								span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
 									| ON-CHAIN TRANSACTIONS
-				.col-span-1.pureblueBG.rounded-3xl.txtL.px-4.py-5(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
+				.col-span-1.rounded-lg.txtL.px-4.py-5(class='2xl:h-40 md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10' + ' ' + cl2)
 					.flex.flex-row.h-fit
 						.flex.flex-col.justify-between.h-fit.w-full
 							span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
@@ -225,7 +281,7 @@ mixin stats(cl)
 							.flex.flex-row.justify-between.items-center.w-full
 								span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
 									| BLOCK TIME
-				.col-span-1.pureblueBG.rounded-3xl.txtL.px-4.py-5.flex(class='2xl:h-40 md:rounded-2xl 2xl:rounded-3xl md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10')
+				.col-span-1.rounded-lg.txtL.px-4.py-5(class='2xl:h-40 md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10' + ' ' + cl2)
 					.flex.flex-row.h-fit
 						.flex.flex-col.justify-between.h-fit.w-full
 							span.block.w-full.text-xl.font-medium.leading-7(class='-tracking-[0.01em] md:text-base 4md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl md:font-semibold md:leading-6 4md:leading-7 lg:leading-8 xl:leading-9 2xl:leading-10')
