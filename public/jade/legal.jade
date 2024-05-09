@@ -1,0 +1,42 @@
+extends ./layout
+block content
+	.extractable.fullpage.flowhidden
+		
+		.main-theme.flex.flex-col.bg-main.min-h-full.overflow-hidden.en( style="margin-top:130px")
+			
+			//- /////////////////////////////////////////////////////////////////////////////////////////// TOP PAGE ZONE	
+
+			.relative
+				header
+					h1.black.text-start.text-3xl.my-12.min-w-max.lh12.txtR.RmarSm
+						| Terms and Conditions #[br]of Legal Use
+
+			//- /////////////////////////////////////////////////////////////////////////////////////////// END TOP PAGE ZONE
+			
+
+
+
+			//- /////////////////////////////////////////////////////////////////////////////////////////// ADVANTAGES
+			.relative.context.purelightestblueBG.pureline
+				section.container.mx-auto.left-0.right-0.context.mt-12
+					.container.flex.flex-row.items-center(class='4md:justify-center')
+						span
+							+pureseries_SVG('wallet')
+					.container.pb-48
+						h2.black.text-2xl.mt-24.mb-12.min-w-max.leading-10.txtL
+							| I / Concerning the use of Pure Wallet
+						- for(let i = 0 ; i < 8 ; i ++){
+							.block.text-start.text-2xl.my-10.min-w-max.purestblueBG.rounded-lg.txtL
+								+normalbutton('A. User Discretion')
+								.answer.pad.sizeSm(class=( i == 0 ? "" : "none"))
+									h6.bold.pureblue.lh11.BmarLg
+										| i - International Law on User Discretion
+									.sizeSm.dark
+										| We have put in place this FAQ for you to read, we think that most of the mainline questions would figure in it, and hope it can help orient or assist you.
+										| We have put in place this FAQ for you to read, we think that most of the mainline questions would figure in it, and hope it can help orient or assist you.#[br]
+										| We have put in place this FAQ for you to read, we think that most of the mainline questions would figure in it, and hope it can help orient or assist you.#[br]
+
+						- }
+						
+			
+						

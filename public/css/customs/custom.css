@@ -75,9 +75,13 @@ MENU
 .home{
     background:url(./skin/MMAINSLAB.png) no-repeat 50% 50% ;
     width:350px;
-    
     height:100%;
 }
+
+.home.global_foothome{
+    width:295px;
+}
+
 .menu li.others{
     height:100%;
     line-height:70px;

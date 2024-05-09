@@ -12,10 +12,10 @@
 	
 	.copyright.abs.right0.bottom0 
 		span.block.foggy.sizeSm.RmarXXXLg.Bmar &copy; MMAI 2023 - 2024
-	nav.footnav.mar.HmarXXLg.BpadXXXLg.txtL
+	nav.footnav.mar.HmarXXLg.txtL
 		ol.line
 			- for(let i = 0 ; i < footnavlinks.length ; i++){
-				li.unit(class= i == 3 ? "lastUnit floatR txtR" : i == 1 ? "size1of5 oddy" : "size1of5")
+				li.unit.BpadXXXXLg(class= i == 3 ? "lastUnit floatR txtR" : i == 1 ? "size1of5 oddy" : "size1of5")
 					- let head = footnavlinks[i] ;
 					- let children = head.children ;
 					h6.BmarLg.sizeXLg.bolder= head.name 

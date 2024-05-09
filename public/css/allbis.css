@@ -3689,6 +3689,7 @@ top
     width: 475px !important;
     height: 330px !important;
     left:30px !important;
+    bottom: 40px !important;
   }
 
   .pureworld .catchphrase, .pureworld .catchphrase h1{
@@ -4526,6 +4527,10 @@ MENU
   background:url(./skin/MMAINSLAB.png) no-repeat 50% 50% ;
   width:350px;
   height:100%;
+}
+
+.home.global_foothome{
+  width:295px;
 }
 
 .menu li.others{
