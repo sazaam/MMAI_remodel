@@ -508,7 +508,7 @@ let footnav_fixtures = `{
                 {
                     "name":"patents-and-papers",
                     "content":"Patents and Papers",
-                    "link":"/patents-and-papers/"
+                    "link":"/research/"
                 }
             ]
         },
@@ -528,7 +528,7 @@ let footnav_fixtures = `{
                 {
                     "name":"tnc",
                     "content":"Terms and Conditions",
-                    "link":"/tnc/"
+                    "link":"/legal/"
                 }
             ]
         }
@@ -651,6 +651,63 @@ let nav_fixtures = `{
                 "id": "4",
                 "template": {
                     "id": "1",
+                    "name": "top",
+                    "behavior": {
+                        "@focus": "top_section_focus",
+                        "@toggle": "top_section_toggle"
+                    }
+                }
+            }
+        },
+        {
+            "id": "5",
+            "name": "faq",
+            "path": "faq/",
+            "data": {
+                "hidefrommenu":true
+            },
+            "page": {
+                "id": "5",
+                "template": {
+                    "id": "2",
+                    "name": "top",
+                    "behavior": {
+                        "@focus": "top_section_focus",
+                        "@toggle": "top_section_toggle"
+                    }
+                }
+            }
+        },
+        {
+            "id": "6",
+            "name": "legal",
+            "path": "legal/",
+            "data": {
+                "hidefrommenu":true
+            },
+            "page": {
+                "id": "6",
+                "template": {
+                    "id": "2",
+                    "name": "top",
+                    "behavior": {
+                        "@focus": "top_section_focus",
+                        "@toggle": "top_section_toggle"
+                    }
+                }
+            }
+        },
+        {
+            "id": "7",
+            "name": "research",
+            "path": "research/",
+            "data": {
+                "hidefrommenu":true
+            },
+            "page": {
+                "id": "7",
+                "template": {
+                    "id": "2",
                     "name": "top",
                     "behavior": {
                         "@focus": "top_section_focus",

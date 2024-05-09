@@ -15,6 +15,10 @@ var defaultFunction = function(node, exp){
 	
 	var sectionId = node['sectionId'] ;
 	
+	var data = node['data'] ;
+	
+	delete node['data'] ;
+
 	var focus = node['@focus'] ;
 	var toggle = node['@toggle'] ;
 	
@@ -27,7 +31,9 @@ var defaultFunction = function(node, exp){
 
 		f.index = function index (req, res){
 			if(res.opening){
-				res.userData.parameters = {response:res.parentStep} ;
+				res.sectionData = data || {} ;
+				
+				// res.userData.parameters = {response:res.parentStep} ;
 			}
 			return res ;
 		} ;
@@ -37,7 +43,8 @@ var defaultFunction = function(node, exp){
 
 		f = function (req, res){
 			if(res.opening){
-				res.userData.parameters = {response:res} ;
+				res.sectionData = data || {} ;
+				// res.userData.parameters = {response:res} ;
 			}
 			return res ;
 		} ;
@@ -47,7 +54,7 @@ var defaultFunction = function(node, exp){
 	
 	f.name = name ;
 	f.sectionId = sectionId ;
-	
+	if(!!data) f.data = data ;
 	for(var i = 0 ; i < l ; i++){
 		var child = node.children[i] ;
 		if(child.name != 'index'){
@@ -74,19 +81,16 @@ var Router = function(routes){
 				
 				var section = sections[i] ;
 				
-				if(section.level == 1){
-					
-				}
-				
 				var page = section.page ;
 				var template = page.template ;
 				var behavior = template?.behavior ;
-				
+				var data = section.data ;
 				var children = section.children ;
 				
 				items[items.length] = {
 					"sectionId":section.id,
 					"name":section.name,
+					"data":section.data,
 					"@focus": graphics[behavior['@focus']],
 					"@toggle": graphics[behavior['@toggle']],
 					"children": !!children ? arguments.callee(children) : undefined

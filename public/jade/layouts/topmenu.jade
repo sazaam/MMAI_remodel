@@ -21,6 +21,7 @@ header#menu.menu.fixed.top0.left0.fullW
 			- var other = [].concat(topsections) ;
 			- var home = other.shift() ;
 
+
 			//-  HOME SPECIAL CASE
 			li.home.floatL.left0.sizeLg.RmarXXXXLg(id= "global_" + 'home', class= "global_" + 'home')
 				//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
@@ -31,22 +32,15 @@ header#menu.menu.fixed.top0.left0.fullW
 
 			//-  OTHERS CASE
 			each navsection in other
-				- var name = navsection.name ;
-				li.others.floatL.rel.LmarSm(id= "global_" + name, class= "global_" + name, style="left:-20px")
-					a.block.Hpad.fullH.inconsolata(href= '#/' + name + '/')
-						span.sizeLg= name
-					//- if(0)
-						ol.subnav.abs.txtR.left0.round.right.flowhidden(style="top:4em;width:400px")
-							- var cat = "" ;
-							each navchild, i in navsection.children
-								- var chname = navchild.cleanname ;
-								- var chcat = navchild.category.name ;
-								li.sub.rel(class="navmenu_" + navchild.name )
-									if(chcat !== cat)
-										.abs.left0.padXXSm.sizeSm.Hpad.inconsolata.dkt.dark.whiteBG.uppercase(style="top:3px;border-bottom:1px solid #e3dcd5")= chcat
-									- cat = chcat ;
-									a.block.padXXSm.Hpad.inconsolata(href= '/#/' + lang + '/' + name + '/' + navchild.name + '/')
-										span= '> ' + chname
+				- let name = navsection.name ;
+				- let data = navsection.data || {} ;
+				- let hidemenu = data.hidefrommenu ;
+				
+				- if(!!!hidemenu){
+					li.others.floatL.rel.LmarSm(id= "global_" + name, class= "global_" + name, style="left:-20px")
+						a.block.Hpad.fullH.inconsolata(href= '#/' + name + '/')
+							span.sizeLg= name
+				- }
 		
 		
 		//- LAGUAGE BAR

@@ -207,7 +207,6 @@ module.exports = MMAI.func = {
 				
 				res.template.prependTo($('.universe')) ;
 				$('.foot').removeClass("none") ;
-				
 				$('#mainloader').addClass('none') ;
 				
 				////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
@@ -224,23 +223,35 @@ module.exports = MMAI.func = {
 
 				//////////////////////////////////////// VARIOUS TOGGLES IN PAGES
 				
-				MMAI.func.various_toggles(true, res) ;
-				MMAI.func.toggle_patents(true, res) ;
+				
 				//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
 
 
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
-				
-				if(!MMAI.home.viz3Drunning) {
-					MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
-						
-						this.morphInto(res.index) ;
-						
-					}, [true]) ;
-					MMAI.home.viz3Drunning = true ;
-					$('#mainloader').removeClass('none') ;
+				if(!res.sectionData.hidefrommenu){
+
+
+					MMAI.func.various_toggles(true, res) ;
+					MMAI.func.toggle_patents(true, res) ;
+
+
+
+					if(!MMAI.home.viz3Drunning) {
+						MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
+							
+							this.morphInto(res.index) ;
+							
+						}, [true]) ;
+						MMAI.home.viz3Drunning = true ;
+						$('#mainloader').removeClass('none') ;
+					}else{
+						MMAI.home.SCI.morphInto(res.index) ;
+					}
+
 				}else{
-					MMAI.home.SCI.morphInto(res.index) ;
+
+
+
 				}
 				
 				
@@ -302,9 +313,10 @@ module.exports = MMAI.func = {
 
 			////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
 			
-
-			MMAI.func.various_toggles(false, res) ;
-			MMAI.func.toggle_patents(false, res) ;
+			if(!res.sectionData.hidefrommenu){
+				MMAI.func.various_toggles(false, res) ;
+				MMAI.func.toggle_patents(false, res) ;
+			}
 			
 			$('.foot').addClass("none") ;
 			res.template.remove() ;
@@ -940,7 +952,6 @@ module.exports = MMAI.func = {
 		if(cond){
 			toggler.on('click', MMAI.home.patents) ;
 		}else{
-			trace('HEY YO SHOULD CLOSE')
 			MMAI.home.patentsToggle(false) ;
 			toggler.off('click', MMAI.home.patents) ;
 		}

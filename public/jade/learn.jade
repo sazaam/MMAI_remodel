@@ -121,15 +121,7 @@ block content
 						- let dispitems = ['Exchanges', 'Lending', 'Derivatives', 'Savings' , 'Insurance', 'Options']
 						.py-10(class='md:pt-10 4md:pt-12 lg:pt-14 xl:pt-16 2xl:pt-20')
 							.grid.grid-flow-col.auto-cols-auto
-								//- ul.list-none
-									- for(let i = 0 ; i < dispitems.length ; i++){
-										li.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='hover:text-main-blue active:cursor-grabbing md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.pb-3.border-b-2.border-transparent.items-center.border-b-main-blue(class='xl:pb-4')
-												span.block.box-content.text-base(class='md:text-xs 4md:text-sm xl:text-base')
-													!= dispitems[i]	
-										- }
-
-								.tata
+								.dummydiv
 									.panel.flex-grow(style='display: block;')
 										.mx-auto.mb-12
 											.grid.grid-cols-1(class='md:grid-cols-12')
@@ -157,7 +149,7 @@ block content
 													.text-md
 														| Create a wide array of sophisticated decentralized derivatives applications and structured products that are able to effortlessly work across sovereign blockchain networks.
 													.mt-8(class='xl:mt-10')
-														+normalbutton('Build Now')				
+														+normalbutton('Build Now')
 									.panel.flex-grow(style='display: block;')
 										.mx-auto.mb-12
 											.grid.grid-cols-1(class='md:grid-cols-12')

@@ -533,29 +533,7 @@ block content
 							.flex.flex-row.gap-x-4
 								.flex.flex-col-reverse.patenttoggler
 									+normalbutton('View our Patents')
-					.patentszone.none.flex-wrap.grow.gap-4(class="sm:grid sm:grid-cols-4").place-content-between
-						- let papers = [] ;
-						- papers.push({name:'Smart auto mining (SAM) for industrial IoT Blockchain Network'}) ;
-						- papers.push({name:'Blockchain side Implementation : An offline Transaction Architecture'}) ;
-						- papers.push({cat:"International Patent Registration", name:'Blockchain-based Data Sharing Method'}) ;
-						- papers.push({cat:"Patent", name:'Unauthorized UAV Localization'}) ;
-						- papers.push({name:'Intelligent Transportation Systems'}) ;
-						- papers.push({name:'Artificial Intelligence for the Metaverse'}) ;
-						- papers.push({name:'Metaverse Applications and Limitations'}) ;
-						- papers.push({name:'Real-time Recognition Model'}) ;
-						- papers.push({name:'Low-power and Lossy'}) ;
-						- papers.push({name:'Smart Health'}) ;
-						- papers.push({name:'Automatic Modulation Classification'}) ;
-						- papers.push({name:'Accurate LPI Radar Waveform Recognition'}) ;
-
-						- for(let i = 0 ; i < papers.length ; i ++){
-							.purelightestblueDownBG.rounded-lg.relative.BmarLg.context.grid.grid-flow-row.place-content-between(class="md:fullH")
-								.sizeSm.padSm.uppercase.txtR.pad.TpadLg.purecolorBG.white
-									!= papers[i].cat || 'thesis'
-								h6.txtL.sizeLg.bold.pad.place-self-start.purecolor
-									!= papers[i].name
-								img(src="/img/papers/paper_01.webp" alt="" class="place-self-end")
-						- }
+					+patents(false)
 						
 
 					
