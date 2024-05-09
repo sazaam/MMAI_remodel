@@ -3676,6 +3676,10 @@ top
     width:inherit !important;
   }
 
+  #purechain .stats {
+    display:none;
+  }
+
   .pureseries .puremain{
     margin-top:30px !important;
   }
