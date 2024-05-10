@@ -293,14 +293,17 @@ mixin stats(cl, isContainer, cl2)
 
 mixin partners()
 	.partners.purelightblueBG.py-24.rel
-		- var partners = ['/img/creativia.png', '/img/ict.png', '/img/nslab.png', '/img/cognito.png'] ;
-		- var len = partners.length , repeat = 6, ww = 200 + 120;
+		- var path = '/img/partners/'
+		- var partners = ['nslab', 'cj', 'creativia', 'qualcomm', 'ict',  'cognitgo', 'lig', 'trigopi'] ;
+		- var len = partners.length , repeat = 3, ww = 200 + 120;
 		.partnersboxing.rel(style="width:"+(len * repeat * ww)+"px;")
 			.partnerscont.rel.context
 				- for(let i = 0 ; i < len * repeat ; i++){
 					li.floatL(style="margin:0 60px")
-						a.block.cont.rounded-md.whiteBG.contain(href="#", style="width:200px;height:100px;background-image:url('"+partners[i % len]+"');")
-							span.hidden <!-- -->
+						//- a.block.cont.rounded-md.whiteBG(href="#", style="width:200px;height:100px;background-image:url('"+partners[i % len]+"');")
+						a.block.cont.rounded-md.whiteBG(href="#", style="width:200px;height:100px;").txtC
+							img.block.fullH(style="width:150px;margin:auto" src= path + partners[i % len] + '.png', alt="")
+							//-span.hidden <!-- -->
 				- } 
 		.partnerstext.abs.right0.top0.sizeXXXLg
 			p.Tmar.Rmar.sizeXLg
