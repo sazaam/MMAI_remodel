@@ -115,12 +115,7 @@ var viz3D = {
 		scenes:{
 			Machine: {
 				name: 'MMAI_Home_Anim',
-				
-				// gltf: '/model/shoe.glb',
-				// gltf: '/model/test.glb',
-				// gltf: '/model/test3.glb',
-				// gltf: '/model/chain.glb',
-				gltf: '/model/chain2.glb',
+				gltf: '/model/chain.glb',
 				
 				
 				author: 'Sazaam',
@@ -134,7 +129,7 @@ var viz3D = {
 				// objectPosition: new THREE.Vector3( 0, .5, 0 ),
 				objectPosition: new THREE.Vector3( 0, 0, 0 ),
 				
-				addLights:spots,
+				//addLights:spots,
 				
 				fog:true,
 				
@@ -291,9 +286,10 @@ var viz3D = {
 							
 							var root = gltf.scene;
 							
-							
+							trace('GLTF loaded')
 							
 							SCI.root = root ;
+							
 							
 							root.material = new THREE.MeshDepthMaterial({opacity:.1,wireframe:true, wireframeLinewidth:.1}) ;
 							
@@ -309,23 +305,18 @@ var viz3D = {
 							var numparticles = 160000 ;
 							
 							
-							var children = [].concat(root.children) ;
+							var children = SCI.children = [].concat(root.children) ;
 							
-							
-							// ADD Original Model to Scene
-							//scene.add(children[children.length - 1]);
-							
-							var locations = [] ;
+							var locations = {} ;
 							
 							const sampledpos = new THREE.Vector3();
 							const mat = new THREE.Matrix4();
 							
-							
-							SCI.children = children ;
-							
 							Array.from(children).forEach(function(ch, ind){
+								let name = ch.name ; 
 								
-								locations[ind] = [] ;
+								locations[name] = [] ;
+
 								const sampler = new THREE.MeshSurfaceSampler( ch )
 									.setWeightAttribute( null )
 									.build();
@@ -336,33 +327,36 @@ var viz3D = {
 									
 									var loc = new THREE.Vector3() ;
 									loc.applyMatrix4(mat) ;
-									locations[ind].push(loc) ;
+									locations[name].push(loc) ;
 								}
 								
 							})
 							
+
 							let position = new THREE.Vector3() ;
 							const matrix = new THREE.Matrix4() ;
 							const vecs = [] ;
-							const randoms = [] ;
 							
-							var startIndex = 2 ;
+							// const randoms = [] ;
+							
+							var startname = 'chain' ;
+							
 							/////// INITIALIZE SET OF VECTORS
 							for ( let i = 0; i < numparticles ; i ++ ) {
 								var vec = new THREE.Vector3() ;
 								
-								position = locations[startIndex][i] ;
+								position = locations[startname][i] ;
 								matrix.makeTranslation( position.x, position.y, position.z ) ;
 								vec.applyMatrix4(matrix) ;
 								
 								vecs.push( vec );
-								
+								/*
 								var rand = new THREE.Vector3() ;
 								var sc = 15 ;
 								
 								matrix.makeTranslation( Math.random() * sc - 7.5, Math.random() * sc- 7.5, Math.random() * sc- 7.5 ) ;
 								rand.applyMatrix4(matrix) ;
-								randoms.push(rand) ;
+								randoms.push(rand) ;*/
 							}
 							
 							
@@ -389,35 +383,18 @@ var viz3D = {
 								}
 							}
 							  
+							var dummy = {scale:0} ;
 							
-							/*
-							SCI.pointsmesh = pointsmesh ;
-							//pointsmesh.rotation.y = (Math.PI / 2) - .165 ;
-							pointsmesh.position.y = .5 ;
-							scene.add( pointsmesh );
-							 */
+							SCI.morphIndex = startname ;
 							
-							
-							
-							// const base = children.pop() ;
-							// const base_loc = locations.pop() ;
-							
-							SCI.morphIndex = (startIndex) % SCI.children.length ;
-							// trace(SCI.children.length)
-							
-							SCI.morphInto = function(idx){
-								var oldindex = SCI.morphIndex ;
+							SCI.morphInto = function(name){
 								
+								SCI.morphIndex = name ;
 								
-								
-								SCI.morphIndex = SCI.morphIndex % SCI.children.length ;
-								var dummy = {scale:0} ;
-								
-								
-								// trace('should morph in here')
-								
+								var morphloc = locations[name] ;
+
 								var pos = pointCloud.geometry.attributes.position.array ;
-								shuffle(locations[idx]) ;
+								shuffle(morphloc) ;
 								
 								var p = [] ;
 								
@@ -437,12 +414,12 @@ var viz3D = {
 									time:1.25,
 									ease:Expo.easeOut,
 									onUpdate:function(){
-										
+								
 										pointCloud.geometry.attributes.position.needsUpdate = true;
 										for ( let i = 0; i < numparticles ; i ++ ) {
 											var n = i * 3 ;
 											var m = n % 3 ;
-											var loc = locations[idx][i] ;
+											var loc = morphloc[i] ;
 											p[ i ] = loc ;
 											
 											pos[n] 		= (pos[n] 		* (1 - dummy.scale)) + (p[i].x * dummy.scale)
@@ -451,18 +428,15 @@ var viz3D = {
 										}
 										
 										
-										// trace(dummy.scale, 1 - dummy.scale) ;
 									},
 									onComplete:function(){
 										pointCloud.sortParticles = true;
 										pointCloud.geometry.attributes.position.needsUpdate = false;
-										// trace('complete') ;
-										
 									}
 								})
 								
-								// trace(SCI.twParticles)
-								SCI.twParticles.play() ;
+								/* hack CHROME not triggering */
+								setTimeout(function(){SCI.twParticles.play()}, 1) ;
 								
 							}
 							
@@ -473,42 +447,7 @@ var viz3D = {
 						
 					}
 					
-					
-					
-///////////////////////////////////////////////////////////////////////////////////////////////////////// SKY PARTICLES
-					/*					
-					var particleGroup = SCI.particleGroup = new THREE.Object3D();
-					
-					var mathRandom = function mathRandom(num = 1) { return - Math.random() * num + Math.random() * num; }
-					
-					var generateParticle = function generateParticle(num, amp = 2) {
-						var gmaterial = new THREE.MeshPhysicalMaterial({color:0x3a6df0, side:THREE.DoubleSide});
-						var gparticular = new THREE.CircleGeometry(.25,5);
 
-						for (var i = 1; i < num; i++) {
-							var pscale = 0.001+Math.abs(mathRandom(0.03));
-							var particular = new THREE.Mesh(gparticular, gmaterial);
-							particular.position.set(mathRandom(amp),mathRandom(amp),mathRandom(amp));
-							particular.rotation.set(mathRandom(),mathRandom(),mathRandom());
-							particular.scale.set(pscale,pscale,pscale);
-							particular.speedValue = mathRandom(1);
-
-							particleGroup.add(particular);
-						}
-					}
-					
-					generateParticle(200, 2);
-					scene.add(particleGroup);
-					 */
-					/////////////////////////////////////////////
-					
-					
-					SCI.clk = function(e){
-						trace("should CLICK viz3D Morph", SCI.morphIndex)
-						SCI.morphInto(SCI.morphIndex ++) ;
-					} ;
-					
-					
 					return 'sazaam' ;
 				}
 				//////////////////////////////////////////////////////////////////////////////////// END LOADS
@@ -566,7 +505,6 @@ var viz3D = {
 					}
 					
 					
-					
 					ANIM_TW = res.userData.ANIM_TW = new BTW.$.Animation(undefined, render) ;
 					ANIM_TW.start() ;
 					
@@ -577,11 +515,11 @@ var viz3D = {
 				
 				
 			}else{
-				
 				ANIM_TW = res.userData.ANIM_TW ;
 				ANIM_TW.start() ;
 				
 			}
+
 			trace('SCI got Started...')
 			
 			

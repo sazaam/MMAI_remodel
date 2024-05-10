@@ -178,7 +178,7 @@ module.exports = MMAI.func = {
 	////////////////////////// TOP SECTIONS
 	top_section_focus : top_section_focus = function(e){
 		var res = e.target ;
-				
+		
 		if(e.type == 'focusIn'){
 			$('#global_'+res.name).addClass('purecolor') ;
 			res.focusReady() ;
@@ -234,18 +234,18 @@ module.exports = MMAI.func = {
 					MMAI.func.various_toggles(true, res) ;
 					MMAI.func.toggle_patents(true, res) ;
 
-
+					
 
 					if(!MMAI.home.viz3Drunning) {
 						MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
 							
-							this.morphInto(res.index) ;
+							this.morphInto(res.name) ;
 							
 						}, [true]) ;
 						MMAI.home.viz3Drunning = true ;
 						$('#mainloader').removeClass('none') ;
 					}else{
-						MMAI.home.SCI.morphInto(res.index) ;
+						MMAI.home.SCI.morphInto(res.name) ;
 					}
 
 				}else{
@@ -351,12 +351,13 @@ module.exports = MMAI.func = {
 	home_toggle : home_toggle = function(e){
 		var res = e.target ;
 		
-		
-		
-		
-		
 		if(res.opening){
 			
+			var togglein = function(){
+				res.ready() ;
+			}
+
+
 			res.template = res.template || $('.extractable').removeClass('hidden') ;
 			// trace(res.template)
 			
@@ -380,16 +381,20 @@ module.exports = MMAI.func = {
 			///////////////////////////////////// HOME 3D VIZUALIZATION
 			if(!MMAI.home.viz3Drunning) {
 				MMAI.home.SCI = MMAI.home.viz3D(true, res, function(){
-					this.morphInto(0) ;
+					this.morphInto('chain') ;
+					
+					togglein() ;
+
 				}, [true]) ;
 				MMAI.home.viz3Drunning = true ;
 				$('#mainloader').removeClass('none') ;
 			}else{
-				MMAI.home.SCI.morphInto(0) ;
+				MMAI.home.SCI.morphInto('chain') ;
+				togglein() ;
 			}
 			
 			$('.foot').removeClass("none") ;
-			// $('.viewport3D').removeClass('hidden') ;
+			
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
 			
 			
@@ -401,7 +406,7 @@ module.exports = MMAI.func = {
 			// $('.page.purechain').on('click', MMAI.home.SCI.clk) ;
 			
 			//////////////////////// FIRE READY EVENT
-			res.ready() ;	
+			
 		
 			
 			
@@ -966,7 +971,7 @@ module.exports = MMAI.func = {
 				if(!MMAI.home.viz3Drunning) {
 					
 				}else{
-					MMAI.home.SCI.morphInto(0) ;
+					if(MMAI.home.SCI.morphIndex != 'chain') MMAI.home.SCI.morphInto('chain') ;
 				}
 			}else if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(true, res) ;
@@ -974,11 +979,10 @@ module.exports = MMAI.func = {
 				MMAI.func.slideshow_series(true, res) ;
 				MMAI.func.slide_partners(true, res) ;
 			}else if(res.id == "pureworld"){
-				trace(MMAI.home.SCI)
 				if(!MMAI.home.viz3Drunning) {
 					
 				}else{
-					MMAI.home.SCI.morphInto(1) ;
+					if(MMAI.home.SCI.morphIndex != 'world') MMAI.home.SCI.morphInto('world') ;
 				}
 			}
 			
