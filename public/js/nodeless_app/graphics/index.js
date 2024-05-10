@@ -963,12 +963,23 @@ module.exports = MMAI.func = {
 			
 			trace(res.id) ;
 			if(res.id == "purechain"){
-				// $('.viewport3D').removeClass('fixed').addClass('abs') ;
+				if(!MMAI.home.viz3Drunning) {
+					
+				}else{
+					MMAI.home.SCI.morphInto(0) ;
+				}
 			}else if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(true, res) ;
 			}else if(res.id == "pureseries"){
 				MMAI.func.slideshow_series(true, res) ;
 				MMAI.func.slide_partners(true, res) ;
+			}else if(res.id == "pureworld"){
+				trace(MMAI.home.SCI)
+				if(!MMAI.home.viz3Drunning) {
+					
+				}else{
+					MMAI.home.SCI.morphInto(1) ;
+				}
 			}
 			
 			res.focusReady() ;
@@ -981,6 +992,8 @@ module.exports = MMAI.func = {
 			}else if(res.id == "pureseries"){
 				MMAI.func.slideshow_series(false, res) ;
 				MMAI.func.slide_partners(false, res) ;
+			}else if(res.id == "pureworld"){
+				
 			}
 			
 			//trace("Focusout >>", res.id) ;

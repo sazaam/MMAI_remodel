@@ -4964,9 +4964,9 @@ Preloader
 
 .loader {
   position: absolute;
-  border-left: 4px solid #fff;
-  border-top: 4px solid #fff;
-  border-right: 4px solid #fff;
+  border-left: 4px solid transparent;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
   border-bottom: 4px solid #3a6df0;
   height: 46px;
   width: 46px;

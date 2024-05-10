@@ -7,14 +7,14 @@ block content
 					.container.flex.flex-row.items-center(class='4md:justify-center')
 						span
 							+pureseries_SVG('series')
-						
-										
+				
 			.relative.z-10.pt-24.pb-24.patch(class='md:pt-28 4md:pt-32 lg:42 xl:pt-48 2xl:pt-52 2xl:pb-28')
 				section.mx-auto.left-0.right-0.section-margin.container(class='2xl:!mt-40')
 					.flex.flex-col.grid-cols-12(class='md:grid')
 						.flex.flex-col.place-items-start.txtL(class='md:col-span-6 4md:col-span-7')
 							h1.black.text-start.text-5xl.mt-24.mb-12.min-w-max.leading-tight
-								| Versatile Blockchain #[br]features 
+								| Versatile Blockchain #[br]features
+								
 							.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
 								p.mt-4.sizeLg(class='md:mt-6')
 									| #[b.bolder.purecolor Build] and use the best #[b.bolder.purecolor Web3] applications with Purechain, 
@@ -196,7 +196,8 @@ block content
 
 			- let seriesintro = pureseries_content.data.intro ;
 			- let series = pureseries_content.data.series ;
-			+log(pureseries_content)
+			
+			+log(series)
 			
 			.relative.context.purelightestblueBG.pt-12.paneltoggle.pureline
 				section.mx-auto.left-0.right-0.section-margin(class='md:!px-2 2xl:!px-5')
@@ -204,200 +205,175 @@ block content
 						.container.mx-auto.flex.flex-col
 							.flex.flex-col.items-center(class='md:flex-row')
 								h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-1/2") 
-									!= seriesintro.title
+									!= render('| ' + seriesintro.title) 
 								span.txtR.text-base.purelightestblueUpBG.p-6.rounded-2xl(class='md:mt-0 leading-[1.875rem] md:text-tiny md:leading-[200%] 2xl:text-lg 2xl:leading-10 md:w-1/2')
-									| Pure series represents the evergrowing global network#[br] behind Pure chain and its sibling services.
-									| #[br]Grasp the modern concepts of this blockchain phenomenon.
+									!= render('| ' + seriesintro.intro)
 							.m-0
 								.flex.flex-row.gap-x-4.sizeSm
 									
 									ul.list-none.py-4.flex.items-center
-										li.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.border-b-2.border-transparent.items-center
-												a.togglerBG.rounded-2xl.Hpad.block.box-content.text-base.pureblueBG.white(class='md:text-4xs 4md:text-xs xl:text-sm')
-													| Purechain
-											.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										li.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.border-b-2.border-transparent.items-center
-												a.togglerBG.rounded-2xl.Hpad.block.box-content.text-base(href="#" class='md:text-4xs 4md:text-xs xl:text-sm hover:purelightblueBG hover:white') 
-													| Purecontract
-											.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										li.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.border-b-2.border-transparent.items-center
-												a.togglerBG.rounded-2xl.Hpad.block.box-content.text-base(href="#" class='md:text-4xs 4md:text-xs xl:text-sm hover:!purelightblueBG hover:white') 
-													| Purecertificate
-											.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										li.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.border-b-2.border-transparent.items-center
-												a.togglerBG.rounded-2xl.Hpad.block.box-content.text-base(href="#" class='md:text-4xs 4md:text-xs xl:text-sm hover:!purelightblueBG hover:white') 
-													| Puremedical
-											.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										li.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.border-b-2.border-transparent.items-center
-												a.togglerBG.rounded-2xl.Hpad.block.box-content.text-base(href="#" class='md:text-4xs 4md:text-xs xl:text-sm hover:purelightblueBG hover:white') 
-													| Purevoting
-											.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										li.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.border-b-2.border-transparent.items-center
-												a.togglerBG.rounded-2xl.Hpad.block.box-content.text-base(href="#" class='md:text-4xs 4md:text-xs xl:text-sm hover:purelightblueBG hover:white') 
-													| Puremedia
-											.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										li.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.border-b-2.border-transparent.items-center
-												a.togglerBG.rounded-2xl.Hpad.block.box-content.text-base(href="#" class='md:text-4xs 4md:text-xs xl:text-sm hover:purelightblueBG hover:white') 
-													| Pureworld
-											.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										li.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.flex.flex-row(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-											.flex.bg-transparent.border-b-2.border-transparent.items-center
-												a.block.box-content.text-base(href="#" class='md:text-4xs 4md:text-xs xl:text-sm hover:purelightblueBG hover:white') 
-													svg.w-5.h-5(aria-hidden='true' focusable='false' data-prefix='fab' data-icon='circle-with-arrow' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none')
-														circle(cx='10' cy='10' r='9.1' stroke='currentColor' stroke-width='1.8')
-														path(d='M5.65681 10.0007L12.4299 10.0054' stroke='currentColor' stroke-width='1.8' stroke-miterlimit='10')
-														path(d='M9.04785 5.71436L13.3336 10.0001L9.04785 14.2858' stroke='currentColor' stroke-width='1.8' stroke-miterlimit='10')
+										- for(let i = 0 ; i < series.length ; i++) {
+											li.flex-none.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
+												.flex.bg-transparent.border-b-2.border-transparent.items-center
+													a.togglerBG.rounded-2xl.Hpad.block.box-content(class='md:text-4xs 4md:text-xs xl:text-sm' + (i == 0 ? ' pureblueBG white': ''))
+														!= render('| ' + series[i].name)
+												.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
+										- }
+										
 								
 
 					.mx-auto.left-0.right-0.container
-						.panel.flex.flex-col.gap-4.py-10(class='sm:flex-row sm:justify-between')
-							
-							.txtR(class='sm:h-full sm:w-1/3')
-								.relative.mt-24(class="sm:pr-4")
-									span.block.mt-4.font-medium.text-2xl.leading-10.content-right(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
-										+pureseries_SVG('chain')
-									hr.bg-gray-line.mt-6
-									.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6')
-										span.mb-4.block.font-medium.text-2xl.leading-tight.pureblue.txtL(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
-											| Improved Performance over Traditional Blockchains
-										hr.mb-6
-										span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-											| We utilize exclusive technologies to addres blockchain challenges 
-											| (decentralization, security, scalability, high gas fees) and provide a real-time environment.
-									.none.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6')
-										span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
-											| utilizes
-										span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-											| Exchange Module • Orderbook Primitive • Oracle Module
-							.evenoddblocks.mb-48( class='sm:w-3/4 md:flex')
-								.grid.grid-cols-2.items-center.gap-4( class='2xl:gap-8')
-									.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
-										.relative
-											.flex.flex-row.justify-between.items-center
-												.order-2
-													span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
-														| SAM#[sup +]
-												a(href='https://helixapp.com/spot/inj-usdt' target='_blank')
-													.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-														//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/71aaf95d-57b9-427a-8b2f-cc2c4167dfe6.png')
-											span.block.mt-4.font-medium.text-2xl.lh14.txtC
-												| Smart Auto Mining#[sup +]
-											hr.bg-gray-line.mt-6
-											.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
-													| Feature
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| A mining technique that optimizes transaction mining time 
-													| and reduces the energy required to power the network.
-											.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
-													| utilizes
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| Exchange Module • Orderbook Primitive • Oracle Module
-									.even.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
-										.relative
-											.flex.flex-row.justify-between.items-center
-												.order-2
-													span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
-														| PoA#[sup 2]
-												a(href='https://mito.fi/' target='_blank')
-													.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-														//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/a8b3ff8a-3366-4d4e-9202-75e539b16017.png')
-											span.block.mt-4.font-medium.text-2xl.lh14.txtC
-												| Proof of Authority#[sup 2]
-											hr.bg-gray-line.mt-6
-											.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
-													| Feature
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| A tehnique that ensures network stability 
-													| #[br] even when or if mining is interrupted.
-													
-											.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
-													| utilizes
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| CosmWasm Module • Exchange Module • Orderbook Primitive
-									.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
-										.relative
-											.flex.flex-row.justify-between.items-center
-												.order-2
-													span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
-														| NSL-L2
-												a(href='https://hydroprotocol.finance/' target='_blank')
-													.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-														//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/6c21ab9a-7d16-4e1f-beb5-53beaa1032b6.jpg')
-											span.block.mt-4.font-medium.text-2xl.lh14.txtC
-												| NSL Layer2
-											hr.bg-gray-line.mt-6
-											.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
-													| feature
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| A technology that uses Zero-Knowledge (Zk)- Rollup technology 
-													| with SAM#[sup +] and PoA#[sup 2] to improve blockchain stability
-													| and gas fees. 
-													
-											.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
-													| utilizes
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| Exchange Module • Orderbook Primitive • Oracle Module
-									.even.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
-										.relative
-											.flex.flex-row.justify-between.items-center
-												.order-2
-													span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
-														| L1#[sup +]
-												a(href='https://talis.art/' target='_blank')
-													.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-														//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/32791478-533f-4d97-8693-bea3747e561e.png')
-											span.block.mt-4.font-medium.text-2xl.lh14.txtC
-												| Augmented Layer1
-											hr.bg-gray-line.mt-6
-											.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
-													| feature
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| A layer that integrates SAM#[sup +] and PoA#[sup 2] 
-													| to enhance both efficiency and reliability of the existing blockchain's Layer1.
-													
-											.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
-													| utilizes
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| Oracle Module • CosmWasm Module
-									.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
-										.relative
-											.flex.flex-row.justify-between.items-center
-												.order-2
-													span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
-														| NSL-cL2
-												a(href='https://hydroprotocol.finance/' target='_blank')
-													.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-														//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/6c21ab9a-7d16-4e1f-beb5-53beaa1032b6.jpg')
-											span.block.mt-4.font-medium.text-2xl.lh14.txtC
-												| Centralized Layer2
-											hr.bg-gray-line.mt-6
-											.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
-													| feature
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| A specialized Layer2 
-													| #[br] for industrial applications.
-													
-											.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
-												span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
-													| utilizes
-												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
-													| Exchange Module • Orderbook Primitive • Oracle Module
+					
+						- for(let i = 0 ; i < series.length ; i++) {
+							.panel.flex.flex-col.gap-4.py-10(class='sm:flex-row sm:justify-between' + (i == 0 ? '' : ' none'))
+								.txtR(class='sm:h-full sm:w-1/3')
+									.relative.mt-24(class="sm:pr-4")
+										.inlineblock.pureseries.puremain.sizeXXLg
+											span.block.floatL
+												em.block
+													span.none P
+											!= render('| ' + series[i].name)
+										
+										
+										- let serie = series[0] ;
+										hr.bg-gray-line.mt-6
+										.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6')
+											span.mb-4.block.font-medium.text-2xl.leading-tight.pureblue.txtL(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
+												!= render('| ' + serie.desc.title)
+											hr.mb-6
+											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+												!= render('| ' + serie.desc.content)
+										.none.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6')
+											span.block.font-bold.uppercase(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+												| utilizes
+											span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+												!= render('| ' + serie.desc.utilize)
+								.evenoddblocks.mb-48( class='sm:w-3/4 md:flex')
+									.grid.grid-cols-2.items-center.gap-4( class='2xl:gap-8')
+										
+										.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+											.relative
+												.flex.flex-row.justify-between.items-center
+													.order-2
+														span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
+															| SAM#[sup +]
+													a(href='https://helixapp.com/spot/inj-usdt' target='_blank')
+														.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
+															//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/71aaf95d-57b9-427a-8b2f-cc2c4167dfe6.png')
+												span.block.mt-4.font-medium.text-2xl.lh14.txtC
+													| Smart Auto Mining#[sup +]
+												hr.bg-gray-line.mt-6
+												.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+														| Feature
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| A mining technique that optimizes transaction mining time 
+														| and reduces the energy required to power the network.
+												.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+														| utilizes
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| Exchange Module • Orderbook Primitive • Oracle Module
+										.even.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+											.relative
+												.flex.flex-row.justify-between.items-center
+													.order-2
+														span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
+															| PoA#[sup 2]
+													a(href='https://mito.fi/' target='_blank')
+														.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
+															//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/a8b3ff8a-3366-4d4e-9202-75e539b16017.png')
+												span.block.mt-4.font-medium.text-2xl.lh14.txtC
+													| Proof of Authority#[sup 2]
+												hr.bg-gray-line.mt-6
+												.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+														| Feature
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| A tehnique that ensures network stability 
+														| #[br] even when or if mining is interrupted.
+														
+												.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+														| utilizes
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| CosmWasm Module • Exchange Module • Orderbook Primitive
+										.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+											.relative
+												.flex.flex-row.justify-between.items-center
+													.order-2
+														span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
+															| NSL-L2
+													a(href='https://hydroprotocol.finance/' target='_blank')
+														.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
+															//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/6c21ab9a-7d16-4e1f-beb5-53beaa1032b6.jpg')
+												span.block.mt-4.font-medium.text-2xl.lh14.txtC
+													| NSL Layer2
+												hr.bg-gray-line.mt-6
+												.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+														| feature
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| A technology that uses Zero-Knowledge (Zk)- Rollup technology 
+														| with SAM#[sup +] and PoA#[sup 2] to improve blockchain stability
+														| and gas fees. 
+														
+												.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+														| utilizes
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| Exchange Module • Orderbook Primitive • Oracle Module
+										.even.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+											.relative
+												.flex.flex-row.justify-between.items-center
+													.order-2
+														span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
+															| L1#[sup +]
+													a(href='https://talis.art/' target='_blank')
+														.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
+															//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/32791478-533f-4d97-8693-bea3747e561e.png')
+												span.block.mt-4.font-medium.text-2xl.lh14.txtC
+													| Augmented Layer1
+												hr.bg-gray-line.mt-6
+												.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+														| feature
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| A layer that integrates SAM#[sup +] and PoA#[sup 2] 
+														| to enhance both efficiency and reliability of the existing blockchain's Layer1.
+														
+												.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+														| utilizes
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| Oracle Module • CosmWasm Module
+										.rounded-2xl.describlock.purelightestblueDownBG.p-5(class='md:h-full md:py-9 4md:px-6 xl:px-7 xl:py-3xl 2xl:px-9')
+											.relative
+												.flex.flex-row.justify-between.items-center
+													.order-2
+														span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
+															| NSL-cL2
+													a(href='https://hydroprotocol.finance/' target='_blank')
+														.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
+															//- img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/6c21ab9a-7d16-4e1f-beb5-53beaa1032b6.jpg')
+												span.block.mt-4.font-medium.text-2xl.lh14.txtC
+													| Centralized Layer2
+												hr.bg-gray-line.mt-6
+												.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6').txtL
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny leading-[170%]')
+														| feature
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| A specialized Layer2 
+														| #[br] for industrial applications.
+														
+												.mt-6(class='md:mt-4 xl:mt-5 2xl:mt-6').txtR
+													span.block.font-bold.uppercase.pureblue(class='md:text-[13px] lg:text-tiny md:leading-[170%]')
+														| utilizes
+													span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
+														| Exchange Module • Orderbook Primitive • Oracle Module
+						- }
+					
+						
 			.relative.context.pureline.whitetranspBG.TpadXXLg
 				section.mx-auto.left-0.right-0.mb-24.container.flex.flex-wrap.gap-y-4(class="sm:flex-col-2")
 					.flex.flex-col.flex-none(class='2xl:flex')

@@ -257,16 +257,22 @@ module.exports = {
     }`,
     pureseries:`{
         "intro":{
-            "title":"Versatile and Growing #[br] Frameworks"
+            "title":"#[b.pureblue Versatile] and Growing #[br] Frameworks",
+            "intro":"Pure series represents the evergrowing global network#[br] behind Pure chain and its sibling services.#[br]Grasp the modern concepts of this blockchain phenomenon."
         },
         "series":[
             {
                 "id":0,
-                "name":"Pure Chain"
+                "name":"#[b.bolder Pure] #[span Chain]",
+                "desc":{
+                    "title":"Improved Performance over Traditional Blockchains",
+                    "content":"We utilize exclusive technologies to addres blockchain challenges (decentralization, security, scalability, high gas fees) and provide a real-time environment.",
+                    "utilize":"Exchange Module • Orderbook Primitive • Oracle Module"
+                }
             },
             {
                 "id":1,
-                "name":"Pure Wallet"
+                "name":"#[b.bolder Pure] #[span Wallet]"
             }
         ]
     }`

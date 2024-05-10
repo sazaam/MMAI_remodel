@@ -256,8 +256,8 @@ mixin advantageicons(id)
 
 mixin stats(cl, isContainer, cl2)
 	.relative.context.stats(class = cl || '')
-		section.mx-auto.left-0.right-0.section-margin.mb-24(class='!mt-16 2xl:!mt-20' + isContainer ? 'container' : '')
-			.grid.grid-cols-2.gap-3.mt-20(class='md:grid-cols-4 md:gap-4 2xl:gap-x-7')
+		section.mx-auto.left-0.right-0.section-margin.my-20(class='' + isContainer ? 'container' : '')
+			.grid.grid-cols-2.gap-3(class='md:grid-cols-4 md:gap-4 2xl:gap-x-7')
 				.col-span-1.rounded-lg.txtL.px-4.py-5(class='2xl:h-40 md:py-4 4md:py-5 lg:py-7 xl:py-9 2xl:px-6 2xl:py-10' + ' ' + cl2)
 					.flex.flex-row.h-fit
 						.flex.flex-col.justify-between.h-fit.w-full
