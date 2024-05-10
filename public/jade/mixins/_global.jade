@@ -291,7 +291,20 @@ mixin stats(cl, isContainer, cl2)
 								span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
 									| AVG TRANSACTION COST
 
-
+mixin partners()
+	.partners.purelightblueBG.py-24.rel
+		- var partners = ['/img/creativia.png', '/img/ict.png', '/img/nslab.png', '/img/cognito.png'] ;
+		- var len = partners.length , repeat = 6, ww = 200 + 120;
+		.partnersboxing.rel(style="width:"+(len * repeat * ww)+"px;")
+			.partnerscont.rel.context
+				- for(let i = 0 ; i < len * repeat ; i++){
+					li.floatL(style="margin:0 60px")
+						a.block.cont.rounded-md.whiteBG.contain(href="#", style="width:200px;height:100px;background-image:url('"+partners[i % len]+"');")
+							span.hidden <!-- -->
+				- } 
+		.partnerstext.abs.right0.top0.sizeXXXLg
+			p.Tmar.Rmar.sizeXLg
+				span.block.Hpad.purecolor.sizeXSm MOU / NDA
 
 mixin patents(display)
 	- let papers = [] ;

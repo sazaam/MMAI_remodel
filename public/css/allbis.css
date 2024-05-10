@@ -4512,6 +4512,12 @@ body {
   background-size: cover;
 }
 
+.contain {
+  background-size: contain;
+  background-position-x: 50%;
+  background-repeat:no-repeat;
+}
+
 .nonez{
   display:none;
 }

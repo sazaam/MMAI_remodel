@@ -36,7 +36,7 @@
 						- }
 				
 				.slides.dark
-					.slide.textes.abs(style="bottom:130px;left:45px;margin-right:20px;width:350px;z-index:300")
+					.slide.textes.abs(style="bottom:20px;left:45px;margin-right:20px;width:350px;z-index:300")
 						.rounded-3xl.p-6.txtL
 							.catchphrase.sizeSm(class="sm:sizeR")
 								h4.montserrat.bolder.sizeXXXLg.lh1 The Ecosystem
@@ -65,22 +65,3 @@
 										
 
 					- }
-				
-				
-			.partners.abs.bottom0.left0.right0
-				
-				- var partners = ['/img/creativia.png', '/img/ict.png', '/img/nslab.png', '/img/cognito.png'] ;
-				- var len = partners.length , repeat = 6;
-				.partnersboxing.rel.context(style="width:"+(len * repeat * 150)+"px;border-top:1px solid #789bf3")
-					.partnerscont.rel
-						- for(let i = 0 ; i < len * repeat ; i++){
-							a.block.cont.floatL.cover(href="#", style="width:150px;height:100px;background-image:url('"+partners[i % len]+"');")
-								span.hidden <!-- -->
-						- } 
-				.partnerstext.abs.bottom100.right0
-					p.Rmar
-						span.block.Hpad.pureblueBG.white.sizeXSm MOU / NTA
-						
-
-	//- .eco.abs.top50.bottom0.left0.right0.flowhidden(style="bottom:1px")
-		//- img.inlineblock.fullH.rel(src="/img/pureseries_eco.png", alt="", style="top:-50px")

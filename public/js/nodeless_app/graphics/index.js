@@ -929,9 +929,9 @@ module.exports = MMAI.func = {
 		if(!res.userData.tw_partners){
 			res.userData.tw_partners = BJS.create({
 				target:partners,
-				to:{'margin-left::PX':-150*12},
+				to:{'margin-left::PX':-((150 + 120)*2)-60},
 				from:{'margin-left::PX':0},
-				time:15,
+				time:12,
 				ease:Linear.easeOut
 			}) ;
 			res.userData.tw_partners.stopOnComplete = false ;	
