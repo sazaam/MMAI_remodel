@@ -96,6 +96,8 @@ MMAI.home.scroll = function(e) {
 	var res = hier.currentStep ;
 	
 	res = res.depth == 1 ? res : res.parentStep ;
+	if(!!!res) return ;
+	
 	var path = res.children[n].path ;
 	var ch = hier.changer ;
 	var hash = ch.getValue() ;
@@ -699,7 +701,7 @@ module.exports = MMAI.func = {
 				e.stopPropagation() ;
 				
 				var a = $(e.currentTarget) ;
-				
+				trace(a)
 				if(a.hasClass('up')){
 					if(sl.cy.index > 0) sl.cy.prev() ;
 				}else{
@@ -803,6 +805,8 @@ module.exports = MMAI.func = {
 						firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR TmarXLg') ;
 						firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg Tpad RmarLg') ;
 						firstblock.find('.browseeco a .txt').text('Browse') ;
+						
+						
 						var block = $(slides.get(n)) ;
 						block.css({opacity:0}) ;
 						block.removeClass('none') ;
@@ -838,6 +842,9 @@ module.exports = MMAI.func = {
 					
 					
 					sl.tw = tw ;
+					
+					if(n != 0) SCI.morphInto('*') ;
+					
 					if(tw){
 						tw.play() ;	
 						tw.onComplete = function(){

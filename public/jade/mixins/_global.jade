@@ -17,21 +17,19 @@ mixin log(msg)
 
 
 
-//- LINKS
-mixin link(o)
-	ul.links(class= o.cl || "")
-		li(style='display: inline;')
-			a.gowhite.bt.btn-border-slider-white.round.left.dkt.whiteBG(href=o.url)= t(o.prename || 'view')
-		li(style='display: inline;')
-			a.goblack.bt.btn-border-slider-black.round.right.dktBG(href=o.url)= t(o.name || 'more')
-
-
-
 
 
 //- BACK BUTTON
 mixin back(obj)
 	+link({prename:t('back_to'), name:t('main'), cl:"dkt greyhover", url:obj.link})
+
+
+mixin grad(way, inner)
+	- if(way == 'down') {
+		.abs.left0.right0.graddown.zi2(class= (inner ? "top0" : "top100") style="height:15px") <!-- -->
+	- } else {
+		.abs.bottom100.left0.right0.gradup.zi2(class= (inner ? "bottom0" : "bottom100") style="height:15px") <!-- -->
+	- }
 
 
 

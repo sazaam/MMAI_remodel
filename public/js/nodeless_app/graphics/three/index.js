@@ -278,7 +278,13 @@ var viz3D = {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////// MODELS
 					if(!!SCI.gltf){
 						
-						
+						SCI.shuffle = function(array) {
+							for (let i = array.length - 1; i > 0; i--) {
+								let j = Math.floor(Math.random() * (i + 1)); 
+								[array[i], array[j]] = [array[j], array[i]];
+							}
+							return array ;
+						}
 						
 						const gltfLoader = getGTLFLoader();
 						
@@ -312,11 +318,13 @@ var viz3D = {
 							const sampledpos = new THREE.Vector3();
 							const mat = new THREE.Matrix4();
 							
+							let names = [] ;
+							
 							Array.from(children).forEach(function(ch, ind){
 								let name = ch.name ; 
-								
+								names.push(name) ;
 								locations[name] = [] ;
-
+								
 								const sampler = new THREE.MeshSurfaceSampler( ch )
 									.setWeightAttribute( null )
 									.build();
@@ -331,6 +339,16 @@ var viz3D = {
 								}
 								
 							})
+							
+							
+							SCI.getRandomName = function(curname){
+								let str ;
+								
+								while((str = SCI.shuffle(names)[0]) == curname){
+									//
+								}
+								return str ;
+							} ;
 							
 
 							let position = new THREE.Vector3() ;
@@ -376,12 +394,7 @@ var viz3D = {
 							if(SCI.objectPosition) pointCloud.position.y = SCI.objectPosition.y ;
 							scene.add( pointCloud );
 							
-							function shuffle(array) {
-								for (let i = array.length - 1; i > 0; i--) {
-									let j = Math.floor(Math.random() * (i + 1)); 
-									[array[i], array[j]] = [array[j], array[i]];
-								}
-							}
+							
 							  
 							var dummy = {scale:0} ;
 							
@@ -389,12 +402,17 @@ var viz3D = {
 							
 							SCI.morphInto = function(name){
 								
+								if(name == '*'){
+									name = SCI.getRandomName(SCI.morphIndex) ;
+								}
+								
+								
 								SCI.morphIndex = name ;
 								
 								var morphloc = locations[name] ;
 
 								var pos = pointCloud.geometry.attributes.position.array ;
-								shuffle(morphloc) ;
+								SCI.shuffle(morphloc) ;
 								
 								var p = [] ;
 								
@@ -437,6 +455,8 @@ var viz3D = {
 								
 								/* hack CHROME not triggering */
 								setTimeout(function(){SCI.twParticles.play()}, 1) ;
+								
+								return SCI.morphIndex ;
 								
 							}
 							

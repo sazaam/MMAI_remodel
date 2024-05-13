@@ -1,9 +1,14 @@
 
 
 .fullW.fullH.txtC.rel.pureline
-	.introseries.sizeXXXLg
+	
+	.introseries
 		.page
-			.eco.abs.flowvisible.top0.bottom0.left0.right0.purelightestblueBG
+			.prev.abs(style="top:95px;z-index: 50;").txtC.right0.RmarXXXLg
+				+smallbutton('Previous', '#/home/purewallet/')
+			.next.abs(style="bottom:25px;z-index: 50;").txtC.left0.right0
+				+smallbutton('Continue', '#/home/pureworld/')
+			.eco.abs.flowvisible.top0.bottom0.left0.right0.sizeXXXLg
 				- let series = [] ;
 				- series.push({name:"Chain"}) ;
 				- series.push({name:"Wallet"}) ;
@@ -36,8 +41,8 @@
 						- }
 				
 				.slides.dark
-					.slide.textes.abs(style="bottom:20px;left:45px;margin-right:20px;width:350px;z-index:300")
-						.rounded-3xl.p-6.txtL
+					.slide.textes.abs(style="bottom:80px;left:45px;margin-right:20px;width:350px;z-index:300")
+						.rounded-3xl.p-6.pb-0.txtL
 							.catchphrase.sizeSm(class="sm:sizeR")
 								h4.montserrat.bolder.sizeXXXLg.lh1 The Ecosystem
 							.othertextes.sizeSm.TmarXXLg.lh1.pureblue.context
@@ -50,7 +55,7 @@
 						.none.slide.textes.abs.fullH.fullW.left0.right0
 							.abs.left0.right0.top0(style="bottom:220px;")
 								.rel.fullH.fullW.grid.content-end.place-items-end.noselect
-									.back.abs.right0.cover(style="width:60%;min-width:435px;top:130px;bottom:100px;background-image:url('/img/visuals/back_0" + (i+1) + ".jpg')")
+									.none.back.abs.right0.cover(style="width:60%;min-width:435px;top:130px;bottom:100px;background-image:url('/img/visuals/back_0" + (i+1) + ".jpg')")
 										.abs.bottom0.visual(style="width:795px;height:520px;bottom:-30px;left:-50px;")
 											img.fullW.fullH(src="/img/visuals/viz_0" + (i+1) + ".png", alt="")
 									.rel.dark.txtL.pureline.puretransp2BG.p-10.zi3(style="width:60%;min-width:435px;border-width:1px 0")
