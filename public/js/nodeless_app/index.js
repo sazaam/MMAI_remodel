@@ -20,7 +20,7 @@ app
 app
 	.listen('JSAddress', function(e){
 		
-		console.log(window.Data) ;
+		trace(window.Data) ;
 		
 		app
 			.createClient()
@@ -32,7 +32,7 @@ app
 		// PAGE LOAD
 		app.discard('load', arguments.callee) ;
 		
-		console.log('window Fully Loaded') ;
+		trace('window Fully Loaded') ;
 	}) ;
 
 })()

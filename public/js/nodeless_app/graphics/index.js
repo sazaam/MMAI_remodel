@@ -252,7 +252,7 @@ module.exports = MMAI.func = {
 
 				}else{
 
-
+					MMAI.func.extra_toggles(true, res) ;
 
 				}
 				
@@ -318,6 +318,8 @@ module.exports = MMAI.func = {
 			if(!res.sectionData.hidefrommenu){
 				MMAI.func.various_toggles(false, res) ;
 				MMAI.func.toggle_patents(false, res) ;
+			}else{
+				MMAI.func.extra_toggles(false, res) ;
 			}
 			
 			$('.foot').addClass("none") ;
@@ -441,6 +443,34 @@ module.exports = MMAI.func = {
 			
 			// trace('CLOSING', res.id) ;
 		}
+	},
+	extra_toggles:extra_toggles = function(cond, res){
+		MMAI.home.toggleExtras_click = MMAI.home.toggleExtras_click || function(e){
+			e.preventDefault() ;
+			e.stopPropagation() ;
+			var btn = $(e.currentTarget) ;
+			btn.data('question').toggleClass('opened') ;
+		}
+
+		var questions = $('.question') ;
+
+		if(cond){
+			
+			questions.each(function(i, el){
+				
+				var question = $(el) ;
+				var btn = question.find('a.btn') ;
+				btn.data('question', question) ;
+				btn.on('click', MMAI.home.toggleExtras_click) ;
+			})
+		}else{
+			questions.each(function(i, el){
+				var question = $(el) ;
+				var btn = question.find('a.btn') ;
+				btn.off('click', MMAI.home.toggleExtras_click) ;
+			})
+		}
+
 	},
 	various_toggles:various_toggles = function (cond, res){
 			
@@ -804,7 +834,7 @@ module.exports = MMAI.func = {
 						
 						firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR TmarXLg') ;
 						firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg Tpad RmarLg') ;
-						firstblock.find('.browseeco a .txt').text('Browse') ;
+						firstblock.find('.browseeco a .txt').text('More') ;
 						
 						
 						var block = $(slides.get(n)) ;

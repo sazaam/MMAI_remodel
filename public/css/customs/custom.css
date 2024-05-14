@@ -131,6 +131,21 @@ html{min-height:2450px}
 }
 
 
+.answer{
+    display:none;
+}
+
+
+.opened .answer{
+    display:block;
+}
+
+
+
+.opened .arrow{
+    transform:rotate(-90deg);
+}
+
 .fullpage{
     z-index:10;
     position:relative;

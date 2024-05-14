@@ -10,18 +10,19 @@
 				+smallbutton('Continue', '#/home/pureworld/')
 			.eco.abs.flowvisible.top0.bottom0.left0.right0.sizeXXXLg
 				- let series = [] ;
-				- series.push({name:"Chain"}) ;
-				- series.push({name:"Wallet"}) ;
-				- series.push({name:"Certificates"}) ;
-				- series.push({name:"Voting"}) ;
-				- series.push({name:"Medical"}) ;
-				- series.push({name:"Media"}) ;
-				- series.push({name:"World"}) ;
+				- series.push({name:"Chain", title:"Optimizing #[em.purecolor AI-Based Traffic] Handling", desc:"AI technology improves the performance of the blockchain, #[br]optimizing all traffic handling and resolving delays. #[br]Layer 1 pays per task, and Layer 2 handles more complex tasks, #[br]maintaining high integrity at a lower cost."}) ;
+				- series.push({name:"Wallet", title:"A #[em.purecolor smart wallet platform] that can be used #[br]even in an #[em.purecolor offline environment]", desc:"Offline transmission of cryptocurrency data, offline token-based connection through software cold storage, token generation outside, and connection with Web3.0 application using user wallet information."}) ;
+				- series.push({name:"Contract", title:"#[em.purecolor Electronic contract service] for #[em.purecolor transparency] #[br]and #[em.purecolor fairness] in contract procedures", desc:"Generative smart contracts dynamically generate fair contract procedures with handshake technology, offering identity authentication and electronic signature functions, along with automatic creation and calculation of contract formats and formulas."}) ;
+				- series.push({name:"Certificates", title:"#[em.purecolor Forgery detection service] that guarantees the #[em.purecolor originality] of the #[em.purecolor test certificate] based on three technologies", desc:"Our solution offers a robust originality guarantee, leveraging three advanced technologies to ensure encrypted originality, detect copy forgery, automatically generate test certificates, and provide integrity verification results."}) ;
+				- series.push({name:"Voting", title:"Blockchain-based #[em.purecolor electronic voting service] #[br]for voting fairness and anonymity", desc:"Our offline voting technology, powered by hybrid blockchain and accessible through WLAN's captive portal, ensures secure, transparent, and hassle-free electronic voting for authenticated participants."}) ;
+				- series.push({name:"Media", title:"Blockchain-based Music #[em.purecolor plagiarism rate detection service] #[br]for a clean copyright market", desc:"Empowering music composition with unprecedented transparency, our blockchain-based metadata and smart contract technology ensure the authenticity and verification of sound sources throughout the creative process."}) ;
+				- series.push({name:"World", title:"#[em.purecolor Unlock the Potential] of your Business #[br]in the #[em.purecolor Metaverse with Pure World]", desc:"Pure World was newly developed based on Unity for easier accessibility than before. Connect with various businesses within a metaverse platform incorporating various entertainment contents."}) ;
+				- series.push({name:"RX", title:"An #[em.purecolor NFT-Prescription Management] for Efficient #[br]and Secure Healthcare System", desc:"Revolutionizing data management for patients, our NFT-based technology, combined with lightweight blockchain and batch minting, offers up to 46.76% cost savings compared to traditional blockchain solutions in large-scale environments."}) ;
+				- series.push({name:"BOMS", title:"Blockchain-enabled #[em.purecolor Organ Matching System] #[br]that is transparent and cannot be forged", desc:"Optimizing the donation process, our algorithm prioritizes placements based on donor and recipient data, ensuring transparency, fairness, and swift medical procedures through automatic notifications."}) ;
 				- let ls = series.length ;
 
-				//- "Chain", "Wallet", "Certificates", "Voting", "Medical", "Media", "World"
 				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg.pureblue(style="width:350px;top:130px;z-index:301")
-					.abs.right0.top0.rounded-md.purecolorBG.HpadSm.VpadXSm(style="top:-40px")
+					.none.abs.right0.top0.rounded-md.purecolorBG.HpadSm.VpadXSm(style="top:-40px" class="!sm:block")
 						a.up.rel.zi3(style="" href="javascript:void(0)") 
 							+arrow_dotted_up()
 						a.down.rel.zi3.TmarSm.white(style="bottom:0" href="javascript:void(0)") 
@@ -49,22 +50,25 @@
 								h3.bold We are ensuring a safe place <br />where all your expectations converge.
 								.Tmar.lh1.purecolor
 									p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
-							.browseeco.TmarXXXLg.txtR.sizeXSm.rel(style="margin-right:-25px")
+							.browseeco.TmarXXXLg.txtR.sizeXSm.rel
 								+normalbutton("Browse Ecosystem", "#/features/")
 					- for(let i = 0 ; i < ls ; i++) {
+						- let serie = series[i] ;
 						.none.slide.textes.abs.fullH.fullW.left0.right0
 							.abs.left0.right0.top0(style="bottom:220px;")
 								.rel.fullH.fullW.grid.content-end.place-items-end.noselect
-									.none.back.abs.right0.cover(style="width:60%;min-width:435px;top:130px;bottom:100px;background-image:url('/img/visuals/back_0" + (i+1) + ".jpg')")
+									.none.back.abs.right0.cover(style="width:60%;min-width:450px;top:130px;bottom:100px;background-image:url('/img/visuals/back_0" + (i+1) + ".jpg')")
 										.abs.bottom0.visual(style="width:795px;height:520px;bottom:-30px;left:-50px;")
 											img.fullW.fullH(src="/img/visuals/viz_0" + (i+1) + ".png", alt="")
-									.rel.dark.txtL.pureline.puretransp2BG.p-10.zi3(style="width:60%;min-width:435px;border-width:1px 0")
+									.rel.dark.txtL.pureline.whitetranspBG.p-10.zi3(style="width:60%;min-width:450px;border-width:1px 0")
 										.catchphrase.sizeXSm(class="sm:sizeR")
-											h4.montserrat.sizeXXXLg.lh1 #[b.bolder Pure] #{series[i].name}
+											h4.montserrat.sizeXXXLg.lh1 #[b.bolder Pure] #{serie.name}
 										.othertextes.sizeSm.TmarXXLg.lh1 
-											h3 We are ensuring a safe place <br />where all your expectations converge.
+											h3
+												!= render('| ' + serie.title)
 											.TmarXXXLg.lh1
-												p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
+												p.sizeSm
+													!= render('| ' + serie.desc)
 											//-.Tmar.txtR.Rmar0.sizeSm.rel(style="margin-right:-25px")
 												+smallbutton("More", "#/features/")
 										

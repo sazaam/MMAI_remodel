@@ -10,7 +10,8 @@ include ./svgs
 //- 
 //- ///////////////////////////////////////// COMMONS
 mixin log(msg)
-	script. 
+	script.
+		if('debug' in window)
 		console.log('LOG >', !{JSON.stringify(msg)})
 
 
@@ -130,7 +131,7 @@ mixin signuphome(obj)
 
 
 mixin smallbutton(text, url, target, cl)
-	a.inlineblock.padXSm.HpadXLg.round23(href=(url || '#') target=(target || '_self') class= cl ? cl : "purecolorBG white")
+	a.btn.inlineblock.padXSm.HpadXLg.round23(href=(url || '#') target=(target || '_self') class= cl ? cl : "purecolorBG white")
 		span 
 			!= text
 
@@ -139,17 +140,17 @@ mixin smallbutton(text, url, target, cl)
 
 
 mixin normalbutton(text, url, target, cl)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'purecolorBG white'))
+	a.btn.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'purecolorBG white'))
 		span.txt.flex-grow.font-normal.txtL.text-lg
 			!= text
-		span.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
+		span.arr.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
 			+arrow_dotted_right()
 
 
 
 
 mixin consolebutton(text, url, target, cl)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'purecolorBG white'))
+	a.btn.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'purecolorBG white'))
 		span.txt.flex-grow.font-normal.txtL.text-lg
 			!= text
 		span.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
@@ -159,7 +160,7 @@ mixin consolebutton(text, url, target, cl)
 
 
 mixin discordbutton(text, url, target, cl)
-	a.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'darkBG white'))
+	a.btn.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.w-full(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'darkBG white'))
 		span.txt.flex-grow.font-normal.txtL.text-lg
 			!= text
 		span.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
@@ -199,7 +200,7 @@ mixin arrow_dotted_left()
 
 
 mixin arrow_dotted_right()
-	svg(width='73' height='37' version='1.1' viewBox='0 0 73 36' xmlns='http://www.w3.org/2000/svg')
+	svg.arrow(width='73' height='37' version='1.1' viewBox='0 0 73 36' xmlns='http://www.w3.org/2000/svg')
 		g(fill="currentColor")
 			circle(cx='7.4733' cy='18.305' r='3.3307')
 			circle(cx='17.951' cy='18.305' r='3.3307')

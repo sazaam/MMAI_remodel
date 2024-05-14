@@ -10,7 +10,7 @@ block content
 	
 	//- VIEWPORT 3D
 	.viewport3D.fixed.left0.right0.top0.bottom0
-	
+		.abs.filtering.fullW.fullH.whitetranspBG.zi3
 	
 	//- 
 		Here all Pages are Full Height from top to the footer zone
@@ -64,7 +64,12 @@ block content
 	
 	//- Initalizing all js + the js Hash Address System
 	script.
-		console.log('AJAXIFIED')
+		
+		window.debug = true ;
+
+		//- window.trace = function(){
+		//- 	return [].concat(arguments) ;
+		//- }
 		
 		/*
 		let strapi = {
@@ -80,7 +85,6 @@ block content
 		var ajaxified = true ;
 		let sections_JSON = !{JSON.stringify(topsections)} ;
 		window.Data = sections_JSON ;
-		
 		
 		
 		
