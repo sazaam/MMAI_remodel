@@ -769,6 +769,12 @@ module.exports = MMAI.func = {
 					var a = li.data('navitem') ;
 					var n = a.data('index') ;
 					
+					var objId = li.attr('id') ? li.attr('id').replace('slide_', '').toLowerCase() : 'series';
+					if(objId == 'chain') objId = 'series';
+					
+					
+					trace(objId)
+					
 					slidenav.removeClass('dark') ;
 					if(n != 0) a.addClass('double') ;
 					a.addClass('dark') ;
@@ -873,7 +879,8 @@ module.exports = MMAI.func = {
 					
 					sl.tw = tw ;
 					
-					if(n != 0) SCI.morphInto('*') ;
+					if(n != 0) SCI.morphInto(objId) ;
+					// if(n != 0) SCI.morphInto('*') ;
 					
 					if(tw){
 						tw.play() ;	

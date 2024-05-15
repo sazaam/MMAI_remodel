@@ -4699,7 +4699,8 @@ html{
 }
 
 .whitetranspBG{
-  background:rgba(255,255,255,.65);
+  /* background:rgba(255,255,255,.65); */
+  background:rgba(255,255,255,.45);
 }
 
 .puretranspBG{

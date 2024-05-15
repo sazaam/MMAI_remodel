@@ -340,6 +340,7 @@ var viz3D = {
 								
 							})
 							
+							trace(names)
 							
 							SCI.getRandomName = function(curname){
 								let str ;
