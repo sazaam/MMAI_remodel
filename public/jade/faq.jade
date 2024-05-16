@@ -6,16 +6,10 @@ block content
 			
 			//- /////////////////////////////////////////////////////////////////////////////////////////// TOP PAGE ZONE	
 
-			.relative
-				header.absolute.left-0.right-0.top-0.z-20
-					
-					.container.flex.flex-row.items-center(class='4md:justify-center')
-						span
-							+pureseries_SVG('chain')
-						
-							
 			.relative.z-10.pt-24.pb-24.patch(class='md:pt-28 4md:pt-32 lg:42 xl:pt-48 2xl:pt-52 2xl:pb-28')
 				section.container.mx-auto.left-0.right-0.section-margin( class='!mt-0')
+					.test.purecolor.rel(style="height:45px;")
+						+pureseries_SVG('chain')
 					.relative.flex.flex-col.grid-cols-12.h-fit( class='md:grid 2xl:h-[355px]')
 						.flex.flex-col.txtL(class='md:col-span-7 4md:col-span-6')
 							h1.black.text-start.text-5xl.mt-24.mb-12.min-w-max.leading-10
@@ -33,10 +27,9 @@ block content
 			//- /////////////////////////////////////////////////////////////////////////////////////////// ADVANTAGES
 			.relative.context.purelightestblueBG.pureline
 				section.container.mx-auto.left-0.right-0.context.mt-12
-					h2.black.text-5xl.mt-24.mb-12.min-w-max.leading-10.txtC
-						| Pure Wallet
+					.test.purecolor.rel.LmarXLg(style="height:45px;")
+						+pureseries_SVG('wallet')
 					.container.pb-48
-
 						- for(let i = 0 ; i < 8 ; i ++){
 							.question.block.text-start.text-2xl.my-10.min-w-max.purestblueBG.rounded-lg.txtL
 								+normalbutton('Can I use Pure Wallet in my country ?')

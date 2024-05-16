@@ -291,22 +291,22 @@ mixin stats(cl, isContainer, cl2)
 									| AVG TRANSACTION COST
 
 mixin partners()
-	.partners.purelightblueBG.py-24.rel
+	.partners.py-12.rel(style="background:#2f3955")
 		- var path = '/img/partners/'
 		- var partners = ['nslab', 'cj', 'creativia', 'qualcomm', 'ict',  'cognitgo', 'lig', 'trigopi'] ;
-		- var len = partners.length , repeat = 3, ww = 200 + 120;
+		- var len = partners.length , repeat = 3, ww = 200 + 40;
 		.partnersboxing.rel(style="width:"+(len * repeat * ww)+"px;")
 			.partnerscont.rel.context
 				- for(let i = 0 ; i < len * repeat ; i++){
-					li.floatL(style="margin:0 60px")
+					li.floatL(style="margin:0 20px")
 						//- a.block.cont.rounded-md.whiteBG(href="#", style="width:200px;height:100px;background-image:url('"+partners[i % len]+"');")
-						a.block.cont.rounded-md.whiteBG(href="#", style="width:200px;height:100px;").txtC
-							img.block.fullH(style="width:150px;margin:auto" src= path + partners[i % len] + '.png', alt="")
+						a.block.cont.rounded-md.whiteBG(href="#", style="width:200px;height:75px;").txtC
+							img.block.fullH(style="width:112px;margin:auto" src= path + partners[i % len] + '.png', alt="")
 							//-span.hidden <!-- -->
 				- } 
-		.partnerstext.abs.right0.top0.sizeXXXLg
-			p.Tmar.Rmar.sizeXLg
-				span.block.Hpad.purecolor.sizeXSm MOU / NDA
+		.partnerstext.abs.right0.sizeXXXLg.txtR(style="top:-45px")
+			p.TmarXXSm.sizeXLg(style="color:#2f3955")
+				span.block.Hpad.sizeXSm MOU / NDA
 
 mixin patents(display)
 	- let papers = [] ;

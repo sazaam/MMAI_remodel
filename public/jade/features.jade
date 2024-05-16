@@ -2,14 +2,11 @@ extends ./layout
 block content
 	.extractable.fullpage
 		.main-theme.flex.flex-col.bg-main.min-h-full.en( style="margin-top:130px")
-			.relative
-				.absolute.left-0.right-0.top-0.z-20
-					.container.flex.flex-row.items-center(class='4md:justify-center')
-						span
-							+pureseries_SVG('series')
 				
-			.relative.z-10.pt-24.pb-24.patch(class='md:pt-28 4md:pt-32 lg:42 xl:pt-48 2xl:pt-52 2xl:pb-28')
-				section.mx-auto.left-0.right-0.section-margin.container(class='2xl:!mt-40')
+			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ')
+				section.container.mx-auto.left-0.right-0.section-margin
+					.test.purecolor(style="height:45px")
+						+pureseries_SVG('series')
 					.flex.flex-col.grid-cols-12(class='md:grid')
 						.flex.flex-col.place-items-start.txtL(class='md:col-span-6 4md:col-span-7')
 							h1.black.text-start.text-5xl.mt-24.mb-12.min-w-max.leading-tight

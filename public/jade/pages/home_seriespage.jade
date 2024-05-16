@@ -13,7 +13,7 @@
 				- series.push({name:"Chain", title:"Optimizing #[em.purecolor AI-Based Traffic] Handling", desc:"AI technology improves the performance of the blockchain, #[br]optimizing all traffic handling and resolving delays. #[br]Layer 1 pays per task, and Layer 2 handles more complex tasks, #[br]maintaining high integrity at a lower cost."}) ;
 				- series.push({name:"Wallet", title:"A #[em.purecolor smart wallet platform] that can be used #[br]even in an #[em.purecolor offline environment]", desc:"Offline transmission of cryptocurrency data, offline token-based connection through software cold storage, token generation outside, and connection with Web3.0 application using user wallet information."}) ;
 				- series.push({name:"Contract", title:"#[em.purecolor Electronic contract service] for #[em.purecolor transparency] #[br]and #[em.purecolor fairness] in contract procedures", desc:"Generative smart contracts dynamically generate fair contract procedures with handshake technology, offering identity authentication and electronic signature functions, along with automatic creation and calculation of contract formats and formulas."}) ;
-				- series.push({name:"Certificates", title:"#[em.purecolor Forgery detection service] that guarantees the #[em.purecolor originality] of the #[em.purecolor test certificate] based on three technologies", desc:"Our solution offers a robust originality guarantee, leveraging three advanced technologies to ensure encrypted originality, detect copy forgery, automatically generate test certificates, and provide integrity verification results."}) ;
+				- series.push({name:"Certificate", title:"#[em.purecolor Forgery detection service] that guarantees the #[em.purecolor originality] of the #[em.purecolor test certificate] based on three technologies", desc:"Our solution offers a robust originality guarantee, leveraging three advanced technologies to ensure encrypted originality, detect copy forgery, automatically generate test certificates, and provide integrity verification results."}) ;
 				- series.push({name:"Voting", title:"Blockchain-based #[em.purecolor electronic voting service] #[br]for voting fairness and anonymity", desc:"Our offline voting technology, powered by hybrid blockchain and accessible through WLAN's captive portal, ensures secure, transparent, and hassle-free electronic voting for authenticated participants."}) ;
 				- series.push({name:"Media", title:"Blockchain-based Music #[em.purecolor plagiarism rate detection service] #[br]for a clean copyright market", desc:"Empowering music composition with unprecedented transparency, our blockchain-based metadata and smart contract technology ensure the authenticity and verification of sound sources throughout the creative process."}) ;
 				- series.push({name:"World", title:"#[em.purecolor Unlock the Potential] of your Business #[br]in the #[em.purecolor Metaverse with Pure World]", desc:"Pure World was newly developed based on Unity for easier accessibility than before. Connect with various businesses within a metaverse platform incorporating various entertainment contents."}) ;
@@ -29,23 +29,21 @@
 							+arrow_dotted_down()
 					ol.txtL.pureblue.rel(style="top:0px")
 						li
-							a.dark.block.first.HpadSm.txtL(href="javascript:void(0)")
-								em.bolder.fullH Pure
-									b.LmarXXSm.fw5 Series
+							a.indent.black.block.VmarXLg.first.HpadSm.txtL(href="javascript:void(0)" style="padding-bottom:5px;height:25px")
+								+pureseries_SVG('series')
 						
 						
 						- for(let i = 0 ; i < ls ; i++){
 							li
-								a.block.bolder.HpadSm(href="javascript:void(0)" style="opacity:" + (.8 - ((i)*.2)) + ";")
-									em.bolder.fullH Pure
-										b.fw5.LmarXXSm #{series[i].name}	
+								a.block.bolder.HpadSm(href="javascript:void(0)" style="padding-bottom:5px;height:25px;opacity:" + (.8 - ((i)*.2)) + ";")
+									+pureseries_SVG(series[i].name.toLowerCase())
 						- }
 				
 				.slides.dark
 					.slide.textes.abs(style="bottom:80px;left:45px;margin-right:20px;width:350px;z-index:300")
 						.rounded-3xl.p-6.pb-0.txtL
 							.catchphrase.sizeSm(class="sm:sizeR")
-								h4.montserrat.bolder.sizeXXXLg.lh1 The Ecosystem
+								h4.montserrat.bolder.sizeXXXLg.lh1.black The Ecosystem
 							.othertextes.sizeSm.TmarXXLg.lh1.pureblue.context
 								h3.bold We are ensuring a safe place <br />where all your expectations converge.
 								.Tmar.lh1.purecolor
@@ -62,7 +60,7 @@
 											img.fullW.fullH(src="/img/visuals/viz_0" + (i+1) + ".png", alt="")
 									.rel.dark.txtL.pureline.whitetranspBG.p-10.zi3(style="width:60%;min-width:450px;border-width:1px 0")
 										.catchphrase.sizeXSm(class="sm:sizeR")
-											h4.montserrat.sizeXXXLg.lh1 #[b.bolder Pure] #{serie.name}
+											h4.montserrat.sizeXXXLg.lh1.black #[b.bolder Pure] #{serie.name}
 										.othertextes.sizeSm.TmarXXLg.lh1 
 											h3
 												!= render('| ' + serie.title)

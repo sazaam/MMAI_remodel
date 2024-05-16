@@ -731,7 +731,7 @@ module.exports = MMAI.func = {
 				e.stopPropagation() ;
 				
 				var a = $(e.currentTarget) ;
-				trace(a)
+				
 				if(a.hasClass('up')){
 					if(sl.cy.index > 0) sl.cy.prev() ;
 				}else{
@@ -750,8 +750,9 @@ module.exports = MMAI.func = {
 				
 				/////////////////////////////// UNCOMMENT TO CANCEL LOOP ON CLICK (if there is an active loop)
 				// sl.halt() ;
+				var ind = a.data('index') ;
 				
-				sl.cy.go(a.data('index')) ;
+				if(sl.cy.index != ind) sl.cy.go(ind) ;
 			}
 			
 			var firstblock = $(slides.get(0)) ;
@@ -771,13 +772,13 @@ module.exports = MMAI.func = {
 					
 					var objId = li.attr('id') ? li.attr('id').replace('slide_', '').toLowerCase() : 'series';
 					if(objId == 'chain') objId = 'series';
-					
+					if(objId == 'certificate') objId+='s' ;
 					
 					trace(objId)
 					
-					slidenav.removeClass('dark') ;
+					slidenav.removeClass('indent black VmarXLg') ;
 					if(n != 0) a.addClass('double') ;
-					a.addClass('dark') ;
+					a.addClass('indent black VmarXLg') ;
 					
 					
 					slidenav.each(function(i, el){
@@ -788,7 +789,7 @@ module.exports = MMAI.func = {
 					})
 					
 					slidewholenav.css({
-						'top':-(a.height() * n) + 'px'
+						'top':-((a.height()+5) * n) + 'px'
 					}) ;
 					
 					
@@ -978,7 +979,7 @@ module.exports = MMAI.func = {
 		if(!res.userData.tw_partners){
 			res.userData.tw_partners = BJS.create({
 				target:partners,
-				to:{'margin-left::PX':-(320*8)},
+				to:{'margin-left::PX':-(240*8)},
 				from:{'margin-left::PX':0},
 				time:48,
 				ease:Linear.easeOut
