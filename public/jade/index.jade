@@ -51,7 +51,7 @@ block content
 	
 	
 	//- The circular loader 
-	#mainloader.loader.abs.left0.top.dkt.zi1
+	#mainloader.loader.fixed.dkt.zi1(style="left:30px;top:100px;right:auto;")
 		.hidden Loading...
 	
 	
@@ -82,6 +82,15 @@ block content
 		} ;
 		*/
 		
+		///////////////////// IMAGES
+		//- $('img').each(function(i, el){
+		//- 	$(el).attr('src', '') ;
+		//- })
+
+		//- $('.cover').each(function(i, el){
+		//- 	$(el).css({"background-image":''}) ;
+		//- })
+
 		var ajaxified = true ;
 		let sections_JSON = !{JSON.stringify(topsections)} ;
 		window.Data = sections_JSON ;

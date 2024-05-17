@@ -294,7 +294,6 @@ module.exports = MMAI.func = {
 		
 		
 		
-		
 			
 
 
@@ -348,6 +347,7 @@ module.exports = MMAI.func = {
 		if(e.type == "focusIn"){
 			res.focusReady() ;
 			$(window).trigger("scrollEnd") ;
+			
 		}else{
 			res.focusReady() ;
 		}
@@ -356,7 +356,7 @@ module.exports = MMAI.func = {
 		var res = e.target ;
 		
 		if(res.opening){
-			
+			trace('YOOO')
 			var togglein = function(){
 				res.ready() ;
 			}
@@ -385,6 +385,7 @@ module.exports = MMAI.func = {
 			///////////////////////////////////// HOME 3D VIZUALIZATION
 			if(!MMAI.home.viz3Drunning) {
 				MMAI.home.SCI = MMAI.home.viz3D(true, res, function(){
+					
 					this.morphInto('chain') ;
 					
 					togglein() ;
@@ -1012,6 +1013,8 @@ module.exports = MMAI.func = {
 		if(e.type == "focusIn"){
 			
 			trace(res.id) ;
+			
+			trace('READY') ;
 			if(res.id == "purechain"){
 				if(!MMAI.home.viz3Drunning) {
 					

@@ -20,8 +20,8 @@ app
 app
 	.listen('JSAddress', function(e){
 		
-		trace(window.Data) ;
-		
+		trace(window.Data) ;		
+
 		app
 			.createClient()
 			.get('/', router(window.Data))
