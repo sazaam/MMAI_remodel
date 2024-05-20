@@ -517,16 +517,24 @@ app.use('/api/', async(req, res) => {
 
 app.use('/fx/', async(req, res) => {
     //let datas = await api(req, res).catch(err => { console.log(err) });
+    let tt = JSON.parse(nav_fixtures) ;
+    topsections = cleanup(tt, 'sections') ;
+    // console.log(topsections) ;
     
+    let ttt = JSON.parse(footnav_fixtures) ;
+    footnavlinks = cleanup(ttt, 'footlinks') ;
+
+    let tttt = JSON.parse(pureseries_fixtures) ;
+    pureseries_content = cleanup(tttt) ;
     await res.render(path.join(__dirname, 'public/jade/fx'), jadeparams.merge(jadeparams, {
         
         //langs: req.langs,
         //lang: req.i18n.language,
         //t: req.t,
         lang: 'en',
-        // topsections: toJSON(topsections),
-        // footnavlinks: toJSON(footnavlinks),
-        // pureseries_content:toJSON(pureseries_content)
+        topsections: toJSON(topsections),
+        footnavlinks: toJSON(footnavlinks),
+        pureseries_content:toJSON(pureseries_content)
     })) ;
 });
 
