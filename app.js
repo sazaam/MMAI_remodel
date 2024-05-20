@@ -514,6 +514,22 @@ app.use('/api/', async(req, res) => {
     return datas ;
 });
 
+
+app.use('/fx/', async(req, res) => {
+    //let datas = await api(req, res).catch(err => { console.log(err) });
+    
+    await res.render(path.join(__dirname, 'public/jade/fx'), jadeparams.merge(jadeparams, {
+        
+        //langs: req.langs,
+        //lang: req.i18n.language,
+        //t: req.t,
+        lang: 'en',
+        // topsections: toJSON(topsections),
+        // footnavlinks: toJSON(footnavlinks),
+        // pureseries_content:toJSON(pureseries_content)
+    })) ;
+});
+
 /*
 ////// weird favicon.ico request happening....
 app.use('/favicon.ico/', async (req, res) => {

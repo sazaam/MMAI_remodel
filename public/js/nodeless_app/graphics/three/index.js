@@ -152,6 +152,9 @@ var viz3D = {
 		
 	    if(cond){
 			
+			
+			
+			
 			if(!res.userData.ANIM_TW){
 				
 				var state, scene, renderer, controls, camera ;
@@ -274,7 +277,13 @@ var viz3D = {
 					}
 					
 					
-
+					
+					
+					
+					
+					
+					
+					
 						
 ///////////////////////////////////////////////////////////////////////////////////////////////////////// MODELS
 					if(!!SCI.gltf){
@@ -330,7 +339,7 @@ var viz3D = {
 							for(ind = 0 ; ind < ll ; ind++){
 								commands.push(new Command(this, function(){
 									let ch = arguments[0][0] ;
-									trace(ch)
+									// trace(ch)
 									let name = ch.name ; 
 									names.push(name) ;
 									locations[name] = [] ;
@@ -527,6 +536,88 @@ var viz3D = {
 						scene.fog = new THREE.Fog(0xFFFFFF, 5, 8) ;
 						// scene.fog = new THREE.Fog(0x895099, -0.5, 8) ;
 			        }
+					
+					
+					
+					
+					(function(){
+						
+						
+						
+						
+						fetch('/model/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
+							{
+								
+								
+								const ARC_REL_LEN = 3.4; // relative to whole arc
+								const FLIGHT_TIME = 250;
+								const NUM_RINGS = 3;
+								const RINGS_MAX_R = 5; // deg
+								const RING_PROPAGATION_SPEED = 5; // deg/sec
+								
+								
+								const N = 300;
+							    const gData = [...Array(N).keys()].map(() => ({
+							      lat: (Math.random() - 0.5) * 180,
+							      lng: (Math.random() - 0.5) * 360,
+							      size: Math.random() / 3,
+							      color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
+							    }));
+
+								
+								const globe = new ThreeGlobe({
+									animateIn:0
+								}).globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+								.bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+								.pointsData(gData)
+								.pointAltitude('size')
+								.pointColor('color');
+									
+								scene.add(globe) ;
+								/**
+								const globeMaterial = globe.globeMaterial();
+								// globeMaterial.bumpScale = 10;
+								// new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/earth-water.png', texture => {
+								//   globeMaterial.specularMap = texture;
+								  globeMaterial.specular = '#3a6df0';
+								  globeMaterial.shininess = 15;
+								// });	
+								 */
+								/* let prevCoords = { lat: 0, lng: 0 };
+								function emitArc({ lat: endLat, lng: endLng }) {
+								  const { lat: startLat, lng: startLng } = prevCoords;
+								  setTimeout(() => { prevCoords = { lat: endLat, lng: endLng }}, FLIGHT_TIME);
+									
+								  // add and remove arc after 1 cycle
+								  const arc = { startLat, startLng, endLat, endLng };
+								  globe.arcsData([...globe.arcsData(), arc]);
+								  setTimeout(() => globe.arcsData(globe.arcsData().filter(d => d !== arc)), FLIGHT_TIME * 2);
+					
+								  // add and remove start rings
+								  const srcRing = { lat: startLat, lng: startLng };
+								  globe.ringsData([...globe.ringsData(), srcRing]);
+								  setTimeout(() => globe.ringsData(globe.ringsData().filter(r => r !== srcRing)), FLIGHT_TIME * ARC_REL_LEN);
+					
+								  // add and remove target rings
+								  setTimeout(() => {
+									const targetRing = { lat: endLat, lng: endLng };
+									globe.ringsData([...globe.ringsData(), targetRing]);
+									setTimeout(() => globe.ringsData(globe.ringsData().filter(r => r !== targetRing)), FLIGHT_TIME * ARC_REL_LEN);
+								  }, FLIGHT_TIME);
+								} */
+								
+								trace('coucou')
+								
+							});
+						
+						
+						// $('#purechain').on('click', function(){
+						// 	$('.scene-container div').trigger('click') ;
+						// })
+					})()
+					
+					
+					
 					
 					var p = await loads(SCI).catch(error => { console.error(error); }) ;
 					

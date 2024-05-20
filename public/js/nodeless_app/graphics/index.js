@@ -48,7 +48,7 @@ MMAI.home.scrollTo = function(top, time, cb){
 	
 	top = args.shift() ;
 	time = args.shift() ;
-	cb = args.shift() || function(){} ;
+	cb = args.shift() || function(){trace('tween is wrong or callback is undefined...')} ;
 	
 	BetweenJS.create({
 		target:$('body'),
@@ -356,7 +356,7 @@ module.exports = MMAI.func = {
 		var res = e.target ;
 		
 		if(res.opening){
-			trace('YOOO')
+			
 			var togglein = function(){
 				res.ready() ;
 			}
@@ -381,31 +381,35 @@ module.exports = MMAI.func = {
 			
 			//////////////////////////////////////////////////////// END HOME SCROLL EVENT ADD
 
-			
+			// MMAI.func.enableglobe(true, res) ;
 			///////////////////////////////////// HOME 3D VIZUALIZATION
 			if(!MMAI.home.viz3Drunning) {
-				MMAI.home.SCI = MMAI.home.viz3D(true, res, function(){
-					
+				
+				MMAI.home.SCI = MMAI.home.viz3D(true, res, function(){	
 					this.morphInto('chain') ;
 					
 					togglein() ;
 
 				}, [true]) ;
+				
 				MMAI.home.viz3Drunning = true ;
 				$('#mainloader').removeClass('none') ;
+				
 			}else{
+				
 				MMAI.home.SCI.morphInto('chain') ;
 				togglein() ;
+				
 			}
 			
 			$('.foot').removeClass("none") ;
-			
 			///////////////////////////////////// END HOME 3D VIZUALIZATION
 			
 			
 			
 			//////////////////////////////////////////////////////// EVENTS
 			//////////////////////// MAIN SCROLL EVENT
+			
 			$(window).on( "scrollEnd", MMAI.home.scroll) ;
 			
 			// $('.page.purechain').on('click', MMAI.home.SCI.clk) ;
@@ -511,6 +515,11 @@ module.exports = MMAI.func = {
 			}) ;
 			
 		}
+		
+	},
+	enableglobe:enableglobe = function(cond, res){
+		
+		
 		
 	},
 	slideshow_wallet : slideshow_wallet = function(cond, res){
@@ -1016,6 +1025,7 @@ module.exports = MMAI.func = {
 			
 			trace('READY') ;
 			if(res.id == "purechain"){
+				
 				if(!MMAI.home.viz3Drunning) {
 					
 				}else{
