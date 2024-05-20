@@ -178,6 +178,9 @@ var viz3D = {
 						camera.lookAt(SCI.objectPosition);
 					}
 					
+
+					
+
 					// if(SCI.chain) SCI.chain.rotation.y = SCI.chain.rotation.y - .002 ;
 					// if(SCI.pointsmesh) SCI.pointsmesh.rotation.y = SCI.pointsmesh.rotation.y - .002 ;
 					
@@ -207,7 +210,7 @@ var viz3D = {
 			        renderer.toneMappingExposure = 1;
 			        renderer.physicallyCorrectLights = true;
 			        canvascontainer.append( renderer.domElement );
-							
+						
 					return renderer ;
 				} ;
 				
@@ -544,6 +547,9 @@ var viz3D = {
 						
 						
 						
+
+
+						return ;
 						
 						fetch('/model/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 							{
