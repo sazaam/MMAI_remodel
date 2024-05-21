@@ -130,8 +130,8 @@ mixin signuphome(obj)
 
 
 
-mixin smallbutton(text, url, target, cl)
-	a.btn.inlineblock.padXSm.HpadXLg.round23(href=(url || '#') target=(target || '_self') class= cl ? cl : "purecolorBG white")
+mixin smallbutton(text, url, target, cl, name)
+	a.btn.inlineblock.padXSm.HpadXLg.round23(href=(url || 'javascript:void(0)') target=(target || '_self') class= (name || '') + ' ' + (cl ? cl : "purecolorBG white"))
 		span 
 			!= text
 
@@ -139,12 +139,15 @@ mixin smallbutton(text, url, target, cl)
 
 
 
-mixin normalbutton(text, url, target, cl)
-	a.btn.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + ' ' + (cl || 'purecolorBG white'))
+mixin normalbutton(text, url, target, cl, inverted, name)
+	a.btn.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + (inverted ? ' flex-row-reverse' : '') + ' ' + (name || '') + ' ' + (cl || 'purecolorBG white'))
 		span.txt.flex-grow.font-normal.txtL.text-lg
 			!= text
 		span.arr.flex.justify-center.items-center.p-2.gradient-0.rounded-full(class='2xl:p-6 w-10 h-10 2xl:h-8 2xl:w-8')
-			+arrow_dotted_right()
+			if inverted
+				+arrow_dotted_left()
+			else
+				+arrow_dotted_right()
 
 
 
@@ -186,14 +189,14 @@ mixin language()
 
 
 mixin arrow_dotted_left()
-	svg(width='73' height='37' version='1.1' viewBox='0 0 73 36' xmlns='http://www.w3.org/2000/svg')
+	svg.arrow(width='73' height='37' version='1.1' viewBox='0 0 73 36' xmlns='http://www.w3.org/2000/svg')
 	
 		g(fill='currentColor' stroke-linecap='round' stroke-width='.20608')
 			circle(transform='scale(-1)' cx='-65.758' cy='-18.578' r='3.3307' stop-color='#000000' style='paint-order:markers stroke fill')
 			circle(transform='scale(-1)' cx='-55.281' cy='-18.578' r='3.3307' stop-color='#000000' style='paint-order:markers stroke fill')
 			circle(transform='scale(-1)' cx='-44.803' cy='-18.578' r='3.3307' stop-color='#000000' style='paint-order:markers stroke fill')
 			circle(transform='scale(-1)' cx='-34.325' cy='-18.578' r='3.3307' fill='#fff' stop-color='#000000' stroke-linecap='round' stroke-width='.20608' style='paint-order:markers stroke fill')
-			path(d='m5.9942 15.622c-1.0415 0.56302-1.749 1.6648-1.749 2.9318-5e-5 1.2407 0.67829 2.323 1.6843 2.8961 5.4725 3.1317 12.42 7.1534 17.1 9.8789 0.63675 0.3822 1.211 0.54775 1.824 0.54772 1.8395-3e-5 3.3307-1.4913 3.3306-3.3308 0.0306-2.75-2.6104-3.3165-2.5303-9.7595 0.0738-5.9381 2.5303-6.8642 2.5303-10.172-4e-5 -1.8394-1.4912-3.3306-3.3306-3.3306-0.38602-1e-5 -0.99082 0.0998-1.5481 0.39547-4.722 2.7433-14.793 8.6012-17.311 9.9432z' fill='#fff' stop-color='#000000' stroke-linecap='round' stroke-width='.20608' style='paint-order:markers stroke fill')
+			path(d='m5.9942 15.622c-1.0415 0.56302-1.749 1.6648-1.749 2.9318-5e-5 1.2407 0.67829 2.323 1.6843 2.8961 5.4725 3.1317 12.42 7.1534 17.1 9.8789 0.63675 0.3822 1.211 0.54775 1.824 0.54772 1.8395-3e-5 3.3307-1.4913 3.3306-3.3308 0.0306-2.75-2.6104-3.3165-2.5303-9.7595 0.0738-5.9381 2.5303-6.8642 2.5303-10.172-4e-5 -1.8394-1.4912-3.3306-3.3306-3.3306-0.38602-1e-5 -0.99082 0.0998-1.5481 0.39547-4.722 2.7433-14.793 8.6012-17.311 9.9432z')
 
 
 
@@ -212,7 +215,7 @@ mixin arrow_dotted_right()
 
 
 mixin arrow_dotted_down()
-	svg(width='15' height='40' version='1.1' viewBox='0 0 37 73' xmlns='http://www.w3.org/2000/svg')
+	svg.arrow(width='15' height='40' version='1.1' viewBox='0 0 37 73' xmlns='http://www.w3.org/2000/svg')
 		g(fill="currentColor")
 			circle(transform='rotate(90)' cx='7.4733' cy='-18.578' r='3.3307')
 			circle(transform='rotate(90)' cx='17.951' cy='-18.578' r='3.3307')
@@ -224,7 +227,7 @@ mixin arrow_dotted_down()
 
 
 mixin arrow_dotted_up()
-	svg(width='15' height='40' version='1.1' viewBox='0 0 37 73' xmlns='http://www.w3.org/2000/svg')
+	svg.arrow(width='15' height='40' version='1.1' viewBox='0 0 37 73' xmlns='http://www.w3.org/2000/svg')
 		g(fill='currentColor')
 			circle(transform='rotate(-90)' cx='-65.758' cy='18.305' r='3.3307')
 			circle(transform='rotate(-90)' cx='-55.281' cy='18.305' r='3.3307')

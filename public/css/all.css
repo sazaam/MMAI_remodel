@@ -5,14 +5,14 @@
 Resetters & Helpers Generic CSS
 ------------------------------------------------------------------- */
 
-@import './plug/default.css' ;
-@import './plug/base.css' ;
-@import './plug/helpers.css' ;
-@import './plug/mq.css' ;
+@import './plug/default.css';
+@import './plug/base.css';
+@import './plug/helpers.css';
+@import './plug/mq.css';
 
 /* ------------------------------------------------------------------
 Custom Entry
 ------------------------------------------------------------------- */
 
-@import './customs/custom.css' ;
-@import './tailwind.css' ;
+@import './customs/custom.css';
+@import './tailwind.css';

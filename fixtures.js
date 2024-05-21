@@ -93,8 +93,8 @@ module.exports = {
             },
             {
                 "id": "3",
-                "name": "features",
-                "path": "features/",
+                "name": "series",
+                "path": "series/",
                 "page": {
                     "id": "3",
                     "template": {

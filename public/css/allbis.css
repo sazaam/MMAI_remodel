@@ -4525,6 +4525,10 @@ body {
   display:none;
 }
 
+.hidez{
+  visibility: hidden;
+}
+
 /* -------------------------------------------------------------------
 MENU
 ------------------------------------------------------------------- */
@@ -4708,6 +4712,12 @@ html{
 .bluetranspBG{
   background: rgb(58,109,240);
   background: linear-gradient(90deg, rgba(58,109,240,1) 30%, rgba(58,109,240,.0) 60%);
+  /* #3a6df0ff */
+}
+
+.puregradBG{
+  background: rgb(120, 155, 243);
+  background: linear-gradient(90deg, rgba(58,109,240,1) 0%, rgba(120, 155, 243,.4) 100%);
   /* #3a6df0ff */
 }
 

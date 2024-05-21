@@ -235,7 +235,8 @@ module.exports = MMAI.func = {
 
 					MMAI.func.various_toggles(true, res) ;
 					MMAI.func.toggle_patents(true, res) ;
-
+					MMAI.func.base_toggle(true, res) ;
+					MMAI.func.wallet_page(true, res) ;
 					
 
 					if(!MMAI.home.viz3Drunning) {
@@ -251,7 +252,7 @@ module.exports = MMAI.func = {
 					}
 
 				}else{
-
+					
 					MMAI.func.extra_toggles(true, res) ;
 
 				}
@@ -317,6 +318,8 @@ module.exports = MMAI.func = {
 			if(!res.sectionData.hidefrommenu){
 				MMAI.func.various_toggles(false, res) ;
 				MMAI.func.toggle_patents(false, res) ;
+				MMAI.func.base_toggle(false, res) ;
+				MMAI.func.wallet_page(false, res) ;
 			}else{
 				MMAI.func.extra_toggles(false, res) ;
 			}
@@ -347,10 +350,33 @@ module.exports = MMAI.func = {
 		if(e.type == "focusIn"){
 			res.focusReady() ;
 			$(window).trigger("scrollEnd") ;
-			
 		}else{
 			res.focusReady() ;
 		}
+	},
+	wallet_page : wallet_page = function(cond, res){
+		if(res.name != "wallet") return ;
+		MMAI.home.download_click = MMAI.home.download_click || function(e){
+			e.preventDefault() ;
+			e.stopPropagation() ;
+			var btn = $(e.currentTarget) ;
+			if(btn.hasClass('discover')){
+				MMAI.home.scrollTo($($('section').get(1)).offset().top, .25) ;
+			}else{
+				MMAI.home.scrollTo(0, .25) ;
+			}
+
+		}
+
+		var btns = $('.btn.download, .btn.discover') ;
+
+		if(cond){
+			btns.on('click', MMAI.home.download_click) ;
+		}else{
+			btns.off('click', MMAI.home.download_click) ;
+		}
+		
+
 	},
 	home_toggle : home_toggle = function(e){
 		var res = e.target ;
@@ -477,6 +503,35 @@ module.exports = MMAI.func = {
 		}
 
 	},
+	base_toggle:base_toggle = function base_toggle(cond, res){
+		MMAI.home.base_toggles_click = MMAI.home.base_toggles_click || function(e){
+			e.preventDefault() ;
+			e.stopPropagation() ;
+			var btn = $(e.currentTarget) ;
+			btn.data('display').toggleClass('hidez') ;
+		}
+
+		var toggles = $('.basetoggle') ;
+		
+		if(cond){
+			
+			toggles.each(function(i, el){
+				
+				var toggle = $(el) ;
+				var btn = toggle.find('.toggler') ;
+				var display = toggle.find('.toggled')
+				btn.data('display', display) ;
+				btn.on('click', MMAI.home.base_toggles_click) ;
+			})
+		}else{
+			toggles.each(function(i, el){
+				var toggle = $(el) ;
+				var btn = toggle.find('a.btn') ;
+				btn.off('click', MMAI.home.base_toggles_click) ;
+			})
+		}
+
+	},
 	various_toggles:various_toggles = function (cond, res){
 			
 		MMAI.home.togglePanels_click = MMAI.home.togglePanels_click || function(e){
@@ -497,6 +552,7 @@ module.exports = MMAI.func = {
 					var BG = $(BGs.get(i)) ;
 					var tog = $(el) ;
 					tog.data('hide', function(){
+						trace('couocu')
 						panels.addClass('none') ;
 						panel.removeClass('none') ;
 						var highlightedClass = BG.prop("tagName") == 'A' ? 'pureblueBG white' : 'purelightestblueBG' ; 
@@ -799,7 +855,7 @@ module.exports = MMAI.func = {
 					})
 					
 					slidewholenav.css({
-						'top':-((a.height()+5) * n) + 'px'
+						'top':(-((a.height()+5) * n) + 100) + 'px'
 					}) ;
 					
 					
@@ -824,16 +880,17 @@ module.exports = MMAI.func = {
 							}) ;
 								
 						}
-						firstblock.find('h4').removeClass('sizeR TmarXLg').addClass('sizeXXXLg') ;
-						firstblock.find('.catchphrase').removeClass('floatL TmarXXXXLg Tpad RmarLg') ;
-						
-						firstblock.find('.browseeco a .txt').text('Browse Ecosystem') ;
+						//firstblock.find('h4').removeClass('sizeR TmarXLg').addClass('sizeXXXLg') ;
+						//firstblock.find('.catchphrase').removeClass('floatL TmarXXXXLg Tpad RmarLg') ;
+						firstblock.find('.othertextes').addClass('Tmar')
+						//firstblock.find('.browseeco a .txt').text('Browse Ecosystem') ;
 						
 					}else{
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
 						firstblock.addClass('purecolor') ;//.find('.othertextes').hide() ;
-						
+						firstblock.find('.othertextes').removeClass('Tmar')
+
 						var partw = [] ;
 						
 						if(other.height() != 0){
@@ -849,9 +906,9 @@ module.exports = MMAI.func = {
 							
 						}
 						
-						firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR TmarXLg') ;
-						firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg Tpad RmarLg') ;
-						firstblock.find('.browseeco a .txt').text('More') ;
+						//firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR TmarXLg') ;
+						//firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg Tpad RmarLg') ;
+						//firstblock.find('.browseeco a .txt').text('More') ;
 						
 						
 						var block = $(slides.get(n)) ;

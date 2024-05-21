@@ -1,5 +1,16 @@
 
-- let l = 6 ;
+- let wallets = [] ;
+- wallets.push({title:"Effective #[br] #[span.purecolor Payment] Process", desc:"Provides a more #[b.pureblue efficient and streamlined] #[br] payment processing system#[br] with #[b.pureblue lower transaction costs] using #[br] our #[b.pureblue exclusive blockchain] technology.#[br] #[br] Suitable for #[b.pureblue micropayments, bulk Retail], #[br] and payments that require the #[b.pureblue highest security]."}) ;
+- wallets.push({title:"#[span.pureblue Offline] Mobile #[br] Electronic #[span.pureblue Wallet]", desc:"Enables #[b.pureblue access] to #[b.pureblue modern financial services]#[br]even in #[b.pureblue limited infrastructure environments]. #[br]#[br] Economically empowers emerging countries #[br] through #[b.pureblue offline banking] functions, #[br] providing the opportunity #[br] to gracefully enter the #[b.pureblue global digital economy]."}) ;
+- wallets.push({title:"Hardware-Free #[br]#[span.pureblue Cold Storage] ", desc:"Pure Wallet provides an #[b.pureblue Offline Token-based]#[br]rather than the commonly used Hardware-based #[b.pureblue Cold Storage] method.#[br] #[br] Generally hard-wallets need#[br] hardware in order to #[b.pureblue get crypto] #[br]in the physical world.#[br]But this #[b.pureblue Cold Storage] allows it #[br] #[b.pureblue without need for any hardware]."}) ;
+- let l = wallets.length ;
+
+
+
+
+
+
+
 
 .page.rel.fullH.txtC.slides.purewallet
 	.prev.abs(style="top:95px;z-index: 50;").txtC.right0
@@ -20,10 +31,13 @@
 		a.abs.zi3.arrowleft.w-12.h-12.top50.left0(href="javascript:void(0)" style="margin-top:-20px;margin-left:-15px") 
 			span.inside.flex.justify-center.items-center.pad.Vpad0.foggyBG.white.rounded-full
 				+arrow_dotted_left
-		
+	.test.abs.top0.left0.purecolor(style="height:45px;margin-top:80px")
+		+pureseries_SVG('wallet')
 	.slides.rel.fullW.fullH(style="left:0%")
+		
 		- for(i = 0 ; i < l ; i++){
 			.relative.slide.abs.fullW.fullH.grid.grid-cols-1.content-center(style="left:"+ i*100 +"%")
+				- let wally = wallets[i] ;
 				- if(i % 2 == 0){
 					section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
 						.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
@@ -31,15 +45,13 @@
 								.px-8.pt-8.pb-4
 									.txtR.darker.sizeLg
 										h2.text-start.sizeXXXXLg.bold.mt-0.mb-6.min-w-max.leading-tight
-											| Effective #[br] #[span.purecolor Payment] Process 
+											!= render('| ' + wally.title) 
 										hr.mb-6
 										.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
 											.mt-2
-												p.mt-2.txtR.sizeSm(class="sm:sizeR")
-													| Provides a more efficient and streamlined #[br] payment processing system
-													| #[br] with lower transaction costs using #[br] our exclusive blockchain technology.
-													| #[br] #[br] Suitable for micropayments, bulk Retail, 
-													| #[br] and payments that require the highest security.
+												p.mt-2.txtR.text-md
+													!= render('| ' + wally.desc) 
+													
 								.txtR.HmarLg
 									+consolebutton('Discover More', '#/wallet/')
 							.phoneshot.pt-16(class="w-full sm:pt-0 sm:w-2/5")
@@ -47,7 +59,7 @@
 									.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
 										.rel.left-10
 											+pureseries_SVG('wallet')
-										img.mt-10.object-fill(src="/img/phone_screenshot.png", alt="")
+										img.mt-10.object-fill(src="/img/wallet/phone_screen_0"+ (i + 1) +".png", alt="")
 				- } else {
 					section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
 						.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row")
@@ -58,23 +70,18 @@
 										.rel.left-10
 											+pureseries_SVG('wallet')
 										
-										img.mt-10.object-fill(src="/img/phone_screenshot2.png", alt="")
+										img.mt-10.object-fill(src="/img/wallet/phone_screen_0"+ (i + 1) +".png", alt="")
 							.phonetextblock.relative.pt-0(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
 								
 								.px-8.pt-8.pb-4
 									.txtR.darker.sizeLg
 										h2.txtL.sizeXXXXLg.bold.mt-0.mb-6.min-w-max.leading-tight
-											| #[span.purecolor Offline] Mobile #[br] Electronic #[span.purecolor Wallet]
+											!= render('| ' + wally.title) 
 										hr.mb-6
 										.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
 											.mt-2
-												p.mt-2.txtR.sizeSm(class="sm:sizeR")
-													| Enables access to modern financial services 
-													| #[br]even in limited infrastructure environments. 
-													| #[br]#[br] Economically empowers emerging countries 
-													| #[br] through offline and banking functions, 
-													| #[br] providing them with the opportunity 
-													| #[br] to enter the global digital economy.
+												p.mt-2.txtR.text-md
+													!= render('| ' + wally.desc) 
 								.txtR.HmarLg
 									+consolebutton('Discover More', '#/wallet/')
 				- }

@@ -14,7 +14,7 @@ block content
 							h2.purecolor.text-start.text-5xl.mt-0.mb-6.min-w-max.leading-tight.txtR
 								| Beyond just #[br] a Crypto Wallet 
 							.TmarLg.txtR
-								+smallbutton("Discover the Wallet", "#/wallet/discover/")
+								+smallbutton("Discover the Wallet", null, null, undefined, 'discover')
 
 					.flex.flex-row
 						.flex.flex-col.grid-cols-8(class='sm:w-3/5 md:grid')
@@ -33,12 +33,14 @@ block content
 											| Supporting access to modern financial services in limited infastrudture environments and providing economic empowerment to emerging nations through offline and baking functionnalities, thereby offering opportunities to enter the digital economy.
 							.flex.flex-col.mt-12.purecolor(class='md:col-span-7')
 								+getitboth()
-												
+
+
+			//- WALLET 3 SLIDES 
 			.relative.purestblueBG
 				section.rel.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
 					.abs.left0.right0.top0.marLg.pad.txtC
 						.test.purecolor.mt-8(style="width:300px;height:45px;" class="sm:mt-20").txtC
-							+pureseries_SVG('wallet', 'marginAuto')
+							+pureseries_SVG('wallet')
 					.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
 						.relative.pt-0(style="top:-230px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
 							.txtR.puretranspBG.dark.sizeLg.p-8.rounded-lg
@@ -52,11 +54,11 @@ block content
 											| #[br] with lower transaction costs using #[br] our exclusive blockchain technology.
 											| #[br] #[br] Suitable for micropayments, bulk Retail, 
 											| #[br] and payments that require the highest security.
-							+normalbutton('Download')
+							+normalbutton('Download', null, null, null, null, 'download')
 						.phoneshot.pt-0(class="w-full sm:w-2/5")
 							.p-8
 								.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
-									img.mt-10.object-fill(src="/img/phone_screenshot.png", alt="")
+									img.mt-10.object-fill(src="/img/wallet/phone_screen_01.png", alt="")
 			.relative.purestblueBG
 				section.rel.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
 					.abs.left0.top0.marLg
@@ -65,7 +67,7 @@ block content
 						.phoneshot.pt-0(class="w-full sm:w-2/5")
 							.p-8
 								.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
-									img.mt-10.object-fill(src="/img/phone_screenshot2.png", alt="")
+									img.mt-10.object-fill(src="/img/wallet/phone_screen_02.png", alt="")
 						.relative.pt-0(style="top:-230px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
 							.txtR.puretranspBG.dark.sizeLg.p-8.rounded-lg
 								h2.sizeXXXXLg.bold.mt-0.mb-6.min-w-max.leading-tight
@@ -74,37 +76,38 @@ block content
 								.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
 									.mt-4.mb-2
 										p.mt-4.txtL
-											| Enables access to modern financial services 
-											| #[br]even in limited infrastructure environments. 
+											| Enables #[b.pureblue access] to #[b.pureblue modern financial services] 
+											| #[br]even in #[b.pureblue limited infrastructure environments]. 
 											| #[br]#[br] Economically empowers emerging countries 
-											| #[br] through offline and banking functions, 
-											| #[br] providing them with the opportunity 
-											| #[br] to enter the global digital economy.
-							+normalbutton('Download')
+											| #[br] through #[b.pureblue offline banking] functions, 
+											| #[br] providing the opportunity 
+											| #[br] to gracefully enter the #[b.pureblue global digital economy].
+							+normalbutton('Download', null, null, null, null, 'download')
 			.relative.purestblueBG
 				section.rel.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
-					.abs.left0.right0.top0.marLg.pad.txtC
-						.test.purecolor.mt-8(style="width:300px;height:45px;" class="sm:mt-20").txtC
-							+pureseries_SVG('wallet', 'marginAuto')
 					.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
 						.relative.pt-0(style="top:-230px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
 							.txtR.puretranspBG.dark.sizeLg.p-8.rounded-lg
 								h2.sizeXXXXLg.bold.mt-0.mb-6.min-w-max.leading-tight
-									| Effective #[br] #[span.purecolor Payment] Process 
+									| Hardware-Free #[br]#[span.pureblue Cold Storage] 
 								hr.mb-6
 								.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
 									.mt-4.mb-2
 										p.mt-4
-											| Provides a more efficient and streamlined #[br] payment processing system
-											| #[br] with lower transaction costs using #[br] our exclusive blockchain technology.
-											| #[br] #[br] Suitable for micropayments, bulk Retail, 
-											| #[br] and payments that require the highest security.
-							+normalbutton('Download')
+											| Pure Wallet provides an #[b.pureblue Offline Token-based]
+											| #[br]rather than the commonly used Hardware-based #[b.pureblue Cold Storage] method.
+											| #[br] #[br] Generally hard-wallets need#[br] hardware in order to #[b.pureblue get crypto] #[br]in the physical world.  
+											| #[br]But this #[b.pureblue Cold Storage] allows it #[br] #[b.pureblue without need for any hardware].
+
+							+normalbutton('Download', null, null, null, null, 'download')
 						.phoneshot.pt-0(class="w-full sm:w-2/5")
 							.p-8
 								.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
-									img.mt-10.object-fill(src="/img/phone_screenshot.png", alt="")
-			.relative.purelightestblueBG
+									img.mt-10.object-fill(src="/img/wallet/phone_screen_03.png", alt="")
+			
+			
+			//- STEPS TO START
+			//- .relative.purelightestblueBG
 				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
 					.text-start.text-5xl.mt-12.min-w-max.leading-tight.thin.dark.txtL(class="w-full")
 						| Start your finances #[br] in no time
@@ -151,7 +154,7 @@ block content
 									| #[b.bold.lsXSm Start sending and receiving]
 									| #[br] with Security 
 									| #[br] and Convenience
-			.relative
+			//- .relative
 				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
 					.text-start.text-5xl.mt-12.min-w-max.leading-tight.thin.dark.txtL(class="w-full")
 						| Pure Wallet isn't merely a crypto wallet 
@@ -169,45 +172,59 @@ block content
 									+normalbutton('Discover the Ecosystem', '#/features/', null, 'darkBG white')
 						.px-24.pt-0.p.w-full(class="sm:px-0 sm:w-2/5 sm:p-10 md:p-10 lg:p-24")
 							+explains_SVG(2)
-			.relative.purelightestblueBG
-				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
-					.text-start.text-5xl.mt-12.min-w-max.leading-tight.thin.dark.txtL(class="w-full")
+			
+			//- BETTER CRYPTO EXPERIENCE
+			.relative.purecolorBG.white
+				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-8").rel.basetoggle
+					.text-start.text-5xl.mt-12.min-w-max.leading-tight.thin.txtL(class="w-full")
 						| A Better Crypto Experience
-					.pt-12.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row")
+					.text.TmarXLg.txtL(style="margin-bottom:100px") 
+						| With Pure wallet, feel the relief of maintaining your finances with the modern Web3 power, #[br]but without the hustle of other available systems.  
+					.abs.right0.bottom0.sizeXXXLg.lh1
+						p.block.sizeXXXLg 
+							span(style="font-size: 10em;opacity: .1;") 1
+					.pt-12.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row").rel.context
 						.pt-12.w-full(class="sm:w-2/5 sm:p-10 md:p-10 lg:p-0")
-							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-8.lh1.items-center.flex-wrap
+							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-y-8.place-content-between.lh1.items-center.flex-wrap
 								.flex.flex-col-2.gap-x-4.items-center
-									span.p-4.rounded-full.pureblueBG.white.sizeXXLg issue #1
+									span.p-4.rounded-full.pureblueBG.purecolor.sizeXXLg issue #1
 									span.flex.place-content-end
 										p.sizeSm Breaking the barrier
 								p.pl-4.sizeXLg.txtL.leading-tight.pureblue
 									| High Crypto 
 									| #[br]Transaction Costs
-						.mt-10.w-full(class="sm:w-2/5 sm:mt-10 md:mt-10 lg:mt-24")
-							.txtJ.sizeLg.p-6.purelightestblueDownBG.rounded-2xl
-								| Pure Wallet #[b.dark drastically cuts] the #[b.dark high fees] of 
-								| crypto transactions - averaging #[b.dark $1.50] and 
-								| totaling #[b.dark $28B yearly] - by #[b.pureblue up to 90%] with our 
-								| #[b.pureblue offline transaction solution]. This breakthrough 
+								.toggler.place-content-end.Rpad
+									+normalbutton('More', '', null, 'whiteBG purecolor btn')
+						.mt-10.w-full(class="sm:w-2/5 sm:-mt-8").hidez.toggled
+							.txtJ.Tmar.sizeLg.p-6.purestblue.puregradBG.rounded-lg
+								| Pure Wallet #[b.white drastically cuts] the #[b.white high fees] of 
+								| crypto transactions - averaging #[b.white $1.50] and 
+								| totaling #[b.white $28B yearly] - by #[b.white up to 90%] with our 
+								| #[b.white offline transaction solution]. This breakthrough 
 								| reduces costs for daily crypto use and opens 
 								| the door for increased mainstream 
-								| adoption, #[b.pureblue setting Pure Wallet apart] as both 
-								| an #[b.pureblue innovative platform] and a #[b.pureblue prime investment opportunity].
+								| adoption, #[b.white setting Pure Wallet apart] as both 
+								| an #[b.white innovative platform] and a #[b.white prime investment opportunity].
 			
 			.relative.purestblueBG
-				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
+				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-8").rel.basetoggle
+					.abs.left0.bottom0.sizeXXXLg.lh1
+						p.block.sizeXXXLg 
+							span(style="font-size: 10em;opacity: .1;") 2
 					.pt-12.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row-reverse")
 						.pt-12.w-full(class="sm:w-2/5 sm:p-10 md:p-10 lg:p-0")
-							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-8.lh1.items-center.flex-wrap.flex-row-reverse
+							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-y-8.place-content-between.lh1.items-center.flex-wrap.flex-row-reverse
 								.flex.flex-col-2.gap-x-4.items-center.flex-row-reverse
-									span.p-4.rounded-full.pureblueBG.white.sizeXXLg issue #2
+									span.p-4.rounded-full.pureblueBG.purestblue.sizeXXLg issue #2
 									span.flex.place-content-end
 										p.sizeSm Speeding Things Up
 								p.pl-4.sizeXLg.txtR.leading-tight.pureblue
 									| Slow Crypto 
 									| #[br]Transactions
-						.mt-10.w-full(class="sm:w-2/5 sm:mt-10 md:mt-10 lg:mt-24")
-							.txtJ.sizeLg.p-6.purelightestblueDownBG.rounded-2xl
+								.toggler.place-content-end.Lpad
+									+normalbutton('More', '', null, 'purecolorBG white', true)
+						.mt-10.w-full(class="sm:w-2/5 sm:-mt-8").hidez.toggled
+							.txtJ.sizeLg.p-6.purelightestblueDownBG.rounded-lg
 								| #[b.dark Transaction times] for Ethereum and Bitcoin can greatly 
 								| vary, with #[b.dark Ethereum] transactions taking #[b.dark up to 5 minutes] 
 								| and #[b.dark Bitcoin] transactions #[b.dark as long as 1.5 hours], 
@@ -221,19 +238,24 @@ block content
 								| everyday transactions and open up new markets.
 			
 			.relative.purelightestblueBG
-				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
+				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-8").rel.basetoggle
+					.abs.right0.bottom0.sizeXXXLg.lh1
+						p.block.sizeXXXLg 
+							span(style="font-size: 10em;opacity: .1;") 3
 					.pt-12.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row")
 						.pt-12.w-full(class="sm:w-2/5 sm:p-10 md:p-10 lg:p-0")
-							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-8.lh1.items-center.flex-wrap
+							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-y-8.place-content-between.lh1.items-center.flex-wrap
 								.flex.flex-col-2.gap-x-4.items-center
-									span.p-4.rounded-full.pureblueBG.white.sizeXXLg issue #3
+									span.p-4.rounded-full.pureblueBG.purelightestblue.sizeXXLg issue #3
 									span.flex.place-content-end
 										p.sizeSm Bridging the Gap
 								p.pl-4.sizeXLg.txtL.leading-tight.pureblue
-									| From Crypto Wealth
-									| #[br]to Real-World Assets
-						.mt-10.w-full(class="sm:w-2/5 sm:mt-10 md:mt-10 lg:mt-24")
-							.txtJ.sizeLg.p-6.purelightestblueDownBG.rounded-2xl
+									| From Crypto #[br]Wealth
+									| #[br]to Real-World#[br] Assets
+								.toggler.place-content-end.Rpad
+									+normalbutton('More', '', null, 'whiteBG purecolor')
+						.mt-10.w-full(class="sm:w-2/5 sm:-mt-8").hidez.toggled
+							.txtJ.sizeLg.p-6.purelightestblueDownBG.rounded-lg
 								| #[b.dark Pure Loan] : Transforming Crypto into 
 								| #[b.pureblue Real-World Value]. Pure Wallet's
 								| innovative Pure Loan program enables
@@ -247,19 +269,24 @@ block content
 								| and traditional #[b.pureblue finance], promising vast 
 								| #[b.pureblue growth opportunities] for investors.
 			.relative.purestblueBG
-				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
+				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-8").rel.basetoggle
+					.abs.left0.bottom0.sizeXXXLg.lh1
+						p.block.sizeXXXLg 
+							span(style="font-size: 10em;opacity: .1;") 4
 					.pt-12.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row-reverse")
 						.pt-12.w-full(class="sm:w-2/5 sm:p-10 md:p-10 lg:p-0")
-							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-8.lh1.items-center.flex-wrap.flex-row-reverse
+							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-y-8.place-content-between.lh1.items-center.flex-wrap.flex-row-reverse
 								.flex.flex-col-2.gap-x-4.items-center.flex-row-reverse
-									span.p-4.rounded-full.pureblueBG.white.sizeXXLg issue #4
+									span.p-4.rounded-full.pureblueBG.purestblue.sizeXXLg issue #4
 									span.flex.place-content-end
 										p.sizeSm Enhancing Security
 								p.pl-4.sizeXLg.txtR.leading-tight.pureblue
-									| Combating Crypto Vulnerabilities
+									| Combating Crypto #[br]Vulnerabilities
 									| #[br]with PureWallet
-						.mt-10.w-full(class="sm:w-2/5 sm:mt-10 md:mt-10 lg:mt-24")
-							.txtJ.sizeLg.p-6.purelightestblueDownBG.rounded-2xl
+								.toggler.place-content-end.Lpad
+									+normalbutton('More', '', null, 'whiteBG purecolor', true)
+						.mt-10.w-full(class="sm:w-2/5 sm:-mt-8").hidez.toggled
+							.txtJ.sizeLg.p-6.purelightestblueDownBG.rounded-lg
 								| Pure Wallet #[b.dark elevates security] in the crypto 
 								| space with its #[b.pureblue integrated cold storage], an 
 								| industry-first feature, responding to the 
@@ -270,32 +297,37 @@ block content
 								| #[b.pureblue improves asset protection], presenting a 
 								| strong case for investment.
 			
-			.relative.purelightestblueBG
-				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
+			.relative.purecolorBG.white
+				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-8").rel.basetoggle
+					.abs.right0.bottom0.sizeXXXLg.lh1
+						p.block.sizeXXXLg 
+							span(style="font-size: 10em;opacity: .1;") 5
 					.pt-12.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row")
 						.pt-12.w-full(class="sm:w-2/5 sm:p-10 md:p-10 lg:p-0")
-							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-8.lh1.items-center.flex-wrap
+							.mt-4.mb-2.sizeXXLg.flex.flex-col-2.gap-y-8.place-content-between.lh1.items-center.flex-wrap
 								.flex.flex-col-2.gap-x-4.items-center
-									span.p-4.rounded-full.pureblueBG.white.sizeXXLg issue #5
+									span.p-4.rounded-full.pureblueBG.purecolor.sizeXXLg issue #5
 									span.flex.place-content-end
 										p.sizeSm Introducing OffToken API
 								p.pl-4.sizeXLg.txtL.leading-tight.pureblue
 									| Solving Crypto's
 									| #[br]Payment Dilemma
-						.mt-10.w-full(class="sm:w-2/5 sm:mt-10 md:mt-10 lg:mt-24")
-							.txtJ.sizeLg.p-6.purelightestblueDownBG.rounded-2xl
-								| Pure Wallet's #[b.dark OffToken API] marks a #[b.dark significant leap] in 
+								.toggler.place-content-end.Rpad
+									+normalbutton('More', '', null, 'whiteBG purecolor')
+						.mt-10.w-full(class="sm:w-2/5 sm:-mt-8").hidez.toggled
+							.txtJ.sizeLg.p-6.puregradBG.rounded-lg.purestblue
+								| Pure Wallet's #[b.white OffToken API] marks a #[b.white significant leap] in 
 								| cryptocurrency payment systems by incorporating 
 								| our patented technology universally. It addresses 
-								| critical issues like #[b.pureblue high fees], #[b.pureblue slow speeds], and 
-								| #[b.pureblue energy-intensive mining], making crypto 
-								| transactions #[b.pureblue faster], more #[b.pureblue efficient], and 
-								| #[b.pureblue eco-friendly]. This expansion broadens Pure Wallet's 
-								| ecosystem, ensuring #[b.pureblue transactions] are #[b.pureblue accessible and cost-effective], 
+								| critical issues like #[b.white high fees], #[b.white slow speeds], and 
+								| #[b.white energy-intensive mining], making crypto 
+								| transactions #[b.white faster], more #[b.white efficient], and 
+								| #[b.white eco-friendly]. This expansion broadens Pure Wallet's 
+								| ecosystem, ensuring #[b.white transactions] are #[b.white accessible and cost-effective], 
 								| fostering widespread crypto 
-								| adoption as a #[b.pureblue practical payment solution], 
+								| adoption as a #[b.white practical payment solution], 
 								| enhancing user experience, and boosting our 
-								| platform's #[b.pureblue profitability] and #[b.pureblue transaction volume].
+								| platform's #[b.white profitability] and #[b.white transaction volume].
 			.relative
 				section.mx-auto.left-0.right-0.container.pb-24.pt-24
 					.mb-16.purecolor(style="max-width:500px")

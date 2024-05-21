@@ -4,6 +4,8 @@
 	
 	.introseries
 		.page
+			.abs.top0.left0.txtL(style="margin-top:90px;margin-left:20px") 
+				h4.montserrat.bolder.sizeXXXLg.lh1.black.LmarXXLg The Ecosystem
 			.prev.abs(style="top:95px;z-index: 50;").txtC.right0.RmarXXXLg
 				+smallbutton('Previous', '#/home/purewallet/')
 			.next.abs(style="bottom:25px;z-index: 50;").txtC.left0.right0
@@ -27,7 +29,7 @@
 							+arrow_dotted_up()
 						a.down.rel.zi3.TmarSm.white(style="bottom:0" href="javascript:void(0)") 
 							+arrow_dotted_down()
-					ol.txtL.pureblue.rel(style="top:0px")
+					ol.txtL.pureblue.rel(style="top:100px")
 						li
 							a.indent.black.block.VmarXLg.first.HpadSm.txtL(href="javascript:void(0)" style="padding-bottom:5px;height:25px")
 								+pureseries_SVG('series')
@@ -43,13 +45,14 @@
 					.slide.textes.abs(style="bottom:80px;left:45px;margin-right:20px;width:350px;z-index:300")
 						.rounded-3xl.p-6.pb-0.txtL
 							.catchphrase.sizeSm(class="sm:sizeR")
-								h4.montserrat.bolder.sizeXXXLg.lh1.black The Ecosystem
-							.othertextes.sizeSm.TmarXXLg.lh1.pureblue.context
+								h4.montserrat.bolder.sizeXXXLg.lh1.black 
+									+pureseries_SVG('series')
+							.othertextes.sizeSm.Tmar.lh1.pureblue.context
 								h3.bold We are ensuring a safe place <br />where all your expectations converge.
 								.Tmar.lh1.purecolor
 									p.sizeSm Our technology brings a plethora of innovative<br />ideas to inspire developers, create modern platforms<br />and satisfy the needs of W3 evolution.
 							.browseeco.TmarXXXLg.txtR.sizeXSm.rel
-								+normalbutton("Browse Ecosystem", "#/features/")
+								+normalbutton("Browse Ecosystem", "#/series/")
 					- for(let i = 0 ; i < ls ; i++) {
 						- let serie = series[i] ;
 						.none.slide.textes.abs.fullH.fullW.left0.right0(id="slide_"+series[i].name)
@@ -60,15 +63,16 @@
 											img.fullW.fullH(src="/img/visuals/viz_0" + (i+1) + ".png", alt="")
 									.rel.dark.txtL.pureline.whitetranspBG.p-10.zi3(style="width:60%;min-width:450px;border-width:1px 0")
 										.catchphrase.sizeXSm(class="sm:sizeR")
-											h4.montserrat.sizeXXXLg.lh1.black #[b.bolder Pure] #{serie.name}
-										.othertextes.sizeSm.TmarXXLg.lh1 
+											h4.montserrat.sizeXXXLg.lh1.black(style="height:35px")
+												+pureseries_SVG(serie.name.toLowerCase())
+										.othertextes.sizeSm.TmarXXLg.lh1(style="max-width:500px") 
 											h3
 												!= render('| ' + serie.title)
 											.TmarXXXLg.lh1
 												p.sizeSm
 													!= render('| ' + serie.desc)
-											//-.Tmar.txtR.Rmar0.sizeSm.rel(style="margin-right:-25px")
-												+smallbutton("More", "#/features/")
+											.Tmar.txtR.Rmar0.sizeSm.rel(style="margin-right:-25px")
+												+smallbutton("More", "#/series/")
 										
 
 					- }
