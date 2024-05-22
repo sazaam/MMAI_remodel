@@ -188,54 +188,17 @@ mixin language()
 
 
 
-mixin arrow_dotted_left()
-	svg.arrow(width='73' height='37' version='1.1' viewBox='0 0 73 36' xmlns='http://www.w3.org/2000/svg')
-	
-		g(fill='currentColor' stroke-linecap='round' stroke-width='.20608')
-			circle(transform='scale(-1)' cx='-65.758' cy='-18.578' r='3.3307' stop-color='#000000' style='paint-order:markers stroke fill')
-			circle(transform='scale(-1)' cx='-55.281' cy='-18.578' r='3.3307' stop-color='#000000' style='paint-order:markers stroke fill')
-			circle(transform='scale(-1)' cx='-44.803' cy='-18.578' r='3.3307' stop-color='#000000' style='paint-order:markers stroke fill')
-			circle(transform='scale(-1)' cx='-34.325' cy='-18.578' r='3.3307' fill='#fff' stop-color='#000000' stroke-linecap='round' stroke-width='.20608' style='paint-order:markers stroke fill')
-			path(d='m5.9942 15.622c-1.0415 0.56302-1.749 1.6648-1.749 2.9318-5e-5 1.2407 0.67829 2.323 1.6843 2.8961 5.4725 3.1317 12.42 7.1534 17.1 9.8789 0.63675 0.3822 1.211 0.54775 1.824 0.54772 1.8395-3e-5 3.3307-1.4913 3.3306-3.3308 0.0306-2.75-2.6104-3.3165-2.5303-9.7595 0.0738-5.9381 2.5303-6.8642 2.5303-10.172-4e-5 -1.8394-1.4912-3.3306-3.3306-3.3306-0.38602-1e-5 -0.99082 0.0998-1.5481 0.39547-4.722 2.7433-14.793 8.6012-17.311 9.9432z')
+mixin arrow_dotted_left(simple)
+	+arr('arr left', simple)
 
+mixin arrow_dotted_right(simple)
+	+arr('arr right', simple)
 
+mixin arrow_dotted_down(simple)
+	+arr('arr down', simple)
 
-
-
-mixin arrow_dotted_right()
-	svg.arrow(width='73' height='37' version='1.1' viewBox='0 0 73 36' xmlns='http://www.w3.org/2000/svg')
-		g(fill="currentColor")
-			circle(cx='7.4733' cy='18.305' r='3.3307')
-			circle(cx='17.951' cy='18.305' r='3.3307')
-			circle(cx='28.429' cy='18.305' r='3.3307')
-			circle(cx='38.906' cy='18.305' r='3.3307')
-			path(d='m67.238 21.261c1.0415-0.56302 1.749-1.6648 1.749-2.9318 5e-5 -1.2407-0.6783-2.323-1.6843-2.8961-5.4725-3.1317-12.42-7.1534-17.1-9.8789-0.63674-0.3822-1.211-0.54774-1.824-0.54772-1.8395 3.7e-5 -3.3307 1.4913-3.3306 3.3308-0.03057 2.75 2.6104 3.3165 2.5303 9.7595-0.07382 5.9381-2.5303 6.8642-2.5303 10.172 3.9e-5 1.8394 1.4912 3.3306 3.3306 3.3306 0.38602 1.5e-5 0.99081-0.09978 1.5481-0.39546 4.722-2.7432 14.793-8.6012 17.311-9.9432z')
-
-
-
-
-mixin arrow_dotted_down()
-	svg.arrow(width='15' height='40' version='1.1' viewBox='0 0 37 73' xmlns='http://www.w3.org/2000/svg')
-		g(fill="currentColor")
-			circle(transform='rotate(90)' cx='7.4733' cy='-18.578' r='3.3307')
-			circle(transform='rotate(90)' cx='17.951' cy='-18.578' r='3.3307')
-			circle(transform='rotate(90)' cx='28.429' cy='-18.578' r='3.3307')
-			circle(transform='rotate(90)' cx='38.906' cy='-18.578' r='3.3307')
-			path(d='m15.622 67.238c0.56302 1.0415 1.6648 1.749 2.9318 1.749 1.2407 5e-5 2.323-0.6783 2.8961-1.6843 3.1317-5.4725 7.1534-12.42 9.8789-17.1 0.3822-0.63674 0.54774-1.211 0.54772-1.824-3.7e-5 -1.8395-1.4913-3.3307-3.3308-3.3306-2.75-0.03057-3.3165 2.6104-9.7595 2.5303-5.9381-0.07382-6.8642-2.5303-10.172-2.5303-1.8394 3.9e-5 -3.3306 1.4912-3.3306 3.3306-1.5e-5 0.38602 0.09978 0.99081 0.39546 1.5481 2.7432 4.722 8.6012 14.793 9.9432 17.311z')
-
-
-
-
-mixin arrow_dotted_up()
-	svg.arrow(width='15' height='40' version='1.1' viewBox='0 0 37 73' xmlns='http://www.w3.org/2000/svg')
-		g(fill='currentColor')
-			circle(transform='rotate(-90)' cx='-65.758' cy='18.305' r='3.3307')
-			circle(transform='rotate(-90)' cx='-55.281' cy='18.305' r='3.3307')
-			circle(transform='rotate(-90)' cx='-44.803' cy='18.305' r='3.3307')
-			circle(transform='rotate(-90)' cx='-34.325' cy='18.305' r='3.3307')
-			path(d='m21.261 5.9942c-0.56302-1.0415-1.6648-1.749-2.9318-1.749-1.2407-5e-5 -2.323 0.6783-2.8961 1.6843-3.1317 5.4725-7.1534 12.42-9.8789 17.1-0.3822 0.63674-0.54774 1.211-0.54772 1.824 3.7e-5 1.8395 1.4913 3.3307 3.3308 3.3306 2.75 0.03057 3.3165-2.6104 9.7595-2.5303 5.9381 0.07382 6.8642 2.5303 10.172 2.5303 1.8394-3.9e-5 3.3306-1.4912 3.3306-3.3306 1.5e-5 -0.38602-0.09978-0.99081-0.39546-1.5481-2.7432-4.722-8.6012-14.793-9.9432-17.311z')
-
-
+mixin arrow_dotted_up(simple)
+	+arr('arr up', simple)
 
 
 mixin advantageicons(id)

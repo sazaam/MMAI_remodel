@@ -1,5 +1,6 @@
 extends ./layout
 block content
+
 	.extractable.fullpage
 		.main-theme.flex.flex-col.bg-main.min-h-full.en( style="margin-top:130px")
 			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ')
@@ -30,7 +31,12 @@ block content
 										h3.sizeLg.black
 											| #[b.bolder 2.] #[b.bolder.purecolor Offline] Mobile Electronic #[b.bolder.purecolor Wallet]
 										p.mt-4
-											| Supporting access to modern financial services in limited infastrudture environments and providing economic empowerment to emerging nations through offline and baking functionnalities, thereby offering opportunities to enter the digital economy.
+											| Supporting access to modern financial services in limited infastructure environments and providing economic empowerment to emerging nations through offline and baking functionnalities, thereby offering opportunities to enter the digital economy.
+									.mt-4.mb-2.sizeLg(class='md:mt-4')
+										h3.sizeLg.black
+											| #[b.bolder 3.] #[b.bolder.purecolor Hardware-Free] Cold Storage
+										p.mt-4
+											| Hardware no longer needed for crypto finance through our innovative Cold Storage method.
 							.flex.flex-col.mt-12.purecolor(class='md:col-span-7')
 								+getitboth()
 
@@ -50,10 +56,10 @@ block content
 								.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
 									.mt-4.mb-2
 										p.mt-4
-											| Provides a more efficient and streamlined #[br] payment processing system
-											| #[br] with lower transaction costs using #[br] our exclusive blockchain technology.
-											| #[br] #[br] Suitable for micropayments, bulk Retail, 
-											| #[br] and payments that require the highest security.
+											| Provides a more #[b.pureblue efficient and streamlined] #[br] payment processing system
+											| #[br] with #[b.pureblue lower transaction costs] using #[br] our #[b.pureblue exclusive blockchain] technology.
+											| #[br] #[br] Suitable for #[b.pureblue micropayments, bulk Retail], 
+											| #[br] and payments that require the #[b.pureblue highest security].
 							+normalbutton('Download', null, null, null, null, 'download')
 						.phoneshot.pt-0(class="w-full sm:w-2/5")
 							.p-8

@@ -40,6 +40,7 @@ MMAI.home.patentsToggle = function(cond){
 
 MMAI.home.patents = function(e){
 	MMAI.home.patentsToggle(!toggle_on) ;
+	$(e.currentTarget).toggleClass('down') ;
 }
 
 MMAI.home.scrollTo = function(top, time, cb){
@@ -480,6 +481,7 @@ module.exports = MMAI.func = {
 			e.preventDefault() ;
 			e.stopPropagation() ;
 			var btn = $(e.currentTarget) ;
+			btn.toggleClass('down') ;
 			btn.data('question').toggleClass('opened') ;
 		}
 
@@ -661,14 +663,14 @@ module.exports = MMAI.func = {
 					a.addClass('walletcolor') ;
 					
 					if(n == 0){
-						prev.find('.inside').removeClass('blackBG').addClass('foggyBG') ;
+						prev.removeClass('black').addClass('foggy') ;
 					}else{
-						prev.find('.inside').addClass('blackBG').removeClass('foggyBG') ;
+						prev.addClass('black').removeClass('foggy') ;
 					}
 					if(n == slides.length - 1){
-						next.find('.inside').removeClass('blackBG').addClass('foggyBG') ;
+						next.removeClass('black').addClass('foggy') ;
 					}else{
-						next.find('.inside').addClass('blackBG').removeClass('foggyBG') ;
+						next.addClass('black').removeClass('foggy') ;
 					}
 					
 					var tw = MMAI.home.walletslideTW ;

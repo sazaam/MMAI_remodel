@@ -23,10 +23,12 @@ header#menu.menu.fixed.top0.left0.fullW
 
 
 			//-  HOME SPECIAL CASE
-			li.home.floatL.left0.sizeLg.RmarXXXXLg(id= "global_" + 'home', class= "global_" + 'home')
+			li.floatL.left0.sizeLg.fullH.RmarXXXXLg(id= "global_" + 'home', class= "global_" + 'home' style="width:188px")
 				//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
 				a.block.fullW.fullH(href= '#/home/purechain/')
-					span.hidden= t('MMAI')
+					//- span.hidden= t('MMAI')
+					.fullH.black.padLg
+						+pureseries_SVG('chain')
 
 			+log(topsections) ;
 

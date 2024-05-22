@@ -177,6 +177,28 @@ html{min-height:2450px}
 }
 
 
+.arr, .arr.right{
+    /* transform: rotate(0deg); */
+}
+
+.left .arr, .arr.left{
+    transform: rotate(180deg);
+}
+.down .arr, .arr.down{
+    transform: rotate(45deg);
+}
+.up .arr, .arr.up{
+    transform: rotate(-45deg);
+}
+
+
+.serieshome .narr{
+    visibility:hidden
+}
+
+.serieshome:hover .narr{
+    visibility:visible
+}
 
 
 /*

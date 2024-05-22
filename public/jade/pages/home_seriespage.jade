@@ -34,11 +34,19 @@
 							a.indent.black.block.VmarXLg.first.HpadSm.txtL(href="javascript:void(0)" style="padding-bottom:5px;height:25px")
 								+pureseries_SVG('series')
 						
-						
 						- for(let i = 0 ; i < ls ; i++){
-							li
-								a.block.bolder.HpadSm(href="javascript:void(0)" style="padding-bottom:5px;height:25px;opacity:" + (.8 - ((i)*.2)) + ";")
-									+pureseries_SVG(series[i].name.toLowerCase())
+							li.context
+								a.serieshome.rel.block.flex.flex-row.items-center.HpadSm.gap-x-4.justify-between(href='javascript:void(0)' style="padding-bottom:5px;height:25px;opacity:" + (.8 - ((i)*.2)) + ";")
+									span.purecolor.fullH.block.floatL.Rmar
+										+pureseries_SVG(series[i].name.toLowerCase(), 'floatL')
+									span.flex-grow.fullH.narr
+										+arr('fullH')
+								//- a.serieshome.block.bolder.HpadSm.flex.flex-row.items-center.justify-between(href="javascript:void(0)" style="padding-bottom:5px;height:25px;opacity:" + (.8 - ((i)*.2)) + ";")
+									
+									+pureseries_SVG(series[i].name.toLowerCase(), 'floatL')
+									
+									.flex-grow.w-12
+										+arrow_dotted_right()
 						- }
 				
 				.slides.dark
