@@ -339,10 +339,14 @@ var viz3D = {
 
 							let commands = [] ;
 							let sampler ;
+
+
+							////////// Looping thru Children list
 							for(ind = 0 ; ind < ll ; ind++){
-								commands.push(new Command(this, function(){
-									let ch = arguments[0][0] ;
-									// trace(ch)
+
+								var ch = children[ind] ;
+								var comm = new Command(this, function(ch, ind){
+									
 									let name = ch.name ; 
 									names.push(name) ;
 									locations[name] = [] ;
@@ -359,22 +363,130 @@ var viz3D = {
 										loc.applyMatrix4(mat) ;
 										locations[name].push(loc) ;
 									}
-
+									
+									// trace(this)
 									//return this ;
-								}, [children[ind], ind])) ;
-								commands.push(new WaitCommand(.001)) ;
+								}, ch, ind) ;
+								// creating each command
+								comm.name = ch.name ;
+								commands.push(comm) ;
 							}
 							
-							let cq = new CommandQueue() ;
-							cq.add(commands) ;
-							
-							
+							var firstcommand ;
+							var firstname = res.name!='home' ? res.name : 'chain' ;
+							var found = 0 ;
 
-							cq.bind('$', function(){
-								trace('All DOne')
-
+							let retrieveCommandByName = function(name){
+								name = name!='home' ? name : 'chain' ;
+								let ind, ll = commands.length ;
+								let command ;
+								for(ind = 0 ; ind < ll ; ind++){
+									command = commands[ind] ;
+									if(command.name == name){
+										commands.splice(ind, 1) ;
+										break ;
+									}
+								}
+								return command ;
+							}
+							
+							SCI.morphIndex = firstname ;
 								
-								SCI.getRandomName = function(curname){
+							SCI.morphInto = function(name){
+								if(!locations[name]){
+									firstcommand = retrieveCommandByName(name) ;
+									let firstcq = new CommandQueue() ;
+									firstcq.add(firstcommand) ;
+									firstname = firstcommand.name ;
+									
+									
+									firstcq.bind('$', function(){
+										MMAI.home.delegMorph() ;
+										SCI.morph(firstname) ;
+									}) ;
+									
+									firstcq.execute() ;
+								}else{
+									SCI.morph(name) ;
+								}
+							}
+
+							SCI.morph = function(name){
+								
+								if(name == '*'){
+									name = SCI.getRandomName(SCI.morphIndex) ;
+								}
+								
+								
+								SCI.morphIndex = name ;
+								
+								var morphloc = locations[name] ;
+
+								var pos = pointCloud.geometry.attributes.position.array ;
+								SCI.shuffle(morphloc) ;
+								
+								var p = [] ;
+								
+								if(!!SCI.twParticles){
+									if(SCI.twParticles.isPlaying) SCI.twParticles.stop() ;
+									//SCI.twParticles.destroy() ;
+								} 
+								
+								SCI.twParticles = BJS.create({
+									target:dummy,
+									to:{
+										scale:.5
+									},
+									from:{
+										scale:0
+									},
+									time:1.25,
+									ease:Expo.easeOut,
+									onUpdate:function(){
+								
+										pointCloud.geometry.attributes.position.needsUpdate = true;
+										for ( let i = 0; i < numparticles ; i ++ ) {
+											var n = i * 3 ;
+											var m = n % 3 ;
+											var loc = morphloc[i] ;
+											p[ i ] = loc ;
+											
+											pos[n] 		= (pos[n] 		* (1 - dummy.scale)) + (p[i].x * dummy.scale)
+											pos[n + 1] 	= (pos[n + 1] 	* (1 - dummy.scale)) + (p[i].y * dummy.scale)
+											pos[n + 2] 	= (pos[n + 2] 	* (1 - dummy.scale)) + (p[i].z * dummy.scale)
+										}
+										
+										
+									},
+									onComplete:function(){
+										pointCloud.sortParticles = true;
+										pointCloud.geometry.attributes.position.needsUpdate = false;
+									}
+								})
+								
+								/* hack CHROME not triggering */
+								setTimeout(function(){SCI.twParticles.play()}, 1) ;
+								
+								return SCI.morphIndex ;
+								
+							}
+
+							// let cq = new CommandQueue() ;
+							// cq.add(commands) ;
+							
+							firstcommand = retrieveCommandByName(firstname) ;
+							let firstcq = new CommandQueue() ;
+							firstcq.add(firstcommand) ;
+							
+							let pointCloud ;///////////////////// POINTS CREATION (Must not to recreate)
+							
+							
+							// pointCloud.sortParticles = true;
+							let dummy = {scale:0} ;
+
+							firstcq.bind('$', MMAI.home.delegMorph = MMAI.home.delegMorph || function(){
+								
+								SCI.getRandomName = SCI.getRandomName || function(curname){
 									let str ;
 									
 									while((str = SCI.shuffle(names)[0]) == curname){
@@ -390,8 +502,8 @@ var viz3D = {
 								
 								// const randoms = [] ;
 								
-								var startname = 'chain' ;
-								
+								var startname = firstname ;
+								trace('startbname', startname)
 								/////// INITIALIZE SET OF VECTORS
 								for ( let i = 0; i < numparticles ; i ++ ) {
 									var vec = new THREE.Vector3() ;
@@ -403,15 +515,15 @@ var viz3D = {
 									vecs.push( vec );
 								}
 								
-								///////////////////// POINTS CREATION (Must not to recreate)
-								const geometryPoints = new THREE.BufferGeometry().setFromPoints( vecs );
-								const materialPoints = new THREE.PointsMaterial({
-									color:0x3a6df0,
-									size: .012,
-								});
-								const pointCloud = new THREE.Points( geometryPoints, materialPoints );
+								if(!!!pointCloud){
+									const geometryPoints = new THREE.BufferGeometry().setFromPoints( vecs );
+									const materialPoints = new THREE.PointsMaterial({
+										color:0x3a6df0,
+										size: .012,
+									});
+									pointCloud = new THREE.Points( geometryPoints, materialPoints );
 								
-								// pointCloud.sortParticles = true;
+								}
 								
 								
 								$('#mainloader').addClass('none') ;
@@ -420,76 +532,10 @@ var viz3D = {
 								scene.add( pointCloud );
 								
 								
-								
-								var dummy = {scale:0} ;
-								
-								SCI.morphIndex = startname ;
-								
-								SCI.morphInto = function(name){
-									
-									if(name == '*'){
-										name = SCI.getRandomName(SCI.morphIndex) ;
-									}
-									
-									
-									SCI.morphIndex = name ;
-									
-									var morphloc = locations[name] ;
-
-									var pos = pointCloud.geometry.attributes.position.array ;
-									SCI.shuffle(morphloc) ;
-									
-									var p = [] ;
-									
-									if(!!SCI.twParticles){
-										if(SCI.twParticles.isPlaying) SCI.twParticles.stop() ;
-										//SCI.twParticles.destroy() ;
-									} 
-									
-									SCI.twParticles = BJS.create({
-										target:dummy,
-										to:{
-											scale:.5
-										},
-										from:{
-											scale:0
-										},
-										time:1.25,
-										ease:Expo.easeOut,
-										onUpdate:function(){
-									
-											pointCloud.geometry.attributes.position.needsUpdate = true;
-											for ( let i = 0; i < numparticles ; i ++ ) {
-												var n = i * 3 ;
-												var m = n % 3 ;
-												var loc = morphloc[i] ;
-												p[ i ] = loc ;
-												
-												pos[n] 		= (pos[n] 		* (1 - dummy.scale)) + (p[i].x * dummy.scale)
-												pos[n + 1] 	= (pos[n + 1] 	* (1 - dummy.scale)) + (p[i].y * dummy.scale)
-												pos[n + 2] 	= (pos[n + 2] 	* (1 - dummy.scale)) + (p[i].z * dummy.scale)
-											}
-											
-											
-										},
-										onComplete:function(){
-											pointCloud.sortParticles = true;
-											pointCloud.geometry.attributes.position.needsUpdate = false;
-										}
-									})
-									
-									/* hack CHROME not triggering */
-									setTimeout(function(){SCI.twParticles.play()}, 1) ;
-									
-									return SCI.morphIndex ;
-									
-								}
-								
-								
 								if(!!cb) cb.apply(SCI, [].concat(args)) ;
 
 							})
-							cq.execute() ;
+							firstcq.execute() ;
 							
 						}) ;
 						

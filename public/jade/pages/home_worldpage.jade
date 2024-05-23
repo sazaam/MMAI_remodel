@@ -2,42 +2,36 @@
 
 
 .rel.fullW.fullH.txtC.white.pureworld
-	.imagezone.abs.left0.right0.top0.bottom0
-		.img_cont.block.fullW.fullH
-			//- .abs.imgblock.fullW.cover(style="top:-1px;bottom:-1px;background-image:url(/img/unity/UnityPage_Ori_1.png)")
-				span.fullW.fullH.block.hidden IMAGE
-			.abs.layerblock.fullW.cover.bluetranspBG(style="top:-1px;bottom:-1px;")
-				//
+	
 	.prev.abs(style="top:95px;z-index: 50;").txtC.right0.RmarXXXLg
 		+smallbutton('Previous', '#/home/pureseries/')
-	.introworld.fullH.sizeXXXLg
-		.intro.safe.fullH.txtR(style="padding:0;")
-			.textzone.abs.left0.right0.top0.bottom0
-				.txtL.LmarXXLg
-					.catchphrase.TmarXXXLg.TpadXXXLg
-						h1.montserrat.bolder.TpadXXXLg.sizeXXXLg.lh1 New
-					
-					.TmarXXXLg.context
-						.test(style="max-width:600px")
-							+pureseries_SVG('world')
-					.catchphrase.TmarXXXLg.TpadXLg
-						h1.montserrat.bolder.sizeXXXLg.lh1 based on Web3.0
+	.introworld.fullH
+		.grid.fullH.place-items-center.fullW
+			.purecolorBG(style="height:500px;width:100%").rel.pureline.double
+				+grad('down', true)
+				+grad('up', true)
+				.line.white.fullH
+					.unit.imagezone.fullH.rel.floatR.size1of2
+						.abs.imgblock.fullW.fullH.cover.left0.right0(style="background-image:url(/img/world/Background_01.png)")
+							span.fullW.fullH.block.hidden World Background
+						.abs.layerblock.fullW.fullH.left0.right0.bluetranspBG(style="background-image:url(/img/world/CharacterImage.png);background-repeat:no-repeat;background-position:right bottom;background-size:contain;")
+							span.fullW.fullH.block.hidden Main Character
+					.unit.textzone.context.lastUnit
+						.txtL.LmarXXLg.BmarXXXLg
+							.TmarXXXLg.context
+								.test.TmarXXLg(style="max-width:600px")
+									+pureseries_SVG('world')
+							.catchphrase.TmarXXXLg.TpadXLg
+								h1.montserrat.bolder.sizeXXXLg.lh1 based on #[p.purelightestblue Web3.0]
 
-					.sizeSm.TmarXXLg.lh1.RmarXXLg
-						p.sizeSm
-							| Pure world offers enhanced efficiency and stunning visuals, #[br] 
-							| unlocking new possibilities for fantastic experiences.#[br] 
-							| With improved accessibility and performance, it is now ready to deliver a richer user experience. #[br]
-							| Its scalable, user-friendly interface makes engagement as well as creation easier.
-						
-				.textblock.abs.bottom0.BmarXXXLg.left0.right0
-					.sizeSm.LpadXXXXLg.TmarXXLg.txtL
-						.Tpad
-							.lh15
-								p.sizeXLg High-Quality, Surreal <br />Metaverse Virtual Space
-
-							.sizeSm.TmarXLg.RmarXXLg.floatL
-								+normalbutton("Join Waiting List", null, null, "whiteBG purecolor")
+							.sizeSm.TmarXXLg.lh1.RmarXXLg.sizeLg.purelightestblue
+								p(style="max-width:450px")
+									| Pure world offers enhanced efficiency and stunning visuals, #[br] 
+									| unlocking new possibilities for fantastic experiences.#[br] 
+									| With improved accessibility and performance, it is now ready to deliver a richer user experience. #[br]
+									| Its scalable, user-friendly interface makes engagement as well as creation easier.
+						.sizeSm.TmarXLg.LmarXXLg.floatL
+							+normalbutton("Join Waiting List", null, null, 'whiteBG purecolor')
+									
+				
 								
-			
-							
