@@ -1,5 +1,5 @@
-
-- footnavlinks = footnavlinks.data
+- console.log(footnavlinks)
+- footnavlinks = (footnavlinks.data) ? footnavlinks.data : footnavlinks ;
 +log(footnavlinks) ;
 	
 #foot.black.foot.rel.BpadXXXXLg.whiteBG.none(style="border-top:1px solid #CCC;z-index:300")
@@ -13,6 +13,7 @@
 	.copyright.abs.right0.bottom0 
 		span.block.foggy.sizeSm.RmarXXXLg.Bmar &copy; MMAI 2023 - 2024
 	nav.footnav.mar.HmarXXLg.txtL
+		
 		ol.line
 			- for(let i = 0 ; i < footnavlinks.length ; i++){
 				li.unit.BpadXXXXLg(class= i == 3 ? "lastUnit floatR txtR" : i == 1 ? "size1of5 oddy" : "size1of5")

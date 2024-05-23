@@ -550,11 +550,11 @@ module.exports = MMAI.func = {
 				var toggler = $(el).find('.paneltoggler') ;
 				var BGs = $(el).find('.togglerBG') ;
 				toggler.each(function(i, el){
-					var panel = $(panels.get(i)) ;
+					var panel = $(panels.get(i)).addClass('togglin-'+(i+1)) ;
 					var BG = $(BGs.get(i)) ;
 					var tog = $(el) ;
 					tog.data('hide', function(){
-						trace('couocu')
+						trace(panel)
 						panels.addClass('none') ;
 						panel.removeClass('none') ;
 						var highlightedClass = BG.prop("tagName") == 'A' ? 'pureblueBG white' : 'purelightestblueBG' ; 
@@ -841,8 +841,6 @@ module.exports = MMAI.func = {
 					var objId = li.attr('id') ? li.attr('id').replace('slide_', '').toLowerCase() : 'series';
 					if(objId == 'chain') objId = 'series';
 					if(objId == 'certificate') objId+='s' ;
-					
-					trace(objId)
 					
 					slidenav.removeClass('indent black VmarXLg') ;
 					if(n != 0) a.addClass('double') ;

@@ -14,15 +14,15 @@
 				animateIn:0
 			})
 				
-				.showGlobe(1)
+				.showGlobe(0)
 				.showAtmosphere(0)
 				//.showGraticules(1)
-				.hexPolygonsData(countries.features)
-				.hexPolygonResolution(3)
-				.hexPolygonMargin(.7)
-				.hexPolygonUseDots(0)
-				.hexPolygonColor(() => '#3a6df0')
-				.hexPolygonsTransitionDuration(.5)
+				// .hexPolygonsData(countries.features)
+				// .hexPolygonResolution(3)
+				// .hexPolygonMargin(.7)
+				// .hexPolygonUseDots(0)
+				// .hexPolygonColor(() => '#3a6df0')
+				// .hexPolygonsTransitionDuration(.5)
 				.arcColor(() => '#3a6df0')
 				.arcAltitude(-.1)
 				
@@ -54,8 +54,8 @@
 			const scene = new THREE.Scene();
 			scene.background = new THREE.Color('#FFFFFF')
 			scene.add(globe);
-			scene.add(new THREE.AmbientLight('#FFFFFF', Math.PI));
-			scene.add(new THREE.DirectionalLight('#FFFFFF', .6 * Math.PI));
+			//scene.add(new THREE.AmbientLight('#FFFFFF', Math.PI));
+			//scene.add(new THREE.DirectionalLight('#FFFFFF', .6 * Math.PI));
 			
 
 			var theta = 90 ;

@@ -478,6 +478,10 @@ let root = async(req, res) => {
     let tt = JSON.parse(nav_fixtures) ;
     topsections = cleanup(tt, 'sections') ;
     // console.log(topsections) ;
+    let onlywallet = false ;
+    if(onlywallet){
+        topsections = [topsections[1]] ; 
+    }
     
     let ttt = JSON.parse(footnav_fixtures) ;
     footnavlinks = cleanup(ttt, 'footlinks') ;
@@ -491,11 +495,14 @@ let root = async(req, res) => {
         //langs: req.langs,
         //lang: req.i18n.language,
         //t: req.t,
+        isWallet:onlywallet,
         lang: 'en',
         topsections: toJSON(topsections),
         footnavlinks: toJSON(footnavlinks),
         pureseries_content:toJSON(pureseries_content)
     })) ;
+
+
     
 }
 
@@ -537,6 +544,8 @@ app.use('/fx/', async(req, res) => {
         pureseries_content:toJSON(pureseries_content)
     })) ;
 });
+
+
 
 /*
 ////// weird favicon.ico request happening....

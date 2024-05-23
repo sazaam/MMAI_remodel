@@ -1,6 +1,10 @@
 
+
+
 (function(){
 
+var isWallet = !!(module.params.wallet) ;
+trace(module)
 var express = require('Express') ;
 
 var router = require('./router') ;
@@ -11,7 +15,7 @@ app
 	.set('view engine', 'jade')
 	.set('views', '/js/jade/')
 	.set('address', {
-		home:'home',
+		home:isWallet?'wallet' : 'home',
 		base:'undefined' !== typeof __parameters ? __parameters.base : location.protocol + '//' + location.host + location.pathname,
 		useLocale:false,
 		defaultLocale:document.documentElement.getAttribute('lang')

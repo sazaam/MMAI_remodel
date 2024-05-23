@@ -1192,7 +1192,6 @@
 			
 			
 			var simfunc = function(resp, module, url, params){
-				
 				var dirname = module.dirname = ModuleLoader.getModuleRoot() ;
 				var filename = module.filename = ModuleLoader.concatRoot(url).replace(dirname,'') ;
 				var file = 'with(module){' + resp + '};\nreturn module;' ;

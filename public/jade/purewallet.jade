@@ -1,6 +1,7 @@
 extends ./layout
 block content
 	//- 
+	
 	- let homesection = topsections[0] ;
 	- let children = homesection.children ;
 	
@@ -16,36 +17,8 @@ block content
 		Sometimes if blocks are intermede blocks they are called .inter for them not to interfere 
 		with the hierarchy of the home navigation
 	
-	- if(!isWallet){
-		//- PURECHAIN (HOME)	
-		.extractable.fullpage.fullH.flowhidden.hidden(id=children[0].name)
-			include pages/home_chainpage
-		//- stats
-		.extractable.inter.rel.pureline.hidden.zi3.puretranspBG
-			+stats('purecolor sizeSm', false, 'purelightestblueDownBG')
-		
-		
-		
-		//- PUREWALLET
-		.extractable.fullpage.fullH.flowhidden.hidden.whiteBG.pureline(id=children[1].name)
-			include pages/home_walletpage
-		
-			
-		//- PURESERIES
-		.extractable.fullpage.fullH.flowhidden.hidden(id=children[2].name)
-			include pages/home_seriespage
-		//- partners
-		.extractable.inter.rel.hidden.zi3
-			//- +grad('down', true)
-			//- +grad('up', true)
-			+partners()
-		
-		
-		//- PUREWORLD
-		.extractable.fullpage.fullH.flowhidden.hidden(id=children[3].name)
-			include pages/home_worldpage
-		
-	- }
+	
+	include /wallet
 	
 	
 	
@@ -56,11 +29,9 @@ block content
 	
 	
 	
-	
+	- console.log(topsections)
 	//- Loading the .js app
-	- console.log(isWallet)
-	- var sr = isWallet ? '/js/strawnode.js?starter=./nodeless_app/&wallet=1' : '/js/strawnode.js?starter=./nodeless_app/' ;
-	script(type='text/javascript' src=sr)
+	script(type='text/javascript' src='/js/strawnode.js?starter=./nodeless_app/')
 	
 	//- script(src="//unpkg.com/three-globe")
 	
@@ -123,7 +94,7 @@ block content
 		}) ;
 		*/
 		
-		Express.app.fire('JSAddress') ;
+		//- Express.app.fire('JSAddress') ;
 		
 		
 		/*

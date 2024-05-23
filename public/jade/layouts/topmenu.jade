@@ -1,6 +1,6 @@
 header#menu.menu.fixed.top0.left0.fullW
 	nav.fullW.fullH
-		- topsections = topsections.data;
+		- topsections = (topsections.data)? topsections.data : topsections;
 
 		//- each topsection in topsections
 			//- h1= topsection.id
@@ -25,10 +25,10 @@ header#menu.menu.fixed.top0.left0.fullW
 			//-  HOME SPECIAL CASE
 			li.floatL.left0.sizeLg.fullH.RmarXXXXLg(id= "global_" + 'home', class= "global_" + 'home' style="width:188px")
 				//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
-				a.block.fullW.fullH(href= '#/home/purechain/')
+				a.block.fullW.fullH(href= isWallet ? '#/wallet/' : '#/home/purechain/')
 					//- span.hidden= t('MMAI')
 					.fullH.black.padLg
-						+pureseries_SVG('chain')
+						+pureseries_SVG(isWallet ? 'wallet' : 'chain')
 
 			+log(topsections) ;
 
