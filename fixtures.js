@@ -125,7 +125,121 @@ module.exports = {
                             "@toggle": "top_section_toggle"
                         }
                     }
-                }
+                },
+                "children":[
+                    {
+                        "id": "301",
+                        "name": "purechain",
+                        "path": "series/purechain/",
+                        "page": {
+                            "template": {
+                                "behavior": {
+                                    "@focus": "series_children_focus",
+                                    "@toggle": "series_children_toggle"
+                                }
+                            }
+                        }
+                        
+                    },
+                    {
+                        "id": "302",
+                        "name": "purewallet",
+                        "path": "series/purewallet/",
+                        "page": {
+                            "template": {
+                                "behavior": {
+                                    "@focus": "series_children_focus",
+                                    "@toggle": "series_children_toggle"
+                                }
+                            }
+                        }
+                        
+                    },
+                    {
+                        "id": "303",
+                        "name": "purecontract",
+                        "path": "series/purecontract/",
+                        "page": {
+                            "template": {
+                                "behavior": {
+                                    "@focus": "series_children_focus",
+                                    "@toggle": "series_children_toggle"
+                                }
+                            }
+                        }
+                        
+                    },
+                    {
+                        "id": "304",
+                        "name": "purecertificate",
+                        "path": "series/purecertificate/",
+                        "page": {
+                            "template": {
+                                "behavior": {
+                                    "@focus": "series_children_focus",
+                                    "@toggle": "series_children_toggle"
+                                }
+                            }
+                        }
+                        
+                    },
+                    {
+                        "id": "305",
+                        "name": "purevoting",
+                        "path": "series/purevoting/",
+                        "page": {
+                            "template": {
+                                "behavior": {
+                                    "@focus": "series_children_focus",
+                                    "@toggle": "series_children_toggle"
+                                }
+                            }
+                        }
+                        
+                    },
+                    {
+                        "id": "306",
+                        "name": "puremedia",
+                        "path": "series/puremedia/",
+                        "page": {
+                            "template": {
+                                "behavior": {
+                                    "@focus": "series_children_focus",
+                                    "@toggle": "series_children_toggle"
+                                }
+                            }
+                        }
+                        
+                    },
+                    {
+                        "id": "307",
+                        "name": "purerx",
+                        "path": "series/purerx/",
+                        "page": {
+                            "template": {
+                                "behavior": {
+                                    "@focus": "series_children_focus",
+                                    "@toggle": "series_children_toggle"
+                                }
+                            }
+                        }
+                        
+                    },
+                    {
+                        "id": "308",
+                        "name": "pureboms",
+                        "path": "series/pureboms/",
+                        "page": {
+                            "template": {
+                                "behavior": {
+                                    "@focus": "series_children_focus",
+                                    "@toggle": "series_children_toggle"
+                                }
+                            }
+                        }
+                        
+                    }
+                ]
             }, 
             {
                 "id": "4",
@@ -283,6 +397,7 @@ module.exports = {
         "series":[
             {
                 "id":"0",
+                "path":"purechain/",
                 "name":"#[b.bolder Pure] #[span Chain]",
                 "desc":{
                     "title":"Improved Performance over Traditional Blockchains",
@@ -324,6 +439,7 @@ module.exports = {
             },
             {
                 "id":"1",
+                "path":"purewallet/",
                 "name":"#[b.bolder Pure] #[span Wallet]",
                 "desc":{
                     "title":"Offline Transaction",
@@ -354,6 +470,7 @@ module.exports = {
             },
             {
                 "id":2,
+                "path":"purecontract/",
                 "name":"#[b.bolder Pure] #[span Contract]",
                 "desc":{
                     "title":"Standard Electronic Contract System Based on Blockchain",
@@ -380,6 +497,7 @@ module.exports = {
             },
             {
                 "id":"3",
+                "path":"purecertificate/",
                 "name":"#[b.bolder Pure] #[span Certificate]",
                 "desc":{
                     "title":"Robust Originality Guarantee Based on 3 Technologies",
@@ -402,6 +520,7 @@ module.exports = {
             },
             {
                 "id":"4",
+                "path":"purevoting/",
                 "name":"#[b.bolder Pure] #[span Voting]",
                 "desc":{
                     "title":"Secure Data Management",
@@ -424,6 +543,7 @@ module.exports = {
             },
             {
                 "id":"5",
+                "path":"puremedia/",
                 "name":"#[b.bolder Pure] #[span Media]",
                 "desc":{
                     "title":"Copyright Checks Using Metadata",
@@ -446,6 +566,7 @@ module.exports = {
             },
             {
                 "id":"6",
+                "path":"purerx/",
                 "name":"#[b.bolder Pure] #[span RX]",
                 "desc":{
                     "title":"An NFT-Prescription Management for Efficient and Secure Healthcare System",
@@ -468,6 +589,7 @@ module.exports = {
             },
             {
                 "id":"7",
+                "path":"pureboms/",
                 "name":"#[b.bolder Pure] #[span BOMS]",
                 "desc":{
                     "title":"Blockchain-enabled Organ #[br]Matching System",

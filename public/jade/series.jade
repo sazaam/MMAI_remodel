@@ -169,7 +169,7 @@ block content
 			
 			+log(series)
 			
-			.relative.context.purelightestblueBG.pt-12.paneltoggle.pureline
+			#seriesdescribe.relative.context.purelightestblueBG.pt-12.paneltoggle.pureline
 				section.mx-auto.left-0.right-0.section-margin(class='md:!px-2 2xl:!px-5')
 					.px-4.p-11(class='md:pt-16 md:p5 md:rounded-xl 2xl:rounded-3xl')
 						.container.mx-auto.flex.flex-col
@@ -185,7 +185,7 @@ block content
 										- for(let i = 0 ; i < series.length ; i++) {
 											li.flex-none.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
 												.flex.bg-transparent.border-b-2.border-transparent.items-center
-													a.togglerBG.rounded-2xl.Hpad.block.box-content(class='md:text-4xs 4md:text-xs xl:text-sm' + (i == 0 ? ' pureblueBG white': ''))
+													a.seriestoggler.togglerBG.rounded-2xl.Hpad.block.box-content(href="#/series/" + series[i].path, class='md:text-4xs 4md:text-xs xl:text-sm' + (i == 0 ? ' pureblueBG white': ''))
 														!= render('| ' + series[i].name)
 												.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
 										- }

@@ -90,6 +90,11 @@ MMAI.home.getScrollPageIndex = function() {
 	return n ;
 }
 
+var getdepth = function(path){
+	var l = (path.match(/\//mg) || []).length ;
+	return l ;
+}
+
 MMAI.home.scroll = function(e) {
 	
 	var n = MMAI.home.getScrollPageIndex() ;
@@ -98,10 +103,13 @@ MMAI.home.scroll = function(e) {
 	
 	res = res.depth == 1 ? res : res.parentStep ;
 	if(!!!res) return ;
-	
 	var path = res.children[n].path ;
+	
 	var ch = hier.changer ;
 	var hash = ch.getValue() ;
+	var trimmed = hash.replace('#/', '') ;
+	
+	if(getdepth(trimmed) == getdepth(path) && trimmed != path && getdepth(hier.currentStep.path) == 1) return ;
 	
 	if(path != hier.currentStep.path){
 		ch.setValue('#'+path + '/') ;	
@@ -540,7 +548,16 @@ module.exports = MMAI.func = {
 			e.preventDefault() ;
 			e.stopPropagation() ;
 			var toggler = $(e.currentTarget) ;
-			toggler.data('hide')() ;
+			
+			if(toggler.find('a').hasClass('seriestoggler')){
+				trace('is SeriesToggler')
+				var p = toggler.find('a').attr('href') ;
+				trace(p)
+				var hier = Unique.getInstance().hierarchy ;
+				hier.changer.setValue(p) ;
+			}else{
+				toggler.data('hide')() ;
+			}
 		} 
 		
 		if(cond){
@@ -553,7 +570,7 @@ module.exports = MMAI.func = {
 					var panel = $(panels.get(i)).addClass('togglin-'+(i+1)) ;
 					var BG = $(BGs.get(i)) ;
 					var tog = $(el) ;
-					tog.data('hide', function(){
+					tog.data('hide', function datahide(){
 						trace(panel)
 						panels.addClass('none') ;
 						panel.removeClass('none') ;
@@ -1140,17 +1157,63 @@ module.exports = MMAI.func = {
 				var body = $('body') ; 
 				// var body = $('html') ; 
 				var tt = body.scrollTop() + $(page).position().top ;
-				
-				MMAI.home.scrollTo(tt, .45, function(){
-					res.ready() ;
-				}) ;
-				
+				setTimeout(function(){
+
+					MMAI.home.scrollTo(tt, .45, function(){
+						res.ready() ;
+					}) ;
+					
+				}, 200)
 			}else{
 				
 				res.ready() ;	
 			}
 			
 			
+		}else{
+			//trace('CLOSING SUB', res.id) ;
+			res.ready() ;
+		}
+	},
+	series_children_focus : series_children_focus = function(e){
+		var res = e.target ;
+		if(e.type == "focusIn"){
+			
+			trace(res.id) ;
+			
+			trace('READY') ;
+			
+			res.focusReady() ;
+		}else{
+			
+			res.focusReady() ;
+		}
+	},
+	series_children_toggle : series_children_toggle = function(e){
+		var res = e.target ;
+		
+		if(res.opening){
+			trace('OPENING SERIES SUB', res.id) ;
+			
+			var parent = res.parentStep ;
+			var ind = parent.getIndexOfChild(res) ;
+
+			var page = $('#seriesdescribe') ;
+			var togglers = page.find('.togglerBG') ;
+			
+			var toggler = $(togglers.get(ind)) ;
+			toggler.parent().parent().data('hide')() ;
+			
+			var bodytop = $('body').scrollTop() ; 
+			var pagetop = page.offset().top ;
+			var tt = bodytop + pagetop ;
+
+			setTimeout(function(){
+				MMAI.home.scrollTo(tt, .45, function(){
+					res.ready() ;
+				}) ;
+			}, 200)
+						
 		}else{
 			//trace('CLOSING SUB', res.id) ;
 			res.ready() ;
