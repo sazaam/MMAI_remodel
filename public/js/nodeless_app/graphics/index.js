@@ -570,8 +570,8 @@ module.exports = MMAI.func = {
 					var panel = $(panels.get(i)).addClass('togglin-'+(i+1)) ;
 					var BG = $(BGs.get(i)) ;
 					var tog = $(el) ;
-					tog.data('hide', function datahide(){
-						trace(panel)
+					tog.data('hide', function(){
+						// trace(panel)
 						panels.addClass('none') ;
 						panel.removeClass('none') ;
 						var highlightedClass = BG.prop("tagName") == 'A' ? 'pureblueBG white' : 'purelightestblueBG' ; 
