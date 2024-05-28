@@ -276,18 +276,18 @@ mixin partners()
 
 mixin patents(display)
 	- let papers = [] ;
-	- papers.push({name:'Smart auto mining (SAM) for industrial IoT Blockchain Network'}) ;
-	- papers.push({name:'Blockchain side Implementation : An offline Transaction Architecture'}) ;
-	- papers.push({cat:"International Patent Registration", name:'Blockchain-based Data Sharing Method'}) ;
-	- papers.push({cat:"Patent", name:'Unauthorized UAV Localization'}) ;
-	- papers.push({name:'Intelligent Transportation Systems'}) ;
-	- papers.push({name:'Artificial Intelligence for the Metaverse'}) ;
-	- papers.push({name:'Metaverse Applications and Limitations'}) ;
-	- papers.push({name:'Real-time Recognition Model'}) ;
-	- papers.push({name:'Low-power and Lossy'}) ;
-	- papers.push({name:'Smart Health'}) ;
-	- papers.push({name:'Automatic Modulation Classification'}) ;
-	- papers.push({name:'Accurate LPI Radar Waveform Recognition'}) ;
+	- papers.push({name:'Smart auto mining (SAM) for industrial IoT Blockchain Network', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Blockchain side Implementation : An offline Transaction Architecture', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({cat:"International Patent Registration", name:'Blockchain-based Data Sharing Method', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({cat:"Patent", name:'Unauthorized UAV Localization', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Intelligent Transportation Systems', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Artificial Intelligence for the Metaverse', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Metaverse Applications and Limitations', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Real-time Recognition Model', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Low-power and Lossy', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Smart Health', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Automatic Modulation Classification', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Accurate LPI Radar Waveform Recognition', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
 	
 	.patentszone.flex-wrap.gap-4(class="sm:grid sm:grid-cols-4" + (" " + (display ? "" : "none"))).place-content-between
 		- for(let i = 0 ; i < papers.length ; i ++){
@@ -296,8 +296,8 @@ mixin patents(display)
 					!= papers[i].cat || 'thesis'
 				h6.txtL.sizeLg.bold.pad.place-self-start.purecolor
 					!= papers[i].name
-				a.place-self-end.mx-auto.inlineblock(href="#") 
-					img(src="/img/papers/paper_01.webp" alt="" class="place-self-end")
+				a.place-self-end.mx-auto.inlineblock(href=papers[i].href) 
+					img(src=papers[i].src alt="" class="place-self-end")
 		- }
 
 	
