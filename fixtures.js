@@ -401,8 +401,7 @@ module.exports = {
                 "name":"#[b.bolder Pure] #[span Chain]",
                 "desc":{
                     "title":"Improved Performance over Traditional Blockchains",
-                    "content":"We utilize exclusive technologies to addres blockchain challenges (decentralization, security, scalability, high gas fees) and provide a real-time environment.",
-                    "utilizes":"Exchange Module • Orderbook Primitive • Oracle Module"
+                    "content":"We utilize exclusive technologies to addres blockchain challenges (decentralization, security, scalability, high gas fees) and provide a real-time environment."
                 },
                 "blocks":[
                     {
