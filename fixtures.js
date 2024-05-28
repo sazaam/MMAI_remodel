@@ -465,6 +465,48 @@ module.exports = {
                         "feature":"Introducing lightweight blockchain technology improves cost efficiency and security, and simplifies prescription data management. Adoption of these technologies provides traceability, auditability, and efficient prescription content management."
                     }
                 ]
+            },
+            {
+                "id":"7",
+                "name":"#[b.bolder Pure] #[span BOMS]",
+                "desc":{
+                    "title":"Blockchain-enabled Organ #[br]Matching System",
+                    "content":"Pure BOMS revolutionizes organ transplants through blockchain-enabled organ matching, ensuring immutable and transparent record keeping of donor-beneficiary pairs. #[br] #[br] Transparency and security define the transplant process by ensuring accountability and integrity, with every step recorded on the blockchain, from donor registration to organ matching."
+                },
+                "blocks":[
+                    {
+                        "title":"Blockchain-based systems",
+                        "feature":"Conducts audio similarity checks by extracting unique metadata from audio files and comparing them."
+                    },
+                    {
+                        "title":"Smart Contracts",
+                        "feature":"Integrate matching algorithms and procedures into smart contracts for immutable and transparent management. #[br]Use SolidCheck to validate the security of the smart contracts."
+                    },
+                    {
+                        "title":"Matching Algorithm",
+                        "feature":"Optimal matching is based on donors' and recipients' biological compatibility, considering location, fairness, and registered beneficiaries."
+                    },
+                    {
+                        "title":"Transparency and Traceability",
+                        "feature":"All processes, from registration to transplantation, are recorded on the blockchain for complete traceability, with open-source smart contracts available for public verification."
+                    },
+                    {
+                        "title":"Data Privacy",
+                        "feature":"Use blockchain addresses to ensure participants' privacy while maintaining transparency. The matching algorithm processes plaintext data with an identity-protecting mechanism."
+                    },
+                    {
+                        "title":"Automated Alerts",
+                        "feature":"Automatically send notifications to relevant stakeholders when a suitable match is found."
+                    },
+                    {
+                        "title":"User Interface",
+                        "feature":"Web-based applications facilitate user interaction with blockchain smart contracts, offering a user-friendly interface."
+                    },
+                    {
+                        "title":"Integrating Fairness and #[br]Biological Factors",
+                        "feature":"Matching considering biological factors (blood type, HLA match, age, organ size, etc.). #[br] Double testing increases the probability of successful transplantation."
+                    }
+                ]
             }
         ]
     }`
