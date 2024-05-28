@@ -554,7 +554,7 @@ module.exports = MMAI.func = {
 					var BG = $(BGs.get(i)) ;
 					var tog = $(el) ;
 					tog.data('hide', function(){
-						trace(panel)
+						// trace(panel)
 						panels.addClass('none') ;
 						panel.removeClass('none') ;
 						var highlightedClass = BG.prop("tagName") == 'A' ? 'pureblueBG white' : 'purelightestblueBG' ; 
