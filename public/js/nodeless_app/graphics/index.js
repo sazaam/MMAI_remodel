@@ -204,9 +204,6 @@ module.exports = MMAI.func = {
 		var res = e.target ;
 		
 		
-		trace(res)
-		
-		
 		if(res.opening){
 			var togglein = function(){
 					
@@ -246,8 +243,8 @@ module.exports = MMAI.func = {
 					MMAI.func.toggle_patents(true, res) ;
 					MMAI.func.base_toggle(true, res) ;
 					MMAI.func.wallet_page(true, res) ;
+					MMAI.func.mmaipriceFill(true, res) ;
 					
-
 					if(!MMAI.home.viz3Drunning) {
 						MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
 							
@@ -259,7 +256,6 @@ module.exports = MMAI.func = {
 					}else{
 						MMAI.home.SCI.morphInto(res.name) ;
 					}
-
 				}else{
 					
 					MMAI.func.extra_toggles(true, res) ;
@@ -329,6 +325,7 @@ module.exports = MMAI.func = {
 				MMAI.func.toggle_patents(false, res) ;
 				MMAI.func.base_toggle(false, res) ;
 				MMAI.func.wallet_page(false, res) ;
+				MMAI.func.mmaipriceFill(false, res) ;
 			}else{
 				MMAI.func.extra_toggles(false, res) ;
 			}
@@ -817,6 +814,7 @@ module.exports = MMAI.func = {
 				
 				var a = $(e.currentTarget) ;
 				
+
 				if(a.hasClass('up')){
 					if(sl.cy.index > 0) sl.cy.prev() ;
 				}else{
@@ -833,6 +831,7 @@ module.exports = MMAI.func = {
 				
 				var a = $(e.currentTarget) ;
 				
+				trace('whasssup')
 				/////////////////////////////// UNCOMMENT TO CANCEL LOOP ON CLICK (if there is an active loop)
 				// sl.halt() ;
 				var ind = a.data('index') ;
@@ -875,17 +874,15 @@ module.exports = MMAI.func = {
 						'top':(-((a.height()+5) * n) + 100) + 'px'
 					}) ;
 					
-					
 					if(sl.tw && sl.tw.isPlaying){
 						sl.tw.stop() ;
-						//sl.tw.destroy() ;
 					}
 					
 					var tw ;
 					if(n == 0){
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
-						firstblock.removeClass('purecolor')  ;//.find('.othertextes').show() ;
+						firstblock.removeClass('purecolor')  ;
 						if(other.height() != bh){
 							tw = BJS.create({
 								target:other,
@@ -897,15 +894,14 @@ module.exports = MMAI.func = {
 							}) ;
 								
 						}
-						//firstblock.find('h4').removeClass('sizeR TmarXLg').addClass('sizeXXXLg') ;
-						//firstblock.find('.catchphrase').removeClass('floatL TmarXXXXLg Tpad RmarLg') ;
+						
 						firstblock.find('.othertextes').addClass('Tmar')
-						//firstblock.find('.browseeco a .txt').text('Browse Ecosystem') ;
 						
 					}else{
+
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
-						firstblock.addClass('purecolor') ;//.find('.othertextes').hide() ;
+						firstblock.addClass('purecolor') ;
 						firstblock.find('.othertextes').removeClass('Tmar')
 
 						var partw = [] ;
@@ -923,11 +919,6 @@ module.exports = MMAI.func = {
 							
 						}
 						
-						//firstblock.find('h4').removeClass('sizeXXXLg').addClass('sizeR TmarXLg') ;
-						//firstblock.find('.catchphrase').addClass('floatL TmarXXXXLg Tpad RmarLg') ;
-						//firstblock.find('.browseeco a .txt').text('More') ;
-						
-						
 						var block = $(slides.get(n)) ;
 						block.css({opacity:0}) ;
 						block.removeClass('none') ;
@@ -935,19 +926,19 @@ module.exports = MMAI.func = {
 						partw.push(BJS.create({
 							target:block,
 							from:{
-								opacity:0,
+								"opacity":0,
 								"left::PX":150
 							},
 							to:{
 								"left::PX":0,
-								opacity:100
+								"opacity":100
 							},
 							time:.25,
 							ease:Expo.easeOut
 						})) ;
 						
-						tw = BJS.parallelTweens(partw);
-						tw.play() ;
+						tw = BJS.parallelTweens(partw) ;
+
 					}
 					
 					if(n == 0){
@@ -964,16 +955,12 @@ module.exports = MMAI.func = {
 					
 					sl.tw = tw ;
 					
-					if(n != 0) SCI.morphInto(objId) ;
-					// if(n != 0) SCI.morphInto('*') ;
-					
-					if(tw){
-						tw.play() ;	
-						tw.onComplete = function(){
-							//this.destroy() ;
-						}	
+					if(sl.tw){
+						setTimeout(function(){tw.play()}, 100) ;		
 					} 
 					
+					if(n != 0) SCI.morphInto(objId) ;
+
 					return this ;
 
 				}, el, i)) ;
@@ -1089,6 +1076,27 @@ module.exports = MMAI.func = {
 			MMAI.home.patentsToggle(false) ;
 			toggler.off('click', MMAI.home.patents) ;
 		}
+	},
+	mmaipriceFill: mmaipriceFill = function(cond, res){
+		var price = $('.mmaiprice') ;
+		
+		if(cond && 0){
+			
+			const pricesWs = new WebSocket('wss://ws.coincap.io/prices?assets=mmai') ;
+			pricesWs.onopen = function(e) {
+				alert("[open] Connection established");
+				alert("Sending to server");
+				pricesWs.send("My name is John");
+			};
+			pricesWs.onmessage = function (msg) {
+				console.log(msg.data)
+				trace('Price incoming')
+			}
+			pricesWs.onerror = function(error) {
+				alert(`[error]`);
+			};
+		}
+
 	},
 	////////////////////////// HOME SUB SECTIONS
 	home_children_focus : home_children_focus = function(e){
