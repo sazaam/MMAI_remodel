@@ -1,0 +1,31 @@
+<svg enable-background="new 0 0 180 45" version="1.1" viewBox="0 0 180 45" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="b" x1="-449.6" x2="-449.3" y1="563.1" y2="563.1" gradientTransform="matrix(-6.524 100.2 100.2 6.524 -59343 41398)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#4C7FC0" offset="0"/>
+			<stop stop-color="#263E95" offset="1"/>
+		</linearGradient>
+		<linearGradient id="c" x1="-448.1" x2="-447.8" y1="563.8" y2="563.8" gradientTransform="matrix(83.77 0 0 -83.77 37541 47245)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#4C7FC0" offset="0"/>
+			<stop stop-color="#263E95" offset="1"/>
+		</linearGradient>
+		<linearGradient id="a" x1="-449.4" x2="-449.1" y1="564.3" y2="564.3" gradientTransform="matrix(50.83 64.95 64.95 -50.83 -13804 57893)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#263E95" offset="0"/>
+			<stop stop-color="#4C7FC0" offset="1"/>
+		</linearGradient>
+	</defs>
+	<style type="text/css">.st0{clip-path:url(#SVGID_00000021119644223715974330000018151374638050692795_);fill:url(#SVGID_00000137849696450093493980000004652523192378799508_);}
+	
+		.st1{clip-path:url(#SVGID_00000162335610209197612350000003083781214481113784_);fill:url(#SVGID_00000170279553235570097400000005070486740894919576_);}
+	
+		.st2{clip-path:url(#SVGID_00000165914362231281109110000006062631915980231572_);fill:url(#SVGID_00000183241770539956021560000006463188968320309681_);}
+	.st3{fill:#1A0B08;}</style>
+	<path d="m18.57 1.66c-0.67 0-1.339 0.1695-1.939 0.5195l-14.7 8.49c-1.19 0.68-1.93 1.96-1.93 3.34v9.16l9.77-5.699v-0.05078l8.791-5.08 8.789 5.08v-11.28l-6.85-3.961c-0.6-0.35-1.27-0.5195-1.93-0.5195z" fill="url(#c)"/>
+	<path d="m9.77 17.48-9.77 5.689v7.82c0 1.38 0.7397 2.66 1.93 3.35l14.7 8.49c1.2 0.69 2.669 0.69 3.869 0l8.08-4.67-9.9-5.57-0.1191 0.07031-8.791-5.08v-10.1z" enable-background="new 0 0 180 45" fill="url(#a)"/>
+	<path d="m27.36 6.131v21.45l-8.68 5.01 9.9 5.57 6.619-3.82c1.2-0.69 1.932-1.97 1.932-3.35v-16.98c0-1.38-0.7416-2.66-1.932-3.35l-7.84-4.529z" enable-background="new 0 0 180 45" fill="url(#b)"/>
+	<g>
+		<path class="st3" d="M76.2,8.82L65.84,21.95L55.56,8.82h-8.72l7.7,9.89l10.91,13.37h0.39l10.91-13.37v17.48h7.94V8.82H76.2z    M46.84,36.18h7.7V18.71h-7.7V36.18z" enable-background="new 0 0 180 45"/>
+		<path class="st3" d="M120.45,8.82L110.1,21.95L99.81,8.82h-8.72l7.7,9.89l10.91,13.37h0.39L121,18.71v17.48h7.94V8.82H120.45z    M91.09,36.18h7.7V18.71h-7.7V36.18z" enable-background="new 0 0 180 45"/>
+		<polygon class="st3" points="154.9 8.82 146.1 8.82 132 36.18 140.4 36.18 150.4 15.58 160.5 36.18 169 36.18" enable-background="new 0 0 180 45"/>
+		<path class="st3" d="m172 8.82v27.37h7.98v-27.37h-7.98z" enable-background="new 0 0 180 45"/>
+	</g>
+</svg>

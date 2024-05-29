@@ -259,6 +259,22 @@ module.exports = {
             },
             {
                 "id": "5",
+                "name": "MMAI",
+                "path": "mmai/",
+                "page": {
+                    "id": "5",
+                    "template": {
+                        "id": "2",
+                        "name": "top",
+                        "behavior": {
+                            "@focus": "top_section_focus",
+                            "@toggle": "top_section_toggle"
+                        }
+                    }
+                }
+            },
+            {
+                "id": "6",
                 "name": "faq",
                 "path": "faq/",
                 "data": {
@@ -277,7 +293,7 @@ module.exports = {
                 }
             },
             {
-                "id": "6",
+                "id": "7",
                 "name": "legal",
                 "path": "legal/",
                 "data": {
@@ -296,7 +312,7 @@ module.exports = {
                 }
             },
             {
-                "id": "7",
+                "id": "8",
                 "name": "research",
                 "path": "research/",
                 "data": {

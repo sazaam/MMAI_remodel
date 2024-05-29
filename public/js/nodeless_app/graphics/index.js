@@ -204,7 +204,7 @@ module.exports = MMAI.func = {
 		var res = e.target ;
 		
 		
-		
+		trace(res)
 		
 		
 		if(res.opening){

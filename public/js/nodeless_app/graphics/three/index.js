@@ -373,7 +373,7 @@ var viz3D = {
 							}
 							
 							var firstcommand ;
-							var firstname = res.name!='home' ? res.name : 'chain' ;
+							var firstname = res.name!='home' ? res.name == "MMAI" ? "certificates" : res.name : 'chain' ;
 							var found = 0 ;
 
 							let retrieveCommandByName = function(name){
@@ -393,6 +393,7 @@ var viz3D = {
 							SCI.morphIndex = firstname ;
 								
 							SCI.morphInto = function(name){
+								if(name == "MMAI") name = "certificates" ;
 								if(!locations[name]){
 									firstcommand = retrieveCommandByName(name) ;
 									let firstcq = new CommandQueue() ;
@@ -486,6 +487,7 @@ var viz3D = {
 
 							firstcq.bind('$', MMAI.home.delegMorph = MMAI.home.delegMorph || function(){
 								
+								
 								SCI.getRandomName = SCI.getRandomName || function(curname){
 									let str ;
 									
@@ -499,6 +501,7 @@ var viz3D = {
 								let position = new THREE.Vector3() ;
 								const matrix = new THREE.Matrix4() ;
 								const vecs = [] ;
+								
 								
 								// const randoms = [] ;
 								
