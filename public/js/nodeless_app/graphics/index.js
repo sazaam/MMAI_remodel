@@ -896,9 +896,11 @@ module.exports = MMAI.func = {
 						}
 						
 						firstblock.find('.othertextes').addClass('Tmar')
-						
+						$('.seriesmain').show() ;
+						$('.browseeco').show() ;
 					}else{
-
+						$('.seriesmain').hide() ;
+						$('.browseeco').hide() ;
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
 						firstblock.addClass('purecolor') ;

@@ -1,6 +1,6 @@
 
 - let wallets = [] ;
-- wallets.push({title:"#[span.pureblue Effortless] Transactions,#[br]  Powerful #[span.pureblue Security]", desc:"#[b PureWallet] #[b.pureblue simplifies] managing your crypto assets.#[br] #[b.pureblue Enjoy:] #[br]#[b.pureblue Faster Transactions] : Experience #[b.pureblue lightning-fast] transactions powered by our #[b.pureblue exclusive blockchain] technology, #[b.pureblue reducing] waiting #[b.pureblue times] and transaction #[b.pureblue fees].#[br]#[b.pureblue Enhanced Security] : PureWallet #[b.pureblue prioritizes security] with advanced features to #[b.pureblue keep your crypto safe].#[br]#[b.pureblue Versatility] : Whether it is #[b.pureblue micropayments, bulk transactions], or everyday #[b.pureblue purchases], #[b PureWallet] handles it all #[b.pureblue seamlessly]."}) ;
+- wallets.push({title:"#[span.pureblue Effortless] Transactions,#[br]  Powerful #[span.pureblue Security]", desc:"#[b PureWallet] #[b.pureblue simplifies] managing your crypto assets.#[b.pureblue Enjoy:] #[br]#[b.pureblue Faster Transactions] : Experience #[b.pureblue lightning-fast] transactions powered by our #[b.pureblue exclusive blockchain] technology, #[b.pureblue reducing] waiting #[b.pureblue times] and transaction #[b.pureblue fees].#[br]#[b.pureblue Enhanced Security] : PureWallet #[b.pureblue prioritizes security] with advanced features to #[b.pureblue keep your crypto safe].#[br]#[b.pureblue Versatility] : Whether it is #[b.pureblue micropayments, bulk transactions], or everyday #[b.pureblue purchases], #[b PureWallet] handles it all #[b.pureblue seamlessly]."}) ;
 - wallets.push({title:"#[span.pureblue Offline] Mobile #[br] Electronic #[span.pureblue Wallet]", desc:"Enables #[b.pureblue access] to #[b.pureblue modern financial services]#[br]even in #[b.pureblue limited infrastructure environments]. #[br]#[br] Economically empowers emerging countries #[br] through #[b.pureblue offline banking] functions, #[br] providing the opportunity #[br] to gracefully enter the #[b.pureblue global digital economy]."}) ;
 - wallets.push({title:"Hardware-Free #[br]#[span.pureblue Cold Storage] ", desc:"Pure Wallet provides an #[b.pureblue Offline Token-based]#[br]rather than the commonly used Hardware-based #[b.pureblue Cold Storage] method.#[br] #[br] Generally hard-wallets need#[br] hardware in order to #[b.pureblue get crypto] #[br]in the physical world.#[br]But this #[b.pureblue Cold Storage] allows it #[br] #[b.pureblue without need for any hardware]."}) ;
 - let l = wallets.length ;
@@ -37,53 +37,29 @@
 		- for(i = 0 ; i < l ; i++){
 			.relative.slide.abs.fullW.fullH.grid.grid-cols-1.content-center(style="left:"+ i*100 +"%")
 				- let wally = wallets[i] ;
-				- if(i % 2 == 0){
-					section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
-						.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
-							.phonetextblock.relative.pt-0(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
-								.px-8.pt-8.pb-4
-									.txtR.darker.sizeLg
-										h2.text-start.sizeXXXXLg.bold.mt-0.mb-6.min-w-max.leading-tight
-											!= render('| ' + wally.title) 
-										hr.mb-6
-										.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
-											.mt-2
-												p.mt-2.txtL.text-md
-													!= render('| ' + wally.desc) 
-													
-								.txtR.HmarLg
-									+consolebutton('Discover More', '#/wallet/')
-							.phoneshot.pt-16(class="w-full sm:pt-0 sm:w-2/5")
-								.p-8
-									.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
-										.rel.left-10
-											+pureseries_SVG('wallet')
-										img.mt-10.object-fill(src="/img/wallet/phone_screen_0"+ (i + 1) +".png", alt="")
-				- } else {
-					section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
-						.flex.flex-wrap.flex-col.gap-y-4.flex-col(class="sm:flex-row")
-							
-							.phoneshot.pt-16(class="w-full sm:w-2/5 sm:pt-0")
-								.p-8
-									.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
-										.rel.left-10
-											+pureseries_SVG('wallet')
-										
-										img.mt-10.object-fill(src="/img/wallet/phone_screen_0"+ (i + 1) +".png", alt="")
-							.phonetextblock.relative.pt-0(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
-								
-								.px-8.pt-8.pb-4
-									.txtR.darker.sizeLg
-										h2.txtL.sizeXXXXLg.bold.mt-0.mb-6.min-w-max.leading-tight
-											!= render('| ' + wally.title) 
-										hr.mb-6
-										.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
-											.mt-2
-												p.mt-2.txtR.text-md
-													!= render('| ' + wally.desc) 
-								.txtR.HmarLg
-									+consolebutton('Discover More', '#/wallet/')
-				- }
+				
+				section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
+					.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
+						.phonetextblock.relative.pt-0.zi3(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
+							.px-8.pt-8.pb-4
+								.txtR.darker.sizeLg.whitetranspplusBG
+									h2.text-start.text-2xl.bold.mt-0.mb-6.min-w-max.leading-tight(class="sm:text-4xl")
+										!= render('| ' + wally.title) 
+									hr.mb-6
+									.mt-0.max-w-fit(class='md:mt-0 2xl:mt-0')
+										.mt-2
+											p.mt-2.txtL.text-xs(class="sm:text-md")
+												!= render('| ' + wally.desc) 
+												
+							.txtR.HmarLg
+								+consolebutton('Discover More', '#/wallet/')
+						.phoneshot.pt-16.relative(class="w-full sm:pt-0 sm:w-2/5 sm:static" style="top:"+ (i==0 ? 120 : 80) +"px")
+							.p-8
+								.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
+									.rel.left-10
+										+pureseries_SVG('wallet')
+									img.mt-10.object-fill(src="/img/wallet/phone_screen_0"+ (i + 1) +".png", alt="")
+				
 				
 		- }
 									

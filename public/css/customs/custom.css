@@ -268,6 +268,11 @@ html{min-height:2450px}
     background:rgba(255,255,255,.45);
 }
 
+.whitetranspplusBG{
+    background:rgba(255,255,255,.7);
+}
+
+
 .puretranspBG{
     background:rgba(221,230,255,.7) ;
 }

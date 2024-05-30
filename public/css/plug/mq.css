@@ -85,11 +85,14 @@
 	.global_home{
     margin-left:0px !important;
     margin-right:15px !important;
-    width:145px !important;
-    background-image:url(./skin/MMAINSLAB_small.png) !important;
+    width:50px !important;
+    overflow:hidden;
   }
   
-  
+  .floatingseries{
+    top:0 !important;
+  }
+
   .language{
     position: absolute !important;
     right: 0 !important;

@@ -4,7 +4,7 @@
 	
 	.introseries
 		.page
-			.abs.top0.left0.txtL(style="margin-top:90px;margin-left:20px") 
+			.abs.top0.left0.txtL.seriesmain(style="margin-top:90px;margin-left:20px") 
 				h4.montserrat.bolder.sizeXXXLg.lh1.black.LmarXXLg The Ecosystem
 			.prev.abs(style="top:95px;z-index: 50;").txtC.right0.RmarXXXLg
 				+smallbutton('Previous', '#/home/purewallet/')
@@ -24,7 +24,7 @@
 				- let ls = series.length ;
 
 				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg.pureblue(style="width:350px;top:130px;z-index:301")
-					.none.abs.right0.top0.rounded-md.purecolorBG.HpadSm.VpadXSm(style="top:-40px" class="!sm:block")
+					//- .abs.right0.top0.rounded-md.purecolorBG.HpadSm.VpadXSm(style="top:-40px" class="!sm:block")
 						a.up.rel.zi3(style="" href="javascript:void(0)") 
 							+arrow_dotted_up()
 						a.down.rel.zi3.TmarSm.white(style="bottom:0" href="javascript:void(0)") 
@@ -49,7 +49,7 @@
 										+arrow_dotted_right()
 						- }
 				
-				.slides.dark
+				.slides.dark.fullW.fullH.rel(style="z-index:300")
 					.slide.textes.abs(style="bottom:80px;left:45px;margin-right:20px;width:350px;z-index:300")
 						.rounded-3xl.p-6.pb-0.txtL
 							.catchphrase.sizeSm(class="sm:sizeR")
@@ -66,7 +66,7 @@
 						.none.slide.textes.abs.fullH.fullW.left0.right0(id="slide_"+series[i].name style="opacity:0;left:0px")
 							.abs.left0.right0.top0(style="bottom:220px;")
 								.rel.fullH.fullW.grid.content-end.place-items-end.noselect
-									.rel.dark.txtL.pureline.whitetranspBG.p-10.zi3(style="width:60%;min-width:450px;border-width:1px 0")
+									.rel.dark.txtL.pureline.whitetranspplusBG.p-10.zi3(style="width:60%;min-width:450px;border-width:1px 0")
 										.catchphrase.sizeXSm(class="sm:sizeR")
 											h4.montserrat.sizeXXXLg.lh1.black(style="height:35px")
 												+pureseries_SVG(serie.name.toLowerCase())
@@ -79,5 +79,5 @@
 											.Tmar.txtR.Rmar0.sizeSm.rel(style="margin-right:-25px")
 												- let cake = "#/series/pure", cake2 = "#/home/pure" ;
 												- let oops = serie.name.toLowerCase() ;
-												+smallbutton("More", (oops == 'world' ? cake2 : cake ) + serie.name.toLowerCase() +'/')
+												+smallbutton("More", (oops == 'world' ? cake2 : cake ) + serie.name.toLowerCase() +'/', null, null, 'serieslink')
 					- }
