@@ -105,7 +105,9 @@
 @media screen and (max-width: 784px)
 {
 	
-  
+  .hideOnSmart{
+    display:none !important;
+}
   
   
   .downloadwallet{

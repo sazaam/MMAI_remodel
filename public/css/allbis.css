@@ -3617,6 +3617,10 @@ top
 
 @media screen and (max-width: 784px)
 {
+  .hideOnSmart{
+    display:none !important;
+  }
+
   .downloadwallet{
     top:48px !important;
     z-index:300;
@@ -4774,6 +4778,10 @@ html{
   .xl\:\!w-24 {
     width: 6rem !important;
   }
+}
+
+.indent .narr{
+  display:none !important ;
 }
 
 /*

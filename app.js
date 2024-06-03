@@ -99,7 +99,7 @@ const app = express();
     // FIRST SETTINGS
 
     // internationalization before view engine // Needed for Routing
-    //app.use(i18.enable()); 
+    // app.use(i18.enable()); 
 
     // view engine setup to jade
     app.set('views', path.join(__dirname, 'public', 'jade'));
