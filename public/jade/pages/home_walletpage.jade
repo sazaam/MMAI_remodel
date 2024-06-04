@@ -7,17 +7,13 @@
 
 
 
-
-
-
-
-
 .page.rel.fullH.txtC.slides.purewallet
+
 	.prev.abs(style="top:95px;z-index: 50;").txtC.right0
 		+smallbutton('Previous', '#/home/purechain/', null, null, 'hideOnSmart')
 	.next.abs(style="bottom:25px;z-index: 50;").txtC.left0.right0
 		+smallbutton('Continue', '#/home/pureseries/', null, null, 'hideOnSmart')
-	.slidenav.abs(style="bottom:0px; z-index: 50;left: auto;right: 20px;").txtC.left0.right0
+	//- .slidenav.abs(style="bottom:0px; z-index: 50;left: auto;right: 20px;").txtC.left0.right0
 		ol.context.inlineblock.marginauto.widthauto.pureblue
 			- for(i = 0 ; i < l ; i++){
 				li.floatL.sizeXXXLg.HpadXXXSm
@@ -32,16 +28,19 @@
 			+arrow_dotted_left('left', false)
 	.test.abs.top0.left0.purecolor(style="height:45px;margin-top:80px")
 		+pureseries_SVG('wallet')
-	.slides.rel.fullW.fullH(style="left:0%")
-		
+	.slides.flex.flex-row.flex-nowrap.rel(style="left:0%;width:300%")
 		- for(i = 0 ; i < l ; i++){
-			.relative.slide.abs.fullW.fullH.grid.grid-cols-1.content-center(style="left:"+ i*100 +"%")
+			.slide.grid.grid-cols-1.items-end(style="width:100%")
 				- let wally = wallets[i] ;
-				
-				section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
-					.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
-						.phonetextblock.relative.pt-0.zi3(style="top:-300px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
-							.px-8.pt-8.pb-4
+				section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24").fullW
+					.flex.flex-col.gap-y-4(class="sm:flex-row")
+						.phoneshot.pt-16.relative(class="w-full sm:pt-0 sm:w-2/5 sm:static")
+							.pt-8.px-8
+								.my-0.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
+									//- img.object-fill(src="/img/wallet/phone_screen_01.png", alt="")
+									img.mt-10.object-fill(src="/img/wallet/phone_screen_0"+ (i + 1) +".png", alt="")
+						.phonetextblock.relative.pt-0.zi3(class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
+							.px-8.pb-4
 								.txtR.darker.sizeLg.whitetranspplusBG
 									h2.text-start.text-2xl.bold.mt-0.mb-6.min-w-max.leading-tight(class="sm:text-4xl")
 										!= render('| ' + wally.title) 
@@ -53,14 +52,7 @@
 												
 							.txtR.HmarLg
 								+consolebutton('Discover More', '#/wallet/')
-						.phoneshot.pt-16.relative(class="w-full sm:pt-0 sm:w-2/5 sm:static" style="top:"+ (i==0 ? 120 : 80) +"px")
-							.p-8
-								.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
-									.rel.left-10
-										+pureseries_SVG('wallet')
-									img.mt-10.object-fill(src="/img/wallet/phone_screen_0"+ (i + 1) +".png", alt="")
-				
-				
+						
 		- }
 									
 									
