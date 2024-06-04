@@ -13,7 +13,7 @@
 		+smallbutton('Previous', '#/home/purechain/', null, null, 'hideOnSmart')
 	.next.abs(style="bottom:25px;z-index: 50;").txtC.left0.right0
 		+smallbutton('Continue', '#/home/pureseries/', null, null, 'hideOnSmart')
-	//- .slidenav.abs(style="bottom:0px; z-index: 50;left: auto;right: 20px;").txtC.left0.right0
+	.slidenav.abs.nonez(style="bottom:0px; z-index: 50;left: auto;right: 20px;" class="sm:block").txtC.left0.right0
 		ol.context.inlineblock.marginauto.widthauto.pureblue
 			- for(i = 0 ; i < l ; i++){
 				li.floatL.sizeXXXLg.HpadXXXSm
@@ -21,10 +21,9 @@
 			- }
 	
 	.abs.arrows.fullW.fullH
-		a.abs.zi3.arrowright.w-8.h-12.top50.black.right0(href="javascript:void(0)" style="margin-top:-10px;margin-right:-15px") 
+		a.abs.zi3.arrowright.w-8.h-12.top50.pureblue.right0(href="javascript:void(0)" style="margin-top:-10px;margin-right:-15px") 
 			+arrow_dotted_right('right', false)
-					
-		a.abs.zi3.arrowleft.w-8.h-12.top50.foggy.left0(href="javascript:void(0)" style="margin-top:-10px;margin-left:-15px") 
+		a.abs.zi3.arrowleft.w-8.h-12.top50.purestblue.left0(href="javascript:void(0)" style="margin-top:-10px;margin-left:-15px") 
 			+arrow_dotted_left('left', false)
 	.test.abs.top0.left0.purecolor(style="height:45px;margin-top:80px")
 		+pureseries_SVG('wallet')
@@ -33,11 +32,10 @@
 			.slide.grid.grid-cols-1.items-end(style="width:100%")
 				- let wally = wallets[i] ;
 				section.mx-auto.left-0.right-0.container.py-0(class="sm:py-24").fullW
-					.flex.flex-col.gap-y-4(class="sm:flex-row")
+					.flex.flex-col.gap-y-4.items-end(class="sm:flex-row")
 						.phoneshot.pt-16.relative(class="w-full sm:pt-0 sm:w-2/5 sm:static")
 							.pt-8.px-8
 								.my-0.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
-									//- img.object-fill(src="/img/wallet/phone_screen_01.png", alt="")
 									img.mt-10.object-fill(src="/img/wallet/phone_screen_0"+ (i + 1) +".png", alt="")
 						.phonetextblock.relative.pt-0.zi3(class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
 							.px-8.pb-4

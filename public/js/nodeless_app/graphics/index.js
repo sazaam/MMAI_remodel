@@ -677,22 +677,23 @@ module.exports = MMAI.func = {
 					a.addClass('walletcolor') ;
 					
 					if(n == 0){
-						prev.removeClass('black').addClass('foggy') ;
+						prev.removeClass('pureblue').addClass('purestblue') ;
 					}else{
-						prev.addClass('black').removeClass('foggy') ;
+						prev.addClass('pureblue').removeClass('purestblue') ;
 					}
 					if(n == slides.length - 1){
-						next.removeClass('black').addClass('foggy') ;
+						next.removeClass('pureblue').addClass('purestblue') ;
 					}else{
-						next.addClass('black').removeClass('foggy') ;
+						next.addClass('pureblue').removeClass('purestblue') ;
 					}
 					
-					var tw = MMAI.home.walletslideTW ;
+					/* var tw = MMAI.home.walletslideTW ;
 					if(tw && tw.isPLaying) tw.stop() ;
-					
+					 */
 					var xxx = -100 * a.data('index') ;
-					
-					tw = MMAI.home.walletslideTW = BJS.create({
+					trace(slideshow)
+					slideshow.css({'left':xxx+'%'})
+					/* tw = MMAI.home.walletslideTW = BJS.create({
 						target: slideshow,
 						to:{
 							'left::%': xxx
@@ -701,7 +702,7 @@ module.exports = MMAI.func = {
 						ease:Expo.easeOut
 					})
 					
-					tw.play() ;
+					tw.play() ; */
 					return this ;
 
 				}, el, i))
