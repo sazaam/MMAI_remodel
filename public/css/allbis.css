@@ -4634,7 +4634,7 @@ html{
 }
 
 .arr, .arr.right{
-  /* transform: rotate(0deg); */
+  transform: rotate(0deg);
 }
 
 .left .arr, .arr.left{
