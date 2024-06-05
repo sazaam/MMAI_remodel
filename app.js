@@ -86,7 +86,7 @@ const server = require('./server');
 
 
 
-
+// console.log(NODE_ENV)
 
 
 // STARTING EXPRESS

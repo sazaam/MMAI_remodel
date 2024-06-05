@@ -222,10 +222,10 @@ module.exports = MMAI.func = {
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 
 				//////////////////////////////////////// LAZY LOADINGS IF REQUIRED
-				if(!res.userData.lazyLoaded){
+				/* if(!res.userData.lazyLoaded){
 					lazyload(e, true) ;
 					res.userData.lazyLoaded = true ;
-				}
+				} */
 				//////////////////////////////////////// END LAZY LOADINGS IF REQUIRED
 
 
@@ -233,12 +233,10 @@ module.exports = MMAI.func = {
 				
 				
 				//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
-
-
+				// return res.ready() ;
+				res.ready() ;	
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 				if(!res.sectionData.hidefrommenu){
-
-
 					MMAI.func.various_toggles(true, res) ;
 					MMAI.func.toggle_patents(true, res) ;
 					MMAI.func.base_toggle(true, res) ;
@@ -267,7 +265,7 @@ module.exports = MMAI.func = {
 				//////////////////////// FIRE READY EVENT
 				// if(!top){
 					// trace("RESREADY Top=0")
-				res.ready() ;	
+				
 				// }
 			}
 			
