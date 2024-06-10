@@ -20,6 +20,28 @@ require('../events/index.js', {
 }) ;
 
 
+
+var enableAs = function(){
+	var as = $('a') ;
+	as.each(function(i, el){
+		var a = $(el) ;
+		// trace(a, a.attr('href')) ;
+		var href = a.attr('href') ;
+		var tg = a.attr('target') ;
+		var loc = "en" ;
+		if(tg !='_blank' && !/^#/.test(href)){
+			if(/^javascript/.test(href)) return ;
+			// trace('yes', href)
+			a.attr('href', href.replace(/^\//, '#/'+loc+'/'))
+			// trace('new', a.attr('href')) ;
+		}
+	})
+
+} ;
+
+
+//enableAs() ;
+
 // retrieve lang from document 
 window.lang = $('html').attr('lang') ;
 
@@ -205,6 +227,12 @@ module.exports = MMAI.func = {
 		
 		
 		if(res.opening){
+
+			if(!res.userData.asEnabled){
+				enableAs() ;
+				res.userData.asEnabled = true ;
+			}
+
 			var togglein = function(){
 					
 				////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
@@ -233,7 +261,6 @@ module.exports = MMAI.func = {
 				
 				
 				//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
-				// return res.ready() ;
 				res.ready() ;	
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 				if(!res.sectionData.hidefrommenu){
@@ -387,6 +414,15 @@ module.exports = MMAI.func = {
 		
 		if(res.opening){
 			
+			
+			if(!res.userData.asEnabled){
+				enableAs() ;
+				res.userData.asEnabled = true ;
+			}
+
+
+
+
 			var togglein = function(){
 				res.ready() ;
 			}

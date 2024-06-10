@@ -83,7 +83,7 @@ const fixtures = require('./fixtures');
 /////////////////// SERVER SETTINGS
 const server = require('./server');
 
-
+console.log(process.env.NODE_ENV) ;
 
 
 // console.log(NODE_ENV)
@@ -391,6 +391,7 @@ let sectionquery = async(req, res) => {
         /*langs:langs,
         lang: req.i18n.language,
         t: req.t,*/
+        lang:"en",
         params: req.params,
         section:section,
         page:page,

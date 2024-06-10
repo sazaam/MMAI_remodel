@@ -17,7 +17,7 @@ app
 	.set('address', {
 		home:isWallet?'wallet' : 'home',
 		base:'undefined' !== typeof __parameters ? __parameters.base : location.protocol + '//' + location.host + location.pathname,
-		useLocale:false,
+		useLocale:true,
 		defaultLocale:document.documentElement.getAttribute('lang')
 }) ;
 
