@@ -4,7 +4,7 @@
 	
 	.introseries
 		.page
-			.abs.top0.left0.txtL.seriesmain(style="margin-top:90px;margin-left:20px") 
+			.abs.top0.left0.txtL.seriesmain(style="margin-top:90px;margin-left:20px")
 				h4.montserrat.bolder.sizeXXXLg.lh1.black.LmarXXLg The Ecosystem
 			.prev.abs(style="top:95px;z-index: 350;").txtC.right0.RmarXXXLg
 				+smallbutton('Previous', '#/home/purewallet/')
@@ -24,11 +24,7 @@
 				- let ls = series.length ;
 
 				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg.pureblue(style="width:350px;top:130px;z-index:301")
-					//- .abs.right0.top0.rounded-md.purecolorBG.HpadSm.VpadXSm(style="top:-40px" class="!sm:block")
-						a.up.rel.zi3(style="" href="javascript:void(0)") 
-							+arrow_dotted_up()
-						a.down.rel.zi3.TmarSm.white(style="bottom:0" href="javascript:void(0)") 
-							+arrow_dotted_down()
+					
 					ol.txtL.pureblue.rel(style="top:100px")
 						li
 							a.indent.black.block.VmarXLg.first.HpadSm.txtL(href="javascript:void(0)" style="padding-bottom:5px;height:25px")
@@ -41,19 +37,13 @@
 										+pureseries_SVG(series[i].name.toLowerCase(), 'floatL')
 									span.flex-grow.fullH.narr
 										+arr('fullH')
-								//- a.serieshome.block.bolder.HpadSm.flex.flex-row.items-center.justify-between(href="javascript:void(0)" style="padding-bottom:5px;height:25px;opacity:" + (.8 - ((i)*.2)) + ";")
-									
-									+pureseries_SVG(series[i].name.toLowerCase(), 'floatL')
-									
-									.flex-grow.w-12
-										+arrow_dotted_right()
 						- }
 				
 				.slides.dark.fullW.fullH.rel(style="z-index:300")
 					.slide.textes.abs(style="bottom:80px;left:45px;margin-right:20px;width:350px;z-index:300")
 						.rounded-3xl.p-6.pb-0.txtL
 							.catchphrase.sizeSm(class="sm:sizeR")
-								h4.montserrat.bolder.sizeXXXLg.lh1.black 
+								h4.montserrat.bolder.sizeXXXLg.lh1.black
 									+pureseries_SVG('series')
 							.othertextes.sizeSm.Tmar.lh1.pureblue.context
 								h3.bold Building the Web3 #[br]Ecosystem You Need
