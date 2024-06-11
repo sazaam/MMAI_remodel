@@ -339,7 +339,8 @@ module.exports = {
                 "children":[
                     {
                         "name":"adress",
-                        "content":"1570 N Batavia St <br />Orange, CA<br />92867"
+                        "content":"1570 N Batavia St <br />Orange, CA<br />92867",
+                        "link":"https://www.google.com/maps/place/1570+N+Batavia+St,+Orange,+CA+92865,+USA/@33.8133542,-117.8654486,17z/data=!3m1!4b1!4m6!3m5!1s0x80dcd7132f0a6335:0x6e67ab10da5663d7!8m2!3d33.8133498!4d-117.8628737!16s%2Fg%2F11c43zsg16?entry=ttu"
                     }
                 ]
             },
@@ -379,7 +380,8 @@ module.exports = {
                     {
                         "name":"patents-and-papers",
                         "content":"Patents and Papers",
-                        "link":"/research/"
+                        "link":"/research/",
+                        "target":"_self"
                     }
                 ]
             },
@@ -389,17 +391,14 @@ module.exports = {
                     {
                         "name":"faq",
                         "content":"FAQ",
-                        "link":"/faq/"
-                    },
-                    {
-                        "name":"support",
-                        "content":"Support",
-                        "link":"/support/"
+                        "link":"/faq/",
+                        "target":"_self"
                     },
                     {
                         "name":"tnc",
                         "content":"Terms and Conditions",
-                        "link":"/legal/"
+                        "link":"/legal/",
+                        "target":"_self"
                     }
                 ]
             }

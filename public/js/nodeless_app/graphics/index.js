@@ -20,6 +20,28 @@ require('../events/index.js', {
 }) ;
 
 
+
+var enableAs = function(){
+	var as = $('a') ;
+	as.each(function(i, el){
+		var a = $(el) ;
+		// trace(a, a.attr('href')) ;
+		var href = a.attr('href') ;
+		var tg = a.attr('target') ;
+		var loc = "en" ;
+		if(tg !='_blank' && !/^#/.test(href)){
+			if(/^javascript/.test(href)) return ;
+			// trace('yes', href)
+			a.attr('href', href.replace(/^\//, '#/'+loc+'/'))
+			// trace('new', a.attr('href')) ;
+		}
+	})
+
+} ;
+
+
+//enableAs() ;
+
 // retrieve lang from document 
 window.lang = $('html').attr('lang') ;
 
@@ -205,6 +227,12 @@ module.exports = MMAI.func = {
 		
 		
 		if(res.opening){
+
+			if(!res.userData.asEnabled){
+				enableAs() ;
+				res.userData.asEnabled = true ;
+			}
+
 			var togglein = function(){
 					
 				////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
@@ -222,10 +250,10 @@ module.exports = MMAI.func = {
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 
 				//////////////////////////////////////// LAZY LOADINGS IF REQUIRED
-				if(!res.userData.lazyLoaded){
+				/* if(!res.userData.lazyLoaded){
 					lazyload(e, true) ;
 					res.userData.lazyLoaded = true ;
-				}
+				} */
 				//////////////////////////////////////// END LAZY LOADINGS IF REQUIRED
 
 
@@ -233,12 +261,9 @@ module.exports = MMAI.func = {
 				
 				
 				//////////////////////////////////////// END VARIOUS TOGGLES IN PAGES
-
-
+				res.ready() ;	
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 				if(!res.sectionData.hidefrommenu){
-
-
 					MMAI.func.various_toggles(true, res) ;
 					MMAI.func.toggle_patents(true, res) ;
 					MMAI.func.base_toggle(true, res) ;
@@ -267,7 +292,7 @@ module.exports = MMAI.func = {
 				//////////////////////// FIRE READY EVENT
 				// if(!top){
 					// trace("RESREADY Top=0")
-				res.ready() ;	
+				
 				// }
 			}
 			
@@ -389,6 +414,15 @@ module.exports = MMAI.func = {
 		
 		if(res.opening){
 			
+			
+			if(!res.userData.asEnabled){
+				enableAs() ;
+				res.userData.asEnabled = true ;
+			}
+
+
+
+
 			var togglein = function(){
 				res.ready() ;
 			}
@@ -677,22 +711,23 @@ module.exports = MMAI.func = {
 					a.addClass('walletcolor') ;
 					
 					if(n == 0){
-						prev.removeClass('black').addClass('foggy') ;
+						prev.removeClass('pureblue').addClass('purestblue') ;
 					}else{
-						prev.addClass('black').removeClass('foggy') ;
+						prev.addClass('pureblue').removeClass('purestblue') ;
 					}
 					if(n == slides.length - 1){
-						next.removeClass('black').addClass('foggy') ;
+						next.removeClass('pureblue').addClass('purestblue') ;
 					}else{
-						next.addClass('black').removeClass('foggy') ;
+						next.addClass('pureblue').removeClass('purestblue') ;
 					}
 					
-					var tw = MMAI.home.walletslideTW ;
+					/* var tw = MMAI.home.walletslideTW ;
 					if(tw && tw.isPLaying) tw.stop() ;
-					
+					 */
 					var xxx = -100 * a.data('index') ;
-					
-					tw = MMAI.home.walletslideTW = BJS.create({
+					trace(slideshow)
+					slideshow.css({'left':xxx+'%'})
+					/* tw = MMAI.home.walletslideTW = BJS.create({
 						target: slideshow,
 						to:{
 							'left::%': xxx
@@ -701,7 +736,7 @@ module.exports = MMAI.func = {
 						ease:Expo.easeOut
 					})
 					
-					tw.play() ;
+					tw.play() ; */
 					return this ;
 
 				}, el, i))

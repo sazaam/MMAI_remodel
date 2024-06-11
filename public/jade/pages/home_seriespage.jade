@@ -7,9 +7,9 @@
 			.abs.top0.left0.txtL.seriesmain(style="margin-top:90px;margin-left:20px")
 				h4.montserrat.bolder.sizeXXXLg.lh1.black.LmarXXLg The Ecosystem
 			.prev.abs(style="top:95px;z-index: 350;").txtC.right0.RmarXXXLg
-				+smallbutton('Previous', '#/home/purewallet/')
+				+smallbutton('Previous', '#/home/purewallet/', null, null, 'hideOnSmart')
 			.next.abs(style="bottom:25px;z-index: 350;").txtC.left0.right0
-				+smallbutton('Continue', '#/home/pureworld/')
+				+smallbutton('Continue', '#/home/pureworld/', null, null, 'hideOnSmart')
 			.eco.abs.flowvisible.top0.bottom0.left0.right0.sizeXXXLg
 				- let series = [] ;
 				- series.push({name:"Chain", title:"Optimizing #[em.purecolor AI-Based Traffic] Handling", desc:"AI technology improves the performance of the blockchain, #[br]optimizing all traffic handling and resolving delays. #[br]Layer 1 pays per task, and Layer 2 handles more complex tasks, #[br]maintaining high integrity at a lower cost."}) ;
@@ -36,7 +36,17 @@
 									span.purecolor.fullH.block.floatL.Rmar
 										+pureseries_SVG(series[i].name.toLowerCase(), 'floatL')
 									span.flex-grow.fullH.narr
+<<<<<<< HEAD
 										+arr('fullH')
+=======
+										+arr('fullH', true)
+								//- a.serieshome.block.bolder.HpadSm.flex.flex-row.items-center.justify-between(href="javascript:void(0)" style="padding-bottom:5px;height:25px;opacity:" + (.8 - ((i)*.2)) + ";")
+									
+									+pureseries_SVG(series[i].name.toLowerCase(), 'floatL')
+									
+									.flex-grow.w-12
+										+arrow_dotted_right()
+>>>>>>> 8b43a1daf9934f2a4a7b46abfb81f1317da032a8
 						- }
 				
 				.slides.dark.fullW.fullH.rel(style="z-index:300")

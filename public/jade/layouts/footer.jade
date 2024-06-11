@@ -7,7 +7,7 @@
 	.foothome.mar(style="height:40px")
 		.home(id= "global_foot_" + 'home', class= "global_foot" + 'home')
 			//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
-			a.block.fullW.fullH(href= '/#/home/')
+			a.block.fullW.fullH(href= '/home/')
 			span.hidden= t('MMAI')
 	
 	.copyright.abs.right0.bottom0 
@@ -26,7 +26,7 @@
 							- for(let j = 0 ; j < l ; j++ ){
 								- let item = head.children[j] ;
 								li
-									a.block(href=('#'+item.link) || "javascript:void(0)", class= item.link ? "" : "unclickable")
+									a.block(href=(''+item.link) || "javascript:void(0)", target=item.target || "_blank"  ,class= item.link ? "" : "unclickable")
 										span !{item.content}
 							- }	
 					- }

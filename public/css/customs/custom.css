@@ -113,6 +113,7 @@ MENU
         position:relative;
         top:150px;
     }
+   
   }
 
 
@@ -179,7 +180,7 @@ html{min-height:2450px}
 
 
 .arr, .arr.right{
-    /* transform: rotate(0deg); */
+    transform: rotate(0deg);
 }
 
 .left .arr, .arr.left{
@@ -291,6 +292,10 @@ html{min-height:2450px}
     }
 }
 
+
+.indent .narr{
+    display:none !important ;
+}
 
 
 /*

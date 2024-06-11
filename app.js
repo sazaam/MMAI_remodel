@@ -83,10 +83,7 @@ const fixtures = require('./fixtures');
 /////////////////// SERVER SETTINGS
 const server = require('./server');
 
-
-
-
-
+// console.log(NODE_ENV)
 
 
 // STARTING EXPRESS
@@ -99,7 +96,7 @@ const app = express();
     // FIRST SETTINGS
 
     // internationalization before view engine // Needed for Routing
-    //app.use(i18.enable()); 
+    // app.use(i18.enable()); 
 
     // view engine setup to jade
     app.set('views', path.join(__dirname, 'public', 'jade'));
@@ -391,6 +388,7 @@ let sectionquery = async(req, res) => {
         /*langs:langs,
         lang: req.i18n.language,
         t: req.t,*/
+        lang:"en",
         params: req.params,
         section:section,
         page:page,
@@ -555,6 +553,40 @@ app.use('/favicon.ico/', async (req, res) => {
 }) ;
 
 */
+
+
+//////////////////////////////////////////////// OTHER SIMPLE SECTIONS
+
+let conventional = async(req, res) =>{
+    console.log('requesting CACA') ;
+    console.log('requesting >> ', req.url) ;
+
+    let tt = JSON.parse(nav_fixtures) ;
+    topsections = cleanup(tt, 'sections') ;
+    // console.log(topsections) ;
+    
+    let ttt = JSON.parse(footnav_fixtures) ;
+    footnavlinks = cleanup(ttt, 'footlinks') ;
+
+    let tttt = JSON.parse(pureseries_fixtures) ;
+    pureseries_content = cleanup(tttt) ;
+
+    await res.render(path.join(__dirname, 'public/jade/MMAI'), jadeparams.merge(jadeparams, {
+        
+        //langs: req.langs,
+        //lang: req.i18n.language,
+        //t: req.t,
+        lang: 'en',
+        topsections: toJSON(topsections),
+        footnavlinks: toJSON(footnavlinks),
+        pureseries_content:toJSON(pureseries_content)
+    })) ;
+} ;
+
+
+app
+    .use(/^\/(MMAI|learn)/, conventional)
+    
 
 
 app.use('/', async(req, res) => {

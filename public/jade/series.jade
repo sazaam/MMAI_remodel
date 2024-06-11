@@ -185,7 +185,7 @@ block content
 										- for(let i = 0 ; i < series.length ; i++) {
 											li.flex-none.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
 												.flex.bg-transparent.border-b-2.border-transparent.items-center
-													a.seriestoggler.togglerBG.rounded-2xl.Hpad.block.box-content(href="#/series/" + series[i].path, class='md:text-4xs 4md:text-xs xl:text-sm' + (i == 0 ? ' pureblueBG white': ''))
+													a.seriestoggler.togglerBG.rounded-2xl.Hpad.block.box-content(href="/series/" + series[i].path, class='md:text-4xs 4md:text-xs xl:text-sm' + (i == 0 ? ' pureblueBG white': ''))
 														!= render('| ' + series[i].name)
 												.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
 										- }
@@ -235,9 +235,6 @@ block content
 																.order-2
 																	span.block.text-2xs.text-center.px-2.py-1.bg-gray-3.capitalize.rounded-2xl.white.Hpad.pureblueBG(class='4md:px-3 4md:py-2')
 																		!= render('| ' + block.nickname || '')
-																//- a(href='https://mito.fi/' target='_blank')
-																	.order-1.w-12.h-12(class='md:w-[34px] md:h-[34px] xl:w-12 xl:h-12')
-																		img(src='https://injective-dotcom-files.s3.us-east-2.amazonaws.com/a8b3ff8a-3366-4d4e-9202-75e539b16017.png')
 														- }
 														span.block.mt-4.font-medium.text-2xl.lh14.txtC
 															!= render('| ' + block.title || '')

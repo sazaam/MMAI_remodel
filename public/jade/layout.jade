@@ -35,6 +35,13 @@ html.fullW.context.whiteBG(lang=lang)
 		//- script(src="//unpkg.com/globe.gl")
 		//- script(src="//unpkg.com/three-globe")
 		
+	script(src="https://www.googletagmanager.com/gtag/js?id=G-2QS95SX0QP")
+	script.
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-2QS95SX0QP');
 	body.abs.all.left0.right0.top0.bottom0.whiteBG(style="overflow-y: scroll;scroll-behavior: smooth;overflow-x:hidden")
 		.universe.fullH
 			include /layouts/topmenu

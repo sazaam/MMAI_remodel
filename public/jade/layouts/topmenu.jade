@@ -23,9 +23,9 @@ header#menu.menu.fixed.top0.left0.fullW
 
 
 			//-  HOME SPECIAL CASE
-			li.floatL.left0.sizeLg.fullH.RmarXXXXLg(id= "global_" + 'home', class= "global_" + 'home' style="width:188px")
+			li.floatL.left0.sizeLg.fullH.RmarXXXXLg(id= "global_" + 'home', class= "global_" + 'home' style="width:208px")
 				//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
-				a.block.fullW.fullH(href= isWallet ? '#/wallet/' : '#/home/purechain/')
+				a.block.fullW.fullH(href= isWallet ? '/wallet/' : '/home/purechain/')
 					//- span.hidden= t('MMAI')
 					.fullH.black.padLg
 						+pureseries_SVG(isWallet ? 'wallet' : 'chain')
@@ -40,7 +40,7 @@ header#menu.menu.fixed.top0.left0.fullW
 				
 				- if(!!!hidemenu){
 					li.others.floatL.rel.LmarSm(id= "global_" + name, class= "global_" + name, style="left:-20px")
-						a.block.Hpad.fullH.inconsolata(href= '#/' + name + '/')
+						a.block.Hpad.fullH.inconsolata(href='/' + name + '/')
 							span.sizeLg= name
 				- }
 		//- LAGUAGE BAR
@@ -55,7 +55,7 @@ header#menu.menu.fixed.top0.left0.fullW
 				a.block.black.padXXSm.Hpad(style="" href="javascript:void(0)")
 					+language() 
 			.download.floatL
-				a.shadow.block.Rmar.TmarXSm.padXSm.HpadXLg.round23.purecolorBG.white(href="#/wallet/")
+				a.shadow.block.Rmar.TmarXSm.padXSm.HpadXLg.round23.purecolorBG.white(href="/wallet/")
 					span DOWNLOAD WALLET
 		+grad('down')
 
