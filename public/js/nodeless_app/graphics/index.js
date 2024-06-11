@@ -21,14 +21,17 @@ require('../events/index.js', {
 
 
 
-var enableAs = function(){
+var enableAs = function(res){
 	var as = $('a') ;
+	trace(res.name)
 	as.each(function(i, el){
 		var a = $(el) ;
 		// trace(a, a.attr('href')) ;
 		var href = a.attr('href') ;
 		var tg = a.attr('target') ;
 		var loc = "en" ;
+		if(a.hasClass('caca'))
+			trace('A', a)
 		if(tg !='_blank' && !/^#/.test(href)){
 			if(/^javascript/.test(href)) return ;
 			// trace('yes', href)
@@ -228,10 +231,7 @@ module.exports = MMAI.func = {
 		
 		if(res.opening){
 
-			if(!res.userData.asEnabled){
-				enableAs() ;
-				res.userData.asEnabled = true ;
-			}
+			
 
 			var togglein = function(){
 					
@@ -246,6 +246,12 @@ module.exports = MMAI.func = {
 				$('#mainloader').addClass('none') ;
 				
 				////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
+
+				
+				if(!res.userData.asEnabled){
+					enableAs(res) ;
+					res.userData.asEnabled = true ;
+				}
 
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 
@@ -311,7 +317,6 @@ module.exports = MMAI.func = {
 					var saz = $('<div>') ;
 					res.template.appendTo(saz) ;
 					res.template = saz.find('.extractable') ;
-					
 					
 					// END HACK	
 					
@@ -415,10 +420,7 @@ module.exports = MMAI.func = {
 		if(res.opening){
 			
 			
-			if(!res.userData.asEnabled){
-				enableAs() ;
-				res.userData.asEnabled = true ;
-			}
+			
 
 
 
@@ -439,7 +441,10 @@ module.exports = MMAI.func = {
 			
 			res.template.prependTo($('.universe')) ; // ADD TEMPLATE
 			
-			
+			if(!res.userData.asEnabled){
+				enableAs(res) ;
+				res.userData.asEnabled = true ;
+			}
 			////////////////////////// END BASE HOME / OTHER SECTIONS VISUAL SETTINGS
 			
 			//////////////////////////////////////////////////////// HOME SCROLL EVENT ADD

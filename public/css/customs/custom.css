@@ -15,6 +15,7 @@ Google Fonts
 @import "tailwindcss/utilities";
 
 
+
 html {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -227,7 +228,8 @@ html{min-height:2450px}
 .purecolorBG{background:#3a6df0}
 .purecolorBD{border-color:#3a6df0}
 
-
+.darkblueBG{background:#2f3955}
+.lightpureBG{background:#fcfcff}
 
 .purelightestblueToBG{
     background: rgb(221,230,255);

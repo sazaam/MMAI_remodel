@@ -4721,6 +4721,14 @@ html{
   border-color:#3a6df0
 }
 
+.darkblueBG{
+  background:#2f3955
+}
+
+.lightpureBG{
+  background:#fcfcff
+}
+
 .purelightestblueToBG{
   background: rgb(221,230,255);
   background: linear-gradient(270deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);

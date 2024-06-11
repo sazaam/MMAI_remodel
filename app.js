@@ -470,6 +470,8 @@ let nav_fixtures = fixtures.nav ;
 
 let pureseries_fixtures = fixtures.pureseries ;
 
+let wallet_advantages_fixtures = fixtures.wallet_advantages ;
+
 let root = async(req, res) => {
     
     //let tt = await QUERY(queries['sections']) ;
@@ -487,6 +489,9 @@ let root = async(req, res) => {
     let tttt = JSON.parse(pureseries_fixtures) ;
     pureseries_content = cleanup(tttt) ;
     
+    let ttttt = JSON.parse(wallet_advantages_fixtures) ;
+    wallet_advantages_content = cleanup(ttttt) ;
+    
     
     await res.render(path.join(__dirname, 'public/jade/index'), jadeparams.merge(jadeparams, {
         
@@ -497,7 +502,8 @@ let root = async(req, res) => {
         lang: 'en',
         topsections: toJSON(topsections),
         footnavlinks: toJSON(footnavlinks),
-        pureseries_content:toJSON(pureseries_content)
+        pureseries_content:toJSON(pureseries_content),
+        wallet_advantages_content:toJSON(wallet_advantages_content)
     })) ;
 
 
@@ -573,6 +579,9 @@ let conventional = async(req, res) =>{
     let tttt = JSON.parse(pureseries_fixtures) ;
     pureseries_content = cleanup(tttt) ;
 
+    let ttttt = JSON.parse(wallet_advantages_fixtures) ;
+    wallet_advantages_content = cleanup(ttttt) ;
+
     await res.render(path.join(__dirname, 'public/jade/MMAI'), jadeparams.merge(jadeparams, {
         
         //langs: req.langs,
@@ -581,7 +590,8 @@ let conventional = async(req, res) =>{
         lang: 'en',
         topsections: toJSON(topsections),
         footnavlinks: toJSON(footnavlinks),
-        pureseries_content:toJSON(pureseries_content)
+        pureseries_content:toJSON(pureseries_content),
+        wallet_advantages_content:toJSON(wallet_advantages_content)
     })) ;
 } ;
 
