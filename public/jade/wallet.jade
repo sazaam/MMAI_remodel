@@ -3,7 +3,7 @@ block content
 	.extractable.fullpage
 		
 		.main-theme.flex.flex-col.bg-main.min-h-full.en(style="margin-top:130px")
-			//- .relative.z-10.pt-24.pb-24(class='sm:pt-8 ')
+			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ').whiteBG
 				section.container.mx-auto.left-0.right-0.section-margin
 					.test.purecolor.rel(style="height:45px;top:-30px")
 						+pureseries_SVG('wallet')
@@ -49,7 +49,7 @@ block content
 							.qr.w-40.h-40.whiteBG.pad.rounded-lg.shadow.purecolor
 								+QRCode_SVG()
 
-			//- .relative.darkblueBG
+			.relative.darkblueBG
 				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
 					.purestblueBG.rounded-2xl.p-12
 						
@@ -70,7 +70,7 @@ block content
 								+explains_SVG(2)
 
 			//- WALLET 3 SLIDES 
-			//- .relative.purestblueBG
+			.relative.purestblueBG
 				section.rel.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
 					.abs.left0.right0.top0.marLg.pad.txtC
 						.test.black.mt-8(style="width:300px;height:25px;" class="sm:mt-20").txtC
@@ -93,7 +93,7 @@ block content
 							.p-8
 								.mt-0.mb-12.pt-10.leading-tight.flex.flex-col.gap-8.mx-auto.place-items-center
 									img.mt-10.object-fill(src="/img/wallet/phone_screen_01.png", alt="")
-			//- .relative.purestblueBG
+			.relative.purestblueBG
 				section.rel.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
 					.abs.left0.top0.marLg
 						+pureseries_SVG('wallet')
@@ -116,7 +116,7 @@ block content
 											| #[br] providing the opportunity 
 											| #[br] to gracefully enter the #[b global digital economy].
 							//- +normalbutton('Download', null, null, null, null, 'download')
-			//- .relative.purestblueBG
+			.relative.purestblueBG
 				section.rel.mx-auto.left-0.right-0.container.py-0(class="sm:py-24")
 					.flex.flex-wrap.flex-col.gap-y-4.flex-col-reverse(class="sm:flex-row")
 						.relative.pt-0(style="top:-230px" class="w-full sm:w-3/5 lg:w-2/5 sm:pt-48 sm:static")
@@ -189,6 +189,7 @@ block content
 			
 			
 			//- BETTER CRYPTO EXPERIENCE
+			
 			//- .relative.purecolorBG.white
 				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-8").rel.basetoggle
 					.text-start.text-5xl.mt-12.min-w-max.leading-tight.thin.txtL(class="w-full")
@@ -220,7 +221,6 @@ block content
 								| the door for increased mainstream 
 								| adoption, #[b.white setting Pure Wallet apart] as both 
 								| an #[b.white innovative platform] and a #[b.white prime investment opportunity].
-			
 			//- .relative.purestblueBG
 				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-8").rel.basetoggle
 					.abs.left0.bottom0.sizeXXXLg.lh1
@@ -251,7 +251,6 @@ block content
 								| #[b.pureblue reliable and instantaneous] crypto payments, and will 
 								| significantly #[b.pureblue expand the use cases] for cryptocurrency in 
 								| everyday transactions and open up new markets.
-			
 			//- .relative.purelightestblueBG
 				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-8").rel.basetoggle
 					.abs.right0.bottom0.sizeXXXLg.lh1
