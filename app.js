@@ -557,6 +557,8 @@ app.use('/favicon.ico/', async (req, res) => {
 
 //////////////////////////////////////////////// OTHER SIMPLE SECTIONS
 
+
+
 let conventional = async(req, res) =>{
     console.log('requesting CACA') ;
     console.log('requesting >> ', req.url) ;
