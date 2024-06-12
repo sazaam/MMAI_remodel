@@ -478,7 +478,7 @@ let root = async(req, res) => {
     let tt = JSON.parse(nav_fixtures) ;
     topsections = cleanup(tt, 'sections') ;
     // console.log(topsections) ;
-    let onlywallet = false ;
+    let onlywallet = true ;
     if(onlywallet){
         topsections = [topsections[1]] ; 
     }
