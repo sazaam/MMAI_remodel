@@ -701,8 +701,24 @@ module.exports = {
     }`,
     wallet_advantages:`{
         "intro":{
-            "title":"Why use #[span.purecolor Purewallet]",
-            "intro":"#[b.bold Experience] the #[b.bold Future of Digital Transactions] with #[b.bold PureWallet]: #[b.bold Inclusive, Secure, and Convenient]."
+            "blocks":[
+                {
+                    "title":"Why use #[span.purecolor Purewallet] ?",
+                    "intro":"#[b.bold Experience] the #[b.bold Future of Digital Transactions] with #[b.bold PureWallet]: #[b.bold Inclusive, Secure, and Convenient]."
+                },
+                {
+                    "title":"#[span.purecolor Low Gas Fees], Efficient Transactions",
+                    "intro":"Pure Wallet reduces gas fees byt optimizing transaction processing through eficient smart contract and transaction management systems."
+                },
+                {
+                    "title":"Trade #[span.purecolor Anywhere], #[br]#[span.purecolor Anytime]",
+                    "intro":"Pure Wallet enhances convenience by enabling transactions even in offline contexts."
+                },
+                {
+                    "title":"Safely transact #[span.purecolor without] the need for #[span.purecolor Hardware]",
+                    "intro":"Enhancing security by enabling cold storage without requiring any hardware."
+                }  
+            ]
         },
         "whys":[
             {

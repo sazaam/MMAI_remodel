@@ -101,7 +101,7 @@ const app = express();
     // view engine setup to jade
     app.set('views', path.join(__dirname, 'public', 'jade'));
     app.set('view engine', 'jade');
-    app.set('view cache', true);
+    app.set('view cache', process.env.NODE_ENV == 'production');
 
     // basic express setup
     app.use(express.json());

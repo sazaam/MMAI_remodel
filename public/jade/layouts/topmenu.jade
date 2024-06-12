@@ -17,7 +17,7 @@ header#menu.menu.fixed.top0.left0.fullW
 
 		- t = function(str){return str} ;
 		//- MAIN NAV SECTION LINKS
-		ol.sectionsnav.flowvisible.fullH.context
+		ol.sectionsnav.flowvisible.fullH.context.black
 			- var other = [].concat(topsections) ;
 			- var home = other.shift() ;
 
@@ -40,7 +40,7 @@ header#menu.menu.fixed.top0.left0.fullW
 				
 				- if(!!!hidemenu){
 					li.others.floatL.rel.LmarSm(id= "global_" + name, class= "global_" + name, style="left:-20px")
-						a.block.Hpad.fullH.inconsolata(href='/' + name + '/')
+						a.block.Hpad.fullH.uppercase(href='/' + name + '/')
 							span.sizeLg= name
 				- }
 		//- LAGUAGE BAR

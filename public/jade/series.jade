@@ -253,14 +253,23 @@ block content
 						- }
 					
 			.relative.context.pureline.TpadXXLg.weirdblueBG
-				section.mx-auto.left-0.right-0.my-24.container.flex.flex-wrap.gap-y-4(class="sm:flex-col-2")
+				section.mx-auto.left-0.right-0.my-24.container.flex.flex-wrap.gap-20(class="sm:flex-col-2")
 					.introtextblock.white.txtL
 						h3.text-5xl.leading-10.bold Getting Started
 						p.TmarLg.sizeLg from ongoing developments to the latest updates #[br]everything about pure
-					.startbuttonsblocks.grow.flex.flex-row.gap-y-8 
-						.rounded-lg.whiteBD.pad
-							p.floatL #[b Pure Wallet] #[br] Blockchain-based mobile wallet system
-							a.whiteBG.black.floatR Discord
+					.startbuttonsblocks.grow.grid.gap-y-4
+						.rounded-lg.whiteBD.border.pad.flex.items-between.fullW.place-content-center
+							p.txtL.white.grow #[b Pure Wallet] #[br] : Blockchain-based mobile wallet system
+							.test
+								+smallbutton('Discord', 'discord.gg/', '_blank', 'whiteBG black')
+						.rounded-lg.whiteBD.border.pad.flex.items-between.fullW.place-content-center
+							p.txtL.white.grow #[b Pure Voting] #[br] : Blockchain-based mobile wallet system that processes offline voting
+							.test
+								+smallbutton('Discord', 'discord.gg/', '_blank', 'whiteBG black')
+						.rounded-lg.whiteBD.border.pad.flex.items-between.fullW.place-content-center
+							p.txtL.white.grow #[b Pure Contract] #[br] : Blockchain-based electronic contract system system
+							.test
+								+smallbutton('Discord', 'discord.gg/', '_blank', 'whiteBG black')
 			
 
 			//- .relative.context.pureline.TpadXXLg
