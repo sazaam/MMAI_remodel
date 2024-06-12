@@ -9,8 +9,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "nodemon app",
-    "build": "nodemon app"
+    "start": "SET NODE_ENV=staging & nodemon app",
+    "build": "SET NODE_ENV=production & nodemon app"
   },
   "dependencies": {
     "axios": "^0.20.0",
