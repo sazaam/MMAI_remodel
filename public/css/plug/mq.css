@@ -98,7 +98,9 @@
     right: 0 !important;
     top: -35px !important;
   }
-  
+  li.others a{
+    font-size:.7em
+  }
 }
 
 

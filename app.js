@@ -101,7 +101,7 @@ const app = express();
     // view engine setup to jade
     app.set('views', path.join(__dirname, 'public', 'jade'));
     app.set('view engine', 'jade');
-    app.set('view cache', process.env.NODE_ENV == 'production');
+    // app.set('view cache', process.env.NODE_ENV == 'production');
 
     // basic express setup
     app.use(express.json());
@@ -391,7 +391,7 @@ let sectionquery = async(req, res) => {
     let page = section.page ;
     let children = section.children ;
     
-    console.log('SECTIONQUERY Im In HERE')
+    // console.log('SECTIONQUERY Im In HERE')
     
     return res.render(path.join(__dirname, 'public/jade/', jadeuri + '.jade'), jadeparams.merge(jadeparams, {
         /*langs:langs,

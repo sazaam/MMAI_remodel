@@ -4,22 +4,25 @@
 .page.rel.fullH.txtC.purechain.black
 	
 	.intro.safe.txtL(style="padding-top:30px")
-		.introblock.sizeXXXLg.TmarXXXLg.TpadXXXLg
-			.test.purecolor.VmarXXXLg(style="height:45px")
+		.introblock.sizeXXXLg.TmarXXXLg.TpadXXXLg.black
+			//- .test.purecolor.VmarXXXLg(style="height:45px")
 				+pureseries_SVG('chain')
-			.textblock.TmarXXXLg.TpadXXXLg.select-none
-				.catchphrase.purecolor
-					h1.text-3xl.lh1.fw7.txtSpace-1(class="sm:text-5xl") AI meets Blockchain #[br]Unleash the power of Freedom #[br]in Web3 World
+			.textblock.TmarXXXLg.TpadXXXLg.txtC
+				.catchphrase
+					h1.text-3xl.lh1.fw7.txtSpace-1(class="sm:text-5xl") AI meets Blockchain #[br]Unleash the power of Freedom #[br]in the Web3 World
 
 				.flex.grid.grid-cols-1.gap-5.place-items-start
-					.sizeSm.TmarXXLg.lh1.w-full.purecolor Using AI to optimize Blockchain technology involves improving #[br]data processing speed, automating and optimizing smart contracts, #[br]and enhancing security.#[br] Machine learning algorithms can analyze #[br]and adjust network performance to increase efficiency.#[br] Additionally, AI plays a crucial role on detecting anomalies and preventing fraud.
+					.sizeSm.TmarXXLg.lh1.w-full Using AI to optimize Blockchain technology involves improving #[br]data processing speed, automating and optimizing smart contracts, #[br]and enhancing security.#[br] Machine learning algorithms can analyze #[br]and adjust network performance to increase efficiency.#[br] Additionally, AI plays a crucial role on detecting anomalies and preventing fraud.
 					//- .none.signup.TmarXXLg.sizeSm.context.w-full
 						h3.sizeLg.bold Get started
 						+signuphome
 					
 					
-					
-					.flex.flex-row.flex-wrap.gap-y-4.gap-x-4.mt-4(class="sm:grid sm:grid-cols-2")
+			section.container.mx-auto.left-0.right-0(style="max-width:600px")
+				.grid.grid-cols-2.gap-12.mt-10.sizeSm.txtC
+					+smallbutton('Start Building', '/series/', '_blank')
+					+smallbutton('Discord', '/series/', '_blank', 'blackBG white')
+					//- .flex.flex-row.flex-wrap.gap-y-4.gap-x-4.mt-4(class="sm:grid sm:grid-cols-2")
 						.flex-none.w-full.txtC
 							+consolebutton('Start Building')
 						.flex-none.w-full.txtC
