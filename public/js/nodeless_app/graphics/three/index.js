@@ -393,7 +393,7 @@ var viz3D = {
 							SCI.morphIndex = firstname ;
 								
 							SCI.morphInto = function(name){
-								if(name == "MMAI") name = "certificates" ;
+								if(name == "MMAI") name = "chain" ;
 								if(!locations[name]){
 									firstcommand = retrieveCommandByName(name) ;
 									let firstcq = new CommandQueue() ;

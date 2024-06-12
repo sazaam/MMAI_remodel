@@ -2,13 +2,12 @@
 - footnavlinks = (footnavlinks.data) ? footnavlinks.data : footnavlinks ;
 +log(footnavlinks) ;
 	
-#foot.black.foot.rel.BpadXXXXLg.whiteBG.none(style="border-top:1px solid #CCC;z-index:300")
+#foot.white.foot.rel.BpadXXXXLg.darkblueBG.none(style="border-top:1px solid #CCC;z-index:300")
 	+grad('up')
 	.foothome.mar(style="height:40px")
 		.home(id= "global_foot_" + 'home', class= "global_foot" + 'home')
-			//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
-			a.block.fullW.fullH(href= '/home/')
-			span.hidden= t('MMAI')
+			a.block.fullW.fullH(href='/home/')
+				span.hidden= t('MMAI')
 	
 	.copyright.abs.right0.bottom0 
 		span.block.foggy.sizeSm.RmarXXXLg.Bmar &copy; MMAI 2023 - 2024

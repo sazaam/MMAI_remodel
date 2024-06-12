@@ -276,16 +276,19 @@ module.exports = MMAI.func = {
 					MMAI.func.wallet_page(true, res) ;
 					MMAI.func.mmaipriceFill(true, res) ;
 					
+					var fixedname = res.name ;
+					if(fixedname == 'build') fixedname = 'learn' ;
+
 					if(!MMAI.home.viz3Drunning) {
 						MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
 							
-							this.morphInto(res.name) ;
+							this.morphInto(fixedname) ;
 							
 						}, [true]) ;
 						MMAI.home.viz3Drunning = true ;
 						$('#mainloader').removeClass('none') ;
 					}else{
-						MMAI.home.SCI.morphInto(res.name) ;
+						MMAI.home.SCI.morphInto(fixedname) ;
 					}
 				}else{
 					

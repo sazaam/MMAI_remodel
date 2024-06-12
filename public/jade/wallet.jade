@@ -2,8 +2,8 @@ extends ./layout
 block content
 	.extractable.fullpage
 		
-		.main-theme.flex.flex-col.bg-main.min-h-full.en(style="margin-top:130px")
-			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ').whiteBG
+		.main-theme.flex.flex-col.bg-main.min-h-full
+			.relative.z-10.pt-24.pb-24(class='sm:pt-8' style="padding-top:130px").whiteBG
 				section.container.mx-auto.left-0.right-0.section-margin
 					.test.purecolor.rel(style="height:45px;top:-30px")
 						+pureseries_SVG('wallet')
@@ -360,7 +360,7 @@ block content
 								- let why = advs[i] ;
 								.flex.flex-row.gap-3.txtL.flex-wrap.place-items-start.items-center.p-4.whiteBG.shadow.rounded-xl.txtC(class='md:gap-x-0 md:flex-col').place-content-between
 									flex.grow-0.shrink-0.aspect-square.w-16.h-16.items-center.justify-center.pureblue
-										+icon_others_SVG('computer')
+										+icons_why_SVG(why.name)
 									.text-lg.leading-tight.capitalize.tracking-tight.purecolor.bold.grow
 										!= render('| ' + why.desc.title)
 									span.block.font-normal.leading-6(class='md:p-y-2 xl:p-y-6').txtJ

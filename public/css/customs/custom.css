@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    font: 400 12px/1.8 "Montserrat", Verdana, sans-serif;
+    font: 400 12px/1.8 "Noto Sans Display", "Montserrat", Verdana, sans-serif;
     color: #666;
     -webkit-font-smoothing: antialiased;
 }
@@ -84,13 +84,13 @@ MENU
 }
 
 .home{
-    background:url(./skin/MMAINSLAB.png) no-repeat 50% 50% ;
-    width:350px;
+    background:url(./skin/MMAINSLAB_white.png) no-repeat 0% 50% ;
+    width:235px;
     height:100%;
 }
 
 .home.global_foothome{
-    width:295px;
+    width:235px;
 }
 
 .menu li.others{
@@ -114,7 +114,9 @@ MENU
         position:relative;
         top:150px;
     }
-   
+    .tokencertik .rounded-xl{
+        margin-left:20px !important;
+    }
   }
 
 
@@ -844,7 +846,8 @@ Responsive Media Querries
 }
 
 .montserrat {
-    font-family: 'montserrat';
+    /* font-family: 'montserrat'; */
+    font-family: "Noto Sans Display";
     /* font-family: 'Roboto', sans-serif; */
 }
 
