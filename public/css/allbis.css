@@ -4725,12 +4725,20 @@ html{
   border-color:#3a6df0
 }
 
+.weirdblueBG{
+  background:#20315f
+}
+
 .darkblueBG{
   background:#2f3955
 }
 
 .lightpureBG{
   background:#fcfcff
+}
+
+.whiteBD{
+  border-color:#FcFcFF;
 }
 
 .purelightestblueToBG{

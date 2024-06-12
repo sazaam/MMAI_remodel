@@ -28,6 +28,7 @@ var enableAs = function(res){
 		var a = $(el) ;
 		// trace(a, a.attr('href')) ;
 		var href = a.attr('href') ;
+		if(!href) return ;
 		var tg = a.attr('target') ;
 		var loc = "en" ;
 		if(a.hasClass('caca'))

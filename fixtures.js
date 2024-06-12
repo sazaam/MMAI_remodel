@@ -355,8 +355,13 @@ module.exports = {
                 "children":[
                     {
                         "name":"adress",
-                        "content":"1570 N Batavia St <br />Orange, CA<br />92867",
+                        "content":"MMAI <br />1570 N Batavia St <br />Orange, CA<br />92867<br /><br />",
                         "link":"https://www.google.com/maps/place/1570+N+Batavia+St,+Orange,+CA+92865,+USA/@33.8133542,-117.8654486,17z/data=!3m1!4b1!4m6!3m5!1s0x80dcd7132f0a6335:0x6e67ab10da5663d7!8m2!3d33.8133498!4d-117.8628737!16s%2Fg%2F11c43zsg16?entry=ttu"
+                    },
+                    {
+                        "name":"adress2",
+                        "content":"NSLAB <br/>806 Industrial Cooperation Building<br />Daehak-ro Gumi-si, Gyeongsangbuk-do<br />Republic of Korea",
+                        "link":"https://www.google.com/maps/place/%EA%B8%88%EC%98%A4%EA%B3%B5%EA%B3%BC%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EB%8B%A8/data=!4m9!1m2!2m1!1s806+Industrial+Cooperation+Building+Daehak-ro+Gumi-si,+Gyeongsangbuk-do+Republic+of+Korea!3m5!1s0x3565c793ca4fd273:0x764235116e3debdc!8m2!3d36.14888!4d128.393543!16s%2Fg%2F11hyygvsks?entry=ttu"
                     }
                 ]
             },
@@ -364,28 +369,48 @@ module.exports = {
                 "name": "Partners",
                 "children":[
                     {
-                        "name":"creativia",
-                        "content":"Creativia",
-                        "link":"#"
-                    },
-                    {
                         "name":"ictc",
                         "content":"ICT Convergence",
                         "link":"#"
                     },
                     {
-                        "name":"researchcenter",
-                        "content":"Research Center",
+                        "name":"lig",
+                        "content":"LIG Nex 1",
                         "link":"#"
                     },
                     {
-                        "name":"nslab",
-                        "content":"NS Lab",
+                        "name":"lg",
+                        "content":"LG U+",
+                        "link":"#"
+                    },
+                    {
+                        "name":"linux",
+                        "content":"Linux Data System",
                         "link":"#"
                     },
                     {
                         "name":"cognitgo",
                         "content":"Cognitgo",
+                        "link":"#"
+                    },
+                    {
+                        "name":"philippinecodingcamp",
+                        "content":"Philippinne Coding Camp",
+                        "link":"#"
+                    },
+                    {
+                        "name":"qualcomm",
+                        "content":"Qualcomm",
+                        "link":"#"
+                    },
+                    {
+                        "name":"ekotek",
+                        "content":"Ekotek",
+                        "link":"#"
+                    },
+                    {
+                        "name":"polynwoke",
+                        "content":"Polynwoke & Co.",
                         "link":"#"
                     }
                 ]
@@ -415,6 +440,18 @@ module.exports = {
                         "content":"Terms and Conditions",
                         "link":"/legal/",
                         "target":"_self"
+                    },
+                    {
+                        "name":"github",
+                        "content":"Github",
+                        "link":"github.com/",
+                        "target":"_blank"
+                    },
+                    {
+                        "name":"discord",
+                        "content":"Discord",
+                        "link":"discord.gg/",
+                        "target":"_blank"
                     }
                 ]
             }

@@ -5,24 +5,21 @@ block content
 				
 			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ')
 				section.container.mx-auto.left-0.right-0.section-margin
-					.test.purecolor(style="height:45px;margin-top:-30px")
+					//- .test.purecolor(style="height:45px;margin-top:-30px")
 						+pureseries_SVG('series')
-					.flex.flex-col.grid-cols-12(class='md:grid')
-						.flex.flex-col.place-items-start.txtL(class='md:col-span-6 4md:col-span-7')
-							h1.black.text-start.text-5xl.mt-24.mb-12.min-w-max.leading-tight
-								| Versatile Blockchain #[br]features
-								
-							.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
-								p.mt-4.sizeLg(class='md:mt-6')
-									| #[b.bolder.purecolor Build] and use the best #[b.bolder.purecolor Web3] applications with Purechain, 
-									| #[br]one of the most #[b.bolder.purecolor secure], #[b.bolder.purecolor robust] and #[b.bolder.purecolor flexible] blockchain implementations 
-								.flex.flex-col.mt-12(class='md:col-span-6 4md:col-span-7')
-									.block(class='md:block')
-										p.block.h7.text-center.my-8(class='md:text-left 2xl:my-[2.375rem]')
-											
-										.grid.grid-cols-1.gap-y-4( class='md:grid-cols-2 md:gap-x-8')
-											+consolebutton('Start Building')
-											+discordbutton('Discord')
+					.flex.flex-col.txtC
+						h1.black.text-5xl.mt-24.mb-12.min-w-max.leading-10.bold
+							| The Pure Series #[br]Leading Change
+							
+						.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
+							p.mt-4.sizeLg(class='md:mt-6')
+								| #[b.bolder.purecolor Build] and use the best #[b.bolder.purecolor Web3] applications with Purechain, 
+								| #[br]one of the most #[b.bolder.purecolor secure], #[b.bolder.purecolor robust] and #[b.bolder.purecolor flexible] blockchain implementations 
+					
+					.sizeLg.mx-auto(style="max-width:600px")
+						.grid.grid-cols-2.gap-12.mt-10
+							+smallbutton('Start Building', '/build/')
+							+smallbutton('Github', 'github.com/', '_blank', 'blackBG white')
 
 				//- section.mx-auto.left-0.right-0.section-margin.container(class='2xl:!mt-40')
 					.flex.flex-col.mt-20(class='2xl:mt-28')
@@ -255,8 +252,18 @@ block content
 										- }
 						- }
 					
-						
-			.relative.context.pureline.TpadXXLg
+			.relative.context.pureline.TpadXXLg.weirdblueBG
+				section.mx-auto.left-0.right-0.my-24.container.flex.flex-wrap.gap-y-4(class="sm:flex-col-2")
+					.introtextblock.white.txtL
+						h3.text-5xl.leading-10.bold Getting Started
+						p.TmarLg.sizeLg from ongoing developments to the latest updates #[br]everything about pure
+					.startbuttonsblocks.grow.flex.flex-row.gap-y-8 
+						.rounded-lg.whiteBD.pad
+							p.floatL #[b Pure Wallet] #[br] Blockchain-based mobile wallet system
+							a.whiteBG.black.floatR Discord
+			
+
+			//- .relative.context.pureline.TpadXXLg
 				section.mx-auto.left-0.right-0.mb-24.container.flex.flex-wrap.gap-y-4(class="sm:flex-col-2")
 					.flex.flex-col.flex-none(class='2xl:flex')
 						h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-2/3")
