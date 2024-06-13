@@ -4,33 +4,34 @@
 .rel.fullW.fullH.txtC.white.pureworld
 	
 	.prev.abs(style="top:95px;z-index: 50;").txtC.right0.RmarXXXLg
-		+smallbutton('Previous', '#/home/pureseries/', null, null, 'hideOnSmart')
+		+smallbutton('Previous', '#/home/pureseries/', null, 'whiteBG purecolor', 'hideOnSmart')
 	.introworld.fullH
-		.grid.fullH.place-items-center.fullW
-			.purecolorBG.pureline.double.fullW
+		.grid.fullH.place-items-center.fullW.purecolorBG
+			section.container.mx-auto.left-0.right-0.section-margin
 				.rel
-					+grad('down', true)
-					+grad('up', true)
-					.grid.grid-cols-2.white.fullH.place-content-stretch
+					
+					.grid.grid-rows-2.white.fullH.place-content-stretch(class="sm:grid-rows-1 sm:grid-cols-2 sm:gap-8")
 						
 						.textzone.context.flex-grow
-							.txtL.LmarXXLg.BmarXXXLg
+							.txtL.LmarXLg
 								.TmarXXXLg.context
-									.test.TmarXXLg(style="max-width:600px")
+									.test.white(style="height:25px")
 										+pureseries_SVG('world')
 								.catchphrase.TmarXXXLg.TpadXLg
-									h3.montserrat.bolder.sizeXXXLg.lh1 Your Gateway to the Thriving Metaverse #[br]#[br]#[p.purelightestblue Experience. Connect. Create.]
-
-								.sizeSm.TmarXXLg.lh1.RmarXXLg.sizeLg.purelightestblue
-									p(style="max-width:450px")
-										| Welcome to #[b PureWorld], a vibrant metaverse built on the power of Web3. #[br]#[br]Unleash a world of possibilities:#[br] 
-										| #[b Immerse Yourself] : Dive into stunning visuals and a user-friendly interface that makes exploring and interacting seamless.#[br] 
-										| #[b Unleash Your Creativity] : Become a Builder! #[b PureWorld] empowers you to create and share your own experiences with ease. #[br]
-										| #[b Connect with the Community] : Forge new connections, engage in shared experiences, and discover endless possibilities within #[b PureWorld].
-							.sizeSm.TmarXXXLg.RmarXXLg.Bmar.floatR
-									+normalbutton("Starting Soon", null, null, 'whiteBG purecolor')
-						div.fullH.rel
-							.abs.imgblock.fullW.fullH.cover.left0.right0(style="background-image:url(/img/world/Background_01.jpg)")
+									h3.montserrat.bolder.sizeXXXLg.lh1 Dive into the Pure World
+									h4.sizeLg Experience, Connect and Create in the Metaverse
+								.sizeSm.TmarXXLg.lh13.RmarXXLg.sizeLg.purelightestblue
+									.sizeR(style="max-width:450px")
+										b.block Immerse Yourself
+										p.TmarXSm.BmarLg Dive into stunning visuals and a user-friendly interface that makes exploring and interacting seamless.
+										b.block Unleash Your Creativity
+										p.TmarXSm.BmarLg Become a Builder! #[b Pure World] empowers you to create and share your own experiences with ease.
+										b.block Connect with the Community
+										p.TmarXSm.BmarLg Forge new connections, engage in shared experiences, and discover endless possibilities within #[b PureWorld].
+								.TmarXXXLg.RmarXXLg.Bmar
+									+smallbutton("Starting Soon", null, null, 'anthraciteBG white unclickable')
+						div.fullH.rel.marLg
+							.abs.imgblock.fullW.fullH.cover.left0.right0.rounded-lg(style="background-image:url(/img/world/Background_01.jpg)")
 								span.fullW.fullH.block.hidden World Background
 							.abs.layerblock.fullW.fullH.left0.right0.bluetranspBG(style="background-image:url(/img/world/CharacterImage.png);background-repeat:no-repeat;background-position:right bottom;background-size:contain;")
 								span.fullW.fullH.block.hidden Main Character

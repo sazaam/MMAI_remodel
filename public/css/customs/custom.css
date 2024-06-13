@@ -117,7 +117,9 @@ MENU
     .tokencertik .rounded-xl{
         margin-left:20px !important;
     }
-    
+    .walletimgblocks .rounded-lg{
+        max-width:100% !important;
+    }
   }
 
 
@@ -255,6 +257,12 @@ html{min-height:2450px}
     background: rgb(221,230,255);
     background: linear-gradient(90deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);
 }
+
+.purelightestbluewalletBG{
+    background: rgb(221,230,255);
+    background: linear-gradient(180deg, rgba(240,248,255,1) 0%, rgba(221,230,255,.7) 100%);
+}
+
 .purelightestblueUpBG{
     background: rgb(221,230,255);
     background: linear-gradient(270deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);

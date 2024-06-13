@@ -366,7 +366,7 @@ module.exports = {
                 ]
             },
             {
-                "name": "Partners",
+                "name": "MOU / NDA",
                 "children":[
                     {
                         "name":"ictc",
@@ -704,7 +704,7 @@ module.exports = {
             "blocks":[
                 {
                     "title":"Why use #[span.purecolor Purewallet] ?",
-                    "intro":"#[b.bold Experience] the #[b.bold Future of Digital Transactions] with #[b.bold PureWallet]: #[b.bold Inclusive, Secure, and Convenient]."
+                    "intro":"#[em Experience] the #[em Future of Digital Transactions] with #[em PureWallet]: #[em Inclusive, Secure, and Convenient]."
                 },
                 {
                     "title":"#[span.purecolor Low Gas Fees], Efficient Transactions",

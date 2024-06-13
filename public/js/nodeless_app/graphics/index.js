@@ -1199,6 +1199,7 @@ module.exports = MMAI.func = {
 				// $('.viewport3D').removeClass('abs').addClass('fixed') ;
 				MMAI.func.slide_partners(false, res) ;
 			}else if(res.id == "purewallet"){
+				
 				MMAI.func.slideshow_wallet(false, res) ;
 			}else if(res.id == "pureseries"){
 				MMAI.func.slideshow_series(false, res) ;

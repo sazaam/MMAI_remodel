@@ -13,9 +13,9 @@
 		span.block.foggy.sizeSm.RmarXXXLg.Bmar &copy; MMAI 2023 - 2024
 	nav.footnav.mar.HmarXXLg.txtL
 		
-		ol.line
+		.grid.grid-cols-2.gap-8(class="sm:grid-cols-4")
 			- for(let i = 0 ; i < footnavlinks.length ; i++){
-				li.unit.BpadXXXXLg(class= i == 3 ? "lastUnit floatR txtR" : i == 1 ? "size1of5 oddy" : "size1of5")
+				.BpadXXXXLg(class= i == 3 ? "txtR" : i == 1 ? "oddy" : "")
 					- let head = footnavlinks[i] ;
 					- let children = head.children ;
 					h6.BmarLg.sizeXLg.bolder= head.name 

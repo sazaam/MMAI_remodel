@@ -3640,14 +3640,14 @@ top
     min-width:0;
   }
 
+  /*   
   .purechain .intro .textblock{
     margin-top:0!important;
     padding-top:0!important;
     position:absolute;
-    left:0;
-    right:0;
+    left:0;right:0;
     bottom:100px;
-  }
+  } */
 
   .slide .line .unit{
     float:none !important;
@@ -3657,10 +3657,12 @@ top
     float:none !important;
   }
 
+  /*   
   .purechain .introblock{
     margin-top:0!important;
     padding-top:0!important;
-  }
+    
+  } */
 
   .purewallet .introblock, .purewallet .introblock .puremain, .purewallet .textes {
     margin-top:0!important;
@@ -4585,6 +4587,10 @@ MENU
   .tokencertik .rounded-xl{
     margin-left:20px !important;
   }
+
+  .walletimgblocks .rounded-lg{
+    max-width:100% !important;
+  }
 }
 
 /* -------------------------------------------------------------------
@@ -4758,6 +4764,11 @@ html{
 .purelightestblueDownBG{
   background: rgb(221,230,255);
   background: linear-gradient(90deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);
+}
+
+.purelightestbluewalletBG{
+  background: rgb(221,230,255);
+  background: linear-gradient(180deg, rgba(240,248,255,1) 0%, rgba(221,230,255,.7) 100%);
 }
 
 .purelightestblueUpBG{
