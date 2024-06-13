@@ -9,13 +9,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "SET NODE_ENV=staging & nodemon app",
-    "build": "SET NODE_ENV=production & nodemon app"
+    "start": "cross-env NODE_ENV=staging nodemon app",
+    "build": "cross-env NODE_ENV=production node app"
   },
   "dependencies": {
     "axios": "^0.20.0",
     "colors": "^1.4.0",
     "cookie-parser": "~1.4.4",
+    "cross-env": "^7.0.3",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "express": "~4.16.1",

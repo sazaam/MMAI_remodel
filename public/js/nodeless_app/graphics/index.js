@@ -407,16 +407,36 @@ module.exports = MMAI.func = {
 			}
 
 		}
-
+		
 		var btns = $('.btn.download, .btn.discover') ;
-
+		
 		if(cond){
+			MMAI.func.wallet_speed_count(true, res) ;
 			btns.on('click', MMAI.home.download_click) ;
 		}else{
+			
+			MMAI.func.wallet_speed_count(false, res) ;
 			btns.off('click', MMAI.home.download_click) ;
 		}
 		
 
+	},
+	wallet_speed_count : wallet_speed_count = function(cond, res){
+		
+		
+		if(cond){ // when wallet page opens
+			trace('LAUNCHES COUNT')	
+			
+			
+			
+			
+			
+			
+		}else{ // when wallet page closes
+			trace('RESETS COUNT')	
+			
+		}
+		
 	},
 	home_toggle : home_toggle = function(e){
 		var res = e.target ;
@@ -1164,7 +1184,6 @@ module.exports = MMAI.func = {
 				MMAI.func.slideshow_wallet(true, res) ;
 			}else if(res.id == "pureseries"){
 				MMAI.func.slideshow_series(true, res) ;
-				
 			}else if(res.id == "pureworld"){
 				if(!MMAI.home.viz3Drunning) {
 					
