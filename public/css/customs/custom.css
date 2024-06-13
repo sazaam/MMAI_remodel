@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    font: 400 12px/1.8 "Montserrat", Verdana, sans-serif;
+    font: 400 12px/1.8 "Noto Sans Display", "Montserrat", Verdana, sans-serif;
     color: #666;
     -webkit-font-smoothing: antialiased;
 }
@@ -84,13 +84,13 @@ MENU
 }
 
 .home{
-    background:url(./skin/MMAINSLAB.png) no-repeat 50% 50% ;
-    width:350px;
+    background:url(./skin/MMAINSLAB_white.png) no-repeat 0% 50% ;
+    width:235px;
     height:100%;
 }
 
 .home.global_foothome{
-    width:295px;
+    width:235px;
 }
 
 .menu li.others{
@@ -114,7 +114,12 @@ MENU
         position:relative;
         top:150px;
     }
-   
+    .tokencertik .rounded-xl{
+        margin-left:20px !important;
+    }
+    .walletimgblocks .rounded-lg{
+        max-width:100% !important;
+    }
   }
 
 
@@ -228,8 +233,12 @@ html{min-height:2450px}
 .purecolorBG{background:#3a6df0}
 .purecolorBD{border-color:#3a6df0}
 
+.weirdblueBG{background:#20315f}
 .darkblueBG{background:#2f3955}
 .lightpureBG{background:#fcfcff}
+
+.whiteBD{border-color:#FcFcFF;}
+
 
 .purelightestblueToBG{
     background: rgb(221,230,255);
@@ -248,6 +257,12 @@ html{min-height:2450px}
     background: rgb(221,230,255);
     background: linear-gradient(90deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);
 }
+
+.purelightestbluewalletBG{
+    background: rgb(221,230,255);
+    background: linear-gradient(180deg, rgba(240,248,255,1) 0%, rgba(221,230,255,.7) 100%);
+}
+
 .purelightestblueUpBG{
     background: rgb(221,230,255);
     background: linear-gradient(270deg, rgba(221,230,255,1) 0%, rgba(213,225,255,.7) 100%);
@@ -292,6 +307,7 @@ html{min-height:2450px}
     .xl\:\!w-24 {
       width: 6rem !important;
     }
+    
 }
 
 
@@ -844,7 +860,8 @@ Responsive Media Querries
 }
 
 .montserrat {
-    font-family: 'montserrat';
+    /* font-family: 'montserrat'; */
+    font-family: "Noto Sans Display";
     /* font-family: 'Roboto', sans-serif; */
 }
 

@@ -8,30 +8,30 @@ block content
 					.test.purecolor(style="height:45px;margin-top:-30px")
 						+MMAI_SVG(true)
 					.flex.flex-col.grid-cols-12(class='md:grid')
-						.flex.flex-col.place-items-start.txtL(class='md:col-span-6 4md:col-span-7')
-							h1.black.text-start.text-5xl.mt-24.mb-4.min-w-max.leading-tight
-								| #[b.purecolor MMAI Token]
-							h3.bold.purecolor.text-xl.lh1
+						.flex.flex-col.place-items-start.black.txtL(class='md:col-span-6 4md:col-span-7')
+							h1.text-start.text-5xl.mt-24.mb-4.min-w-max.leading-tight
+								| #[b MMAI Token]
+							h3.bold.text-xl.lh1
 								| Powering the Pure Ecosystem #[br]The Future of Pure series Utility Token
 							.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
-								p.mt-4.sizeLg(class='md:mt-6')
-									| The #[b.bolder.purecolor MMAI token] fuels a growing range of utilities within #[b.bolder.purecolor Pure products]. #[br]
-									| From activating PureWallet's #[b.bolder.purecolor secure cold storage] (with token buybacks!) #[br]
-									| to unlocking #[b.bolder.purecolor exclusive features] in upcoming PureSeries applications, #[br]
-									| #[b.bolder.purecolor MMAI is your key]. #[br]
-									| Owning MMAI grants access to #[b.bolder.purecolor special offers, discounted rates], #[br]
-									| and fuels #[b.bolder.purecolor financial services] within Pure. #[br]
-									| We're building a thriving #[b.bolder.purecolor ecosystem] where users benefit from #[br]
-									| holding #[b.bolder.purecolor MMAI tokens]. Join us as we #[b.bolder.purecolor redefine financial innovation].
+								p.mt-4.sizeLg.lh11(class='md:mt-6')
+									| The MMAI token fuels a growing range of utilities within Pure products. #[br]
+									| From activating PureWallet's secure cold storage (with token buybacks!) #[br]
+									| to unlocking exclusive features in upcoming PureSeries applications, #[br]#[br]
+									| #[b.bolder MMAI is your key]. #[br]#[br]
+									| Owning MMAI grants access to special offers, discounted rates, #[br]
+									| and fuels financial services within Pure. #[br]
+									| We're building a thriving ecosystem where users benefit from #[br]
+									| holding MMAI tokens. Join us as we redefine financial innovation.
 								
 
 			//- END NUMBERS
 			
 
 			//- MMAI CONTENT
-			.relative.context.pb-64.pureline.whiteBG
+			.relative.context.pb-20.pureline.whiteBG
 				section.mx-auto.left-0.right-0.section-margin.container.TpadXXXLg.mt-24
-					.flex-row.justify-between.w-full.nonez(class='md:flex').items-end
+					.flex-row.justify-between.w-full(class='md:flex').items-end
 						.paneltoggle.flex.flex-col.justify-normal.w-full(class='md:flex-row')
 							.txtL
 								h2.black.text-start.text-5xl.mt-24.mb-12.min-w-max.leading-10.purecolor.bolder
@@ -49,7 +49,7 @@ block content
 									- for(let i = 0 ; i < coins.length ; i++){
 										- let coin = coins[i] ;
 										.unit.size1of2.Tmar
-											a.block.rounded-xl.taa.Rmar.purecolorBD.border(href=coin.url, target="_blank")
+											a.block.rounded-xl.taa.purecolorBD.border(class=( i % 2 == 0 ? "Rmar" : ""), href=coin.url, target="_blank")
 												.pad
 													.line 
 														.unit(style="width:40px;")
@@ -60,18 +60,18 @@ block content
 									- }
 									
 							
-							.taa.w-full(class='md:flex flex-grow md:w-1/2').txtL
-								.rounded-xl.marLg.pad.purecolorBD.border.rel.w-full.Rmar0
-									.mar.context.TmarXLg
+							.tokencertik.w-full(class='md:flex flex-grow md:w-1/2').txtL
+								.rounded-xl.marLg.pad.purecolorBD.border.rel.Rmar0.Lmar0.w-full
+									.mar.context.TmarXLg(style="min-height:250px;min-width:300px;")
 										.floatL(style="height:60px;width:60px")
 											.fullH
 												+MMAI_SVG(false)
-										.floatL.testtextmmai.Lmar.sizeLg.lh12
+										.floatL.testtextmmai.Lmar.sizeLg.lh12(class="md:hidden lg:block")
 											.TmarSm.text-2xl MMAI Token
 											//- | $ 
 											//- span.mmaiprice.inlineblock.Lmar 0.77 
 										.floatR 
-											a.block.fullH(href="https://skynet.certik.com/ko/projects/metamanagement-ai" target="_blank" style="width:220px;height:60px")
+											a.block.fullH(href="https://skynet.certik.com/ko/projects/metamanagement-ai" target="_blank" style="width:137px;height:60px;margin-top:5px;")
 												+certik_SVG()
 									.abs.left0.right0.bottom0.px-4.text-base.mt-2.w-full.pad
 										| As #[b.dark numerous projects] get available for you to experience through the #[b.purecolor Pure Series] Framework, 
@@ -79,22 +79,22 @@ block content
 										| #[b.purecolor creativity] and #[b.purecolor ability] in a variety of modern #[b.purecolor Web3 approaches].   
 
 					.pt-24
-						.grid.grid-cols-5.grid-flow-col.gap-4(style="height:200px")
-							.grid.purestblueBG.rounded-sm.grid.items-center.place-content-between.rel.txtL
+						.grid.grid-cols-3.gap-4( class="lg:grid-cols-5")
+							.grid.purestblueBG.rounded-md.grid.items-center.place-content-between.rel.txtL
 								.step.pad
 									.bolder.Bmar.sizeLg Step 1
 									.sizeR Copy to your clipboard our #[br]official contract address.
 								.abs.bottom0.fullW.right0.left0 
 									.pad.wrap.purecolor.bold.lh12(style="word-wrap:break-word;") 
 										| 0xaa0c5b3567fd1bac8a2a11eb16c3f81a49eea90f
-							.grid.purestblueBG.rounded-sm.grid.items-center.place-content-between.rel.txtL
+							.grid.purestblueBG.rounded-md.grid.items-center.place-content-between.rel.txtL
 								.step.pad
 									.bolder.Bmar.sizeLg Step 2
 									.sizeR Open uniswap official website.#[br](Make sure the website ends in .org)
 								.abs.bottom0.fullW.right0.left0 
 									.pad.wrap.purecolor.bold.lh12(style="word-wrap:break-word;") 
 										a(href="https://uniswap.org/" target="_blank") https://uniswap.org/
-							.grid.purestblueBG.rounded-sm.grid.items-center.place-content-between.rel.txtL
+							.grid.purestblueBG.rounded-md.grid.items-center.place-content-between.rel.txtL
 								.step.pad
 									.bolder.Bmar.sizeLg Step 3
 									.sizeR 
@@ -102,7 +102,7 @@ block content
 										| the button on the right upper corner.#[br]#[br]
 										| It will open the swap window and will
 										| automatically pair to ETH
-							.grid.purestblueBG.rounded-sm.grid.items-center.place-content-between.rel.txtL
+							.grid.purestblueBG.rounded-md.grid.items-center.place-content-between.rel.txtL
 								.step.pad
 									.bolder.Bmar.sizeLg Step 4
 									.sizeR 
@@ -110,10 +110,17 @@ block content
 										| official MMAI contract address.
 										| it will automatically load the token
 										| information
-							.grid.purestblueBG.rounded-sm.grid.items-center.place-content-between.rel.txtL
+							.grid.purestblueBG.rounded-md.grid.items-center.place-content-between.rel.txtL
 								.step.pad
 									.bolder.Bmar.sizeLg Step 5
 									.sizeR 
 										| The final step is to set the amount to
 										| buy connect your Crypto wallet to
 										| continue with the transaction.
+
+			.relative.context.py-20.pureline.purestblueBG.txtL
+				section.container.mx-auto.left-0.right-0.section-margin
+					.flex.flex-row
+						h5.txtL.sizeXLg Coming Soon
+						.test.grow.txtL
+							span.block sasa							

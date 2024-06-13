@@ -6,7 +6,7 @@
 
 
 
-
+console.log("Launching in ", process.env.NODE_ENV , "mode...") ;
 
 //////////////////////////////////////// ENVIRONMENT SETTINGS
 require('dotenv').config();
@@ -101,7 +101,7 @@ const app = express();
     // view engine setup to jade
     app.set('views', path.join(__dirname, 'public', 'jade'));
     app.set('view engine', 'jade');
-    // app.set('view cache', true);
+    // app.set('view cache', process.env.NODE_ENV == 'production');
 
     // basic express setup
     app.use(express.json());
@@ -342,8 +342,16 @@ const QUERY = async(query, variables)=>{
 
 
 
+let footnav_fixtures = fixtures.footnav ;
 
-let topsections, db_sections;
+let nav_fixtures = fixtures.nav ;
+
+let pureseries_fixtures = fixtures.pureseries ;
+
+let wallet_advantages_fixtures = fixtures.wallet_advantages ;
+
+
+
 
 let sectionquery = async(req, res) => {
     
@@ -377,12 +385,13 @@ let sectionquery = async(req, res) => {
     
     
     let sections = JSON.parse(nav_fixtures) ;
+    let topsections = cleanup(sections, 'sections') ;
     let section = sections.sections[id - 1] ;
     var jadeuri = section.name ;
     let page = section.page ;
     let children = section.children ;
     
-    
+    // console.log('SECTIONQUERY Im In HERE')
     
     return res.render(path.join(__dirname, 'public/jade/', jadeuri + '.jade'), jadeparams.merge(jadeparams, {
         /*langs:langs,
@@ -390,9 +399,11 @@ let sectionquery = async(req, res) => {
         t: req.t,*/
         lang:"en",
         params: req.params,
+        topsections: toJSON(topsections),
         section:section,
         page:page,
-        children:children
+        children:children,
+        onlydata:false,
     })) ;   
 }
 /* 
@@ -464,19 +475,13 @@ let toJSON = (data) => {
 
 
 
-let footnav_fixtures = fixtures.footnav ;
-
-let nav_fixtures = fixtures.nav ;
-
-let pureseries_fixtures = fixtures.pureseries ;
-
-let wallet_advantages_fixtures = fixtures.wallet_advantages ;
 
 let root = async(req, res) => {
     
     //let tt = await QUERY(queries['sections']) ;
     let tt = JSON.parse(nav_fixtures) ;
-    topsections = cleanup(tt, 'sections') ;
+    let topsections = cleanup(tt, 'sections') ;
+    
     // console.log(topsections) ;
     let onlywallet = true ;
     if(onlywallet){
@@ -484,14 +489,13 @@ let root = async(req, res) => {
     }
     
     let ttt = JSON.parse(footnav_fixtures) ;
-    footnavlinks = cleanup(ttt, 'footlinks') ;
+    let footnavlinks = cleanup(ttt, 'footlinks') ;
 
     let tttt = JSON.parse(pureseries_fixtures) ;
-    pureseries_content = cleanup(tttt) ;
+    let pureseries_content = cleanup(tttt) ;
     
     let ttttt = JSON.parse(wallet_advantages_fixtures) ;
-    wallet_advantages_content = cleanup(ttttt) ;
-    
+    let wallet_advantages_content = cleanup(ttttt) ;
     
     await res.render(path.join(__dirname, 'public/jade/index'), jadeparams.merge(jadeparams, {
         
@@ -506,8 +510,6 @@ let root = async(req, res) => {
         wallet_advantages_content:toJSON(wallet_advantages_content)
     })) ;
 
-
-    
 }
 
 
@@ -529,14 +531,14 @@ app.use('/api/', async(req, res) => {
 app.use('/fx/', async(req, res) => {
     //let datas = await api(req, res).catch(err => { console.log(err) });
     let tt = JSON.parse(nav_fixtures) ;
-    topsections = cleanup(tt, 'sections') ;
+    let topsections = cleanup(tt, 'sections') ;
     // console.log(topsections) ;
     
     let ttt = JSON.parse(footnav_fixtures) ;
-    footnavlinks = cleanup(ttt, 'footlinks') ;
+    let footnavlinks = cleanup(ttt, 'footlinks') ;
 
     let tttt = JSON.parse(pureseries_fixtures) ;
-    pureseries_content = cleanup(tttt) ;
+    let pureseries_content = cleanup(tttt) ;
     await res.render(path.join(__dirname, 'public/jade/fx'), jadeparams.merge(jadeparams, {
         
         //langs: req.langs,
@@ -550,15 +552,13 @@ app.use('/fx/', async(req, res) => {
 });
 
 
-
-/*
 ////// weird favicon.ico request happening....
 app.use('/favicon.ico/', async (req, res) => {
     //console.log(req.language) ;
     res.send('KAKA') ;
 }) ;
 
-*/
+/**/
 
 
 //////////////////////////////////////////////// OTHER SIMPLE SECTIONS
@@ -570,17 +570,17 @@ let conventional = async(req, res) =>{
     console.log('requesting >> ', req.url) ;
 
     let tt = JSON.parse(nav_fixtures) ;
-    topsections = cleanup(tt, 'sections') ;
+    let topsections = cleanup(tt, 'sections') ;
     // console.log(topsections) ;
     
     let ttt = JSON.parse(footnav_fixtures) ;
-    footnavlinks = cleanup(ttt, 'footlinks') ;
+    let footnavlinks = cleanup(ttt, 'footlinks') ;
 
     let tttt = JSON.parse(pureseries_fixtures) ;
-    pureseries_content = cleanup(tttt) ;
+    let pureseries_content = cleanup(tttt) ;
 
     let ttttt = JSON.parse(wallet_advantages_fixtures) ;
-    wallet_advantages_content = cleanup(ttttt) ;
+    let wallet_advantages_content = cleanup(ttttt) ;
 
     await res.render(path.join(__dirname, 'public/jade/MMAI'), jadeparams.merge(jadeparams, {
         

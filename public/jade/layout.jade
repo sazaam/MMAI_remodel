@@ -1,53 +1,52 @@
 include /mixins/_global
+- if(!onlydata) {
+	doctype html
+	html.fullW.context.whiteBG(lang=lang)
+		head
+			meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+			meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+			meta(name="apple-mobile-web-app-capable" content="yes")
+			meta(name="apple-mobile-web-app-status-bar-style" content="black")
+			meta(name="viewport" content="width=device-width, initial-scale=.75")
+			meta(name="viewport" content="height=device-height, initial-scale=.75")
+			meta(name="msapplication-TileColor" content="#da532c")
+			meta(name="theme-color" content="#ffffff")
 
-doctype html
-html.fullW.context.whiteBG(lang=lang)
-	head
-		meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
-		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
-		meta(name="apple-mobile-web-app-capable" content="yes")
-		meta(name="apple-mobile-web-app-status-bar-style" content="black")
-		meta(name="viewport" content="width=device-width, initial-scale=.75")
-		meta(name="viewport" content="height=device-height, initial-scale=.75")
-		meta(name="msapplication-TileColor" content="#da532c")
-		meta(name="theme-color" content="#ffffff")
+			link(rel="apple-touch-icon" sizes="180x180" href="/css/icons/apple-touch-icon.png")
+			link(rel="icon" type="image/png" sizes="32x32" href="/css/icons/favicon-32x32.png")
+			link(rel="icon" type="image/png" sizes="16x16" href="/css/icons/favicon-16x16.png")
+			link(rel="manifest" href="/css/icons/site.webmanifest")
 
-		link(rel="apple-touch-icon" sizes="180x180" href="/css/icons/apple-touch-icon.png")
-		link(rel="icon" type="image/png" sizes="32x32" href="/css/icons/favicon-32x32.png")
-		link(rel="icon" type="image/png" sizes="16x16" href="/css/icons/favicon-16x16.png")
-		link(rel="manifest" href="/css/icons/site.webmanifest")
-
-
-		
-		
-		
-		link(rel="stylesheet" type="text/css" href="/css/allbis.css")
-		
-		//- FOR JADE PARSER SERVER FIRST JET
-		block title
-			title= title
-		
-		
-		//- FONT IMPORTS
-		style @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
-		style @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap')
-		
-		//- script(src="//unpkg.com/globe.gl")
-		//- script(src="//unpkg.com/three-globe")
-		
-	script(src="https://www.googletagmanager.com/gtag/js?id=G-2QS95SX0QP")
-	script.
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-2QS95SX0QP');
-	body.abs.all.left0.right0.top0.bottom0.whiteBG(style="overflow-y: scroll;scroll-behavior: smooth;overflow-x:hidden")
-		.universe.fullH
-			include /layouts/topmenu
-			include /layouts/footer
-			block content
-			
-			
 
 			
+			
+			
+			link(rel="stylesheet" type="text/css" href="/css/allbis.css")
+			
+			//- FOR JADE PARSER SERVER FIRST JET
+			block title
+				title= title
+			
+			
+			//- FONT IMPORTS
+			//- style @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+			style @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
+			style @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap')
+			
+			//- script(src="//unpkg.com/globe.gl")
+			//- script(src="//unpkg.com/three-globe")
+			
+		
+		include components/gtag
+		
+		body.abs.all.left0.right0.top0.bottom0.whiteBG(style="overflow-y: scroll;scroll-behavior: smooth;overflow-x:hidden")
+			.universe.fullH
+				include /layouts/topmenu
+				include /layouts/footer
+				block content
+- } else {
+	include /layouts/topmenu
+	include /layouts/footer
+	include components/gtag
+	block content
+- }

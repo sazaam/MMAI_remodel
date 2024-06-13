@@ -98,7 +98,9 @@
     right: 0 !important;
     top: -35px !important;
   }
-  
+  li.others a{
+    font-size:.7em
+  }
 }
 
 
@@ -126,14 +128,14 @@
     width:100%;
     min-width:0;
   }
-  
+/*   
   .purechain .intro .textblock{
     margin-top:0!important;
     padding-top:0!important;
     position:absolute;
     left:0;right:0;
     bottom:100px;
-  }
+  } */
   
   .slide .line .unit{
     float:none !important;
@@ -143,12 +145,12 @@
   .slide .line .unit.lastunit{
     float:none !important;
   }
-  
+/*   
   .purechain .introblock{
     margin-top:0!important;
     padding-top:0!important;
     
-  }
+  } */
   
   .purewallet .introblock, .purewallet .introblock .puremain, .purewallet .textes {
     margin-top:0!important;

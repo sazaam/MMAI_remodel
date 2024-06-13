@@ -2,21 +2,20 @@
 - footnavlinks = (footnavlinks.data) ? footnavlinks.data : footnavlinks ;
 +log(footnavlinks) ;
 	
-#foot.black.foot.rel.BpadXXXXLg.whiteBG.none(style="border-top:1px solid #CCC;z-index:300")
+#foot.white.foot.rel.BpadXXXXLg.darkblueBG.none(style="border-top:1px solid #CCC;z-index:300")
 	+grad('up')
 	.foothome.mar(style="height:40px")
 		.home(id= "global_foot_" + 'home', class= "global_foot" + 'home')
-			//-a.block.fullW.fullH(href= '/#/' + lang + '/home/')
-			a.block.fullW.fullH(href= '/home/')
-			span.hidden= t('MMAI')
+			a.block.fullW.fullH(href='/home/')
+				span.hidden= t('MMAI')
 	
 	.copyright.abs.right0.bottom0 
 		span.block.foggy.sizeSm.RmarXXXLg.Bmar &copy; MMAI 2023 - 2024
 	nav.footnav.mar.HmarXXLg.txtL
 		
-		ol.line
+		.grid.grid-cols-2.gap-8(class="sm:grid-cols-4")
 			- for(let i = 0 ; i < footnavlinks.length ; i++){
-				li.unit.BpadXXXXLg(class= i == 3 ? "lastUnit floatR txtR" : i == 1 ? "size1of5 oddy" : "size1of5")
+				.BpadXXXXLg(class= i == 3 ? "txtR" : i == 1 ? "oddy" : "")
 					- let head = footnavlinks[i] ;
 					- let children = head.children ;
 					h6.BmarLg.sizeXLg.bolder= head.name 

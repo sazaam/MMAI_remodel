@@ -28,6 +28,7 @@ var enableAs = function(res){
 		var a = $(el) ;
 		// trace(a, a.attr('href')) ;
 		var href = a.attr('href') ;
+		if(!href) return ;
 		var tg = a.attr('target') ;
 		var loc = "en" ;
 		if(a.hasClass('caca'))
@@ -276,16 +277,19 @@ module.exports = MMAI.func = {
 					MMAI.func.wallet_page(true, res) ;
 					MMAI.func.mmaipriceFill(true, res) ;
 					
+					var fixedname = res.name ;
+					if(fixedname == 'build') fixedname = 'learn' ;
+
 					if(!MMAI.home.viz3Drunning) {
 						MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
 							
-							this.morphInto(res.name) ;
+							this.morphInto(fixedname) ;
 							
 						}, [true]) ;
 						MMAI.home.viz3Drunning = true ;
 						$('#mainloader').removeClass('none') ;
 					}else{
-						MMAI.home.SCI.morphInto(res.name) ;
+						MMAI.home.SCI.morphInto(fixedname) ;
 					}
 				}else{
 					
@@ -403,16 +407,36 @@ module.exports = MMAI.func = {
 			}
 
 		}
-
+		
 		var btns = $('.btn.download, .btn.discover') ;
-
+		
 		if(cond){
+			MMAI.func.wallet_speed_count(true, res) ;
 			btns.on('click', MMAI.home.download_click) ;
 		}else{
+			
+			MMAI.func.wallet_speed_count(false, res) ;
 			btns.off('click', MMAI.home.download_click) ;
 		}
 		
 
+	},
+	wallet_speed_count : wallet_speed_count = function(cond, res){
+		
+		
+		if(cond){ // when wallet page opens
+			trace('LAUNCHES COUNT')	
+			
+			
+			
+			
+			
+			
+		}else{ // when wallet page closes
+			trace('RESETS COUNT')	
+			
+		}
+		
 	},
 	home_toggle : home_toggle = function(e){
 		var res = e.target ;
@@ -1155,11 +1179,11 @@ module.exports = MMAI.func = {
 				}else{
 					if(MMAI.home.SCI.morphIndex != 'chain') MMAI.home.SCI.morphInto('chain') ;
 				}
+				MMAI.func.slide_partners(true, res) ;
 			}else if(res.id == "purewallet"){
 				MMAI.func.slideshow_wallet(true, res) ;
 			}else if(res.id == "pureseries"){
 				MMAI.func.slideshow_series(true, res) ;
-				MMAI.func.slide_partners(true, res) ;
 			}else if(res.id == "pureworld"){
 				if(!MMAI.home.viz3Drunning) {
 					
@@ -1173,11 +1197,13 @@ module.exports = MMAI.func = {
 			
 			if(res.id == "purechain"){
 				// $('.viewport3D').removeClass('abs').addClass('fixed') ;
+				MMAI.func.slide_partners(false, res) ;
 			}else if(res.id == "purewallet"){
+				
 				MMAI.func.slideshow_wallet(false, res) ;
 			}else if(res.id == "pureseries"){
 				MMAI.func.slideshow_series(false, res) ;
-				MMAI.func.slide_partners(false, res) ;
+				
 			}else if(res.id == "pureworld"){
 				
 			}

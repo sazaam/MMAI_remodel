@@ -2,10 +2,10 @@ extends ./layout
 block content
 	.extractable.fullpage
 		
-		.main-theme.flex.flex-col.bg-main.min-h-full.en(style="margin-top:130px")
-			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ').whiteBG
+		.main-theme.flex.flex-col.bg-main.min-h-full
+			.relative.z-10.pt-24.pb-24(class='sm:pt-8' style="margin-top:50px;padding-top:130px").whiteBG
 				section.container.mx-auto.left-0.right-0.section-margin
-					.test.purecolor.rel(style="height:45px;top:-30px")
+					.test.black.rel(style="height:25px;top:-30px")
 						+pureseries_SVG('wallet')
 					.flex.flex-row.w-full
 						.txtL.w-full(class="sm:w-2/5")
@@ -15,12 +15,6 @@ block content
 							.abs.top0.bottom0.left0.right0 
 								.imgBG.fullW.fullH.cover(style="background-image:url(/img/wallet/phone_wallet.png); height:600px;background-position:50% 50%;")
 									//
-							//- h2.purecolor.text-start.text-5xl.mt-0.mb-6.min-w-max.leading-tight.txtR
-								| Beyond just #[br] a Crypto Wallet 
-							//- .TmarLg.txtR
-								+smallbutton("Discover the Wallet", null, null, undefined, 'discover')
-							
-
 					.flex.flex-col.rel(class="sm:flex-row")
 						.flex.flex-col.grid-cols-8(class='sm:w-3/5 md:grid')
 							.flex.flex-col.place-items-start.txtL.col-span-6
@@ -49,7 +43,30 @@ block content
 							.qr.w-40.h-40.whiteBG.pad.rounded-lg.shadow.purecolor
 								+QRCode_SVG()
 
-			.relative.darkblueBG
+			.relative.weirdblueBG.white
+				section.faststats.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
+					h3.txtL.text-3xl.mt-0.mb-12.min-w-max.leading-tight.txtC.thin
+						| Experience our faster transaction speed #[br] and compare it to other cryptocurrencies
+					.grid.grid-cols-4.gap-x-4.mx-auto(style="max-width:500px;background-color:rgba(255,255,255,.05);").rounded-lg.pad
+						.txtC.bitcoin
+							span.block.sizeSm.uppercase bitcoin
+							p.block.text-2xl 65,000
+						.txtC.ethereum
+							span.block.sizeSm.uppercase ethereum
+							p.block.text-2xl 65,000
+						.txtC.visa
+							span.block.sizeSm.uppercase visa
+							p.block.text-2xl 65,000
+						.txtC.solana
+							span.block.sizeSm.uppercase Solana
+							p.block.text-2xl 65,000
+
+
+						
+						
+
+
+			.relative.weirdblueBG(style="border-top:1px solid rgba(255,255,255,.15)")
 				section.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
 					.purestblueBG.rounded-2xl.p-12
 						
@@ -350,18 +367,26 @@ block content
 			.relative.context.lightpureBG.pureline.double
 				section.container.mx-auto.left-0.right-0.context.mt-12
 					.container.pb-48
-						span.block.black.text-start.text-5xl.mt-24.mb-12.min-w-max.leading-10
-							!= render('| ' + advintro.title)
-						.sizeXLg.dark.mx-auto(style="max-width:470px").txtC.lh11
-							!= render('| ' + advintro.intro)
+						.flex.flex-row.flex-wrap.gap-4
+							- let blocks = advintro.blocks ;
+							- for(let i = 0 ; i < blocks.length ; i++){
+								- let block = blocks[i] ;
+								- clname = i == 0 ? "w-2/6" : i == 1 ? "w-3/6" : i == 2 ? "w-3/6" : "w-2/6" ;
+								.txtL(class="md:"+clname)
+									.padLg.shadow.rounded-lg.flex.flex-col(class= i==0 ? "weirdblueBG white place-content-between" : "black place-content-end", style="min-height:200px")
+										span.block.text-start.my-8.min-w-max.lh11(class= i==0 ? "text-4xl" : "text-2xl")
+											!= render('| ' + block.title)
+										.sizeLg.txtL
+											!= render('| ' + block.intro)
+							- }
+
 						.grid.grid-cols-1.mt-8.gap-y-12(class='md:grid-cols-3 md:grid-rows-2 sm:gap-6 md:mt-8 xl:mt-20')
-							
 							- for(let i = 0 ; i < advs.length ; i++){
 								- let why = advs[i] ;
 								.flex.flex-row.gap-3.txtL.flex-wrap.place-items-start.items-center.p-4.whiteBG.shadow.rounded-xl.txtC(class='md:gap-x-0 md:flex-col').place-content-between
 									flex.grow-0.shrink-0.aspect-square.w-16.h-16.items-center.justify-center.pureblue
-										+icon_others_SVG('computer')
-									.text-lg.leading-tight.capitalize.tracking-tight.purecolor.bold.grow
+										+icons_why_SVG(why.name)
+									.text-lg.lh12.capitalize.tracking-tight.purecolor.bold.grow
 										!= render('| ' + why.desc.title)
 									span.block.font-normal.leading-6(class='md:p-y-2 xl:p-y-6').txtJ
 										!= render('| ' + why.desc.content)
@@ -372,7 +397,7 @@ block content
 					.mb-16.purecolor(style="max-width:500px")
 						+pureseries_SVG('wallet')
 					
-					h2.black.txtL.text-5xl.mt-0.mb-12.min-w-max.leading-tight
+					h3.black.txtL.text-5xl.mt-0.mb-12.min-w-max.leading-tight
 						| Start your Crypto Experience now
 					.flex.flex-col.grid-cols-12(class='md:grid')
 						.flex.flex-row.mt-12(class='md:col-span-12').flex-row-reverse.purecolor
