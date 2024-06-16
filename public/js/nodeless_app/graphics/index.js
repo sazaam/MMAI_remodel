@@ -135,7 +135,7 @@ MMAI.home.scroll = function(e) {
 	var hash = ch.getValue() ;
 	var trimmed = hash.replace('#/', '') ;
 	
-	if(getdepth(trimmed) == getdepth(path) && trimmed != path && getdepth(hier.currentStep.path) == 1) return ;
+	if(window.MMAI.home.addressenabled && trimmed != path && getdepth(hier.currentStep.path) == 1) return ;
 	
 	if(path != hier.currentStep.path){
 		ch.setValue('#'+path + '/') ;	
@@ -232,7 +232,7 @@ module.exports = MMAI.func = {
 		
 		if(res.opening){
 
-			
+			window.MMAI.home.addressenabled = true ;
 
 			var togglein = function(){
 					
@@ -253,7 +253,7 @@ module.exports = MMAI.func = {
 					enableAs(res) ;
 					res.userData.asEnabled = true ;
 				}
-
+				window.MMAI.home.addressenabled = true ;
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 
 				//////////////////////////////////////// LAZY LOADINGS IF REQUIRED
