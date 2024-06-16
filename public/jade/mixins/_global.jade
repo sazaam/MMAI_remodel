@@ -108,7 +108,7 @@ mixin startnow()
 	section.VmarginXXXLg.mx-auto.left-0.right-0.section-margin.container(class='2xl:!mt-28')
 		h3.black.text-start.text-5xl.mt-24.mb-24.min-w-max.leading-10.m-auto Start Building with Pure chain Now
 		.grid.grid-cols-1.gap-y-4( class='md:grid-cols-3 md:gap-x-8')
-			+consolebutton('Start Building')
+			+consolebutton('Start Building', '/build/')
 			+discordbutton('Docs')
 			+discordbutton('Discord')
 
@@ -136,8 +136,15 @@ mixin smallbutton(text, url, target, cl, name)
 			!= text
 
 
-
-
+mixin downloadbutton(text, url, target, cl, name)
+	a.btn.inlineblock.padXSm.HpadXLg.rounded-md.darkgreyBD.border(href=(url || 'javascript:void(0)') target=(target || '_self') class= (name || '') + ' ' + (cl ? cl : "darkgrey whiteBG"))
+		.flex.items-center.gap-x-4
+			.w-8
+				+files_SVG('folder')
+			span 
+				!= text
+			.w-8
+				+files_SVG('files')
 
 mixin normalbutton(text, url, target, cl, inverted, name)
 	a.btn.flex.flex-row.rounded-lg.px-6.py-4.items-center.cursor-pointer.gap-x-4.justify-between(href=(url || 'javascript:void(0)') target=(target || '_self') class='2xl:p-10 2xl:gap-x-6 md:clickable' + (inverted ? ' flex-row-reverse' : '') + ' ' + (name || '') + ' ' + (cl || 'purecolorBG white'))
@@ -276,18 +283,18 @@ mixin partners()
 
 mixin patents(display)
 	- let papers = [] ;
-	- papers.push({name:'Smart auto mining (SAM) for industrial IoT Blockchain Network', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Blockchain side Implementation : An offline Transaction Architecture', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({cat:"International Patent Registration", name:'Blockchain-based Data Sharing Method', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({cat:"Patent", name:'Unauthorized UAV Localization', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Intelligent Transportation Systems', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Artificial Intelligence for the Metaverse', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Metaverse Applications and Limitations', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Real-time Recognition Model', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Low-power and Lossy', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Smart Health', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Automatic Modulation Classification', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
-	- papers.push({name:'Accurate LPI Radar Waveform Recognition', "href":"javascript:void(0)", "src": "/img/papers/paper_01.png"}) ;
+	- papers.push({name:'Smart auto mining (SAM) for industrial IoT Blockchain Network', "href":"https://doi.org/10.1049/cmu2.12465", "src": "/img/papers/1-1.webp"}) ;
+	- papers.push({name:'Blockchain side Implementation : An offline Transaction Architecture', "href":"https://doi.org/10.1016/j.icte.2021.08.004", "src": "/img/papers/1-2.webp"}) ;
+	- papers.push({cat:"International Patent Registration", name:'Blockchain-based Data Sharing Method', "href":"https://doi.org/10.8080/1020200056181?urlappend=en", "src": "/img/papers/1-3.webp"}) ;
+	- papers.push({cat:"Patent", name:'Unauthorized UAV Localization', "href":"https://doi.org/10.1109/JIOT.2022.3176310", "src": "/img/papers/1-4.webp"}) ;
+	- papers.push({name:'Intelligent Transportation Systems', "href":"https://doi.org/10.1049/itr2.12252", "src": "/img/papers/2-1.webp"}) ;
+	- papers.push({name:'Artificial Intelligence for the Metaverse', "href":"https://doi.org/10.48550/arXiv.2202.10336", "src": "/img/papers/2-2.webp"}) ;
+	- papers.push({name:'Metaverse Applications and Limitations', "href":"https://journal-home.s3.ap-northeast-2.amazonaws.com/site/2022s/abs/0985.pdf", "src": "/img/papers/2-3.webp"}) ;
+	- papers.push({name:'Real-time Recognition Model', "href":"https://www.researchgate.net/publication/358948232_Real-time_Deep_Learning-based_Scene_Recognition_Model_For_Metaverse_Applications", "src": "/img/papers/2-4.webp"}) ;
+	- papers.push({name:'Low-power and Lossy', "href":"https://doi.org/10.1109/JIOT.2022.3152929", "src": "/img/papers/3-1.webp"}) ;
+	- papers.push({name:'Smart Health', "href":"https://doi.org/10.1109/JIOT.2020.3013272", "src": "/img/papers/3-2.webp"}) ;
+	- papers.push({name:'Automatic Modulation Classification', "href":"https://doi.org/10.1109/LWC.2021.3126821", "src": "/img/papers/3-3.webp"}) ;
+	- papers.push({name:'Accurate LPI Radar Waveform Recognition', "href":"https://doi.org/10.1109/LWC.2021.3075880", "src": "/img/papers/3-4.webp"}) ;
 	
 	.patentszone.flex-wrap.gap-4(class="sm:grid sm:grid-cols-4" + (" " + (display ? "" : "none"))).place-content-between
 		- for(let i = 0 ; i < papers.length ; i ++){

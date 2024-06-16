@@ -12,12 +12,12 @@ block content
 							| The Pure Series #[br]Leading Change
 							
 						.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
-							p.mt-4.sizeLg(class='md:mt-6')
+							p.my-4.sizeLg(class='md:mt-6')
 								| #[b.bolder.purecolor Build] and use the best #[b.bolder.purecolor Web3] applications with Purechain, 
 								| #[br]one of the most #[b.bolder.purecolor secure], #[b.bolder.purecolor robust] and #[b.bolder.purecolor flexible] blockchain implementations 
 					
-					.sizeLg.mx-auto(style="max-width:600px")
-						.grid.grid-cols-2.gap-12.mt-10
+					.sizeLg.mx-auto(style="max-width:600px").mb-24
+						.grid.grid-cols-2.gap-12.my-10
 							+smallbutton('Start Building', '/build/')
 							+smallbutton('Github', 'github.com/', '_blank', 'blackBG white')
 
@@ -166,36 +166,33 @@ block content
 			
 			//- +log(series)
 			
-			#seriesdescribe.relative.context.purelightestblueBG.pt-12.paneltoggle.pureline
+			#seriesdescribe.relative.context.purelightestblueBG.pt-12.paneltoggle.pureline.black
 				section.mx-auto.left-0.right-0.section-margin(class='md:!px-2 2xl:!px-5')
 					.px-4.p-11(class='md:pt-16 md:p5 md:rounded-xl 2xl:rounded-3xl')
 						.container.mx-auto.flex.flex-col
-							.flex.flex-col.items-center(class='md:flex-row')
-								h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-1/2") 
-									!= render('| ' + seriesintro.title) 
-								span.txtR.text-base.purelightestblueUpBG.p-6.rounded-2xl(class='md:mt-0 leading-[1.875rem] md:text-tiny md:leading-[200%] 2xl:text-lg 2xl:leading-10 md:w-1/2')
+							h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-1/2") 
+								!= render('| ' + seriesintro.title) 
+							.flex.flex-col.items-center.gap-x-4(class='md:flex-row')
+								span.txtL.text-base.purelightestblueDownBG.p-6.rounded-2xl(class='md:mt-0 leading-[1.875rem] md:text-tiny md:leading-[200%] 2xl:text-lg 2xl:leading-10 md:w-1/2')
 									!= render('| ' + seriesintro.intro)
-							.m-0
-								.flex.flex-row.gap-x-4.sizeSm
 									
-									ul.list-none.py-4.flex.items-center
-										- for(let i = 0 ; i < series.length ; i++) {
-											li.flex-none.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
-												.flex.bg-transparent.border-b-2.border-transparent.items-center
-													a.seriestoggler.togglerBG.rounded-2xl.Hpad.block.box-content(href="/series/" + series[i].path, class='md:text-4xs 4md:text-xs xl:text-sm' + (i == 0 ? ' pureblueBG white': ''))
-														!= render('| ' + series[i].name)
-												.box-content.pb-3.pr-6.border-b-2.border-transparent(class='xl:pr-12 md:h-8 4md:h-9 lg:h-10')
-										- }
-										
+								ul.py-4.flex.items-center.flex-wrap.gap-4
+									- for(let i = 0 ; i < series.length ; i++) {
+										li.flex-none.paneltoggler.cursor-pointer.items-center.leading-5.font-medium.tracking-3x-tighter.h-12(class='md:leading-4 xl:leading-5 md:font-semibold xl:font-medium')
+											.flex.items-center
+												a.seriestoggler.togglerBG.whiteBG.black.rounded-xl.HpadLg.VpadSm.block.box-content(href="/series/" + series[i].path, class='md:text-4xs 4md:text-xs xl:text-sm' + (i == 0 ? ' pureblueBG white': ''))
+													!= render('| ' + series[i].name)
+									- }
+									
 								
 
 					.mx-auto.left-0.right-0.container
 					
 						- for(let i = 0 ; i < series.length ; i++) {
 							.panel.flex.flex-col.gap-4.py-10(class='sm:flex-row sm:justify-between' + (i == 0 ? '' : ' none'))
-								.txtR(class='sm:h-full sm:w-1/3')
+								.txtR(class='sm:h-full sm:w-1/3').black
 									.relative.mt-24(class="sm:pr-4")
-										.inlineblock.pureseries.puremain.dark.sizeXXLg
+										.inlineblock.pureseries.puremain.sizeXXLg
 											span.block.floatL
 												em.block
 													span.none P
@@ -206,7 +203,7 @@ block content
 										hr.bg-gray-line.mt-6
 										- if(!!serie.desc){
 											.flex.flex-col.mt-4(class='xl:mt-5 2xl:mt-6')
-												span.mb-4.block.font-medium.text-2xl.leading-tight.pureblue.txtL(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
+												span.mb-4.block.font-medium.text-2xl.leading-tight.txtL(class='md:text-lg lg:text-[20px] xl:text-xl 2xl:text-2xl md:leading-[128%] 2xl:leading-10 tracking-[0.01em]')
 													!= render('| ' + serie.desc.title || '')
 												hr.mb-6
 												span.block.text-tcolor-2.mt-2(class='md:text-xs 4md:text-[13px] lg:text-tiny xl:text-base md:leading-[180%]')
@@ -252,7 +249,65 @@ block content
 										- }
 						- }
 					
-			.relative.context.pureline.TpadXXLg.weirdblueBG
+			
+			
+
+			//- .relative.context.pureline.TpadXXLg
+				section.mx-auto.left-0.right-0.mb-24.container.flex.flex-wrap.gap-y-4(class="sm:flex-col-2")
+					.flex.flex-col.flex-none(class='2xl:flex')
+						h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-2/3")
+							| Verified and Approved #[br] Technology
+						.mt-10.relative(class='md:mt-8 2xl:mt-11')
+							.flex.flex-row.gap-x-4
+								.flex.flex-col-reverse.patenttoggler
+									+normalbutton('View our Patents')
+					+patents(false)
+						
+
+			#seriesexperience.relative.context.pt-12.pureline.whiteBG
+				section.mx-auto.left-0.right-0.container.section-margin.black(class='md:!px-2 2xl:!px-5').txtL
+					.grid(class="md:grid-cols-2").gap-8
+						.intro
+							h3.text-5xl.leading-10.bold Experience #[br]the Pure Series #[br] ecosystem for free
+						.desc 
+							h4.text-2xl.purecolor.lh12 Experience the Innovative World #[br] of Blockchain
+							p.black.Tmar
+								| The Pure Series offers a blockchain-based ecosystem, #[br] 
+								| providing a secure and transparent digital experience.  #[br]
+								| Comprising various services, each leverages  #[br]the 
+								| core advantages of blockchain to deliver unique functionalities.
+					h5.text-2xl.mt-24 Explore Pure Series 
+					.grid.grid-cols-2.TmarXLg.mb-48.gap-8 
+						.bloc.shadow.padLg.whiteBG
+							em.block.uppercase.dark Getting Started
+							h4.BmarXLg.text-4xl.bold Pure Wallet
+							p.text-xl
+								| PureWallet offers fast transactions, the freedom to 
+								| trade without an internet connection, and powerful 
+								| hardware capabilities.
+							.floatR.TmarXLg.sizeLg
+								+smallbutton('Experience Now', null, null, null, 'unclickable')
+						.bloc.shadow.padLg.whiteBG
+							em.block.uppercase.dark Getting Started
+							h4.BmarXLg.text-4xl.bold Pure Voting
+							p.text-xl
+								| PureVoting is a reliable and secure online voting 
+								| platform. We ensure that all users can express their 
+								| opinions with confidence.
+							.floatR.TmarXLg.sizeLg
+								+smallbutton('Experience Now', null, null, null, 'unclickable')
+						.bloc.shadow.padLg.whiteBG
+							em.block.uppercase.dark Getting Started
+							h4.BmarXLg.text-4xl.bold Pure Contract
+							p.text-xl
+								| Pure Contract provides a trustworthy trading environment
+								| by maximizing contract transparency and
+								| security. Experience convenient contract management
+							.floatR.TmarXLg.sizeLg
+								+smallbutton('Experience Now', null, null, null, 'unclickable')
+								
+			
+			//- .relative.context.pureline.TpadXXLg.weirdblueBG
 				section.mx-auto.left-0.right-0.my-24.container.flex.flex-wrap.gap-20(class="sm:flex-col-2")
 					.introtextblock.white.txtL
 						h3.text-5xl.leading-10.bold Getting Started
@@ -271,19 +326,6 @@ block content
 							.test
 								+smallbutton('Discord', 'discord.gg/', '_blank', 'whiteBG black')
 			
-
-			//- .relative.context.pureline.TpadXXLg
-				section.mx-auto.left-0.right-0.mb-24.container.flex.flex-wrap.gap-y-4(class="sm:flex-col-2")
-					.flex.flex-col.flex-none(class='2xl:flex')
-						h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-2/3")
-							| Verified and Approved #[br] Technology
-						.mt-10.relative(class='md:mt-8 2xl:mt-11')
-							.flex.flex-row.gap-x-4
-								.flex.flex-col-reverse.patenttoggler
-									+normalbutton('View our Patents')
-					+patents(false)
-						
-
-					
-			.relative.context.purelightestblueBG.pureline
+			
+			.relative.context.pureline
 				+startnow()

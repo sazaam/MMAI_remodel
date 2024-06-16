@@ -459,8 +459,8 @@ module.exports = {
     }`,
     pureseries:`{
         "intro":{
-            "title":"#[b.pureblue Versatile] and Growing #[br] Frameworks",
-            "intro":"Pure series represents the evergrowing global network#[br] behind Pure chain and its sibling services.#[br]Grasp the modern concepts of this blockchain phenomenon."
+            "title":"Pure Chain Ecosystem",
+            "intro":"Pure Series aims to leverage the reliability and innovativeness of blockchain technology to unlock new possibilities across various industries."
         },
         "series":[
             {

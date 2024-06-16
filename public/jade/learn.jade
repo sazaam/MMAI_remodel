@@ -10,16 +10,14 @@ block content
 							
 			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ')
 				section.container.mx-auto.left-0.right-0.section-margin
-					//- .test.purecolor(style="height:45px;margin-top:-30px")
-						+pureseries_SVG('chain')
 					
 					.flex.flex-col.txtC.mb-12
 						h1.black.text-5xl.mt-24.mb-12.min-w-max.leading-10.bold
 							| Pure Chain
 						.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
-							p.mt-4.sizeLg(class='md:mt-6')
+							p.mt-4.text-3xl.black(class='md:mt-6')
 								| #[b.bolder Blockchain] ecosystem offering #[b.bolder decentralization, security, scalability,] #[br] and #[b.bolder gas fee] problem #[b.bolder solving] techniques.
-								
+						
 				//- section.container.sizeLg.mx-auto.left-0.right-0(style="max-width:600px")
 					.grid.grid-cols-3.gap-12.mt-10
 						+smallbutton('Docs', '/series/', '_blank')
@@ -28,9 +26,196 @@ block content
 			
 			//- /////////////////////////////////////////////////////////////////////////////////////////// END TOP PAGE ZONE
 			
+			
+			
+			//- ///////////////////////////////////////////////////////////////////////////////////////////
+			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ')
+				section.container.mx-auto.left-0.right-0.section-margin.sizeLg.black
+					.textblockade.my-24.txtL
+						h4.purecolor Improved performance compared to existing blockchains
+						hr
+						p 
+							| By using self-developed technologies, we solve the problems of blockchain (decentralization, security, scalability, high gas fees). We provide an environment that guarantees real-time performance.
+					
+					
+					.flex.flex-row-reverse
+						.grid.grid-rows-5.w-full.gap-y-4.ml-0(class="md:w-1/2 md:ml-4").txtL
+							.feature.rounded-md.purecolorBD.border.pad.whiteBG
+								em.purecolor Feature 1
+								.purecolor Smart Auto Mining+(SAM⁺)
+								hr.Bmar
+								p 
+									| Optimize transaction mining time and power the network #[br]
+									| Mining technique that reduces the energy needed to rush
+							.feature.rounded-md.purecolorBD.border.pad.whiteBG
+								em.purecolor Feature 2
+								.purecolor Proof of Authority2 (PoA2)
+								hr.Bmar
+								p 
+									| Network stability even when mining is interrupted techniques to ensure
+							.feature.rounded-md.purecolorBD.border.pad.whiteBG
+								em.purecolor Feature 3
+								.purecolor NSL Layer2 (NSL-L2)
+								hr.Bmar
+								p 
+									| Zero Knowledge (Zk)-Rollup technology with SAM+ and PoA2
+									| Improves blockchain scalability and reduces gas fees by using technology 
+							.feature.rounded-md.purecolorBD.border.pad.whiteBG
+								em.purecolor Feature 4
+								.purecolor Blockchain Layer 1
+								hr.Bmar
+								p 
+									| By integrating SAM+ and PoA2, layer 1 of existing blockchain 
+									| Layers that improve efficiency and reliability
+							.feature.rounded-md.purecolorBD.border.pad.whiteBG
+								em.purecolor Feature 5
+								.purecolor Centralized Layer 2 (nsl-cL2)
+								hr.Bmar
+								p 
+									| Industrial Application Specialized Layer 2
+						.nonez.nslabImg.whiteBG.rounded-md.purecolorBD.border.cover(class="md:block md:w-1/2" style="background-image:url(/img/learn/nsLab_BG.png)")
+							// 
+					.textblockade.my-24.txtL
+						h4.purecolor Feature 1 : Smart Auto Mining+ (SAM+)  
+						hr
+						p 
+							| Smart auto mining (SAM) is used for resource-efficient mining in a blockchain network. The SAM algorithm stops the miners when 
+							| there is zero pending transactions and starts the miner when there is at least one transaction sent into the network. The miner listens to the network to identify when a transaction has been made by a node. 
+							| The model does not need any instruction to start mining when there is a pending transaction. The implementation of SAM decreased mining 
+							| overhead by reducing the production of empty blocks in the network which saves energy, storage space, network bandwidth, and computational complexity.
+							| #[br]#[br]
+							| SAM+ is an upgrade of existing SAM technology that optimizes the transaction processing time, significantly reducing the energy required to power the network. 
+							| The upgrade to SAM+ was implemented by considering: The storage requirements before mining(i.e. node capacity to run SAM), soughting out transactions according to the size of each 
+							| block, Computing the percentage or speed for each miner within a time-frame to measure and address mining delay.
+							
+					.textblockade.my-24.txtL
+						h4.purecolor Feature 2 : Proof of Authority2 (PoA2)
+						hr
+						p 
+							| The purpose of POA2 is to investigate and improve the security, performance, and trustworthiness of a POA blockchain network. It proposes
+							| the introduction of a standby validator in the network, which monitors and follows up other activities of validators on the network. The network signers automatically vote for the transfer of authority. The POA2 
+							| is proposed by introducing an idle redundant signer associated with the network, which monitors and follows up the signers' activities on the network, and in-turn identifies, removes and replaces inactive validators. Signers on the network automatically vote for the transfer of authority to a new signer to replace the inactive one. The POA consensus 
+							| method that will be implemented in this research is Clique. Clique can accept even a single validator, and ence is suitable for even smaller private networks.
+							| #[br]#[br]
+							| To dynamically add new signers and remove old ones, the protocol specifies a voting mechanism using the Geth method o authorize and reauthorize signers. The storage capacity, 
+							| computing power, bandwidth and elapsed block sealing ime are the conditions taken into account to select secondary sealers.
+							| Authorization is immediately taken into action f requested by more than half of the signers, and the new account can begin signing blocks. Similarly, current signers an also propose to deauthorize an invalid / dysfunctional node. Once again, if half + 1 signers deauthorize a signer, hat signer is immediately removed from the list, 
+							| and all future blocks created are rejected. In Clique PoA, the signers list is arranged sequentially. 
+							| #[br]#[br]
+							| The following assumptions are made to implement POA2 on the blockchain network:#[br]
+							| • The identity of signer is verified to maintain the integrity of the blockchain#[br]
+							| • Eligible node must have their public key registered into the chain by a digital signature#[br]
+							| • Eligible nodes are considered active on a long-term commitment#[br]
+					.textblockade.my-24.txtL
+						h4.purecolor Feature 3 : NSL Layer2 (NSL-L2)
+						hr
+						p 
+							| NSL L2 makes use of Zk-Rollups technology together with two core technologies developed by NSL: Smart Auto Mining (SAM+ ) and Proof of Authority Square, POA2. SAM 
+							| technology optimizes transaction mining via an on and off algorithm which significantly reduces the energy required to power the network. POA2 is a novel consensus algorithm 
+							| that ensures uninterrupted network operation even in the event of miner downtime . Thus NSL L2 does not only enhance blockchain scalability but also significantly reduces the gas cost for blockchain operations. 
+							| #[br]#[br]
+							| NSL-L2 is broken up in to four major components: the Server/Sequencer, Aggregator and prover, consensus contract and the bridge. 
+							| The zkNode (zero-knowledge) is a software needed to run any zkEVM node.It is made up of the server, aggregator and consensus algorithm. The zkNode architecture is modular in nature. It is a client that the network re
+							| quires to implement Synchronization and govern the roles of the participants (Server/Sequencers or Aggregators) in NSL-L2 zkEVM. Participants decide to participate in the network either as a node to manage the state of the network or to process and batch transactions in any of the two roles: Server(Sequencer) or Aggregator and Prover.
+					.textblockade.my-24.txtL
+						h4.purecolor Feature 4 : Blockchain Layer 1
+						hr
+						p 
+							| This blockchain network is compatible with the Ethereum Virtual Machine (EVM). It is a layer 1 solution, however, with the SAM+ and POA2 model to enhance efficiency and reliability, respectively. 
+							| The consensus protocol implemented is the Clique protocol, a proof of authority consensus mechanism implemented in Geth. It is a permissioned consensus protocol which means only a set of re-approved validators can participate in block production. To participate in block production, a validator must be verified by having their public key registered in the chain with a digital signature.
+							| #[br]#[br]
+							| The POA2 model is a useful way to improve the scalability and efficiency of the conventional PoA network. A staking smart contract will also be implemented to manage the distribution of cryptocurrency on the network.#[br]
+							| By including the staking smart contract, users can receive the reward of cryptocurrency based on how much and for how long. This network separates the governance of the network by authorized miners and the economics of investing in the network. The mining of blocks is not incentivized by block reward. The mining operation is in the hands of committed entities whose integrity and reputation have been verified.
+					.textblockade.my-24.txtL
+						h4.purecolor Feature 5 : Centrallzed Layer2 (nsl-cL2)
+						hr
+						p 
+							| The semi-centralized layer 2 consists of three active levels:The Mainnet, the Smart Contract, the JavaScript and the IPFS. The system is made up of ’participants’ who can join by sending Ether to the smart contract written in solidity.The smart contract acts as a bridge to the Mainnet which offers a level of security to the entire architecture. Once in the system, participants can perform transactions amongst each other at a much faster and cheaper rate, using the interface created at the JavaScript level. In order to provide an extra level of security and a feel for decentralization, user data at the JavaScript level are deployed on the IPFS peer-to-peer protocol. In addition to the faster and cheaper transfer of coins and data amongst participants, our centralized layer 2 also provides an interface for participants to add new functionalities and build upon them. This allows for a unique and customized experience of the platform for various participants.
+							| The consensus protocol implemented is the Clique protocol, a proof of authority consensus mechanism implemented in Geth. It is a permissioned consensus protocol which means only a set of re-approved validators can participate in block production. To participate in block production, a validator must be verified by having their public key registered in the chain with a digital signature.
+							| #[br]#[br]
+							| The POA2 model is a useful way to improve the scalability and efficiency of the conventional PoA network. A staking smart contract will also be implemented to manage the distribution of cryptocurrency on the network.#[br]
+							| By including the staking smart contract, users can receive the reward of cryptocurrency based on how much and for how long. This network separates the governance of the network by authorized miners and the economics of investing in the network. The mining of blocks is not incentivized by block reward. The mining operation is in the hands of committed entities whose integrity and reputation have been verified.
+							
+					.blocklinkfile.txtL
+						+downloadbutton('PureChain_white_paper.pdf', null, null, null)
+							
+							
+			
+			
+			.relative.z-10.pt-24.pb-24(class='sm:pt-8 ').pureline
+				section.container.mx-auto.left-0.right-0.section-margin
+					.blocklinkfile.txtR
+						+downloadbutton('PureWallet User Manual', null, null, null)
+					.flex.flex-col.txtC.mb-12
+						h1.black.text-5xl.mt-24.mb-12.min-w-max.leading-10.bold
+							| Pure Wallet
+						.mt-5.max-w-fit(class='md:mt-4 2xl:mt-10')
+							p.mt-4.text-xl.black(class='md:mt-6')
+								| Step into a new era of cryptocurrency security and convenience with PureWallet, the groundbreaking duality wallet that combines the best of both worlds with built-in cold storage. Harnessing the power of cutting-edge technology, PureWallet brings together the convenience of a hot wallet with the unmatched security of built-in cold storage. Say goodbye to the hassle of separate hardware devices or the constant fear of online vulnerabilities. 
+				
+				
+				section.container.mx-auto.left-0.right-0.section-margin.sizeLg.black
+					.textblockade.my-24.txtL
+						h4.purecolor PureWallet, a bouble cover wallet
+						hr
+						p 
+							| This work proposes an electronic payment architecture named Pure Wallet(PW), which extends the concept of Blockchain cryptocurrency for offline transactions. The process is divided into three steps. The first step requires the use of an Internet connection, to convert cryptocurrency into a token at the token manager. The token manager initiates a transaction that requires the information in the token to complete. Then offline transactions step is performed between electronic devices like mobile phones through a secure Near Field Communication (NFC) or similar technologies using the token in the sender’s device. 
+							| The financial value in the form of a token is encrypted by the sender and sent to the receiver’s device. In the third step, the receiver converts the received token into cryptocurrency in the presence of an Internet connection by sending the information required to complete the transaction to the token manager. The goal is to propose an electronic payment architecture utilizing Blockchain, which will enable financial transactions without instant connection to the Internet. The Blockchain implementation in this work utilized an EVMcompatible smart contract. The result shows a successful transfer of value without an instant Internet connection. 
+					
+					.nonez.nslabImg.whiteBG.rounded-md.purecolorBD.border.cover(class="md:block" style="height:650px;background-image:url(/img/learn/drawing_02.png);background-size:auto;background-repeat:no-repeat;background-position: 50% 50%")
+					
+					.textblockade.my-24.txtL
+						h4.purecolor Offline Tokenization Algorithm
+						hr
+						p 
+							| The fundamental idea is to use tokens to create access rights for a specified amount of cryptocurrency. After generating these tokens, they can be exchanged off-chain, which is useful in a situation where Internet connections are unavailable. Later, the generated token can be accessed when the Internet is available, and the corresponding cryptocurrency can be retrieved through a token return process on the on-chain. To ensure security, the token generation process utilizes a hash function that makes determining the input from the output difficult. The tokens are validated using their secondary and tertiary hash values to prevent malicious attacks. 
+							| These hash values must match the predetermined values that allow the token to be redeemed for actual cryptocurrency. This validation process ensures that only the rightful owner of the token can exchange it for the corresponding cryptocurrency.
+					
+					.textblockade.my-24.txtL
+						h4.purecolor SWAP (Cryptocurrency Exchange)
+						hr
+						p 
+							| SWAP is implemented by accessing the smart contract of each decentralized exchange (DEX) pool, such as UniSwap and PancakeSwap, through the Web3 client. After initiating a SWAP transaction, its progress can be tracked using its transaction hash (Tx Hash). With this Tx Hash, users can monitor the transaction's processing status and the details of its information on the scan page of the relevant blockchain network.
+					
+					.textblockade.my-24.txtL
+						h4.purecolor Transfer of Asset Rights
+						hr
+						p 
+							| Transfer of Asset Rights is a technology that allows tokens to be transferred offline, eliminating the need for an internet connection. This technology speeds up transactions and reduces the costs associated with exchanging cryptocurrency in the current blockchain environment. To ensure that the receiver has full control over the tokens, the token information must be transmitted to them and not kept by the sender. To achieve this, a 3-Handshake-based technology is implemented, which ensures that the token information is transferred accurately to the receiver.
+					
+					
+					.textblockade.my-24.txtL
+						h4.purecolor User Interface
+						hr
+						p 
+							| The User Interface was designed to check the generated tokens, send each token, or return it to cryptocurrency, and allow it to be delivered through QR code on devices that cannot transmit Bluetooth. In the future, we plan to improve the compatibility of multiple accounts, other network tokens, and multiple tokens.
+					
+					
+					.textblockade.my-24.txtL
+						h4.purecolor Future Plan
+						hr
+						p 
+							| In the future, we plan to continue to expand compatibility with coins/tokens in multiple networks, and we will improve the portion where the current token is fixed to the amount set at the time of creation so that the flexible amount can be used. The existing method of paying with cryptocurrency in online shopping took a long time depending on the state of the cryptocurrency network, making it difficult to respond immediately, and it will be applied with tokenization to develop a real-time electronic payment solution. 
+							| In addition, Pure Wallet currently presents a solution for cryptocurrency, but plans to develop an all-in-one solution by adding the Pure series based on the team's technology in the future. In the short term, it will include solutions such as Pure Voting, a decentralized media platform that instantly checks media file copyright, and Pure Trace, a system that tracks the supply chain of catch-certification-supply-consumption in the fisheries industry. In the long run, it will provide faster transaction processing and costoptimized services in combination with its own blockchain network Pure Chain and will expand to services that process transactions in Pure World.
+					
+					
+					hr.darkgrey.my-12
+					.blocklinkfile.txtL.flex.flex-wrap.gap-4
+						+downloadbutton('PureChain_white_paper.pdf', null, null, null)
+						+downloadbutton('Journal_PureWallet.pdf', null, null, null)
+						+downloadbutton('Patent_PureWallet.pdf', null, null, null)
+					
 
-
-
+			.relative.context.pureline.TpadXXLg
+				section.mx-auto.left-0.right-0.mb-24.container.flex.flex-wrap.gap-y-4(class="sm:flex-col-2")
+					.flex.flex-col.flex-none(class='2xl:flex')
+						h2.black.txtL.text-3xl.my-12.min-w-max.leading-10(class="md:w-2/3")
+							| Verified and Approved #[br] Technology
+						.mt-10.relative(class='md:mt-8 2xl:mt-11')
+							.flex.flex-row.gap-x-4
+								.flex.flex-col-reverse.patenttoggler
+									+normalbutton('Pure series Papers & Patents')
+					+patents(false)
 			//- /////////////////////////////////////////////////////////////////////////////////////////// ADVANTAGES
 			//- .relative.context.purelightestblueBG.pureline
 				section.container.mx-auto.left-0.right-0.context.mt-12

@@ -1495,6 +1495,10 @@ a				{
   background-color:#E8E8E8;
 }
 
+.darkgrayBD, .darkgreyBD{
+  border-color:#666;
+}
+
 .aliceblueBG		{
   background-color:aliceblue
 }

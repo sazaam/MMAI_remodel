@@ -373,7 +373,8 @@ var viz3D = {
 							}
 							
 							var firstcommand ;
-							var firstname = res.name!='home' ? res.name == "MMAI" ? "certificates" : res.name : 'chain' ;
+							var firstname = res.name == "build" ? "boms" : res.name!='home' ? res.name == "MMAI" ? "learn" : res.name : 'chain' ;
+							
 							var found = 0 ;
 
 							let retrieveCommandByName = function(name){
@@ -394,6 +395,7 @@ var viz3D = {
 								
 							SCI.morphInto = function(name){
 								if(name == "MMAI") name = "chain" ;
+								trace("calling", name)
 								if(!locations[name]){
 									firstcommand = retrieveCommandByName(name) ;
 									let firstcq = new CommandQueue() ;
