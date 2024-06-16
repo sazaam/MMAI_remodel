@@ -3,7 +3,7 @@ block content
 	.extractable.fullpage
 		
 		.main-theme.flex.flex-col.bg-main.min-h-full
-			.relative.z-10.pt-24.pb-24(class='sm:pt-8' style="margin-top:50px;padding-top:130px").whiteBG
+			.relative.z-10.pt-24.pb-24(class='sm:pt-8' style="margin-top:50px;padding-top:130px").whitetranspBG
 				section.container.mx-auto.left-0.right-0.section-margin
 					.test.black.rel(style="height:25px;top:-30px")
 						+pureseries_SVG('wallet')
@@ -56,16 +56,16 @@ block content
 					.grid.grid-cols-4.gap-x-4.mx-auto(style="max-width:500px;background-color:rgba(255,255,255,.05);").rounded-lg.pad
 						.txtC.bitcoin
 							span.block.sizeSm.uppercase bitcoin
-							p.block.text-2xl#bitcoin.tps 15
+							p.block.text-lg#bitcoin.tps(class="sm:text-2xl") 15
 						.txtC.ethereum
 							span.block.sizeSm.uppercase ethereum
-							p.block.text-2xl#eth.tps 2000
+							p.block.text-lg#eth.tps(class="sm:text-2xl") 2000
 						.txtC.visa
 							span.block.sizeSm.uppercase visa
-							p.block.text-2xl#visa.tps 35,000
+							p.block.text-lg#visa.tps(class="sm:text-2xl") 35,000
 						.txtC.solana
 							span.block.sizeSm.uppercase Solana
-							p.block.text-2xl#solana.tps 65,000
+							p.block.text-lg#solana.tps(class="sm:text-2xl") 65,000
 
 
 						
