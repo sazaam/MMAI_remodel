@@ -135,7 +135,7 @@ MMAI.home.scroll = function(e) {
 	var hash = ch.getValue() ;
 	var trimmed = hash.replace('#/', '') ;
 	
-	if(getdepth(trimmed) == getdepth(path) && trimmed != path && getdepth(hier.currentStep.path) == 1) return ;
+	if(window.MMAI.home.addressenabled && trimmed != path && getdepth(hier.currentStep.path) == 1) return ;
 	
 	if(path != hier.currentStep.path){
 		ch.setValue('#'+path + '/') ;	
@@ -232,7 +232,7 @@ module.exports = MMAI.func = {
 		
 		if(res.opening){
 
-			
+			window.MMAI.home.addressenabled = true ;
 
 			var togglein = function(){
 					
@@ -253,7 +253,7 @@ module.exports = MMAI.func = {
 					enableAs(res) ;
 					res.userData.asEnabled = true ;
 				}
-
+				window.MMAI.home.addressenabled = true ;
 				/////////////////////////////////////////////////////////////////////////////////////////// SPECIAL JS ACTIVITY
 
 				//////////////////////////////////////// LAZY LOADINGS IF REQUIRED
@@ -278,8 +278,8 @@ module.exports = MMAI.func = {
 					MMAI.func.mmaipriceFill(true, res) ;
 					
 					var fixedname = res.name ;
-					if(fixedname == 'build') fixedname = 'learn' ;
-
+					if(fixedname == 'build') fixedname = 'certificates' ;
+					
 					if(!MMAI.home.viz3Drunning) {
 						MMAI.home.SCI = MMAI.home.viz3D(true, res, function(cond){
 							
@@ -425,15 +425,59 @@ module.exports = MMAI.func = {
 		
 		
 		if(cond){ // when wallet page opens
-			trace('LAUNCHES COUNT')	
+			// trace('LAUNCHES COUNT')	
+			
+			
+			var BITCOIN_TPS = 7;
+	        var ETH_TPS = 1504;
+	        var VISA_TPS = 24000;
+	        var SOLANA_TPS = 65000;
+	        var MMAI_TPS = 159000;
+	        var MAX_TX = 5000000;
+	        var INTERVAL_MS = 50;
+
+	        var speeds = {
+	            'bitcoin':{tps: INTERVAL_MS * BITCOIN_TPS / 1000, duration: Math.ceil(MAX_TX / BITCOIN_TPS)},
+	            'eth':{tps: INTERVAL_MS * ETH_TPS / 1000, duration: Math.ceil(MAX_TX / ETH_TPS)},
+	            'visa':{tps: INTERVAL_MS * VISA_TPS / 1000, duration: Math.ceil(MAX_TX / VISA_TPS)},
+	            'solana':{tps: INTERVAL_MS * SOLANA_TPS / 1000, duration: Math.ceil(MAX_TX / SOLANA_TPS)},
+	            'MMAI':{tps: INTERVAL_MS * MMAI_TPS / 1000, duration: Math.ceil(MAX_TX / MMAI_TPS)}
+			};
 			
 			
 			
+			var simclosure = window.MMAI.home.simclosure = window.MMAI.home.simclosure || function(e){
+				var a = $(e.currentTarget) ;
+				e.preventDefault()
+				e.stopPropagation() ;
+				var time = 0 ;
+				$(".relaunchsim").addClass('none') ;
+				window.MMAI.home.simUID = setInterval(function(){
+					
+					$('.tps').each(function(i, el){
+						var tpsText = $(el) ;
+						var spd = speeds[tpsText.attr('id')] ;
+						trans = spd.res = spd.tps * time ;
+						tpsText.text(trans.toFixed(2)) ;
+						
+					})
+					if(speeds['solana'].res > 999000){
+						clearInterval(window.MMAI.home.simUID) ;
+						$(".relaunchsim").removeClass('none') ;
+					}
+					time += .050 ;
+					
+					
+				}, 50) ;
+			}
 			
-			
+			$(".relaunchsim").on('click', window.MMAI.home.simclosure) ;
+			$(".relaunchsim").trigger('click') ;
 			
 		}else{ // when wallet page closes
-			trace('RESETS COUNT')	
+			clearInterval(window.MMAI.home.simUID) ;
+			$(".relaunchsim").off('click', window.MMAI.home.simclosure) ;
+			$(".relaunchsim").addClass('none') ;
 			
 		}
 		

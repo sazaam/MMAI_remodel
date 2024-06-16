@@ -3,7 +3,7 @@ block content
 	.extractable.fullpage
 		
 		.main-theme.flex.flex-col.bg-main.min-h-full
-			.relative.z-10.pt-24.pb-24(class='sm:pt-8' style="margin-top:50px;padding-top:130px").whiteBG
+			.relative.z-10.pt-24.pb-24(class='sm:pt-8' style="margin-top:50px;padding-top:130px").whitetranspBG
 				section.container.mx-auto.left-0.right-0.section-margin
 					.test.black.rel(style="height:25px;top:-30px")
 						+pureseries_SVG('wallet')
@@ -45,21 +45,27 @@ block content
 
 			.relative.weirdblueBG.white
 				section.faststats.mx-auto.left-0.right-0.container.context.py-24(class="sm:py-24")
-					h3.txtL.text-3xl.mt-0.mb-12.min-w-max.leading-tight.txtC.thin
+					.abs.relaunchsim.left0.right0.bottom0.BpadXXXLg.none
+						+smallbutton('Relaunch Simulation', null, null, 'pureblueBG white')
+					h3.txtL.text-3xl.mt-0.mb-4.min-w-max.leading-tight.txtC.thin
 						| Experience our faster transaction speed #[br] and compare it to other cryptocurrencies
+					em.purelightblue.sizeSm at a speed lowered by 10 times ! #[br]
+					em.block.purelightblue.TmarXXLg Our TPS
+					h2#MMAI.tps.text-2xl.white.mb-10
+						| 145,000
 					.grid.grid-cols-4.gap-x-4.mx-auto(style="max-width:500px;background-color:rgba(255,255,255,.05);").rounded-lg.pad
 						.txtC.bitcoin
 							span.block.sizeSm.uppercase bitcoin
-							p.block.text-2xl 65,000
+							p.block.text-lg#bitcoin.tps(class="sm:text-2xl") 15
 						.txtC.ethereum
 							span.block.sizeSm.uppercase ethereum
-							p.block.text-2xl 65,000
+							p.block.text-lg#eth.tps(class="sm:text-2xl") 2000
 						.txtC.visa
 							span.block.sizeSm.uppercase visa
-							p.block.text-2xl 65,000
+							p.block.text-lg#visa.tps(class="sm:text-2xl") 35,000
 						.txtC.solana
 							span.block.sizeSm.uppercase Solana
-							p.block.text-2xl 65,000
+							p.block.text-lg#solana.tps(class="sm:text-2xl") 65,000
 
 
 						
