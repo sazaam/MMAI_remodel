@@ -303,11 +303,22 @@ html{min-height:2450px}
     z-index:500;
 }
 
+.slidecontainertext{
+    bottom:200px;
+}
+
+
+
+@media screen and (max-width: 835px) {
+    .slidecontainertext{
+        bottom:0px !important;
+    }
+}
+
 @media (min-width: 1280px) {
     .xl\:\!w-24 {
       width: 6rem !important;
     }
-    
 }
 
 

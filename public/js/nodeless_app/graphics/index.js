@@ -26,7 +26,6 @@ var enableAs = function(res){
 	trace(res.name)
 	as.each(function(i, el){
 		var a = $(el) ;
-		// trace(a, a.attr('href')) ;
 		var href = a.attr('href') ;
 		if(!href) return ;
 		var tg = a.attr('target') ;
@@ -43,8 +42,6 @@ var enableAs = function(res){
 
 } ;
 
-
-//enableAs() ;
 
 // retrieve lang from document 
 window.lang = $('html').attr('lang') ;
@@ -140,7 +137,6 @@ MMAI.home.scroll = function(e) {
 	if(path != hier.currentStep.path){
 		ch.setValue('#'+path + '/') ;	
 	}
-	
 }
 
 module.exports = MMAI.func = {
@@ -429,8 +425,8 @@ module.exports = MMAI.func = {
 			
 			
 			var BITCOIN_TPS = 7;
-	        var ETH_TPS = 1504;
-	        var VISA_TPS = 24000;
+	        var ETH_TPS = 119;
+	        var VISA_TPS = 42000;
 	        var SOLANA_TPS = 65000;
 	        var MMAI_TPS = 159000;
 	        var MAX_TX = 5000000;
@@ -442,7 +438,7 @@ module.exports = MMAI.func = {
 	            'visa':{tps: INTERVAL_MS * VISA_TPS / 1000, duration: Math.ceil(MAX_TX / VISA_TPS)},
 	            'solana':{tps: INTERVAL_MS * SOLANA_TPS / 1000, duration: Math.ceil(MAX_TX / SOLANA_TPS)},
 	            'MMAI':{tps: INTERVAL_MS * MMAI_TPS / 1000, duration: Math.ceil(MAX_TX / MMAI_TPS)}
-			};
+			} ;
 			
 			
 			
@@ -904,7 +900,6 @@ module.exports = MMAI.func = {
 			li.data('navitem', a) ;
 		})
 		
-		
 		var sl ;
 		
 		if(!MMAI.home.slidesseries){
@@ -939,7 +934,6 @@ module.exports = MMAI.func = {
 				
 				var a = $(e.currentTarget) ;
 				
-				trace('whasssup')
 				/////////////////////////////// UNCOMMENT TO CANCEL LOOP ON CLICK (if there is an active loop)
 				// sl.halt() ;
 				var ind = a.data('index') ;
@@ -954,6 +948,8 @@ module.exports = MMAI.func = {
 			var up = rt.find('.up').data('way', 'up') ;
 			var down = rt.find('.down').data('way', 'down') ;
 			
+			var slidenavbees = rt.find('.eco ol li a span')
+
 			slides.each(function(i, el){
 				
 				sl.cy.push(new Command(null, function(el, i){
@@ -966,22 +962,30 @@ module.exports = MMAI.func = {
 					if(objId == 'chain') objId = 'series';
 					if(objId == 'certificate') objId+='s' ;
 					
-					slidenav.removeClass('indent black VmarXLg') ;
-					if(n != 0) a.addClass('double') ;
-					a.addClass('indent black VmarXLg') ;
+					slidenav.removeClass('VmarXLg') ;
+					a.addClass('VmarXLg') ;
+					slidenavbees.removeClass('blackBG').addClass('purecolorBG') ;
+					a.find('span').addClass('blackBG').removeClass('purecolorBG') ;
 					
 					
 					slidenav.each(function(i, el){
 						var aa = $(el) ;	
 						aa.css({
-							opacity: 1 - (Math.abs(n - i) * .2)
+							opacity: 1 - (Math.abs(n - i) * .25)
 						}) ;
 					})
-					
-					slidewholenav.css({
-						'top':(-((a.height()+5) * n) + 100) + 'px'
-					}) ;
-					
+					/* */
+					var partw = [] ;
+
+					partw.push(BJS.create({
+						target:slidewholenav,
+						to:{
+							"top::PX":(-((a.height()+5) * n) + 100),
+						},
+						time:.25,
+						ease:Expo.easeOut
+					}))
+
 					if(sl.tw && sl.tw.isPlaying){
 						sl.tw.stop() ;
 					}
@@ -990,44 +994,13 @@ module.exports = MMAI.func = {
 					if(n == 0){
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
-						firstblock.removeClass('purecolor')  ;
-						if(other.height() != bh){
-							tw = BJS.create({
-								target:other,
-								to:{
-									"height::PX":bh,
-								},
-								time:.25,
-								ease:Expo.easeOut
-							}) ;
-								
-						}
-						
-						firstblock.find('.othertextes').addClass('Tmar')
-						$('.seriesmain').show() ;
-						$('.browseeco').show() ;
+						tw = BJS.parallelTweens(partw) ;
 					}else{
-						$('.seriesmain').hide() ;
-						$('.browseeco').hide() ;
-						slides.addClass('none')
-						firstblock.removeClass('none') ;
-						firstblock.addClass('purecolor') ;
-						firstblock.find('.othertextes').removeClass('Tmar')
-
-						var partw = [] ;
 						
-						if(other.height() != 0){
-							
-							partw.push(BJS.create({
-								target:other,
-								to:{
-									"height::PX":0,
-								},
-								time:.25,
-								ease:Expo.easeOut
-							})) ;
-							
-						}
+						slides.addClass('none')
+						
+						
+						
 						
 						var block = $(slides.get(n)) ;
 						block.css({opacity:0}) ;

@@ -4,8 +4,8 @@
 	
 	.introseries
 		.page
-			.abs.top0.left0.txtL.seriesmain(style="margin-top:90px;margin-left:20px")
-				h4.montserrat.bolder.sizeXXXLg.lh1.black.LmarXXLg Explore the Pure series
+			.abs.top0.left0.right0.text-center.seriesmain(class="md:text-center" style="width:350px;margin-top:90px;margin-left:40px;")
+				h4.montserrat.bolder.sizeXXXLg.lh1.black Explore the Pure series
 			.prev.abs(style="top:95px;z-index: 350;").txtC.right0.RmarXXXLg
 				+smallbutton('Previous', '#/home/purewallet/', null, null, 'hideOnSmart')
 			.next.abs(style="bottom:25px;z-index: 350;").txtC.left0.right0
@@ -25,44 +25,33 @@
 
 				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg.pureblue(style="width:350px;top:130px;z-index:301")
 					
-					ol.txtL.pureblue.rel(style="top:100px")
-						li
-							a.indent.black.block.VmarXLg.first.HpadSm.txtL(href="javascript:void(0)" style="padding-bottom:5px;height:25px")
-								+pureseries_SVG('series')
+					ol.txtL.purecolor.rel.mt-40.flex.flex-col(class="sm:mt-48")
+						//- li.order-3
+						li(style="min-width:250px")
+							a.black.block.txtC.VmarXLg.first.HpadSm.txtL(href="javascript:void(0)" style="padding-bottom:5px;height:43px")
+								+pureseries_TXT('series', 'blackBG')
 						
 						- for(let i = 0 ; i < ls ; i++){
-							li.context
-								a.serieshome.rel.block.flex.flex-row.items-center.HpadSm.gap-x-4.justify-between(href='javascript:void(0)' style="padding-bottom:5px;height:25px;opacity:" + (.8 - ((i)*.2)) + ";")
-									span.purecolor.fullH.block.floatL.Rmar
-										+pureseries_SVG(series[i].name.toLowerCase(), 'floatL')
-									span.flex-grow.fullH.narr
-										+arr('fullH', true)
-								//- a.serieshome.block.bolder.HpadSm.flex.flex-row.items-center.justify-between(href="javascript:void(0)" style="padding-bottom:5px;height:25px;opacity:" + (.8 - ((i)*.2)) + ";")
-									
-									+pureseries_SVG(series[i].name.toLowerCase(), 'floatL')
-									
-									.flex-grow.w-12
-										+arrow_dotted_right()
+							- var order = i > ls - (3) ? (ls - (i+3)) : i + 3 ;
+							li(style="min-width:250px")
+								a.serieshome.rel.block.txtC.flex.flex-row.items-center.HpadSm.gap-x-4.justify-between(href='javascript:void(0)' style="padding-bottom:5px;height:43px;opacity:" + (.8 - ((i)*.25)) + ";")
+									+pureseries_TXT(series[i].name.toLowerCase())
 						- }
 				
 				.slides.dark.fullW.fullH.rel(style="z-index:300")
 					.slide.textes.abs(style="bottom:80px;left:45px;margin-right:20px;width:350px;z-index:300")
 						.rounded-3xl.p-6.pb-0.txtL
 							.catchphrase.sizeSm(class="sm:sizeR")
-								h4.montserrat.bolder.sizeXXXLg.lh1.black
+								h4.montserrat.bolder.sizeXXXLg.lh1.black(style="position: relative;left: 30px;")
 									+pureseries_SVG('series')
-							.othertextes.sizeSm.Tmar.lh1.pureblue.context
-								h3.bold Explore the Pure series
-								.Tmar.lh1.purecolor
-									p.sizeSm Building the Web3, Ecosystem You Need
 							.browseeco.TmarXXXLg.txtR.sizeXSm.rel
 								+normalbutton("Browse Ecosystem", "/series/")
 					- for(let i = 0 ; i < ls ; i++) {
 						- let serie = series[i] ;
-						.none.slide.textes.abs.fullH.fullW.left0.right0(id="slide_"+series[i].name style="opacity:0;left:0px")
-							.abs.left0.right0.top0(style="bottom:220px;")
+						.none.slide.textes.abs.fullH.fullW.left0.bottom0.right0(id="slide_"+series[i].name style="opacity:0;left:0px")
+							.abs.left0.right0.bottom0.slidecontainertext
 								.rel.fullH.fullW.grid.content-end.place-items-end.noselect
-									.rel.dark.txtL.pureline.whitetranspplusBG.p-10.zi3(style="width:60%;min-width:450px;border-width:1px 0")
+									.rel.dark.txtL.pureline.border.whitetranspplusBG.p-10.zi3.rounded-md(style="width:60%;min-width:450px;border-width:1px 0 1px 1px")
 										.catchphrase.sizeXSm(class="sm:sizeR")
 											h4.montserrat.sizeXXXLg.lh1.black(style="height:35px")
 												+pureseries_SVG(serie.name.toLowerCase())

@@ -263,6 +263,10 @@ mixin stats(cl, isContainer, cl2)
 								span.break-words.text-2xs.font-medium.text-steelish.max-w-full(class='md:mt-2 md:text-[0.5rem] lg:text-[0.6rem] xl:text-[0.7rem] 2xl:text-xs 2xl:max-w-[150px] 2xl:leading-4')
 									| AVG TRANSACTION COST
 
+
+mixin pureseries_TXT(id, cl)
+	span.black.padXSm.Hpad.sizeSm.rounded-md.white(class= cl || 'purecolorBG') #[b.bolder Pure] #{id}
+
 mixin partners()
 	.partners.py-12.rel.darkblueBG
 		- var path = '/img/partners/'
@@ -273,7 +277,7 @@ mixin partners()
 				- for(let i = 0 ; i < len * repeat ; i++){
 					li.floatL(style="margin:0 20px")
 						
-						a.block.cont.rounded-md.whiteBG.lazy(href="#", style="width:200px;height:75px;").txtC
+						em.block.cont.rounded-md.whiteBG.lazy( style="width:200px;height:75px;").txtC
 							img.block.fullH(style="width:112px;margin:auto" src= path + partners[i % len] + '.png', alt="")
 							
 				- } 
