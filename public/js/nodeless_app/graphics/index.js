@@ -431,7 +431,13 @@ module.exports = MMAI.func = {
 	        var MMAI_TPS = 159000;
 	        var MAX_TX = 5000000;
 	        var INTERVAL_MS = 50;
-
+			var tpss = {
+				'bitcoin':{tps: BITCOIN_TPS},
+	            'eth':{tps: ETH_TPS},
+	            'visa':{tps: VISA_TPS},
+	            'solana':{tps: SOLANA_TPS},
+	            'MMAI':{tps: MMAI_TPS}
+			} ;
 	        var speeds = {
 	            'bitcoin':{tps: INTERVAL_MS * BITCOIN_TPS / 1000, duration: Math.ceil(MAX_TX / BITCOIN_TPS)},
 	            'eth':{tps: INTERVAL_MS * ETH_TPS / 1000, duration: Math.ceil(MAX_TX / ETH_TPS)},
@@ -448,21 +454,43 @@ module.exports = MMAI.func = {
 				e.stopPropagation() ;
 				var time = 0 ;
 				$(".relaunchsim").addClass('none') ;
+				var mmaitps = $('#MMAI.tps') ;
+				clearInterval(window.MMAI.home.simUID) ;
 				window.MMAI.home.simUID = setInterval(function(){
 					
 					$('.tps').each(function(i, el){
 						var tpsText = $(el) ;
-						var spd = speeds[tpsText.attr('id')] ;
+						var ID = tpsText.attr('id') ;
+						var spd = speeds[ID] ;
+						var actual = tpss[ID].tps ;
 						trans = spd.res = spd.tps * time ;
-						tpsText.text(trans.toFixed(2)) ;
+						if(trans < actual || ID == "MMAI"){
+							tpsText.text(trans.toFixed(2)) ;
+						}else{
+							tpsText.text(actual.toFixed(2)) ;
+							
+							tpsText.css({color:
+									ID == 'bitcoin' ? 'rgb(255,50, 50)' :
+									ID == 'eth' ? 'rgb(255, 166, 50)' :
+									ID == 'visa' ? 'rgb(255, 166, 50)' :
+									ID == 'solana' ? 'rgb(255, 250, 50)' : 'rgb(50 ,255 ,255)'
+							})
+						}
+						
 						
 					})
-					if(speeds['solana'].res > 999000){
-						clearInterval(window.MMAI.home.simUID) ;
+					if(speeds['MMAI'].res >= 200000){
+						// clearInterval(window.MMAI.home.simUID) ;
+						mmaitps.html(mmaitps.text() + '<br /> Offline Transactions = '+'∞')
 						$(".relaunchsim").removeClass('none') ;
 					}
-					time += .050 ;
-					
+					if(speeds['MMAI'].res >= 10000000){
+						mmaitps.html('Offline Transactions = '+'∞')
+						clearInterval(window.MMAI.home.simUID) ;
+					}
+					if(speeds['bitcoin'].res >= 7 ) mmaitps.css({color:'rgb(50 ,255 ,255)'});
+
+					time += .125 ;
 					
 				}, 50) ;
 			}
