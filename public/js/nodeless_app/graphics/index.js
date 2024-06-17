@@ -395,6 +395,7 @@ module.exports = MMAI.func = {
 		MMAI.home.download_click = MMAI.home.download_click || function(e){
 			e.preventDefault() ;
 			e.stopPropagation() ;
+			
 			var btn = $(e.currentTarget) ;
 			if(btn.hasClass('discover')){
 				MMAI.home.scrollTo($($('section').get(1)).offset().top, .25) ;
@@ -481,11 +482,10 @@ module.exports = MMAI.func = {
 					})
 					if(speeds['MMAI'].res >= 200000){
 						// clearInterval(window.MMAI.home.simUID) ;
-						mmaitps.html(mmaitps.text() + '<br /> Offline Transactions = '+'∞')
 						$(".relaunchsim").removeClass('none') ;
 					}
-					if(speeds['MMAI'].res >= 10000000){
-						mmaitps.html('Offline Transactions = '+'∞')
+					if(speeds['MMAI'].res >= 5000000){
+						
 						clearInterval(window.MMAI.home.simUID) ;
 					}
 					if(speeds['bitcoin'].res >= 7 ) mmaitps.css({color:'rgb(50 ,255 ,255)'});

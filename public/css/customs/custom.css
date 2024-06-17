@@ -307,7 +307,12 @@ html{min-height:2450px}
     bottom:200px;
 }
 
-
+a.getit .qr{
+    display:none;
+}
+a.getit:hover .qr{
+    display:block;
+}
 
 @media screen and (max-width: 835px) {
     .slidecontainertext{
