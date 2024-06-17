@@ -121,7 +121,7 @@ block content
 			.relative.context.py-20.pureline.purestblueBG.txtL
 				section.container.mx-auto.left-0.right-0.section-margin
 					.flex.flex-row
-						h5.txtL.text-3xl.w-full(class="md:w-1/3") Events Coming Soon
+						h5.txtL.text-xl(class="md:w-1/3 md:text-3xl") Events Coming Soon
 						.test.grow.txtL
 							.flex.flex-col
 								.flex.flex-row.items-center.gap-x-4
@@ -129,12 +129,12 @@ block content
 									p.black
 										| 7-10, 2025 #[br]
 										| Las Vegas Convention Center (LVCC)
-					.flex.flex-row.flex-wrap.mt-24
-						h5.txtL.text-3xl.w-full(class="md:w-1/3") Latest Events
-						.test.grow.txtL
-							.flex.flex-col
-								.flex.flex-row.items-center.gap-x-4
-									span.square.block.w-20.h-20.darkblueBG.white.rounded-md.content-center.txtC Jan.
-									p.black
-										| 7-10, 2025 #[br]
-										| Las Vegas Convention Center (LVCC)
+					
+					.flex.flex-row.flex-wrap.gap-4.mt-24
+						.flex.flex-col.items-left.gap-4(class="md:w-1/3" style="margin-right:-18px")
+							h5.txtL.text-xl(class="md:text-3xl") Latest Events
+						- for(let i = 0 ; i < 13 ; i++){
+							.flex.flex-col.items-center.gap-4.rounded-md.context
+								img(src="/img/events/image"+(i+1)+".png" alt="")
+						- }
+						

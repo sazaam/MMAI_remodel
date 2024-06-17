@@ -370,48 +370,39 @@ module.exports = {
                 "children":[
                     {
                         "name":"ictc",
-                        "content":"ICT Convergence",
-                        "link":"#"
+                        "content":"ICT Convergence Research Center"
                     },
                     {
                         "name":"lig",
-                        "content":"LIG Nex 1",
-                        "link":"#"
+                        "content":"LIG Nex 1"
                     },
                     {
                         "name":"lg",
-                        "content":"LG U+",
-                        "link":"#"
+                        "content":"LG U+"
                     },
                     {
                         "name":"linux",
-                        "content":"Linux Data System",
-                        "link":"#"
+                        "content":"Linux Data System"
                     },
                     {
                         "name":"cognitgo",
-                        "content":"Cognitgo",
-                        "link":"#"
+                        "content":"Cognitgo"
                     },
                     {
                         "name":"philippinecodingcamp",
-                        "content":"Philippinne Coding Camp",
-                        "link":"#"
+                        "content":"Philippine Coding Camp"
                     },
                     {
                         "name":"qualcomm",
-                        "content":"Qualcomm",
-                        "link":"#"
+                        "content":"Qualcomm"
                     },
                     {
                         "name":"ekotek",
-                        "content":"Ekotek",
-                        "link":"#"
+                        "content":"Ekotek"
                     },
                     {
-                        "name":"polynwoke",
-                        "content":"Polynwoke & Co.",
-                        "link":"#"
+                        "name":"pollynwoke",
+                        "content":"Polly Nwoke & Co."
                     }
                 ]
             },
