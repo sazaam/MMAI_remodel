@@ -235,7 +235,7 @@ module.exports = MMAI.func = {
 			window.MMAI.home.addressenabled = true ;
 
 			var togglein = function(){
-					
+				
 				////////////////////////// BASE HOME / OTHER SECTIONS VISUAL SETTINGS
 				var ww = $(window) ;
 				var body = $('body') ;
