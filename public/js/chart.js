@@ -1,28 +1,31 @@
 
-$(window).load(function(){
+import Chart from 'chart.js/auto'
+$(window).load(function () {
 
-  const ctx = document.getElementById('myChart');
+  const ctx = document.getElementById('myChart').getContext('2d');
 
-  console.log(ctx)
-
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      datasets: [{
-        label: "price",
-        data: [{ x: "2024-06-13", y: 20 }, { x: "2024-06-14", y: 20 }, { x: "2024-06-15", y: 20 }, { x: "2024-06-16", y: 20 }, { x: "2024-06-17", y: 20 }, { x: "2024-06-18", y: 20 }, { x: "2024-06-18-20:22", y: 550 }] //data: [{x: '2016-12-25', y: 20}, {x: '2016-12-26', y: 10}]
-      }]
-    },
-    // options: {
-    //   scales: {
-    //     y: {
-    //       title: {
-    //         display: true,
-    //         text: "USD",
-
-    //       }
-    //     }
-    //   }
-    // }
-  });
-})
+  const data = [
+    { year: 2010, count: 10 },
+    { year: 2011, count: 20 },
+    { year: 2012, count: 15 },
+    { year: 2013, count: 25 },
+    { year: 2014, count: 22 },
+    { year: 2015, count: 30 },
+    { year: 2016, count: 28 },
+  ];
+  new Chart(
+    ctx,
+    {
+      type: 'bar',
+      data: {
+        labels: data.map(row => row.year),
+        datasets: [
+          {
+            label: 'Acquisitions by year',
+            data: data.map(row => row.count)
+          }
+        ]
+      }
+    }
+  );
+});
