@@ -276,7 +276,7 @@ module.exports = MMAI.func = {
 					MMAI.func.base_toggle(true, res) ;
 					MMAI.func.wallet_page(true, res) ;
 					MMAI.func.mmaipriceFill(true, res) ;
-					
+					// MMAI.func.enablechart(true, res) ;
 					var fixedname = res.name ;
 					if(fixedname == 'build') fixedname = 'learn' ;
 
@@ -360,6 +360,8 @@ module.exports = MMAI.func = {
 				MMAI.func.base_toggle(false, res) ;
 				MMAI.func.wallet_page(false, res) ;
 				MMAI.func.mmaipriceFill(false, res) ;
+				// MMAI.func.enablechart(false, res) ;
+
 			}else{
 				MMAI.func.extra_toggles(false, res) ;
 			}
@@ -652,8 +654,43 @@ module.exports = MMAI.func = {
 		}
 		
 	},
-	enableglobe:enableglobe = function(cond, res){
+	enablechart:enablechart = function(cond, res){
 		
+		if(cond){
+
+			var ctx = document.getElementById('myChart');
+
+			console.log(ctx)
+
+			var datas = {
+				type: 'line',
+				data: {
+					datasets: [{
+					label: "price",
+					data: [{ x: "2024-06-13", y: 20 }, { x: "2024-06-14", y: 20 }, { x: "2024-06-15", y: 20 }, { x: "2024-06-16", y: 20 }, { x: "2024-06-17", y: 20 }, { x: "2024-06-18", y: 20 }, { x: "2024-06-18-20:22", y: 550 }] //data: [{x: '2016-12-25', y: 20}, {x: '2016-12-26', y: 10}]
+					}]
+				},
+				options: {
+					scales: {
+					y: {
+						title: {
+						display: true,
+						text: "USD",
+
+						}
+					}
+					}
+				}
+			} ;
+			
+			console.log(datas)
+
+			new Chart(ctx, datas);
+
+
+		}else{
+			console.log("should close chart or else...")
+		}
 		
 		
 	},

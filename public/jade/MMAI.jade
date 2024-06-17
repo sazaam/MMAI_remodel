@@ -76,8 +76,9 @@ block content
 												+certik_SVG()
 
 									div(style="margin-bottom:100px")
-										canvas(id="myChart")
-									
+										canvas#myChart
+										
+										script(defer type="text/javascript" src="/js/chart.js")
 									
 									.abs.left0.right0.bottom0.px-4.text-base.mt-2.w-full.pad
 										| As #[b.dark numerous projects] get available for you to experience through the #[b.purecolor Pure Series] Framework, 
@@ -131,4 +132,3 @@ block content
 						.test.grow.txtL
 							span.block sasa							
 
-script(type="text/javascript" src="../js/chart.js").
