@@ -434,15 +434,11 @@ module.exports = {
                     },
                     {
                         "name":"github",
-                        "content":"Github",
-                        "link":"github.com/",
-                        "target":"_blank"
+                        "content":"Github"
                     },
                     {
                         "name":"discord",
-                        "content":"Discord",
-                        "link":"discord.gg/",
-                        "target":"_blank"
+                        "content":"Discord"
                     }
                 ]
             }

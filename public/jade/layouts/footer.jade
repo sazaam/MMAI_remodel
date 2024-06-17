@@ -25,7 +25,7 @@
 							- for(let j = 0 ; j < l ; j++ ){
 								- let item = head.children[j] ;
 								li
-									a.block(href=(''+item.link) || "javascript:void(0)", target=item.target || "_blank"  ,class= item.link ? "" : "unclickable")
+									a.block(href=(item.link || "javascript:void(0)"), target=item.target || (item.link ? "_blank" : "_self")  ,class= item.link ? "" : "unclickable")
 										span !{item.content}
 							- }	
 					- }
