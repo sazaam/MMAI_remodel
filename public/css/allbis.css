@@ -4825,9 +4825,17 @@ a.getit:hover .qr{
   display:block;
 }
 
+.CES{
+  width:250px;
+}
+
 @media screen and (max-width: 835px) {
   .slidecontainertext{
     bottom:0px !important;
+  }
+
+  .CES{
+    width:130px;
   }
 }
 

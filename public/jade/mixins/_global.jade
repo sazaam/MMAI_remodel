@@ -41,7 +41,7 @@ mixin grad(way, inner)
 
 
 mixin getit(id)
-	a.block.getit.rel(href= (id == "google") ? "#" : "")
+	a.block.getit.rel(href= (id == "google") ? "" : "" target="_blank")
 		.abs.qr.left0.right0.whiteBG.pad.rounded-lg.shadow.purecolor(style="bottom:53px;")
 			+QRCode_SVG('google')
 		+getit_SVG(id)
