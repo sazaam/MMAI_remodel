@@ -1,11 +1,17 @@
 
 
 .fullW.fullH.txtC.rel.pureline
-	
+	//- +grad('up', true)
+	+grad('down', true)
 	.introseries
 		.page
 			.abs.top0.left0.right0.text-center.seriesmain(class="md:text-center" style="width:350px;margin-top:90px;margin-left:40px;")
 				h4.montserrat.bolder.sizeXXXLg.lh1.black Explore the Pure series
+				.toremove.TmarLg
+					p.text-lg
+						| Bulding the web3, the Ecosystem you need
+					p 
+						| Our blockchain ecosystem offers a secure environment, inspiring developers with a wealth of innovative ideas to create modern platforms and meet the demands of the Web3 evolution.
 			.prev.abs(style="top:95px;z-index: 350;").txtC.right0.RmarXXXLg
 				+smallbutton('Previous', '#/home/purewallet/', null, null, 'hideOnSmart')
 			.next.abs(style="bottom:25px;z-index: 350;").txtC.left0.right0
@@ -25,7 +31,7 @@
 
 				.abs.left0.puremain.pureseries.floatingseries.LmarXXLg.pureblue(style="width:350px;top:130px;z-index:301")
 					
-					ol.txtL.purecolor.rel.mt-40.flex.flex-col(class="sm:mt-48")
+					ol.txtL.purecolor.rel.mt-40.flex.flex-col(class="sm:mt-48" style="top:100px")
 						//- li.order-3
 						li(style="min-width:250px")
 							a.black.block.txtC.VmarXLg.first.HpadSm.txtL(href="javascript:void(0)" style="padding-bottom:5px;height:43px")

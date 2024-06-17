@@ -395,6 +395,7 @@ module.exports = MMAI.func = {
 		MMAI.home.download_click = MMAI.home.download_click || function(e){
 			e.preventDefault() ;
 			e.stopPropagation() ;
+			
 			var btn = $(e.currentTarget) ;
 			if(btn.hasClass('discover')){
 				MMAI.home.scrollTo($($('section').get(1)).offset().top, .25) ;
@@ -431,13 +432,19 @@ module.exports = MMAI.func = {
 	        var MMAI_TPS = 159000;
 	        var MAX_TX = 5000000;
 	        var INTERVAL_MS = 50;
-
+			var tpss = {
+				'bitcoin':{tps: BITCOIN_TPS},
+	            'eth':{tps: ETH_TPS},
+	            'visa':{tps: VISA_TPS},
+	            'solana':{tps: SOLANA_TPS},
+	            'MMAI':{tps: MMAI_TPS}
+			} ;
 	        var speeds = {
 	            'bitcoin':{tps: INTERVAL_MS * BITCOIN_TPS / 1000, duration: Math.ceil(MAX_TX / BITCOIN_TPS)},
 	            'eth':{tps: INTERVAL_MS * ETH_TPS / 1000, duration: Math.ceil(MAX_TX / ETH_TPS)},
 	            'visa':{tps: INTERVAL_MS * VISA_TPS / 1000, duration: Math.ceil(MAX_TX / VISA_TPS)},
 	            'solana':{tps: INTERVAL_MS * SOLANA_TPS / 1000, duration: Math.ceil(MAX_TX / SOLANA_TPS)},
-	            'MMAI':{tps: INTERVAL_MS * MMAI_TPS / 1000, duration: Math.ceil(MAX_TX / MMAI_TPS)}
+	            'MMAI':{start:9950000, tps: INTERVAL_MS * MMAI_TPS / 100, duration: Math.ceil(MAX_TX / MMAI_TPS)}
 			} ;
 			
 			
@@ -448,21 +455,42 @@ module.exports = MMAI.func = {
 				e.stopPropagation() ;
 				var time = 0 ;
 				$(".relaunchsim").addClass('none') ;
+				var mmaitps = $('#MMAI.tps') ;
+				clearInterval(window.MMAI.home.simUID) ;
 				window.MMAI.home.simUID = setInterval(function(){
 					
 					$('.tps').each(function(i, el){
 						var tpsText = $(el) ;
-						var spd = speeds[tpsText.attr('id')] ;
-						trans = spd.res = spd.tps * time ;
-						tpsText.text(trans.toFixed(2)) ;
+						var ID = tpsText.attr('id') ;
+						var spd = speeds[ID] ;
+						var actual = tpss[ID].tps ;
+						trans = spd.res = (spd.start || 0) + spd.tps * time ;
+						if(trans < actual || ID == "MMAI"){
+							tpsText.text(trans.toFixed(2)) ;
+						}else{
+							tpsText.text(actual.toFixed(2)) ;
+							
+							tpsText.css({color:
+									ID == 'bitcoin' ? 'rgb(255,50, 50)' :
+									ID == 'eth' ? 'rgb(255, 166, 50)' :
+									ID == 'visa' ? 'rgb(255, 166, 50)' :
+									ID == 'solana' ? 'rgb(255, 250, 50)' : 'rgb(50 ,255 ,255)'
+							})
+						}
+						
 						
 					})
-					if(speeds['solana'].res > 999000){
-						clearInterval(window.MMAI.home.simUID) ;
+					if(speeds['MMAI'].res >= 200000){
+						// clearInterval(window.MMAI.home.simUID) ;
 						$(".relaunchsim").removeClass('none') ;
 					}
-					time += .050 ;
-					
+					if(speeds['MMAI'].res >= 100000000){
+						
+						clearInterval(window.MMAI.home.simUID) ;
+					}
+					if(speeds['bitcoin'].res >= 7 ) mmaitps.css({color:'rgb(50 ,255 ,255)'});
+
+					time += .125 ;
 					
 				}, 50) ;
 			}
@@ -940,7 +968,15 @@ module.exports = MMAI.func = {
 				
 				if(sl.cy.index != ind) sl.cy.go(ind) ;
 			}
+			sl.navpress = function(e){
 			
+				e.preventDefault() ;
+				e.stopPropagation() ;
+				
+				trace('YOOOOOO PRESS')
+
+				$('#mainloader').removeClass('none') ;
+			}
 			var firstblock = $(slides.get(0)) ;
 			var other = firstblock.find('.othertextes') ;
 			var bh = other.height() ;
@@ -949,6 +985,8 @@ module.exports = MMAI.func = {
 			var down = rt.find('.down').data('way', 'down') ;
 			
 			var slidenavbees = rt.find('.eco ol li a span')
+
+			var toremove = rt.find('.toremove') ;
 
 			slides.each(function(i, el){
 				
@@ -995,10 +1033,10 @@ module.exports = MMAI.func = {
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
 						tw = BJS.parallelTweens(partw) ;
+						toremove.removeClass('hideOnSmart') ;
 					}else{
-						
 						slides.addClass('none')
-						
+						toremove.addClass('hideOnSmart') ;
 						
 						
 						
@@ -1039,10 +1077,16 @@ module.exports = MMAI.func = {
 					sl.tw = tw ;
 					
 					if(sl.tw){
-						setTimeout(function(){tw.play()}, 100) ;		
+						setTimeout(function(){tw.play()}, 5) ;
 					} 
 					
-					if(n != 0) SCI.morphInto(objId) ;
+					if(n != 0) {
+						SCI.morphInto(objId, function(){
+							$('#mainloader').addClass('none') ;
+						}) ;
+					}else{
+						$('#mainloader').addClass('none') ;
+					}
 
 					return this ;
 
@@ -1060,7 +1104,9 @@ module.exports = MMAI.func = {
 				if(cond){
 					slidenav.each(function(i, el){
 						$(el).on('click', sl.navgo) ;
+						$(el).on('mousedown', sl.navpress) ;
 					})
+					
 					
 					up.on('click', sl.arrowgo)
 					down.on('click', sl.arrowgo)
@@ -1068,6 +1114,7 @@ module.exports = MMAI.func = {
 				}else{
 					slidenav.each(function(i, el){
 						$(el).off('click', sl.navgo) ;
+						$(el).off('mousedown', sl.navpress) ;
 					})
 					
 					up.off('click', sl.arrowgo)
