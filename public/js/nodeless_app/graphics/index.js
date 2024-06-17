@@ -444,7 +444,7 @@ module.exports = MMAI.func = {
 	            'eth':{tps: INTERVAL_MS * ETH_TPS / 1000, duration: Math.ceil(MAX_TX / ETH_TPS)},
 	            'visa':{tps: INTERVAL_MS * VISA_TPS / 1000, duration: Math.ceil(MAX_TX / VISA_TPS)},
 	            'solana':{tps: INTERVAL_MS * SOLANA_TPS / 1000, duration: Math.ceil(MAX_TX / SOLANA_TPS)},
-	            'MMAI':{tps: INTERVAL_MS * MMAI_TPS / 1000, duration: Math.ceil(MAX_TX / MMAI_TPS)}
+	            'MMAI':{start:9950000, tps: INTERVAL_MS * MMAI_TPS / 100, duration: Math.ceil(MAX_TX / MMAI_TPS)}
 			} ;
 			
 			
@@ -464,7 +464,7 @@ module.exports = MMAI.func = {
 						var ID = tpsText.attr('id') ;
 						var spd = speeds[ID] ;
 						var actual = tpss[ID].tps ;
-						trans = spd.res = spd.tps * time ;
+						trans = spd.res = (spd.start || 0) + spd.tps * time ;
 						if(trans < actual || ID == "MMAI"){
 							tpsText.text(trans.toFixed(2)) ;
 						}else{
@@ -484,7 +484,7 @@ module.exports = MMAI.func = {
 						// clearInterval(window.MMAI.home.simUID) ;
 						$(".relaunchsim").removeClass('none') ;
 					}
-					if(speeds['MMAI'].res >= 5000000){
+					if(speeds['MMAI'].res >= 100000000){
 						
 						clearInterval(window.MMAI.home.simUID) ;
 					}
