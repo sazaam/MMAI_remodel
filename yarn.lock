@@ -303,6 +303,11 @@ chart.js@^4.4.3:
   dependencies:
     "@kurkle/color" "^0.3.0"
 
+chartist@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/chartist/-/chartist-1.3.0.tgz"
+  integrity sha512-M3ckI3ua7EHt08WLZvdi3QXn5g+in27qU6TxjI5bpriS6QwIZlWtisyUhFbpGclW546SlT3SL9oq0vFFDiAo6g==
+
 chokidar@^3.5.2, chokidar@^3.5.3:
   version "3.6.0"
   resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz"
