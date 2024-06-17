@@ -393,9 +393,9 @@ var viz3D = {
 							
 							SCI.morphIndex = firstname ;
 								
-							SCI.morphInto = function(name){
+							SCI.morphInto = function(name, cb){
 								if(name == "MMAI") name = "chain" ;
-								trace("calling", name)
+								// trace("calling", name)
 								if(!locations[name]){
 									firstcommand = retrieveCommandByName(name) ;
 									let firstcq = new CommandQueue() ;
@@ -405,11 +405,13 @@ var viz3D = {
 									
 									firstcq.bind('$', function(){
 										MMAI.home.delegMorph() ;
+										if(cb) cb() ;
 										SCI.morph(firstname) ;
 									}) ;
 									
 									firstcq.execute() ;
 								}else{
+									if(cb) cb() ;
 									SCI.morph(name) ;
 								}
 							}

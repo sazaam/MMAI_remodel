@@ -968,7 +968,15 @@ module.exports = MMAI.func = {
 				
 				if(sl.cy.index != ind) sl.cy.go(ind) ;
 			}
+			sl.navpress = function(e){
 			
+				e.preventDefault() ;
+				e.stopPropagation() ;
+				
+				trace('YOOOOOO PRESS')
+
+				$('#mainloader').removeClass('none') ;
+			}
 			var firstblock = $(slides.get(0)) ;
 			var other = firstblock.find('.othertextes') ;
 			var bh = other.height() ;
@@ -977,6 +985,8 @@ module.exports = MMAI.func = {
 			var down = rt.find('.down').data('way', 'down') ;
 			
 			var slidenavbees = rt.find('.eco ol li a span')
+
+			var toremove = rt.find('.toremove') ;
 
 			slides.each(function(i, el){
 				
@@ -1023,10 +1033,10 @@ module.exports = MMAI.func = {
 						slides.addClass('none')
 						firstblock.removeClass('none') ;
 						tw = BJS.parallelTweens(partw) ;
+						toremove.removeClass('hideOnSmart') ;
 					}else{
-						
 						slides.addClass('none')
-						
+						toremove.addClass('hideOnSmart') ;
 						
 						
 						
@@ -1067,10 +1077,16 @@ module.exports = MMAI.func = {
 					sl.tw = tw ;
 					
 					if(sl.tw){
-						setTimeout(function(){tw.play()}, 100) ;		
+						setTimeout(function(){tw.play()}, 5) ;
 					} 
 					
-					if(n != 0) SCI.morphInto(objId) ;
+					if(n != 0) {
+						SCI.morphInto(objId, function(){
+							$('#mainloader').addClass('none') ;
+						}) ;
+					}else{
+						$('#mainloader').addClass('none') ;
+					}
 
 					return this ;
 
@@ -1088,7 +1104,9 @@ module.exports = MMAI.func = {
 				if(cond){
 					slidenav.each(function(i, el){
 						$(el).on('click', sl.navgo) ;
+						$(el).on('mousedown', sl.navpress) ;
 					})
+					
 					
 					up.on('click', sl.arrowgo)
 					down.on('click', sl.arrowgo)
@@ -1096,6 +1114,7 @@ module.exports = MMAI.func = {
 				}else{
 					slidenav.each(function(i, el){
 						$(el).off('click', sl.navgo) ;
+						$(el).off('mousedown', sl.navpress) ;
 					})
 					
 					up.off('click', sl.arrowgo)

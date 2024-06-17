@@ -268,9 +268,9 @@ mixin pureseries_TXT(id, cl)
 	span.black.padXSm.Hpad.sizeSm.rounded-md.white(class= cl || 'purecolorBG') #[b.bolder Pure] #{id}
 
 mixin partners()
-	.partners.py-12.rel.darkblueBG
+	.partners.py-12.rel.darkblueBG(style="border:1px solid #3a6df0;border-width:1px 0")
 		- var path = '/img/partners/'
-		- var partners = ['nslab', 'cj', 'creativia', 'qualcomm', 'ict',  'cognitgo', 'lig', 'trigopi'] ;
+		- var partners = ['ict', 'lig', 'lg', 'lds', 'cognitgo', 'creativia', 'cj', 'pcc', 'qualcomm', 'ekotek', 'pn'] ;
 		- var len = partners.length , repeat = 3, ww = 200 + 40;
 		.partnersboxing.rel(style="width:"+(len * repeat * ww)+"px;")
 			.partnerscont.rel.context
@@ -278,11 +278,11 @@ mixin partners()
 					li.floatL(style="margin:0 20px")
 						
 						em.block.cont.rounded-md.whiteBG.lazy( style="width:200px;height:75px;").txtC
-							img.block.fullH(style="width:112px;margin:auto" src= path + partners[i % len] + '.png', alt="")
+							img.block.fullH(style="margin:auto" src= path + partners[i % len] + '.png', alt="")
 							
 				- } 
 		.partnerstext.abs.right0.sizeXXXLg.txtR(style="top:-45px")
-			p.TmarXXSm.sizeXLg(style="color:#2f3955")
+			p.TmarXXSm.sizeXLg.purecolor
 				span.block.Hpad.sizeXSm MOU / NDA
 
 mixin patents(display)
