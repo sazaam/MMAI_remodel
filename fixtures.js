@@ -694,7 +694,7 @@ module.exports = {
                     "intro":"#[em Experience] the #[em Future of Digital Transactions] with #[em PureWallet]: #[em Inclusive, Secure, and Convenient]."
                 },
                 {
-                    "title":"Trade with #[span.purecolor Near-Zero gas fees!]",
+                    "title":"Trade with #[span.purecolor Zero gas fees!]",
                     "intro":"Have you ever been disappointed by a large gas fee for a complex transaction? We provide reasonable gas fees even for complex transactions."
                 },
                 {
